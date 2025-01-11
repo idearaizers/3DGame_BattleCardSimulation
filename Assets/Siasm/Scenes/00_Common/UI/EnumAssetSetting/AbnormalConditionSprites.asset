@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fbfaaa04738549449ebce659e7137e8, type: 3}
+  m_Name: AbnormalConditionSprites
+  m_EditorClassIdentifier: 
+  abnormalConditionSpritesDictionary:
+    m_keys: e90300004d0400004e040000b1040000b2040000
+    m_values:
+    - {fileID: 21300000, guid: 0db8f61e4f4875d4fb705a55278d46fc, type: 3}
+    - {fileID: 21300000, guid: 55a3c2963e99b5a4b8a6d520d17033d4, type: 3}
+    - {fileID: 21300000, guid: 902dad0946eef4e4fa9fa5915cc5da3a, type: 3}
+    - {fileID: 21300000, guid: 222edd2dd0647b6499ad8e5e4f666a3b, type: 3}
+    - {fileID: 21300000, guid: 192194fa34c96144e93749b8779b1331, type: 3}

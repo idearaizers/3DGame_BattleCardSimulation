@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d5717c9abdb8e45b21f2cb1ea4bfcb, type: 3}
+  m_Name: DialogMenuPrefabs
+  m_EditorClassIdentifier: 
+  dialogMenuPrefabDictionary:
+    m_keys: 01000000020000000300000004000000
+    m_values:
+    - {fileID: 7583054668350780164, guid: b939a644869370c44a81128bd2e5589a, type: 3}
+    - {fileID: 8019529443182523982, guid: de7487c3604867f4ab928dfc02bfaff4, type: 3}
+    - {fileID: 4909877168994895011, guid: f838dafd2000b9e4180ed28e294af65a, type: 3}
+    - {fileID: 7734930971791123297, guid: d49ee11167ef8674f8adfa7dae5b2afd, type: 3}
