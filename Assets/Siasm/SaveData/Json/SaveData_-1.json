@@ -1,0 +1,83 @@
+{
+    "SaveDataMainScene": {
+        "LastDateAndTime": "2024/10/20 2:52:23",
+        "StartDateAndTime": "2024/10/20 2:52:17",
+        "TotalPlayTime": "1:23:45",
+        "CurrentDate": 1,
+        "TotalEgidoNumberDelivered": 0,
+        "SpawnWorldPosition": {
+            "x": 0.0,
+            "y": 2.0,
+            "z": 0.0
+        }
+    },
+    "SaveDataMainQuest": {
+        "SaveDataMainQuestOfProgress": {
+            "QuestId": 101,
+            "ProgressNumber": 0
+        },
+        "SaveDataMainQuestOfClears": []
+    },
+    "SaveDataCreatureBoxs": [],
+    "SaveDataOwnItems": [],
+    "SaveDataBattleDeck": {
+        "SelectedDeckId": 0,
+        "UnLockDeckNumber": 1,
+        "SaveDataDeckOfBattleCards": [
+            {
+                "CardIds": [
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011001,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002,
+                    10011002
+                ]
+            }
+        ]
+    },
+    "SaveDataOwnBattleCards": [
+        {
+            "CardId": 10011001,
+            "OwnNumber": 15
+        },
+        {
+            "CardId": 10011002,
+            "OwnNumber": 15
+        }
+    ],
+    "SaveDataBattleFighter": {
+        "SaveDataBattleFighterCustomPassive": {},
+        "SaveDataBattleFighterOwnPassive": {}
+    },
+    "SaveDataLabCharacterTalk": {
+        "SaveDataLabCharacters": []
+    },
+    "SaveDataPickUp": {
+        "PickedIndexs": []
+    }
+}
