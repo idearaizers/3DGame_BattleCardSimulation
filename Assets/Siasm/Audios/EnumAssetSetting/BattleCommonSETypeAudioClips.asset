@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9d585b30720c441ab8a75fd443fb3c, type: 3}
+  m_Name: BattleCommonSETypeAudioClips
+  m_EditorClassIdentifier: 
+  battleCommonSETypeAudioClipDictionary:
+    m_keys: 0400000005000000070000000800000006000000090000000a0000000b000000
+    m_values:
+    - {fileID: 8300000, guid: c91db3952dbeff449a44aaa82192d337, type: 3}
+    - {fileID: 8300000, guid: 1e6b6792e643f6547bee14b6870b5a8e, type: 3}
+    - {fileID: 8300000, guid: a23459ad48a91ac42a7138882da18f2c, type: 3}
+    - {fileID: 8300000, guid: fe0e7600c0133c34faa4c4e2f2663eac, type: 3}
+    - {fileID: 8300000, guid: f7e681723e632474e83ab4a7f364033f, type: 3}
+    - {fileID: 8300000, guid: 73f08e13142ad7248a82a63581baa471, type: 3}
+    - {fileID: 8300000, guid: c9af6b9a4d6033c41bce1f21a27a3b16, type: 3}
+    - {fileID: 8300000, guid: 1e6b6792e643f6547bee14b6870b5a8e, type: 3}
