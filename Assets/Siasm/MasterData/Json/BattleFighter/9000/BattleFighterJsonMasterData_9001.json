@@ -1,0 +1,122 @@
+{
+    "BattleFighterJsonModel": {
+        "ProductName": "ミミクリーペンギン",
+        "ThemeNameMemo": "イミテーション、真似、自分の代わりに働いてくれる、関心に強く、驚きに弱い",
+        "TrueName": "ラインウォーカー、ワンセルフウォーカー",
+        "AdmissionName": "その鳥は欲望を真似る",
+        "ManagementNumber": "1-12-123-1234-1",
+        "RiskLevelType": 1,
+        "DevelopmentMemo": "自分の変わりに働く→自分の真似をする→ある地点から別の成長を始める→別の自分が出来上がったのがミミクリーペンギン\nミミクリーペンギン：真似、最初は真似から、真似が本物を超える、ユニバーサルドナー",
+        "AttributeResistJsonModel": {
+            "NormalResist": 1010,
+            "JoyResist": 1010,
+            "TrustResist": 1009,
+            "FearResist": 1010,
+            "SurpriseResist": 1010,
+            "SadnessResist": 1010,
+            "DisgustResist": 1011,
+            "AngerResist": 1010,
+            "AnticipationResist": 1010
+        },
+        "PassiveAbilityJsonModels": [
+            {
+                "ReleaseLevel": 1,
+                "PassiveAbilityName": "仕草を真似る",
+                "PassiveAbilityType": 1501,
+                "MainDetailNumber": 30,
+                "SubDetailNumber": 20013001,
+                "DevelopmentMemo": "デメリットが大きい攻撃成功時に攻撃リールが上昇するカードを使用"
+            },
+            {
+                "ReleaseLevel": 5,
+                "PassiveAbilityName": "感性を真似る",
+                "PassiveAbilityType": 1501,
+                "MainDetailNumber": 50,
+                "SubDetailNumber": 20013002,
+                "DevelopmentMemo": "デメリットが大きい防御成功時に攻撃リールが上昇するカードを使用"
+            }
+        ],
+        "DeckJsonModels": [
+            {
+                "AchievementLevel": 1,
+                "DeckCardJsonModels": [
+                    {
+                        "CardId": 20011001,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 20011002,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 20011003,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 20012001,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 20012002,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 20012003,
+                        "CardNumber": 5
+                    }
+                ]
+            },
+            {
+                "AchievementLevel": 2,
+                "DeckCardJsonModels": [
+                    {
+                        "CardId": 20011001,
+                        "CardNumber": 30
+                    }
+                ]
+            },
+            {
+                "AchievementLevel": 3,
+                "DeckCardJsonModels": [
+                    {
+                        "CardId": 20011001,
+                        "CardNumber": 30
+                    }
+                ]
+            }
+        ],
+        "DropItemJsonModels": [
+            {
+                "AchievementLevel": 1,
+                "DropInventoryType": 1001,
+                "DetailNumber": 0
+            },
+            {
+                "AchievementLevel": 5,
+                "DropInventoryType": 0,
+                "DetailNumber": 0
+            },
+            {
+                "AchievementLevel": 10,
+                "DropInventoryType": 0,
+                "DetailNumber": 0
+            }
+        ],
+        "ArchiveJsonModel": {
+            "ReportFiles": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "TechnologyDeveloperJsonModel": {
+            "DeveloperName": "アルゼド",
+            "ReportFiles": [
+                "",
+                "",
+                ""
+            ],
+            "DevelopmentMemo": "双子の犯罪者から着想を得たアイデア、自分の双子を作る"
+        }
+    }
+}

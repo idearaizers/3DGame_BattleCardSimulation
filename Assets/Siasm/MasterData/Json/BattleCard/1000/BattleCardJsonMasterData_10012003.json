@@ -1,0 +1,12 @@
+{
+    "BattleCardJsonModel": {
+        "CardName": "徹底防御",
+        "CardReelType": 2,
+        "MinReelNumber": 1,
+        "MaxReelNumber": 5,
+        "FlavorText": "会社からの支給品",
+        "EmotionAttributeType": 1,
+        "BattleCardAbilityJsonModels": [],
+        "DevelopmentMemo": "防御・強で少しギャンブルだがデメリットなし"
+    }
+}

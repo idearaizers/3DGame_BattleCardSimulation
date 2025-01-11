@@ -1,0 +1,16 @@
+{
+    "TalkJsonModels": [
+        {
+            "TalklType": 1,
+            "JsonTextFile": "{\n    \"TalkName\": \"TestName01\",\n    \"TalkMessage\": \"TestMessage01\"\n}"
+        },
+        {
+            "TalklType": 1,
+            "JsonTextFile": "{\n    \"TalkName\": \"TestName02\",\n    \"TalkMessage\": \"TestMessage02\"\n}"
+        },
+        {
+            "TalklType": 3,
+            "JsonTextFile": "{\n    \"ItemId\": 101\n}"
+        }
+    ]
+}

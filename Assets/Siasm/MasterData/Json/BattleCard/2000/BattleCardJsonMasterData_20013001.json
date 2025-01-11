@@ -1,0 +1,12 @@
+{
+    "BattleCardJsonModel": {
+        "CardName": "仕草を真似る",
+        "CardReelType": 1,
+        "MinReelNumber": 1,
+        "MaxReelNumber": 4,
+        "FlavorText": "",
+        "EmotionAttributeType": 1,
+        "BattleCardAbilityJsonModels": [],
+        "DevelopmentMemo": "攻撃でパッシブアビリティ用、強力な能力アップを行い成長する"
+    }
+}

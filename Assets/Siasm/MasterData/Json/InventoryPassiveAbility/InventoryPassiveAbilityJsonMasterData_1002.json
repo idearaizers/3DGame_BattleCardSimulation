@@ -1,0 +1,11 @@
+{
+    "InventoryPassiveAbilityJsonModel": {
+        "PassiveAbilityName": "TPアッパー3、5（効果は重複する、デメリットありでもいいかも）",
+        "CostNumber": 1,
+        "PassiveAbilityActivateType": 1101,
+        "PassiveAbilityType": 1102,
+        "DetailNumber": 5,
+        "SubDetailNumber": 0,
+        "DevelopmentMemo": ""
+    }
+}

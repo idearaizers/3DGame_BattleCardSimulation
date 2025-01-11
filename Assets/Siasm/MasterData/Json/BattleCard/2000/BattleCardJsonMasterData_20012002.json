@@ -1,0 +1,12 @@
+{
+    "BattleCardJsonModel": {
+        "CardName": "おじぎする",
+        "CardReelType": 2,
+        "MinReelNumber": 2,
+        "MaxReelNumber": 4,
+        "FlavorText": "",
+        "EmotionAttributeType": 1,
+        "BattleCardAbilityJsonModels": [],
+        "DevelopmentMemo": "防御・中"
+    }
+}

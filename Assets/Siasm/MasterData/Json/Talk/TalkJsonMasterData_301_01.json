@@ -1,0 +1,12 @@
+{
+    "TalkJsonModels": [
+        {
+            "TalklType": 1,
+            "JsonTextFile": "{\n    \"TalkName\": \"社長1\",\n    \"TalkMessage\": \"社長1\"\n}"
+        },
+        {
+            "TalklType": 1,
+            "JsonTextFile": "{\n    \"TalkName\": \"社長1\",\n    \"TalkMessage\": \"社長1\"\n}"
+        }
+    ]
+}

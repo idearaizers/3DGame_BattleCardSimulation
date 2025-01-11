@@ -1,0 +1,11 @@
+{
+    "InventoryPassiveAbilityJsonModel": {
+        "PassiveAbilityName": "開始ボックスアッパー1",
+        "CostNumber": 1,
+        "PassiveAbilityActivateType": 1101,
+        "PassiveAbilityType": 1102,
+        "DetailNumber": 5,
+        "SubDetailNumber": 0,
+        "DevelopmentMemo": ""
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "BattleCardJsonModel": {
+        "CardName": "斬り付ける",
+        "CardReelType": 1,
+        "MinReelNumber": 2,
+        "MaxReelNumber": 4,
+        "FlavorText": "会社からの支給品",
+        "EmotionAttributeType": 1,
+        "BattleCardAbilityJsonModels": [],
+        "DevelopmentMemo": "攻撃・中でスタンダードな性能"
+    }
+}

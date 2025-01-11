@@ -1,0 +1,12 @@
+{
+    "BattleCardJsonModel": {
+        "CardName": "つつく",
+        "CardReelType": 1,
+        "MinReelNumber": 2,
+        "MaxReelNumber": 4,
+        "FlavorText": "",
+        "EmotionAttributeType": 1,
+        "BattleCardAbilityJsonModels": [],
+        "DevelopmentMemo": "攻撃・中"
+    }
+}

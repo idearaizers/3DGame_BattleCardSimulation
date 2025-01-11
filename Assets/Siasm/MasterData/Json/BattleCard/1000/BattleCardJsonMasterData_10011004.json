@@ -1,0 +1,19 @@
+{
+    "BattleCardJsonModel": {
+        "CardName": "大きく斬りかかる",
+        "CardReelType": 1,
+        "MinReelNumber": 1,
+        "MaxReelNumber": 6,
+        "FlavorText": "会社からの支給品",
+        "EmotionAttributeType": 1,
+        "BattleCardAbilityJsonModels": [
+            {
+                "CardAbilityActivateType": 2,
+                "CardAbilityTargetType": 1,
+                "CardAbilityType": 3301,
+                "DetailNumber": 1
+            }
+        ],
+        "DevelopmentMemo": "攻撃・凄強でややギャンブル、失敗すると受けるダメージ+1のため思考停止の際は使用厳禁"
+    }
+}

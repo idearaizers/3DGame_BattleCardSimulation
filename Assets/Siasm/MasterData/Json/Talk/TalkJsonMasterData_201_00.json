@@ -1,0 +1,20 @@
+{
+    "TalkJsonModels": [
+        {
+            "TalklType": 1,
+            "JsonTextFile": "{\n    \"TalkName\": \"受付1\",\n    \"TalkMessage\": \"受付1\"\n}"
+        },
+        {
+            "TalklType": 1,
+            "JsonTextFile": "{\n    \"TalkName\": \"受付1\",\n    \"TalkMessage\": \"受付1\"\n}"
+        },
+        {
+            "TalklType": 3,
+            "JsonTextFile": "{\n    \"ItemId\": 1001\n}"
+        },
+        {
+            "TalklType": 1,
+            "JsonTextFile": "{\n    \"TalkName\": \"受付1\",\n    \"TalkMessage\": \"受付1\"\n}"
+        }
+    ]
+}

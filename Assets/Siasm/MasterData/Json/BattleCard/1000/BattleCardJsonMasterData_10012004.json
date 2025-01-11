@@ -1,0 +1,19 @@
+{
+    "BattleCardJsonModel": {
+        "CardName": "次に繋ぐ",
+        "CardReelType": 2,
+        "MinReelNumber": 1,
+        "MaxReelNumber": 4,
+        "FlavorText": "会社からの支給品",
+        "EmotionAttributeType": 1,
+        "BattleCardAbilityJsonModels": [
+            {
+                "CardAbilityActivateType": 2,
+                "CardAbilityTargetType": 1,
+                "CardAbilityType": 3201,
+                "DetailNumber": 1
+            }
+        ],
+        "DevelopmentMemo": "防御で失敗すればカードを1枚引く"
+    }
+}

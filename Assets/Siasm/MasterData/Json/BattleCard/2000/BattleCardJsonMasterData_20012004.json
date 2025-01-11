@@ -1,0 +1,12 @@
+{
+    "BattleCardJsonModel": {
+        "CardName": "偽物を与える",
+        "CardReelType": 1,
+        "MinReelNumber": 1,
+        "MaxReelNumber": 4,
+        "FlavorText": "",
+        "EmotionAttributeType": 1,
+        "BattleCardAbilityJsonModels": [],
+        "DevelopmentMemo": "防御・凄強"
+    }
+}

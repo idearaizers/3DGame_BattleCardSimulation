@@ -1,0 +1,19 @@
+{
+    "BattleCardJsonModel": {
+        "CardName": "全力防御",
+        "CardReelType": 2,
+        "MinReelNumber": 1,
+        "MaxReelNumber": 2,
+        "FlavorText": "会社からの支給品",
+        "EmotionAttributeType": 1,
+        "BattleCardAbilityJsonModels": [
+            {
+                "CardAbilityActivateType": 2,
+                "CardAbilityTargetType": 1,
+                "CardAbilityType": 3302,
+                "DetailNumber": 1
+            }
+        ],
+        "DevelopmentMemo": "防御・威力は低いがダメージを必ず軽減できるので状態異常を付与されたくない時に使用"
+    }
+}
