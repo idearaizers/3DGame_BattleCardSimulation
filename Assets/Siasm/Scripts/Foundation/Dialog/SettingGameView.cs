@@ -12,9 +12,9 @@ namespace Siasm
 
         public void Initialize()
         {
-            foreach (var settingGameCellView in settingDropdownCellViews)
+            foreach (var SettingDropdownCellView in settingDropdownCellViews)
             {
-                settingGameCellView.Initialize();
+                SettingDropdownCellView.Initialize();
             }
         }
 
