@@ -34,18 +34,18 @@ namespace Siasm
         [SerializeField]
         private ArmSwitcherCollider armSwitcherCollider;
 
-        [Header("色関連")]
+        [Header("ボタンの色関連")]
         [SerializeField]
         private Image buttonImage;
 
         [SerializeField]
-        private Color noneSelectedColor;
+        private Color noneSelectedColor = new Color(0.137f, 0.208f, 0.294f, 1.000f);
 
         [SerializeField]
-        private Color onCursorColor;
+        private Color onCursorColor = new Color(0.484f, 0.953f, 0.436f, 1.000f);
 
         [SerializeField]
-        private Color selectedColor;
+        private Color selectedColor = new Color(0.102f, 0.671f, 0.043f, 1.000f);
 
         /// <summary>
         /// カーソルOnの際に変更前のカラーを保持する
