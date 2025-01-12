@@ -47,7 +47,7 @@ namespace Siasm
             mainStateMachineController.OnEnterMainStateAction = OnEnterMainState;
 
             // ロジック関連
-            mainLogicManager.Initialize(token, mainUIManager, mainSpaceManager.CameraController, mainStateMachineController, mainUseCase);
+            mainLogicManager.Initialize(token, mainUIManager, mainStateMachineController, mainUseCase);
 
             // スペース関連
             mainSpaceManager.Initialize(mainUseCase, mainLogicManager.TalkController, mainUIManager, mainStateMachineController, mainSpaceManager.QuestController);

@@ -20,11 +20,10 @@ namespace Siasm
         public MainDirectorController DirectorController => mainDirectorController;
         public MainTalkController TalkController => mainTalkController;
 
-        public void Initialize(CancellationToken token, MainUIManager mainUIManager,
-            MainCameraController mainCameraController, MainStateMachineController mainStateMachineController, MainUseCase mainUseCase)
+        public void Initialize(CancellationToken token, MainUIManager mainUIManager, MainStateMachineController mainStateMachineController, MainUseCase mainUseCase)
         {
             mainDirectorController.Initialize(token);
-            mainScenePlayerInputController.Initialize(mainUIManager, mainCameraController, mainUseCase);
+            mainScenePlayerInputController.Initialize(mainUIManager, mainUseCase);
             mainTalkController.Initialize(mainUIManager, mainStateMachineController, mainUseCase);
         }
 
