@@ -24,14 +24,14 @@ namespace Siasm
         /// <summary>
         /// ビュー表示に必要なモデルデータは各BaseMenuPrefabの継承先で取得して設定
         /// </summary>
-        public override void Setup(bool isActive)
+        public override void Setup(bool isEnable)
         {
             // BaseUseCase
 
-            base.Setup(isActive);
+            base.Setup(isEnable);
 
             // 使用しない場合は実行しない
-            if (!isActive)
+            if (!isEnable)
             {
                 return;
             }

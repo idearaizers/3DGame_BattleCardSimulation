@@ -6,12 +6,12 @@ namespace Siasm
     {
         private const string detialStringFormat = "ファイル{0}にセーブしますか？";
 
-        public override void Setup(bool isActive)
+        public override void Setup(bool isEnable)
         {
-            base.Setup(isActive);
+            base.Setup(isEnable);
 
             // 使用しない場合は実行しない
-            if (!isActive)
+            if (!isEnable)
             {
                 return;
             }

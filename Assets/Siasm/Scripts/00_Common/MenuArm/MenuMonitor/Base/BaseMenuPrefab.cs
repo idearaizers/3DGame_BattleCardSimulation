@@ -10,7 +10,7 @@ namespace Siasm
         protected PlayerBattleFighterSpawnController PlayerBattleFighterSpawnController;
         protected EnemyBattleFighterSpawnController EnemyBattleFighterSpawnController;
 
-        protected bool IsActive;
+        protected bool IsEnable;
 
         public virtual void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController,
             PlayerBattleFighterSpawnController playerBattleFighterSpawnController, EnemyBattleFighterSpawnController enemyBattleFighterSpawnController)
@@ -22,9 +22,9 @@ namespace Siasm
             EnemyBattleFighterSpawnController = enemyBattleFighterSpawnController;
         }
 
-        public virtual void Setup(bool isActive)
+        public virtual void Setup(bool isEnable)
         {
-            IsActive = isActive;
+            IsEnable = isEnable;
         }
 
         public virtual void ShowChangeContent()

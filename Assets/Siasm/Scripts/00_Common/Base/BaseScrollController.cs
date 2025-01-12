@@ -34,8 +34,8 @@ namespace Siasm
         public virtual void Initialize() { }
 
         /// <summary>
-        /// 表示状態で使用しないとエラーになるため注意
-        /// 基本的には表示する際に実行した方がよさそう
+        /// NOTE: 表示状態で使用しないとエラーになるため注意
+        /// TODO: 基本的には表示する際に実行した方がよさそうだが必要なSetUpの頻度と合わせて見直し予定
         /// </summary>
         public void Setup()
         {

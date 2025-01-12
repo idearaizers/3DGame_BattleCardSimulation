@@ -31,24 +31,19 @@ namespace Siasm
             menuItemDetailView.Initialize();
         }
 
-        public override void Setup(bool isActive)
+        public override void Setup(bool isEnable)
         {
-            base.Setup(isActive);
+            base.Setup(isEnable);
 
-            // 使用しない場合は実行しない
-            if (!isActive)
+            if (!isEnable)
             {
                 return;
             }
 
-            // 非アクティブの時にセットアップを行うと参照エラーが出るのでアクティブに切り替えて実行
+            // TODO: 非アクティブの時にセットアップを行うと参照エラーが出るのでアクティブに切り替えて実行で見直し予定
             var activeSelf = gameObject.activeSelf;
             gameObject.SetActive(true);
-
-            // 更新する
             SetItemModel();
-
-            // 設定が完了したら変更前の状態に戻す
             gameObject.SetActive(activeSelf);
         }
 
@@ -56,8 +51,7 @@ namespace Siasm
         {
             base.UpdateContent(baseMenuPrefabParameter);
 
-            // 使用しない場合は実行しない
-            if (!IsActive)
+            if (!IsEnable)
             {
                 return;
             }
@@ -106,6 +100,8 @@ namespace Siasm
 
         private void OnChangeActiveTab(int selectedIndex)
         {
+            // TODO: 入手した時間順、またはアイテムid順に並び替える機能を実装
+
             Debug.Log("TODO: 並び順の切り替え実行");
         }
     }
