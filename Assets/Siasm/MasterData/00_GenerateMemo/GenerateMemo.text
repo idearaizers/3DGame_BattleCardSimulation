@@ -1,3 +1,5 @@
+> ターミナルにて下記を実行
+
 >> MasterMemoryの生成コマンド
 dotnet-mmgen -inputDirectory "C:\Program Files\GitHub\3DGame_BattleCardSimulation\Assets\Siasm\Scripts\Infrastructe\Domain\MasterData" -outputDirectory "C:\Program Files\GitHub\3DGame_BattleCardSimulation\Assets\Siasm\Scripts\Infrastructe\MasterMemoryGenerated" -usingNamespace "Siasm"
 
