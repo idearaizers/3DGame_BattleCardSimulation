@@ -58,7 +58,7 @@ public partial class @BattleScenePlayerInputAction: IInputActionCollection2, IDi
                     ""name"": ""Menu"",
                     ""type"": ""Button"",
                     ""id"": ""e6b43614-8463-4a93-95e6-09df8fcb6e4b"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
