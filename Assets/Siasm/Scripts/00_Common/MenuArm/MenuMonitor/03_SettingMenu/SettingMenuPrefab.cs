@@ -65,6 +65,11 @@ namespace Siasm
         /// </summary>
         private void OnChangedSettingAction()
         {
+            if (this.gameObject.activeSelf == false)
+            {
+                return;
+            }
+
             // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
