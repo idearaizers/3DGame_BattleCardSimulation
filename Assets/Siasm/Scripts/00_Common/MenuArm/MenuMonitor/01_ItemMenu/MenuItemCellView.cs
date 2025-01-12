@@ -29,7 +29,6 @@ namespace Siasm
         {
             button.onClick.AddListener(OnClick);
 
-            // 初期は表示をoffにする
             selectedImage.gameObject.SetActive(false);
         }
 
@@ -50,16 +49,13 @@ namespace Siasm
 
         private async UniTask UpdateViewAsync()
         {
-            // 画像を取得して反映する
             var itemSpriteAddress = string.Format(AddressConstant.ItemSpriteAddressStringFormat, ItemModel.ItemId);
 
-            // アセットがある場合
             if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
             {
                 var cachedSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
                 itemIconImage.sprite = cachedSprite;
             }
-            // アセットがない場合
             else
             {
                 var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);

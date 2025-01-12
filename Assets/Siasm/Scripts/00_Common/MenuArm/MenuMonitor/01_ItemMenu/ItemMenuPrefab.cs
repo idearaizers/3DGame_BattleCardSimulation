@@ -87,7 +87,7 @@ namespace Siasm
         /// <param name="selectedMenuItemCellView"></param>
         private void OnClick(MenuItemCellView selectedMenuItemCellView)
         {
-            // 選択状態で且つ選択したものが直前のものと違う時は、選択状態を非表示にする
+            // 選択状態で且つ選択したものが直前のものと違う時は、選択状態を解除する
             if (currentSelectedMenuItemCellView != null &&
                 currentSelectedMenuItemCellView != selectedMenuItemCellView)
             {

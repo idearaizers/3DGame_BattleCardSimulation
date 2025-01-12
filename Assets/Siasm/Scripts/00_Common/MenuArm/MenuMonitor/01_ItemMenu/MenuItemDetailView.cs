@@ -25,7 +25,6 @@ namespace Siasm
 
         public void Initialize()
         {
-            // 最初は非アクティブにしておく
             containerGameObject.SetActive(false);
         }
 
@@ -35,9 +34,17 @@ namespace Siasm
         {
             containerGameObject.SetActive(true);
 
-            // 画像を取得して反映する
             var itemSpriteAddress = string.Format(AddressConstant.ItemSpriteAddressStringFormat, itemModel.ItemId);
-            var itemSprite = await Addressables.LoadAssetAsync<Sprite>(itemSpriteAddress);
+
+            Sprite itemSprite = null;
+            if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
+            {
+                itemSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
+            }
+            else
+            {
+                itemSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
+            }
 
             itemNameText.text = itemModel.ItemName;
             itemIconImage.sprite = itemSprite;
