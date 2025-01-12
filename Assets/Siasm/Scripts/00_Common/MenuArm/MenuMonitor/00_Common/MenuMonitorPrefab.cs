@@ -221,43 +221,11 @@ namespace Siasm
             var dialogMenuPrefabInstanceGameObject = Instantiate(dialogMenuPrefabGameObject, menuDialogRootGameObject.transform);
             currentInstanceDialogGameObject = dialogMenuPrefabInstanceGameObject;
 
-            switch (dialogMenuType)
-            {
-                case DialogMenuType.YesNo:
-                    var yesNoMenuDialogPrefab = dialogMenuPrefabInstanceGameObject.GetComponent<YesNoMenuDialogPrefab>();
-                    yesNoMenuDialogPrefab.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController);
-                    yesNoMenuDialogPrefab.OnCloseAction = () => OnCloseAction?.Invoke();
-                    yesNoMenuDialogPrefab.Setup();
-                    yesNoMenuDialogPrefab.Show(dialogParameter as YesNoMenuDialogPrefab.DialogParameter);
-                    break;
-
-                case DialogMenuType.EgidoDelivery:
-                    var egidoDeliveryDialogPrefab = dialogMenuPrefabInstanceGameObject.GetComponent<EgidoDeliveryMenuDialogPrefab>();
-                    egidoDeliveryDialogPrefab.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController);
-                    egidoDeliveryDialogPrefab.OnCloseAction = () => OnCloseAction?.Invoke();
-                    egidoDeliveryDialogPrefab.Setup();
-                    egidoDeliveryDialogPrefab.Show(dialogParameter as EgidoDeliveryMenuDialogPrefab.DialogParameter);
-                    break;
-
-                case DialogMenuType.CreatureBox:
-                    var creatureBoxMenuDialogPrefab = dialogMenuPrefabInstanceGameObject.GetComponent<CreatureBoxMenuDialogPrefab>();
-                    creatureBoxMenuDialogPrefab.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController);
-                    creatureBoxMenuDialogPrefab.OnCloseAction = () => OnCloseAction?.Invoke();
-                    creatureBoxMenuDialogPrefab.Setup();
-                    creatureBoxMenuDialogPrefab.Show(dialogParameter as CreatureBoxMenuDialogPrefab.DialogParameter);
-                    break;
-
-                case DialogMenuType.CreatureAdmission:
-                    var admissionMenuDialogPrefab = dialogMenuPrefabInstanceGameObject.GetComponent<CreatureAdmissionMenuDialogPrefab>();
-                    admissionMenuDialogPrefab.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController);
-                    admissionMenuDialogPrefab.OnCloseAction = () => OnCloseAction?.Invoke();
-                    admissionMenuDialogPrefab.Setup();
-                    admissionMenuDialogPrefab.Show(dialogParameter as CreatureAdmissionMenuDialogPrefab.DialogParameter);
-                    break;
-
-                default:
-                    break;
-            }
+            var baseMenuDialogPrefab = dialogMenuPrefabInstanceGameObject.GetComponent<BaseMenuDialogPrefab>();
+            baseMenuDialogPrefab.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController);
+            baseMenuDialogPrefab.OnCloseAction = () => OnCloseAction?.Invoke();
+            baseMenuDialogPrefab.Setup();
+            baseMenuDialogPrefab.Show(dialogParameter);
         }
 
         private void OnDestroy()

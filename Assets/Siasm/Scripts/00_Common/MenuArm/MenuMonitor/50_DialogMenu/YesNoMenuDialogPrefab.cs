@@ -5,7 +5,7 @@ using TMPro;
 
 namespace Siasm
 {
-    public class YesNoMenuDialogPrefab : BaseMenuDialogPrefab
+    public sealed class YesNoMenuDialogPrefab : BaseMenuDialogPrefab
     {
         public class DialogParameter : BaseParameter
         {
@@ -39,11 +39,11 @@ namespace Siasm
             base.Setup();
         }
 
-        public void Show(DialogParameter dialogParameter)
+        public override void Show(BaseParameter baseParameter)
         {
-            currentDialogParameter = dialogParameter;
+            currentDialogParameter = baseParameter as DialogParameter;
 
-            titleText.text = dialogParameter.TitleText;
+            titleText.text = currentDialogParameter.TitleText;
 
             Enable();
         }

@@ -4,7 +4,7 @@ using TMPro;
 
 namespace Siasm
 {
-    public class CreatureAdmissionMenuDialogPrefab : BaseMenuDialogPrefab
+    public sealed class CreatureAdmissionMenuDialogPrefab : BaseMenuDialogPrefab
     {
         public class DialogParameter : BaseParameter
         {
@@ -55,11 +55,11 @@ namespace Siasm
         /// 表示
         /// </summary>
         /// <param name="dialogParameter"></param>
-        public void Show(DialogParameter dialogParameter)
+        public override void Show(BaseParameter dialogParameter)
         {
-            currentDialogParameter = dialogParameter;
+            currentDialogParameter = dialogParameter as DialogParameter;
 
-            titleText.text = dialogParameter.TitleText;
+            titleText.text = currentDialogParameter.TitleText;
 
             // TODO: 開くたびに抽選になるので未抽選の時だけやった方がよさそう
             // TODO: 最大収容している時はレベルアップのものが表示でもよさそう

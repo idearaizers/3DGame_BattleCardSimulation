@@ -20,5 +20,7 @@ namespace Siasm
         }
 
         public virtual void Setup() { }
+
+        public virtual void Show(BaseParameter baseParameter) { }
     }
 }

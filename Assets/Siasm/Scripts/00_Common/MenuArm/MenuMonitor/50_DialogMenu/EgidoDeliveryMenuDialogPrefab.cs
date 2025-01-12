@@ -5,7 +5,7 @@ using TMPro;
 
 namespace Siasm
 {
-    public class EgidoDeliveryMenuDialogPrefab : BaseMenuDialogPrefab
+    public sealed class EgidoDeliveryMenuDialogPrefab : BaseMenuDialogPrefab
     {
         public class DialogParameter : BaseParameter
         {
@@ -47,9 +47,9 @@ namespace Siasm
             }
         }
 
-        public void Show(DialogParameter dialogParameter)
+        public override void Show(BaseParameter dialogParameter)
         {
-            currentDialogParameter = dialogParameter;
+            currentDialogParameter = dialogParameter as DialogParameter;;
 
             // 
             var saveDataOwnItem = SaveManager.Instance.LoadedSaveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.EgidoId);
