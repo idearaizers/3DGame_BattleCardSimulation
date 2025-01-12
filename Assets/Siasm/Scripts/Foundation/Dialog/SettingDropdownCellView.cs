@@ -15,7 +15,7 @@ namespace Siasm
         }
 
         [SerializeField]
-        private TextMeshProUGUI labelText; 
+        private TextMeshProUGUI labelText;
 
         [SerializeField]
         private TMP_Dropdown dropdown;
