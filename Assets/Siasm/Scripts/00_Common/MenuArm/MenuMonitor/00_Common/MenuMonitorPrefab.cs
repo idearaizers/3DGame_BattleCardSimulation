@@ -10,9 +10,6 @@ namespace Siasm
         [SerializeField]
         private Canvas canvas;
 
-        /// <summary>
-        /// これはバトルとそれ以外で変えるかな
-        /// </summary>
         [Space]
         [SerializeField]
         private GameObject menuPrefabRootGameObject;
@@ -24,22 +21,12 @@ namespace Siasm
         [SerializeField]
         private BaseMenuPrefab[] baseMenuPrefabs;
 
-
-
         [Space]
         [SerializeField]
         private DialogMenuPrefabs dialogMenuPrefabs;
 
-
         [SerializeField]
         private MenuPrefabTypePrefabDictionary menuPrefabTypePrefabDictionary;
-
-
-
-        // [Space]
-        // [SerializeField]
-        // private MenuPrefabTypePrefabs menuPrefabTypePrefabs;
-
 
         private SideArmSwitcherPrefab sideArmSwitcherPrefab;
         private ArmSwitcherPrefab[] leftArmSwitcherPrefabs;
@@ -51,35 +38,23 @@ namespace Siasm
         /// </summary>
         private int currentSelectedIndex;
 
-        /// <summary>
-        /// 破棄は生成時に前のものが残っていた際に行っています
-        /// </summary>
+        private List<BaseMenuPrefab> currentBaseMenuPrefabs;
         private GameObject currentInstanceDialogGameObject;
 
         public Action OnCloseAction { get; set; }
-
         public Action<int> OnDeckChangeAction { get; set; }
         public Action OnEscapeAction { get; set; }
 
-        private bool isBattle;
-        private List<BaseMenuPrefab> currentBaseMenuPrefabs;
-
-        public void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, ArmSwitcherPrefab[] leftArmSwitcherPrefabs, BaseUseCase baseUseCase, BaseCameraController baseCameraController, bool isBattle = false, BattleSpaceManager battleSpaceManager = null)
+        public void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, ArmSwitcherPrefab[] leftArmSwitcherPrefabs, BaseUseCase baseUseCase, BaseCameraController baseCameraController,
+            bool isBattle = false, BattleSpaceManager battleSpaceManager = null)
         {
             this.sideArmSwitcherPrefab = sideArmSwitcherPrefab;
             this.leftArmSwitcherPrefabs = leftArmSwitcherPrefabs;
             this.baseUseCase = baseUseCase;
             this.baseCameraController = baseCameraController;
 
-            // ここで初期化するページを設定できるようにするかな
-            // そうすれば必要なことろだけ拡張できるかあ
-            // 一旦、仮で実装をするかな
-            this.isBattle = isBattle;
-
-            // 仮
             currentBaseMenuPrefabs = new List<BaseMenuPrefab>();
 
-            //　
             if (isBattle)
             {
                 var menuPrefabTypes = new MenuPrefabType[]
@@ -103,9 +78,6 @@ namespace Siasm
                 currentBaseMenuPrefabs = baseMenuPrefabs.ToList();
             }
 
-
-
-            // 
             for (int i = 0; i < currentBaseMenuPrefabs.Count; i++)
             {
                 if (isBattle)
@@ -129,9 +101,6 @@ namespace Siasm
                     );
                 }
 
-
-
-                //　仮
                 var battleDeckMenuPrefab = currentBaseMenuPrefabs[i] as BattleDeckMenuPrefab;
                 if (battleDeckMenuPrefab)
                 {
@@ -141,7 +110,6 @@ namespace Siasm
                     };
                 }
 
-                //　仮
                 var battleEscapeMenuPrefab = currentBaseMenuPrefabs[i] as BattleEscapeMenuPrefab;
                 if (battleEscapeMenuPrefab)
                 {
@@ -151,7 +119,7 @@ namespace Siasm
                     };
                 }
 
-                // 一旦すべて非表示にする
+                // 一旦、すべて非表示にする
                 currentBaseMenuPrefabs[i].Disable();
             }
         }
@@ -164,10 +132,7 @@ namespace Siasm
 
                 if (i == selectedIndex)
                 {
-                    // 指定したメニューを表示状態にする
                     currentBaseMenuPrefabs[i].Enable();
-
-                    // 関連するメニューボタンも選択状態にする
                     leftArmSwitcherPrefabs[i].SetColorOfButtonImage(true);
                 }
             }
@@ -222,49 +187,40 @@ namespace Siasm
         }
 
         /// <summary>
-        /// カーソルをボタンに被せた際に反応させたいか変更
+        /// カーソルをボタンに被せた際の反応是非を切り替える
+        /// キャンバスのカメラの参照を外すことでマウスカーソルを乗せた際に反応しないようにしている
         /// </summary>
-        /// <param name="isActive"></param>
-        public void ChangeActiveCanvas(bool isActive)
+        /// <param name="isEnable"></param>
+        public void ChangeActiveCanvas(bool isEnable)
         {
-            if (isActive)
+            if (isEnable)
             {
                 canvas.worldCamera = baseCameraController.UICamera;
-
-                // TODO: 見直した方がよさそう
-                // if (isBattle)
-                // {
-                //     EventSystemManager.Instance.EventSystem.enabled = true;
-                // }
             }
             else
             {
-                // canvas.worldCamera = null;
                 canvas.worldCamera = baseCameraController.UICamera;
-
-                // TODO: 見直した方がよさそう
-                // if (isBattle)
-                // {
-                //     EventSystemManager.Instance.EventSystem.enabled = false;
-                // }
             }
         }
 
+        /// <summary>
+        /// DialogMenuに指定したprefabを生成して表示する
+        /// </summary>
+        /// <param name="dialogMenuType"></param>
+        /// <param name="dialogParameter"></param>
         public void ShowDialogMenu(DialogMenuType dialogMenuType, BaseMenuDialogPrefab.BaseParameter dialogParameter)
         {
-            // 生成済みのものが残っていた場合は生成前に破棄を行う
+            // 生成済みのものが残っていた場合は先に破棄を行う
             if (currentInstanceDialogGameObject != null)
             {
                 Destroy(currentInstanceDialogGameObject);
                 currentInstanceDialogGameObject = null;
             }
 
-            // 生成
             var dialogMenuPrefabGameObject = dialogMenuPrefabs.GetGameObject(dialogMenuType);
             var dialogMenuPrefabInstanceGameObject = Instantiate(dialogMenuPrefabGameObject, menuDialogRootGameObject.transform);
             currentInstanceDialogGameObject = dialogMenuPrefabInstanceGameObject;
 
-            // 初期化
             switch (dialogMenuType)
             {
                 case DialogMenuType.YesNo:
