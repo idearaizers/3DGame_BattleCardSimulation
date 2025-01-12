@@ -14,15 +14,8 @@ namespace Siasm
         private TabGroup tabGroup;
 
         [SerializeField]
-        private Button deckCardMenuButton;
+        private MenuCardDetialView menuCardDetialView;
 
-        [SerializeField]
-        private Button ownCardMenuButton;
-
-        // [SerializeField]
-        // private MenuCardDetialView menuCardDetialView;
-
-        [Space]
         [SerializeField]
         private MenuDeckCardScrollController menuDeckCardScrollController;
 
@@ -52,9 +45,6 @@ namespace Siasm
             tabGroup.SetActiveTab(activeTabIndex);
             tabGroup.OnChangeActiveTab = OnChangeActiveTab;
 
-            deckCardMenuButton.onClick.AddListener(OnDeckCardMenu);
-            ownCardMenuButton.onClick.AddListener(OnOwnCardMenu);
-
             menuDeckCardScrollController.Initialize();
             menuDeckCardScrollController.OnClickAction = OnSelectedBattleCard;
             menuDeckCardScrollController.MenuCardScrollRect.OnDraggingAction = OnDragging;
@@ -69,7 +59,7 @@ namespace Siasm
             menuCardDragController.OnDragDeckCard = OnDragDeckCard;
             menuCardDragController.OnDragOwnCard = OnDragOwnCard;
 
-            // menuCardDetialView.Initialize();
+            menuCardDetialView.Initialize();
         }
 
         public override void Setup(bool isEnable)
@@ -93,7 +83,7 @@ namespace Siasm
 
             menuCardDragController.Setup();
 
-            // menuCardDetialView.Setup();
+            menuCardDetialView.Setup();
         }
 
         private void SetDeckCardModelAndOwnCardModel()
@@ -219,7 +209,7 @@ namespace Siasm
             // TODO: カードidで紐づけをしているのでこれは作りを直した方がよさそう
             // TODO: デッキ用のカードモデルを作ってそのまま中身を表示できるようにした方がいいね
             var battleCardModel = BaseUseCase.CreateBattleCardModel(selectedBattleCardModel.CardId);
-            // menuCardDetialView.ShowCardDetial(battleCardModel);
+            menuCardDetialView.ShowCardDetial(battleCardModel);
         }
 
         private void OnDragging(MenuCardScrollRect.ScrollType scrollType)
