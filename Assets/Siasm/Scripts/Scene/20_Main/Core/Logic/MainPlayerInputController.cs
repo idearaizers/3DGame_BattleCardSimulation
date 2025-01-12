@@ -39,6 +39,11 @@ namespace Siasm
 
         private void OnDestroy()
         {
+            if (mainScenePlayerInputAction == null)
+            {
+                return;
+            }
+
             mainScenePlayerInputAction.FindAction(actionNameMenu).performed -= OnMenu;
             mainScenePlayerInputAction.Disable();
         }
