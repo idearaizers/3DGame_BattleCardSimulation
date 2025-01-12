@@ -7,9 +7,6 @@ namespace Siasm
     public sealed class ItemMenuPrefab : BaseMenuPrefab
     {
         [SerializeField]
-        private TabGroup tabGroup;
-
-        [SerializeField]
         private MenuItemScrollController menuItemScrollController;
 
         [SerializeField]
@@ -21,10 +18,6 @@ namespace Siasm
             PlayerBattleFighterSpawnController playerBattleFighterSpawnController, EnemyBattleFighterSpawnController enemyBattleFighterSpawnController)
         {
             base.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController, playerBattleFighterSpawnController, enemyBattleFighterSpawnController);
-
-            var activeTabIndex = 0;
-            tabGroup.SetActiveTab(activeTabIndex);
-            tabGroup.OnChangeActiveTab = OnChangeActiveTab;
 
             menuItemScrollController.Initialize();
             menuItemScrollController.OnClickAction = OnClick;
@@ -71,9 +64,7 @@ namespace Siasm
             {
                 var itemModels = BaseUseCase.CreateItemModelsOfAllOwn();
 
-                // TODO: 現在選択しているタブに合わせて入手した時間順、またはアイテムid順に並び替える機能を実装
-                // NOTE: 一旦、取得で表示
-                // NOTE: 取得順に表示する際は最新のものを1番目に表示したいので並び順を逆にする
+                // 入手した逆順で表示したいので表示を逆順に変更
                 Array.Reverse(itemModels);
 
                 menuItemScrollController.Setup(itemModels);
@@ -97,13 +88,6 @@ namespace Siasm
             menuItemDetailView.ShowDetailViewAsync(selectedMenuItemCellView.ItemModel).Forget();
 
             currentSelectedMenuItemCellView = selectedMenuItemCellView;
-        }
-
-        private void OnChangeActiveTab(int selectedIndex)
-        {
-            // TODO: 現在選択しているタブに合わせて入手した時間順、またはアイテムid順に並び替える機能を実装
-
-            Debug.Log("TODO: 並び順の切り替え実行");
         }
     }
 }
