@@ -8,6 +8,8 @@ namespace Siasm
 {
     public class MenuCardDetialView : BaseView
     {
+        private const string noneDataText = "None Data";
+
         [SerializeField]
         private GameObject slidePanelGameObject;
 
@@ -28,9 +30,9 @@ namespace Siasm
             tabButton.Initialize();
             tabButton.OnClickAction = OnSlidePanelButton;
 
-            cardNameText.text = "None Data";
+            cardNameText.text = noneDataText;
             cardImage.sprite = null;
-            cardDitialText.text = "None Data";
+            cardDitialText.text = noneDataText;
         }
 
         public void Setup()
@@ -61,10 +63,6 @@ namespace Siasm
             }
         }
 
-        /// <summary>
-        /// 仮処理
-        /// </summary>
-        /// <param name="isActive"></param>
         private void OnSlidePanelButton(bool isActive)
         {
             var targetPosition = (isActive == true)
