@@ -24,8 +24,8 @@ namespace MessagePack.Formatters.Siasm
         private static global::System.ReadOnlySpan<byte> GetSpan_PassiveAbilityName() => new byte[1 + 18] { 178, 80, 97, 115, 115, 105, 118, 101, 65, 98, 105, 108, 105, 116, 121, 78, 97, 109, 101 };
         // PassiveAbilityType
         private static global::System.ReadOnlySpan<byte> GetSpan_PassiveAbilityType() => new byte[1 + 18] { 178, 80, 97, 115, 115, 105, 118, 101, 65, 98, 105, 108, 105, 116, 121, 84, 121, 112, 101 };
-        // DetailNumber
-        private static global::System.ReadOnlySpan<byte> GetSpan_DetailNumber() => new byte[1 + 12] { 172, 68, 101, 116, 97, 105, 108, 78, 117, 109, 98, 101, 114 };
+        // MainDetailNumber
+        private static global::System.ReadOnlySpan<byte> GetSpan_MainDetailNumber() => new byte[1 + 16] { 176, 77, 97, 105, 110, 68, 101, 116, 97, 105, 108, 78, 117, 109, 98, 101, 114 };
         // SubDetailNumber
         private static global::System.ReadOnlySpan<byte> GetSpan_SubDetailNumber() => new byte[1 + 15] { 175, 83, 117, 98, 68, 101, 116, 97, 105, 108, 78, 117, 109, 98, 101, 114 };
         // DevelopmentMemo
@@ -47,7 +47,7 @@ namespace MessagePack.Formatters.Siasm
             global::MessagePack.FormatterResolverExtensions.GetFormatterWithVerify<string>(formatterResolver).Serialize(ref writer, value.PassiveAbilityName, options);
             writer.WriteRaw(GetSpan_PassiveAbilityType());
             global::MessagePack.FormatterResolverExtensions.GetFormatterWithVerify<global::Siasm.PassiveAbilityType>(formatterResolver).Serialize(ref writer, value.PassiveAbilityType, options);
-            writer.WriteRaw(GetSpan_DetailNumber());
+            writer.WriteRaw(GetSpan_MainDetailNumber());
             writer.Write(value.MainDetailNumber);
             writer.WriteRaw(GetSpan_SubDetailNumber());
             writer.Write(value.SubDetailNumber);
@@ -77,22 +77,10 @@ namespace MessagePack.Formatters.Siasm
                       reader.Skip();
                       continue;
                     case 12:
-                        switch (global::MessagePack.Internal.AutomataKeyGen.GetKey(ref stringKey))
-                        {
-                            default: goto FAIL;
-                            case 5504932981680923986UL:
-                                if (global::MessagePack.Internal.AutomataKeyGen.GetKey(ref stringKey) != 1818588773UL) { goto FAIL; }
+                        if (!global::System.MemoryExtensions.SequenceEqual(stringKey, GetSpan_ReleaseLevel().Slice(1))) { goto FAIL; }
 
-                                ____result.ReleaseLevel = reader.ReadInt32();
-                                continue;
-
-                            case 8452812750483383620UL:
-                                if (global::MessagePack.Internal.AutomataKeyGen.GetKey(ref stringKey) != 1919246957UL) { goto FAIL; }
-
-                                ____result.MainDetailNumber = reader.ReadInt32();
-                                continue;
-
-                        }
+                        ____result.ReleaseLevel = reader.ReadInt32();
+                        continue;
                     case 18:
                         switch (global::MessagePack.Internal.AutomataKeyGen.GetKey(ref stringKey))
                         {
@@ -116,6 +104,11 @@ namespace MessagePack.Formatters.Siasm
                                 }
 
                         }
+                    case 16:
+                        if (!global::System.MemoryExtensions.SequenceEqual(stringKey, GetSpan_MainDetailNumber().Slice(1))) { goto FAIL; }
+
+                        ____result.MainDetailNumber = reader.ReadInt32();
+                        continue;
                     case 15:
                         switch (global::MessagePack.Internal.AutomataKeyGen.GetKey(ref stringKey))
                         {
