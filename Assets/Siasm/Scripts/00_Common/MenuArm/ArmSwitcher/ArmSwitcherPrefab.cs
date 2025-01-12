@@ -50,7 +50,7 @@ namespace Siasm
         /// <summary>
         /// カーソルOnの際に変更前のカラーを保持する
         /// </summary>
-        private Color currentOffCursorColor;
+        private Color beforeCursorOnColor;
 
         /// <summary>
         /// カーソルOffの際に変更前のカラーに戻す際に使用
@@ -117,7 +117,7 @@ namespace Siasm
         {
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.OnMouseCursor);
 
-            currentOffCursorColor = buttonImage.color;
+            beforeCursorOnColor = buttonImage.color;
             buttonImage.color = onCursorColor;
 
             animator.SetFloat(speedFloatText, 1);
@@ -135,7 +135,7 @@ namespace Siasm
             }
             else
             {
-                buttonImage.color = currentOffCursorColor;
+                buttonImage.color = beforeCursorOnColor;
             }
 
             animator.SetFloat(speedFloatText, -1);
