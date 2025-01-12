@@ -1,61 +1,176 @@
 {
     "SaveDataMainScene": {
-        "LastDateAndTime": "2024/10/20 2:52:23",
-        "StartDateAndTime": "2024/10/20 2:52:17",
-        "TotalPlayTime": "1:23:45",
-        "CurrentDate": 1,
-        "TotalEgidoNumberDelivered": 0,
+        "LastDateAndTime": "2024/10/20 5:03:25",
+        "StartDateAndTime": "2024/10/20 5:03:18",
+        "TotalPlayTime": "1.01:04:34.2359752",
+        "CurrentDate": 2,
+        "TotalEgidoNumberDelivered": 500,
         "SpawnWorldPosition": {
-            "x": 0.0,
-            "y": 2.0,
-            "z": 0.0
+            "x": -0.47189605236053469,
+            "y": 30.056005477905275,
+            "z": 107.4542007446289
         }
     },
     "SaveDataMainQuest": {
         "SaveDataMainQuestOfProgress": {
-            "QuestId": 101,
+            "QuestId": 201,
             "ProgressNumber": 0
         },
-        "SaveDataMainQuestOfClears": []
+        "SaveDataMainQuestOfClears": [
+            {
+                "QuestId": 101
+            },
+            {
+                "QuestId": 102
+            },
+            {
+                "QuestId": 103
+            },
+            {
+                "QuestId": 104
+            },
+            {
+                "QuestId": 105
+            },
+            {
+                "QuestId": 106
+            },
+            {
+                "QuestId": 107
+            }
+        ]
     },
-    "SaveDataCreatureBoxs": [],
-    "SaveDataOwnItems": [],
+    "SaveDataCreatureBoxs": [
+        {
+            "StageIndex": 0,
+            "BoxIndex": 0,
+            "CreatureId": 2001,
+            "CreatureLevel": 1,
+            "IsDestroyed": true
+        },
+        {
+            "StageIndex": 1,
+            "BoxIndex": 1,
+            "CreatureId": 2005,
+            "CreatureLevel": 1,
+            "IsDestroyed": false
+        },
+        {
+            "StageIndex": 1,
+            "BoxIndex": 2,
+            "CreatureId": 2009,
+            "CreatureLevel": 1,
+            "IsDestroyed": false
+        }
+    ],
+    "SaveDataOwnItems": [
+        {
+            "ItemId": 1001,
+            "ItemNumber": 1
+        },
+        {
+            "ItemId": 1002,
+            "ItemNumber": 1
+        },
+        {
+            "ItemId": 2001,
+            "ItemNumber": 500
+        }
+    ],
     "SaveDataBattleDeck": {
         "SelectedDeckId": 0,
-        "UnLockDeckNumber": 1,
+        "UnLockDeckNumber": 5,
         "SaveDataDeckOfBattleCards": [
             {
-                "CardIds": [
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011001,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002,
-                    10011002
+                "SaveDataBattleCards": [
+                    {
+                        "CardId": 10011001,
+                        "CardNumber": 4
+                    },
+                    {
+                        "CardId": 10011002,
+                        "CardNumber": 4
+                    },
+                    {
+                        "CardId": 10011003,
+                        "CardNumber": 3
+                    },
+                    {
+                        "CardId": 10011004,
+                        "CardNumber": 2
+                    },
+                    {
+                        "CardId": 10011005,
+                        "CardNumber": 2
+                    },
+                    {
+                        "CardId": 10012001,
+                        "CardNumber": 4
+                    },
+                    {
+                        "CardId": 10012002,
+                        "CardNumber": 4
+                    },
+                    {
+                        "CardId": 10012003,
+                        "CardNumber": 3
+                    },
+                    {
+                        "CardId": 10012004,
+                        "CardNumber": 2
+                    },
+                    {
+                        "CardId": 10012005,
+                        "CardNumber": 2
+                    }
+                ]
+            },
+            {
+                "SaveDataBattleCards": [
+                    {
+                        "CardId": 10011001,
+                        "CardNumber": 14
+                    },
+                    {
+                        "CardId": 10011002,
+                        "CardNumber": 14
+                    }
+                ]
+            },
+            {
+                "SaveDataBattleCards": [
+                    {
+                        "CardId": 10011001,
+                        "CardNumber": 13
+                    },
+                    {
+                        "CardId": 10011002,
+                        "CardNumber": 13
+                    }
+                ]
+            },
+            {
+                "SaveDataBattleCards": [
+                    {
+                        "CardId": 10011001,
+                        "CardNumber": 12
+                    },
+                    {
+                        "CardId": 10011002,
+                        "CardNumber": 12
+                    }
+                ]
+            },
+            {
+                "SaveDataBattleCards": [
+                    {
+                        "CardId": 10011001,
+                        "CardNumber": 11
+                    },
+                    {
+                        "CardId": 10011002,
+                        "CardNumber": 11
+                    }
                 ]
             }
         ]
@@ -63,11 +178,11 @@
     "SaveDataOwnBattleCards": [
         {
             "CardId": 10011001,
-            "OwnNumber": 15
+            "OwnNumber": 10
         },
         {
             "CardId": 10011002,
-            "OwnNumber": 15
+            "OwnNumber": 10
         }
     ],
     "SaveDataBattleFighter": {
@@ -75,9 +190,20 @@
         "SaveDataBattleFighterOwnPassive": {}
     },
     "SaveDataLabCharacterTalk": {
-        "SaveDataLabCharacters": []
+        "SaveDataLabCharacters": [
+            {
+                "CharacterId": 201,
+                "TalkIndex": 0
+            },
+            {
+                "CharacterId": 301,
+                "TalkIndex": 0
+            }
+        ]
     },
     "SaveDataPickUp": {
-        "PickedIndexs": []
+        "PickedIndexs": [
+            3
+        ]
     }
 }
