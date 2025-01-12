@@ -103,16 +103,33 @@ namespace Siasm
                 currentBaseMenuPrefabs = baseMenuPrefabs.ToList();
             }
 
+
+
             // 
             for (int i = 0; i < currentBaseMenuPrefabs.Count; i++)
             {
-                currentBaseMenuPrefabs[i].Initialize(
-                    sideArmSwitcherPrefab,
-                    baseUseCase,
-                    baseCameraController,
-                    battleSpaceManager.PlayerBattleFighterSpawnController,
-                    battleSpaceManager.EnemyBattleFighterSpawnController
-                );
+                if (isBattle)
+                {
+                    currentBaseMenuPrefabs[i].Initialize(
+                        sideArmSwitcherPrefab,
+                        baseUseCase,
+                        baseCameraController,
+                        battleSpaceManager.PlayerBattleFighterSpawnController,
+                        battleSpaceManager.EnemyBattleFighterSpawnController
+                    );
+                }
+                else
+                {
+                    currentBaseMenuPrefabs[i].Initialize(
+                        sideArmSwitcherPrefab,
+                        baseUseCase,
+                        baseCameraController,
+                        null,
+                        null
+                    );
+                }
+
+
 
                 //　仮
                 var battleDeckMenuPrefab = currentBaseMenuPrefabs[i] as BattleDeckMenuPrefab;
