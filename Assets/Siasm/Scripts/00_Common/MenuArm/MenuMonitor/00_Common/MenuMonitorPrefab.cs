@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Siasm
 {
+    /// <summary>
+    /// TODO: 現状、バトルでのみ表示項目を変えたいので処理を見直し予定
+    /// </summary>
     public class MenuMonitorPrefab : MonoBehaviour
     {
         [SerializeField]
@@ -25,6 +28,10 @@ namespace Siasm
         [SerializeField]
         private DialogMenuPrefabs dialogMenuPrefabs;
 
+        /// <summary>
+        /// バトルで使用するメニュー項目をまとめたもの
+        /// 並び順は自由に変えれるようにしたいのでDictionaryで格納している
+        /// </summary>
         [SerializeField]
         private MenuPrefabTypePrefabDictionary menuPrefabTypePrefabDictionary;
 
@@ -38,8 +45,13 @@ namespace Siasm
         /// </summary>
         private int currentSelectedIndex;
 
+        /// <summary>
+        /// 使用しているメニュー項目の一覧
+        /// シーン場所によって表示項目を変えたいので処理を見直し予定
+        /// </summary>
         private List<BaseMenuPrefab> currentBaseMenuPrefabs;
-        private GameObject currentInstanceDialogGameObject;
+
+        private GameObject currentInstanceMenuDialogPrefab;
 
         public Action OnCloseAction { get; set; }
         public Action<int> OnDeckChangeAction { get; set; }
@@ -53,8 +65,11 @@ namespace Siasm
             this.baseUseCase = baseUseCase;
             this.baseCameraController = baseCameraController;
 
-            currentBaseMenuPrefabs = new List<BaseMenuPrefab>();
+            // 表示項目を格納する
+            currentBaseMenuPrefabs = baseMenuPrefabs.ToList();
 
+            // バトルの場合は表示項目を変えたいので管理したいメニュー項目を上書きで格納する
+            // NOTE: 設定値については別で管理に変えたいので見直し予定
             if (isBattle)
             {
                 var menuPrefabTypes = new MenuPrefabType[]
@@ -73,53 +88,32 @@ namespace Siasm
                     currentBaseMenuPrefabs.Add(menuPrefabGameObject.GetComponent<BaseMenuPrefab>());
                 }
             }
-            else
-            {
-                currentBaseMenuPrefabs = baseMenuPrefabs.ToList();
-            }
 
+            // 格納した表示項目を初期化する
             for (int i = 0; i < currentBaseMenuPrefabs.Count; i++)
             {
-                if (isBattle)
-                {
-                    currentBaseMenuPrefabs[i].Initialize(
-                        sideArmSwitcherPrefab,
-                        baseUseCase,
-                        baseCameraController,
-                        battleSpaceManager.PlayerBattleFighterSpawnController,
-                        battleSpaceManager.EnemyBattleFighterSpawnController
-                    );
-                }
-                else
-                {
-                    currentBaseMenuPrefabs[i].Initialize(
-                        sideArmSwitcherPrefab,
-                        baseUseCase,
-                        baseCameraController,
-                        null,
-                        null
-                    );
-                }
+                currentBaseMenuPrefabs[i].Initialize(
+                    sideArmSwitcherPrefab,
+                    baseUseCase,
+                    baseCameraController,
+                    battleSpaceManager?.PlayerBattleFighterSpawnController,     // バトル以外では参照先がないのでnullチェックしている
+                    battleSpaceManager?.EnemyBattleFighterSpawnController       // バトル以外では参照先がないのでnullチェックしている
+                );
 
+                // 特定のコンポーネントについてAction処理を実行する
                 var battleDeckMenuPrefab = currentBaseMenuPrefabs[i] as BattleDeckMenuPrefab;
                 if (battleDeckMenuPrefab)
                 {
-                    battleDeckMenuPrefab.OnDeckChangeAction = (deckIndex) =>
-                    {
-                        OnDeckChangeAction?.Invoke(deckIndex);
-                    };
+                    battleDeckMenuPrefab.OnDeckChangeAction = (deckIndex) => OnDeckChangeAction?.Invoke(deckIndex);
                 }
 
                 var battleEscapeMenuPrefab = currentBaseMenuPrefabs[i] as BattleEscapeMenuPrefab;
                 if (battleEscapeMenuPrefab)
                 {
-                    battleEscapeMenuPrefab.OnEscapeAction = () =>
-                    {
-                        OnEscapeAction?.Invoke();
-                    };
+                    battleEscapeMenuPrefab.OnEscapeAction = () => OnEscapeAction?.Invoke();
                 }
 
-                // 一旦、すべて非表示にする
+                // 管理しやすいように一旦、全て非表示にする
                 currentBaseMenuPrefabs[i].Disable();
             }
         }
@@ -211,17 +205,17 @@ namespace Siasm
         public void ShowDialogMenu(DialogMenuType dialogMenuType, BaseMenuDialogPrefab.BaseParameter dialogParameter)
         {
             // 生成済みのものが残っていた場合は先に破棄を行う
-            if (currentInstanceDialogGameObject != null)
+            if (currentInstanceMenuDialogPrefab != null)
             {
-                Destroy(currentInstanceDialogGameObject);
-                currentInstanceDialogGameObject = null;
+                Destroy(currentInstanceMenuDialogPrefab);
+                currentInstanceMenuDialogPrefab = null;
             }
 
             var dialogMenuPrefabGameObject = dialogMenuPrefabs.GetGameObject(dialogMenuType);
-            var dialogMenuPrefabInstanceGameObject = Instantiate(dialogMenuPrefabGameObject, menuDialogRootGameObject.transform);
-            currentInstanceDialogGameObject = dialogMenuPrefabInstanceGameObject;
+            var instanceMenuDialogPrefab = Instantiate(dialogMenuPrefabGameObject, menuDialogRootGameObject.transform);
+            currentInstanceMenuDialogPrefab = instanceMenuDialogPrefab;
 
-            var baseMenuDialogPrefab = dialogMenuPrefabInstanceGameObject.GetComponent<BaseMenuDialogPrefab>();
+            var baseMenuDialogPrefab = instanceMenuDialogPrefab.GetComponent<BaseMenuDialogPrefab>();
             baseMenuDialogPrefab.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController);
             baseMenuDialogPrefab.OnCloseAction = () => OnCloseAction?.Invoke();
             baseMenuDialogPrefab.Setup();
@@ -230,10 +224,10 @@ namespace Siasm
 
         private void OnDestroy()
         {
-            if (currentInstanceDialogGameObject != null)
+            if (currentInstanceMenuDialogPrefab != null)
             {
-                Destroy(currentInstanceDialogGameObject);
-                currentInstanceDialogGameObject = null;
+                Destroy(currentInstanceMenuDialogPrefab);
+                currentInstanceMenuDialogPrefab = null;
             }
         }
     }
