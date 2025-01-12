@@ -54870,10 +54870,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2297405699597564371}
     m_Modifications:
-    - target: {fileID: 106687922032021028, guid: 4659e9225add5144e9abcbe46c11439c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.0000076293945
-      objectReference: {fileID: 0}
     - target: {fileID: 5260191944076876956, guid: 4659e9225add5144e9abcbe46c11439c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -54954,29 +54950,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5461199725392258873, guid: 4659e9225add5144e9abcbe46c11439c, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5461199725392258873, guid: 4659e9225add5144e9abcbe46c11439c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5461199725392258873, guid: 4659e9225add5144e9abcbe46c11439c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6051742158439701101, guid: 4659e9225add5144e9abcbe46c11439c, type: 3}
       propertyPath: m_Name
       value: SettingDropdownCellView
-      objectReference: {fileID: 0}
-    - target: {fileID: 8879308921178427800, guid: 4659e9225add5144e9abcbe46c11439c, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8879308921178427800, guid: 4659e9225add5144e9abcbe46c11439c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
