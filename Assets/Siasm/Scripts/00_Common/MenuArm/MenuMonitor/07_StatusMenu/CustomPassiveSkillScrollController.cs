@@ -30,7 +30,6 @@ namespace Siasm
                 this.customPassiveSkillModels.Add(customPassiveSkillModels[i]);
             }
 
-            // 追加してからベースを実行
             base.Setup();
         }
 

@@ -31,7 +31,6 @@ namespace Siasm
                 this.deckCardModels.Add(deckCardModels[i]);
             }
 
-            // 追加してからベースを実行
             base.Setup();
         }
 

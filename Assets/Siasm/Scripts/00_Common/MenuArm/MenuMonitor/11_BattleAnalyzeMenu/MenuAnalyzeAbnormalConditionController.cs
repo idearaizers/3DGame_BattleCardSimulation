@@ -39,7 +39,6 @@ namespace Siasm
                 });
             }
 
-            // 追加してからベースを実行
             base.Setup();
         }
 

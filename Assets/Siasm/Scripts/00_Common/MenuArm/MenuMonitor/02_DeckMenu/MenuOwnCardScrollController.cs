@@ -30,7 +30,6 @@ namespace Siasm
                 this.ownCardModels.Add(ownCardModels[i]);
             }
 
-            // 追加してからベースを実行
             base.Setup();
         }
 

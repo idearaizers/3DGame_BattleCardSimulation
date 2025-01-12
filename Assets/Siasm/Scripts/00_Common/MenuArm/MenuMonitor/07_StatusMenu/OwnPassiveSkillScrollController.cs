@@ -30,7 +30,6 @@ namespace Siasm
                 this.ownPassiveModels.Add(ownPassiveModels[i]);
             }
 
-            // 追加してからベースを実行
             base.Setup();
         }
 

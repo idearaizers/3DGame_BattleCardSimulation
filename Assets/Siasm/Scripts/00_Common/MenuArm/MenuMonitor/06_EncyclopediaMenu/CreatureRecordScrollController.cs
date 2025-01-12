@@ -22,8 +22,6 @@ namespace Siasm
         public void Setup(CreatureRecordModel[] creatureRecordModels, int currentIndex)
         {
             this.creatureRecordModels = new SmallList<CreatureRecordModel>();
-
-            // 仮
             this.currentIndex = currentIndex;
 
             for (int i = 0; i < creatureRecordModels.Length; i++)
@@ -31,7 +29,6 @@ namespace Siasm
                 this.creatureRecordModels.Add(creatureRecordModels[i]);
             }
 
-            // 追加してからベースを実行
             base.Setup();
         }
 
