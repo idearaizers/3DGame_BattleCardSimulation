@@ -43,8 +43,9 @@ namespace Siasm
             }
             else
             {
-                var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
-                creatureImage.sprite = cachedSprite;
+                // 仮
+                // var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
+                // creatureImage.sprite = cachedSprite;
             }
 
             await UniTask.CompletedTask;
