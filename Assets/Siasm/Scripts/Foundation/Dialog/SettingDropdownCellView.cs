@@ -59,7 +59,7 @@ namespace Siasm
         private void OnChangedDropdown(int selectedIndex)
         {
             // 仮SE
-            AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
+            // AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // ここでは値を変更したかどうかだけ通知
             OnChangedDropdownAction?.Invoke();

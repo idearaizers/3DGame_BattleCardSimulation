@@ -65,6 +65,9 @@ namespace Siasm
         /// </summary>
         private void OnChangedSettingAction()
         {
+            // 仮SE
+            AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
+
             // 開いていた場合はなにもしない
             if (SideArmSwitcherPrefab.IsOpen)
             {
