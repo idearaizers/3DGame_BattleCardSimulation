@@ -49,7 +49,7 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
                     ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""57fa4347-87f5-4b79-936d-2bdade0ad917"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -58,7 +58,7 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
                     ""name"": ""Click"",
                     ""type"": ""Button"",
                     ""id"": ""ea560c67-a353-4b24-be02-447ff753e97b"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -67,7 +67,7 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""9a70dc50-7db4-43dc-ad8c-e0e3395bff66"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -76,7 +76,7 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
                     ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""f02aff13-af0c-483c-a353-648fa64ee467"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -85,7 +85,7 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
                     ""name"": ""Menu"",
                     ""type"": ""Button"",
                     ""id"": ""872cdec7-15a1-474d-af44-2bbeefdca156"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -428,7 +428,7 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""67aaff54-4c1b-4c25-bc91-a8281d095cf4"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -437,7 +437,7 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""e7c4c46f-22be-4b05-b0ea-464b8169f1b7"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
