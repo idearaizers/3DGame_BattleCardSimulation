@@ -41,11 +41,11 @@ namespace Siasm
 
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
-            var rowMenuOwnPassiveSkillCellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuOwnPassiveSkillCellView;
-            rowMenuOwnPassiveSkillCellView.name = GetCellNameText(dataIndex);
-            rowMenuOwnPassiveSkillCellView.SetData(ref ownPassiveModels, dataIndex * NumberOfCellsPerRow);
-            rowMenuOwnPassiveSkillCellView.OnClickAction = OnClick;
-            return rowMenuOwnPassiveSkillCellView;
+            var cellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuOwnPassiveSkillCellView;
+            cellView.name = GetCellNameText(dataIndex);
+            cellView.SetData(ref ownPassiveModels, dataIndex * NumberOfCellsPerRow);
+            cellView.OnClickAction = OnClick;
+            return cellView;
         }
 
         private void OnClick(GameObject selectedGameObject, MenuOwnPassiveModel ownPassiveModel)

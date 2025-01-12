@@ -41,11 +41,11 @@ namespace Siasm
 
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
-            var rowMenuOwnCardCellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuOwnCardCellView;
-            rowMenuOwnCardCellView.name = GetCellNameText(dataIndex);
-            rowMenuOwnCardCellView.SetData(ref ownCardModels, dataIndex * NumberOfCellsPerRow);
-            rowMenuOwnCardCellView.OnClickAction = OnClick;
-            return rowMenuOwnCardCellView;
+            var cellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuOwnCardCellView;
+            cellView.name = GetCellNameText(dataIndex);
+            cellView.SetData(ref ownCardModels, dataIndex * NumberOfCellsPerRow);
+            cellView.OnClickAction = OnClick;
+            return cellView;
         }
 
         private void OnClick(GameObject selectedGameObject, BattleCardModel battleCardModel)

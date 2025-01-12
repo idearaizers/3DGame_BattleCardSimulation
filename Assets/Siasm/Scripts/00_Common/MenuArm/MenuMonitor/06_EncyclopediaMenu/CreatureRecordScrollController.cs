@@ -42,11 +42,11 @@ namespace Siasm
 
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
-            var rowCreatureRecordCellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowCreatureRecordCellView;
-            rowCreatureRecordCellView.name = GetCellNameText(dataIndex);
-            rowCreatureRecordCellView.SetData(ref creatureRecordModels, dataIndex * NumberOfCellsPerRow);
-            rowCreatureRecordCellView.OnClickAction = OnClick;
-            return rowCreatureRecordCellView;
+            var cellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowCreatureRecordCellView;
+            cellView.name = GetCellNameText(dataIndex);
+            cellView.SetData(ref creatureRecordModels, dataIndex * NumberOfCellsPerRow);
+            cellView.OnClickAction = OnClick;
+            return cellView;
         }
 
         private void OnClick(GameObject selectedGameObject, CreatureRecordModel creatureRecordModel)

@@ -42,13 +42,13 @@ namespace Siasm
 
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
-            var rowDeckCardCellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowBattleCardCellView;
-            rowDeckCardCellView.name = GetCellNameText(dataIndex);
-            rowDeckCardCellView.SetData(ref smallListOfBattleCardModels, dataIndex * NumberOfCellsPerRow);
+            var cellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowBattleCardCellView;
+            cellView.name = GetCellNameText(dataIndex);
+            cellView.SetData(ref smallListOfBattleCardModels, dataIndex * NumberOfCellsPerRow);
 
-            rowDeckCardCellView.OnClickAction = OnClick;
+            cellView.OnClickAction = OnClick;
 
-            return rowDeckCardCellView;
+            return cellView;
         }
 
         private void OnClick(BattleCardModel battleCardModel)

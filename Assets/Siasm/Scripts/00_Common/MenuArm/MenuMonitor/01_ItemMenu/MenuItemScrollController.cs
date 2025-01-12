@@ -10,10 +10,6 @@ namespace Siasm
 
         public Action<MenuItemCellView> OnClickAction { get; set; }
 
-        // EnhancedScrollerCellView Prefabが3つかな
-        // EnhancedScrollerCellView Prefabが3つかな
-        // EnhancedScrollerCellView Prefabが3つかな
-
         public override void Initialize()
         {
             base.Initialize();
@@ -30,7 +26,6 @@ namespace Siasm
                 this.itemModels.Add(itemModels[i]);
             }
 
-            // 追加してからベースを実行
             base.Setup();
         }
 
@@ -41,33 +36,12 @@ namespace Siasm
 
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
-            // 
-            // if (itemModels[dataIndex] is ItemModel)
-            // {
-            //     // 
-            //     // var rowMenuItemCellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuItemCellView;
-            //     // rowMenuItemCellView.name = GetCellNameText(dataIndex);
-            // }
-
-            // 
-            var rowMenuItemCellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuItemCellView;
-            rowMenuItemCellView.name = GetCellNameText(dataIndex);
-            rowMenuItemCellView.SetData(ref itemModels, dataIndex * NumberOfCellsPerRow);
-            rowMenuItemCellView.OnClickAction = OnClick;
-            return rowMenuItemCellView;
+            var cellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuItemCellView;
+            cellView.name = GetCellNameText(dataIndex);
+            cellView.SetData(ref itemModels, dataIndex * NumberOfCellsPerRow);
+            cellView.OnClickAction = OnClick;
+            return cellView;
         }
-
-        // 仮
-        // public override float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
-        // {
-        //     if (itemModels[dataIndex] is ItemModel)
-        //     {
-        //         // 仮
-        //         return 0.01f;
-        //     }
-        //     // 仮
-        //     return 0.01f;
-        // }
 
         private void OnClick(MenuItemCellView menuItemCellView)
         {

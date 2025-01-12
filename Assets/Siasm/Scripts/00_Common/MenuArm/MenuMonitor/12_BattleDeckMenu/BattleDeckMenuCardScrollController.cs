@@ -42,11 +42,11 @@ namespace Siasm
 
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
-            var rowMenuDeckCardCellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuDeckCardCellView;
-            rowMenuDeckCardCellView.name = GetCellNameText(dataIndex);
-            rowMenuDeckCardCellView.SetData(ref deckCardModels, dataIndex * NumberOfCellsPerRow);
-            rowMenuDeckCardCellView.OnClickAction = OnClick;
-            return rowMenuDeckCardCellView;
+            var cellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuDeckCardCellView;
+            cellView.name = GetCellNameText(dataIndex);
+            cellView.SetData(ref deckCardModels, dataIndex * NumberOfCellsPerRow);
+            cellView.OnClickAction = OnClick;
+            return cellView;
         }
 
         private void OnClick(GameObject selectedGameObject, BattleCardModel battleCardModel)
