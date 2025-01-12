@@ -1,5 +1,5 @@
 >> ターミナルでの階層変更コマンド
-cd "C:\Program Files\GitHub\3DGame_SimulationRPG_ver1.0\Assets"
+cd "C:\Program Files\GitHub\3DGame_BattleCardSimulation\Assets"
 
 >> MasterMemoryの生成コマンド
 dotnet-mmgen -inputDirectory ./Siasm/Scripts/Infrastructe/Domain/MasterData -outputDirectory ./Siasm/Scripts/Infrastructe/MasterMemoryGenerated -usingNamespace "Siasm"
@@ -9,11 +9,11 @@ mpc -input ./Siasm/Scripts/Infrastructe/Domain/MasterData -output ./Siasm/Script
 
 >>>> 階層を変更せずに実行する際のコマンド
 >> MasterMemoryの生成コマンド
-dotnet-mmgen -inputDirectory "C:\Program Files\GitHub\3DGame_SimulationRPG_ver1.0\Assets\Siasm\Scripts\Infrastructe\Domain\MasterData" -outputDirectory "C:\Program Files\GitHub\3DGame_SimulationRPG_ver1.0\Assets\Siasm\Scripts\Infrastructe\MasterMemoryGenerated" -usingNamespace "Siasm"
-dotnet-mmgen -inputDirectory "C:\Program Files\GitHub\3DGame_SimulationRPG_ver1.0\Assets\Siasm\Scripts\Infrastructe\Domain\MasterData" -outputDirectory "C:\Program Files\GitHub\3DGame_SimulationRPG_ver1.0\Assets\Siasm\Scripts\Infrastructe\MasterMemoryGenerated" -usingNamespace "Siasm" -addImmutableConstructor
+dotnet-mmgen -inputDirectory "C:\Program Files\GitHub\3DGame_BattleCardSimulation\Assets\Siasm\Scripts\Infrastructe\Domain\MasterData" -outputDirectory "C:\Program Files\GitHub\3DGame_BattleCardSimulation\Assets\Siasm\Scripts\Infrastructe\MasterMemoryGenerated" -usingNamespace "Siasm"
+dotnet-mmgen -inputDirectory "C:\Program Files\GitHub\3DGame_BattleCardSimulation\Assets\Siasm\Scripts\Infrastructe\Domain\MasterData" -outputDirectory "C:\Program Files\GitHub\3DGame_BattleCardSimulation\Assets\Siasm\Scripts\Infrastructe\MasterMemoryGenerated" -usingNamespace "Siasm" -addImmutableConstructor
 
 >> MessagePackの生成コマンド
-mpc -input "C:\Program Files\GitHub\3DGame_SimulationRPG_ver1.0\Assets\Siasm\Scripts\Infrastructe\Domain\MasterData" -output "C:\Program Files\GitHub\3DGame_SimulationRPG_ver1.0\Assets\Siasm\Scripts\Infrastructe\MessagePackGenerated" -usingNamespace "Siasm"
+mpc -input "C:\Program Files\GitHub\3DGame_BattleCardSimulation\Assets\Siasm\Scripts\Infrastructe\Domain\MasterData" -output "C:\Program Files\GitHub\3DGame_BattleCardSimulation\Assets\Siasm\Scripts\Infrastructe\MessagePackGenerated" -usingNamespace "Siasm"
 
 >> 注意事項
 メッセージパックにある項目を削除する際は一度、破棄してから実行する必要があるかも
