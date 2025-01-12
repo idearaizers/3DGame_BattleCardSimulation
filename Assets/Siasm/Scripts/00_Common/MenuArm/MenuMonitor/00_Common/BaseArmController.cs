@@ -39,7 +39,8 @@ namespace Siasm
 
         public CommonMenuArmPrefab CommonMenuArmPrefab => commonMenuArmPrefab;
 
-        public void Initialize(CancellationToken token, BaseUseCase baseUseCase, BaseCameraController baseCameraController, bool isBattle = false, BattleSpaceManager battleSpaceManager = null)
+        public void Initialize(CancellationToken token, BaseUseCase baseUseCase, BaseCameraController baseCameraController,
+            bool isBattle = false, BattleSpaceManager battleSpaceManager = null)
         {
             this.token = token;
             this.baseCameraController = baseCameraController;
@@ -136,10 +137,6 @@ namespace Siasm
 
             // メニューアームを表示にする
             commonMenuArmPrefab.ChangeActiveOfLeftSideArm(true);
-
-            //
-            // Debug.Log("TODO: 中身を最新の状態にする");
-            // ここで表示する中身を作った方がいいかも
 
             // 表示前に中身を最新に更新する
             commonMenuArmPrefab.UpdateMenuContents(baseMenuPrefabParameter);

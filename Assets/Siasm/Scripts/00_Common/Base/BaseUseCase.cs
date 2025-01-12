@@ -30,6 +30,7 @@ namespace Siasm
 
         /// <summary>
         /// セーブデータ是非を基にセーブデータの表示用のパラメータクラスを作成する
+        /// セーブデータのMax数は現状で4つ
         /// </summary>
         /// <returns></returns>
         public SaveSlotCellView.Parameter[] CreateSaveSlotCellViewParameters()
