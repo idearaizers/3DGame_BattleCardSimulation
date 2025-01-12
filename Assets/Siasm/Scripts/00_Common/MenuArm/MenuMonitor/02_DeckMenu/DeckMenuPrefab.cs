@@ -241,13 +241,13 @@ namespace Siasm
             }
 
             // カードの表示
-            if (menuCardDragController.CurrentDraggingCardPrefab == null)
+            if (menuCardDragController.CurrentMenuDragCardPrefab == null)
             {
                 menuCardDragController.ShowDraggingCard(scrollType);
             }
 
             // 移動処理
-            if (menuCardDragController.CurrentDraggingCardPrefab != null)
+            if (menuCardDragController.CurrentMenuDragCardPrefab != null)
             {
                 menuCardDragController.MovingDragCard();
             }

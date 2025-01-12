@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace Siasm
 {
     /// <summary>
-    /// インスタンスしないといけないのでBattleCardModelは継承ではなく格納する形がいいかも
+    /// NOTE: 継承しているけどBattleCardModelをする形の方が住み分け的にいいかも
     /// </summary>
     public class MenuDeckCardModel : BattleCardModel { }
 
@@ -26,7 +26,7 @@ namespace Siasm
         [SerializeField]
         private Image selectedImage;
 
-        public MenuDeckCardModel DeckCardModel { get; private set; }
+        public MenuDeckCardModel MenuDeckCardModel { get; private set; }
 
         public Action<GameObject, BattleCardModel> OnClickAction { get; set; }
 
@@ -34,20 +34,19 @@ namespace Siasm
         {
             button.onClick.AddListener(OnClick);
 
-            // 初期は表示をoffにする
             selectedImage.gameObject.SetActive(false);
         }
 
         /// <summary>
         /// モデルが空の場合はContainerとなっているGameObjectを非アクティブにする
         /// </summary>
-        /// <param name="deckCardModel"></param>
-        public void SetData(MenuDeckCardModel deckCardModel)
+        /// <param name="menuDeckCardModel"></param>
+        public void SetData(MenuDeckCardModel menuDeckCardModel)
         {
-            DeckCardModel = deckCardModel;
+            MenuDeckCardModel = menuDeckCardModel;
 
-            containerGameObject.SetActive(deckCardModel != null);
-            if (deckCardModel != null)
+            containerGameObject.SetActive(menuDeckCardModel != null);
+            if (menuDeckCardModel != null)
             {
                 UpdateViewAsync().Forget();
             }
@@ -55,7 +54,7 @@ namespace Siasm
 
         private async UniTask UpdateViewAsync()
         {
-            var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, DeckCardModel.CardId);
+            var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, MenuDeckCardModel.CardId);
             if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
             {
                 var cachedSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
@@ -77,7 +76,7 @@ namespace Siasm
         {
             ChangeActiveOfSelectedImage(true);
 
-            OnClickAction?.Invoke(this.gameObject, DeckCardModel);
+            OnClickAction?.Invoke(this.gameObject, MenuDeckCardModel);
         }
     }
 }

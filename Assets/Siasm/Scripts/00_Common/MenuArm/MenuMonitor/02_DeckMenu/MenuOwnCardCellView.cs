@@ -8,7 +8,7 @@ using TMPro;
 namespace Siasm
 {
     /// <summary>
-    /// インスタンスしないといけないのでBattleCardModelは継承ではなく格納する形がいいかも
+    /// NOTE: 継承しているけどBattleCardModelをする形の方が住み分け的にいいかも
     /// </summary>
     public class MenuOwnCardModel : BattleCardModel
     {
@@ -33,7 +33,7 @@ namespace Siasm
         [SerializeField]
         private Image selectedImage;
 
-        public MenuOwnCardModel OwnCardModel { get; private set; }
+        public MenuOwnCardModel MenuOwnCardModel { get; private set; }
 
         public Action<GameObject, BattleCardModel> OnClickAction { get; set; }
 
@@ -41,20 +41,19 @@ namespace Siasm
         {
             button.onClick.AddListener(OnClick);
 
-            // 初期は表示をoffにする
             selectedImage.gameObject.SetActive(false);
         }
 
         /// <summary>
         /// モデルが空の場合はContainerとなっているGameObjectを非アクティブにする
         /// </summary>
-        /// <param name="ownCardModel"></param>
-        public void SetData(MenuOwnCardModel ownCardModel)
+        /// <param name="menuOwnCardModel"></param>
+        public void SetData(MenuOwnCardModel menuOwnCardModel)
         {
-            OwnCardModel = ownCardModel;
+            MenuOwnCardModel = menuOwnCardModel;
 
-            containerGameObject.SetActive(ownCardModel != null);
-            if (ownCardModel != null)
+            containerGameObject.SetActive(menuOwnCardModel != null);
+            if (menuOwnCardModel != null)
             {
                 UpdateViewAsync().Forget();
             }
@@ -62,9 +61,9 @@ namespace Siasm
 
         private async UniTask UpdateViewAsync()
         {
-            numberText.text = OwnCardModel.OwnNumber.ToString();
+            numberText.text = MenuOwnCardModel.OwnNumber.ToString();
 
-            var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, OwnCardModel.CardId);
+            var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, MenuOwnCardModel.CardId);
             if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
             {
                 var cachedSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
@@ -86,7 +85,7 @@ namespace Siasm
         {
             ChangeActiveOfSelectedImage(true);
 
-            OnClickAction?.Invoke(this.gameObject, OwnCardModel);
+            OnClickAction?.Invoke(this.gameObject, MenuOwnCardModel);
         }
     }
 }

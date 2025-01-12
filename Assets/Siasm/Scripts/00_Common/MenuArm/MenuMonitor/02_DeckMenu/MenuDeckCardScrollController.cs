@@ -6,7 +6,7 @@ namespace Siasm
 {
     public sealed class MenuDeckCardScrollController : BaseScrollController, IEnhancedScrollerDelegate
     {
-        private SmallList<MenuDeckCardModel> deckCardModels;
+        private SmallList<MenuDeckCardModel> menuDeckCardModels;
 
         public Action<GameObject, BattleCardModel> OnClickAction { get; set; }
         public MenuCardScrollRect MenuCardScrollRect { get; private set; }
@@ -23,11 +23,11 @@ namespace Siasm
 
         public void Setup(MenuDeckCardModel[] deckCardModels)
         {
-            this.deckCardModels = new SmallList<MenuDeckCardModel>();
+            this.menuDeckCardModels = new SmallList<MenuDeckCardModel>();
 
             for (int i = 0; i < deckCardModels.Length; i++)
             {
-                this.deckCardModels.Add(deckCardModels[i]);
+                this.menuDeckCardModels.Add(deckCardModels[i]);
             }
 
             base.Setup();
@@ -35,14 +35,14 @@ namespace Siasm
 
         public int GetNumberOfCells(EnhancedScroller scroller)
         {
-            return Mathf.CeilToInt((float)deckCardModels.Count / (float)NumberOfCellsPerRow);
+            return Mathf.CeilToInt((float)menuDeckCardModels.Count / (float)NumberOfCellsPerRow);
         }
 
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
             var cellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuDeckCardCellView;
             cellView.name = GetCellNameText(dataIndex);
-            cellView.SetData(ref deckCardModels, dataIndex * NumberOfCellsPerRow);
+            cellView.SetData(ref menuDeckCardModels, dataIndex * NumberOfCellsPerRow);
             cellView.OnClickAction = OnClick;
             return cellView;
         }

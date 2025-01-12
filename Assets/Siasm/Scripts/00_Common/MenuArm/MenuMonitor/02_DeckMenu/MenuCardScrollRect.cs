@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace Siasm
 {
+    /// <summary>
+    /// NOTE: パッシブなどでも使用しているようで共通で使用できる形に変えた方がいいかも
+    /// </summary>
     public sealed class MenuCardScrollRect : ScrollRect
     {
         public enum ScrollType
@@ -26,7 +29,7 @@ namespace Siasm
         }
 
         /// <summary>
-        /// ScrollViewでマウスボタン押下時
+        /// ScrollViewでマウスボタン押下時の処理
         /// </summary>
         /// <param name="eventData"></param>
         public override void OnInitializePotentialDrag(PointerEventData eventData)
@@ -35,7 +38,7 @@ namespace Siasm
         }
 
         /// <summary>
-        /// ドラッグ開始
+        /// ドラッグ開始の処理
         /// </summary>
         /// <param name="eventData"></param>
         public override void OnBeginDrag(PointerEventData eventData)

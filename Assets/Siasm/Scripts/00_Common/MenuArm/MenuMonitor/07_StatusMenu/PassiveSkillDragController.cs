@@ -75,13 +75,13 @@ namespace Siasm
 
                     if (targetTransform.GetComponent<MenuDeckCardCellView>())
                     {
-                        var deckCardModel = targetTransform.GetComponent<MenuDeckCardCellView>().DeckCardModel;
+                        var deckCardModel = targetTransform.GetComponent<MenuDeckCardCellView>().MenuDeckCardModel;
                         menuDragCardPrefab.Apply(deckCardModel);
                     }
 
                     if (targetTransform.GetComponent<MenuOwnCardCellView>())
                     {
-                        var ownCardModel = targetTransform.GetComponent<MenuOwnCardCellView>().OwnCardModel;
+                        var ownCardModel = targetTransform.GetComponent<MenuOwnCardCellView>().MenuOwnCardModel;
                         menuDragCardPrefab.Apply(ownCardModel);
                     }
                 }

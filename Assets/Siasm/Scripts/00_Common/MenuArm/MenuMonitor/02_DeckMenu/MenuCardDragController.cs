@@ -7,6 +7,8 @@ namespace Siasm
 {
     public class MenuCardDragController : MonoBehaviour
     {
+        private const string battleCardGameObjectName = "CellViewButton";
+
         [SerializeField]
         private MenuDragCardPrefab menuDragCardPrefab;
 
@@ -17,11 +19,10 @@ namespace Siasm
         private RectTransform ownCardDragAreaOfRectTransform;
 
         private BaseCameraController baseCameraController;
-
-        public MenuDragCardPrefab CurrentDraggingCardPrefab { get; private set; }
         private MenuCardScrollRect.ScrollType currentScrollType;
         private PointerEventData pointerEventData;
 
+        public MenuDragCardPrefab CurrentMenuDragCardPrefab { get; private set; }
         public Action<MenuDeckCardModel> OnDragDeckCard { get; set; }
         public Action<MenuOwnCardModel> OnDragOwnCard { get; set; }
 
@@ -41,27 +42,27 @@ namespace Siasm
         public void ShowDraggingCard(MenuCardScrollRect.ScrollType scrollType)
         {
             currentScrollType = scrollType;
-            CurrentDraggingCardPrefab = null;
 
-            // コライダーを使用していないでレイを飛ばしてHITしたUIから情報を取得する
+            CurrentMenuDragCardPrefab = null;
             pointerEventData.position = Input.mousePosition;
+
             var raycastResults = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+
             foreach (var raycastResult in raycastResults)
             {
-                // 仮
-                if (raycastResult.gameObject.name == "CellViewButton")
+                if (raycastResult.gameObject.name == battleCardGameObjectName)
                 {
                     var targetTransform = raycastResult.gameObject.transform.parent.parent;
                     if (targetTransform.GetComponent<MenuDeckCardCellView>())
                     {
-                        var deckCardModel = targetTransform.GetComponent<MenuDeckCardCellView>().DeckCardModel;
+                        var deckCardModel = targetTransform.GetComponent<MenuDeckCardCellView>().MenuDeckCardModel;
                         menuDragCardPrefab.Apply(deckCardModel);
                     }
 
                     if (targetTransform.GetComponent<MenuOwnCardCellView>())
                     {
-                        var ownCardModel = targetTransform.GetComponent<MenuOwnCardCellView>().OwnCardModel;
+                        var ownCardModel = targetTransform.GetComponent<MenuOwnCardCellView>().MenuOwnCardModel;
                         menuDragCardPrefab.Apply(ownCardModel);
                     }
 
@@ -81,7 +82,7 @@ namespace Siasm
 
                     // 表示にしてドラッグ状態にする
                     menuDragCardPrefab.gameObject.SetActive(true);
-                    CurrentDraggingCardPrefab = menuDragCardPrefab;
+                    CurrentMenuDragCardPrefab = menuDragCardPrefab;
                 }
             }
         }
@@ -94,7 +95,7 @@ namespace Siasm
             RectTransformUtility.ScreenPointToLocalPointInRectangle(transform as RectTransform, Input.mousePosition, baseCameraController.UICamera, out localPoint);
 
             // マウスの移動に合わせてカードを移動させる
-            CurrentDraggingCardPrefab.transform.localPosition = localPoint;
+            CurrentMenuDragCardPrefab.transform.localPosition = localPoint;
         }
 
         public void MovedDragCard()
@@ -105,29 +106,28 @@ namespace Siasm
                 return;
             }
 
-            if (CurrentDraggingCardPrefab == null)
+            // ドラッグしているカードがなければ処理を終了する
+            if (CurrentMenuDragCardPrefab == null)
             {
                 return;
             }
 
             // 非表示にする
             menuDragCardPrefab.gameObject.SetActive(false);
-            CurrentDraggingCardPrefab = null;
+            CurrentMenuDragCardPrefab = null;
 
             // ドラッグエリアを非表示にする
             deckCardDragAreaOfRectTransform.gameObject.SetActive(false);
             ownCardDragAreaOfRectTransform.gameObject.SetActive(false);
 
-            // TODO: 指定のエリア内にあるのかを確認して追加や削除処理を実行する
-
             // 指定のエリア内にあるのか確認
             var draggingCardOfRectTransform = menuDragCardPrefab.GetComponent<RectTransform>();
 
             // 移動先によって処理を分岐
+            // 指定のエリア内にあれば処理を実行する
             switch (currentScrollType)
             {
                 case MenuCardScrollRect.ScrollType.DeckCard:
-                    // 指定のエリア内にあるのか確認
                     var isDragOfDeckCard = IsOverlappingOfRect(ownCardDragAreaOfRectTransform, draggingCardOfRectTransform);
                     if (isDragOfDeckCard)
                     {
@@ -136,13 +136,13 @@ namespace Siasm
                     break;
 
                 case MenuCardScrollRect.ScrollType.OwnCard:
-                    // 指定のエリア内にあるのか確認
                     var isDragOfOwnCard = IsOverlappingOfRect(deckCardDragAreaOfRectTransform, draggingCardOfRectTransform);
                     if (isDragOfOwnCard)
                     {
                         OnDragOwnCard?.Invoke(menuDragCardPrefab.CurrentBattleCardModel as MenuOwnCardModel);
                     }
                     break;
+
                 case MenuCardScrollRect.ScrollType.None:
                 default:
                     throw new ArgumentOutOfRangeException(nameof(currentScrollType));
@@ -150,7 +150,7 @@ namespace Siasm
         }
 
         /// <summary>
-        /// RectTransformが別のRectTransformと重なっているかどうか
+        /// RectTransformが別のRectTransformと重なっているかどうかを確認
         /// </summary>
         private bool IsOverlappingOfRect(RectTransform rect1, RectTransform rect2)
         {
@@ -171,7 +171,7 @@ namespace Siasm
                     return true;
                 }
 
-                //rect2の角がrect1の内部にあるか
+                // rect2の角がrect1の内部にあるか
                 if (IsPointInsideRect(rect2Corners[i], rect1Corners))
                 {
                     return true;
