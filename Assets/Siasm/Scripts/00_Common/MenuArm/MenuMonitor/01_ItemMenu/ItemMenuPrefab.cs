@@ -17,7 +17,8 @@ namespace Siasm
 
         private MenuItemCellView currentSelectedMenuItemCellView;
 
-        public override void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController, BattleSpaceManager battleSpaceManager)
+        public override void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController,
+            BattleSpaceManager battleSpaceManager)
         {
             base.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController, battleSpaceManager);
 
@@ -105,8 +106,7 @@ namespace Siasm
 
         private void OnChangeActiveTab(int selectedIndex)
         {
-            // NOTE: itemModels を保持して、一旦、仮で逆順の並び替えができるようにしてもいいかも
-            // Debug.Log("TODO: 並び順の切り替えを実行");
+            Debug.Log("TODO: 並び順の切り替え実行");
         }
     }
 }
