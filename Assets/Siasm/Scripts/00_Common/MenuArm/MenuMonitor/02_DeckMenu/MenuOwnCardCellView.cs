@@ -64,16 +64,12 @@ namespace Siasm
         {
             numberText.text = OwnCardModel.OwnNumber.ToString();
 
-            // 画像を取得して反映する
             var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, OwnCardModel.CardId);
-
-            // アセットがある場合
             if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
             {
                 var cachedSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
                 itemIconImage.sprite = cachedSprite;
             }
-            // アセットがない場合
             else
             {
                 var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);

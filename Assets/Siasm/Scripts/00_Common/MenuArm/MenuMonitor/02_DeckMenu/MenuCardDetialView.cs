@@ -48,16 +48,12 @@ namespace Siasm
             cardNameText.text = battleCardModel.CardName;
             cardDitialText.text = "詳細表示";
 
-            // 画像を取得して反映する
             var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, battleCardModel.CardId);
-
-            // アセットがある場合
             if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
             {
                 var cachedSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
                 cardImage.sprite = cachedSprite;
             }
-            // アセットがない場合
             else
             {
                 var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);

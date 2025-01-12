@@ -72,21 +72,15 @@ namespace Siasm
 
         private async UniTask UpdateViewAsync()
         {
-            await UniTask.CompletedTask;
-
-            // 複数の箇所でアセットをキャッシュしようとしているので仮で設定
+            // TODO: この処理はいらないかも
             await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
 
-            // 画像を取得して反映する
             var itemSpriteAddress = string.Format(AddressConstant.CreatureSpriteAddressStringFormat, CreatureRecordModel.CreatureId);
-
-            // アセットがある場合
             if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
             {
                 var cachedSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
                 itemIconImage.sprite = cachedSprite;
             }
-            // アセットがない場合
             else
             {
                 var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);

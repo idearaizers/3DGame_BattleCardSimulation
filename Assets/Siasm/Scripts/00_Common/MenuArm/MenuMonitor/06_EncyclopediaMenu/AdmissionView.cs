@@ -30,26 +30,20 @@ namespace Siasm
 
         public void Setup(CreatureAdmissionMenuDialogPrefab.Parameter parameter)
         {
-            // 
             SetImage(parameter).Forget();
 
-            // 反映
             var admissionText = baseUseCase.GetAdmissionText(parameter.CreatureId);
             ditialText.text = admissionText;
         }
 
         private async UniTask SetImage(CreatureAdmissionMenuDialogPrefab.Parameter parameter)
         {
-            // 画像を取得して反映する
             var itemSpriteAddress = string.Format(AddressConstant.CreatureSpriteAddressStringFormat, parameter.CreatureId);
-
-            // アセットがある場合
             if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
             {
                 var cachedSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
                 creatureImage.sprite = cachedSprite;
             }
-            // アセットがない場合
             else
             {
                 var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);

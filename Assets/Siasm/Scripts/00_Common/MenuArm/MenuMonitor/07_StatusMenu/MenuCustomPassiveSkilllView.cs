@@ -63,22 +63,6 @@ namespace Siasm
         private async UniTask UpdateViewAsync()
         {
             await UniTask.CompletedTask;
-
-            // // 画像を取得して反映する
-            // var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, CustomPassiveSkillModel.CardId);
-
-            // // アセットがある場合
-            // if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
-            // {
-            //     var cachedSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
-            //     itemIconImage.sprite = cachedSprite;
-            // }
-            // // アセットがない場合
-            // else
-            // {
-            //     var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
-            //     itemIconImage.sprite = cachedSprite;
-            // }
         }
 
         public void ChangeActiveOfSelectedImage(bool isActive)
