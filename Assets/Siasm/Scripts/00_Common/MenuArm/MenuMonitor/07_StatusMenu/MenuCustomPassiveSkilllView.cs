@@ -1,0 +1,96 @@
+using Enhanced;
+using System;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Siasm
+{
+    /// <summary>
+    /// 仮
+    /// TODO: PassiveSkillModel に後で継承先を変える
+    /// </summary>
+    public class MenuCustomPassiveSkillModel : BattleCardModel
+    {
+        // public int CardId { get; set; }
+    }
+
+    /// <summary>
+    /// つづりミスかも
+    /// </summary>
+    public sealed class MenuCustomPassiveSkilllView : EnhancedScrollerCellView
+    {
+        [Space]
+        [SerializeField]
+        private GameObject containerGameObject;
+
+        [SerializeField]
+        private Image itemIconImage;
+
+        [SerializeField]
+        private Button button;
+
+        [SerializeField]
+        private Image selectedImage;
+
+        public MenuCustomPassiveSkillModel CustomPassiveSkillModel { get; private set; }
+
+        public Action<GameObject, MenuCustomPassiveSkillModel> OnClickAction { get; set; }
+
+        private void Start()
+        {
+            button.onClick.AddListener(OnClick);
+
+            // 初期は表示をoffにする
+            selectedImage.gameObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// モデルが空の場合はContainerとなっているGameObjectを非アクティブにする
+        /// </summary>
+        /// <param name="customPassiveSkillModel"></param>
+        public void SetData(MenuCustomPassiveSkillModel customPassiveSkillModel)
+        {
+            CustomPassiveSkillModel = customPassiveSkillModel;
+
+            containerGameObject.SetActive(customPassiveSkillModel != null);
+            if (customPassiveSkillModel != null)
+            {
+                UpdateViewAsync().Forget();
+            }
+        }
+
+        private async UniTask UpdateViewAsync()
+        {
+            await UniTask.CompletedTask;
+
+            // // 画像を取得して反映する
+            // var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, CustomPassiveSkillModel.CardId);
+
+            // // アセットがある場合
+            // if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
+            // {
+            //     var cachedSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
+            //     itemIconImage.sprite = cachedSprite;
+            // }
+            // // アセットがない場合
+            // else
+            // {
+            //     var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
+            //     itemIconImage.sprite = cachedSprite;
+            // }
+        }
+
+        public void ChangeActiveOfSelectedImage(bool isActive)
+        {
+            selectedImage.gameObject.SetActive(isActive);
+        }
+
+        private void OnClick()
+        {
+            ChangeActiveOfSelectedImage(true);
+
+            OnClickAction?.Invoke(this.gameObject, CustomPassiveSkillModel);
+        }
+    }
+}

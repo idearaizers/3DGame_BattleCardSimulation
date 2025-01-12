@@ -1,0 +1,100 @@
+using Cysharp.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+namespace Siasm
+{
+    /// <summary>
+    /// BaseHUDArmPrefabにはこのScriptでは不要な処理がいくつかあるので継承していないです
+    /// </summary>
+    public abstract class BaseMatchBattleCardHUDPrefab : MonoBehaviour
+    {
+        private const string playSpeedFloatString = "PlaySpeed";
+        private const string showStateName = "CommonMatchBattleCardHUDPrefab_Show";
+        private const string restartStateName  = "CommonMatchBattleCardHUDPrefab_Restart";
+
+        [SerializeField]
+        private Animator animator;
+
+        [SerializeField]
+        private Canvas canvas;
+
+        [SerializeField]
+        private TextMeshProUGUI cardNameText;
+
+        [SerializeField]
+        private Image cardImage;
+
+        [SerializeField]
+        private TextMeshProUGUI descriptionText;
+
+        /// <summary>
+        /// 既に開いている場合は短縮verのアニメーションを再生させる際に使用
+        /// NOTE: 何度も開くと画面が騒がしかったので追加
+        /// NOTE: シェイクアニメーションがいいかなど見た目と合わせて調整予定
+        /// </summary>
+        private bool isOpened;
+
+        public void Initialize(Camera uiCamera)
+        {
+            canvas.worldCamera = uiCamera;
+        }
+
+        public void Setup() { }
+
+        public void PlayShowAnimation(BattleCardModel battleCardModel)
+        {
+            UpdateViewAsync(battleCardModel).Forget();
+
+            if (isOpened)
+            {
+                animator.SetFloat(playSpeedFloatString, 1);
+                animator.Play(restartStateName, 0, 0.0f);
+            }
+            else
+            {
+                animator.SetFloat(playSpeedFloatString, 1);
+                animator.Play(showStateName, 0, 0.0f);
+                isOpened = true;
+            }
+        }
+
+        public void PlayHideAnimation()
+        {
+            // 開いていなければ実行しない
+            if (isOpened == false)
+            {
+                return;
+            }
+
+            isOpened = false;
+
+            // 逆再生でアニメーションを実行
+            animator.SetFloat(playSpeedFloatString, -1);
+            animator.Play(showStateName, 0, 1.0f);
+        }
+
+        private async UniTask UpdateViewAsync(BattleCardModel battleCardModel)
+        {
+            cardNameText.text = battleCardModel.CardName;
+            descriptionText.text = battleCardModel.DescriptionText;
+
+            // 画像を取得して反映する
+            var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, battleCardModel.CardId);
+
+            // アセットがある場合
+            if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
+            {
+                var cachedSprite = AssetCacheManager.Instance.GetAsset<Sprite>(itemSpriteAddress);
+                cardImage.sprite = cachedSprite;
+            }
+            // アセットがない場合
+            else
+            {
+                var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
+                cardImage.sprite = cachedSprite;
+            }
+        }
+    }
+}

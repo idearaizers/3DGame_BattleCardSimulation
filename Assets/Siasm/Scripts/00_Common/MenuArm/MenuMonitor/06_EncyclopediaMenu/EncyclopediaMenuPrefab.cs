@@ -1,0 +1,89 @@
+using UnityEngine;
+
+namespace Siasm
+{
+    /// <summary>
+    /// 最初から使用できなくてもいいかも
+    /// 撃破した後の2日から使用できるようにしてもいいかも
+    /// </summary>
+    public sealed class EncyclopediaMenuPrefab : BaseMenuPrefab
+    {
+        [SerializeField]
+        private CreatreAnalyzeView creatreAnalyzeView;
+
+        [SerializeField]
+        private AdmissionRecordView admissionRecordView;
+
+        // private int currentIndex;
+
+        public override void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController, BattleSpaceManager battleSpaceManager)
+        {
+            base.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController, battleSpaceManager);
+
+            creatreAnalyzeView.Initialize(baseUseCase);
+            creatreAnalyzeView.OnClickAction = OnClickOfAnalyze;
+
+            admissionRecordView.Initialize();
+            admissionRecordView.OnClickAction = OnClick;
+
+            // Prefab上は編集上の都合で非表示にしているのでアクティブにする
+            admissionRecordView.Enable();
+        }
+
+        public override void Setup(bool isActive)
+        {
+            base.Setup(isActive);
+
+            // 使用しない場合は実行しない
+            if (!isActive)
+            {
+                return;
+            }
+
+            var currentIndex = 0;
+
+            // 仮
+            if (BaseUseCase == null)
+            {
+                return;
+            }
+
+            var creatureRecordModels = BaseUseCase.CreatureRecordModels(currentIndex);
+
+            // 仮
+            if (creatureRecordModels == null)
+            {
+                return;
+            }
+
+            this.gameObject.SetActive(true);
+            creatreAnalyzeView.Setup(creatureRecordModels, currentIndex);
+            admissionRecordView.Setup(creatureRecordModels, currentIndex);
+            this.gameObject.SetActive(false);
+        }
+
+        public override void UpdateContent(BaseMenuPrefabParameter baseMenuPrefabParameter)
+        {
+            base.UpdateContent(baseMenuPrefabParameter);
+
+            // // 使用しない場合は実行しない
+            // if (!IsActive)
+            // {
+            //     return;
+            // }
+
+            // // 中身が変わっていることがあるので最新に更新する
+            // SetItemModel();
+        }
+
+        private void OnClickOfAnalyze(int selectedIndex)
+        {
+            admissionRecordView.ShowSelected(selectedIndex);
+        }
+
+        private void OnClick(CreatureRecordModel creatureRecordModel)
+        {
+            creatreAnalyzeView.Show(creatureRecordModel);
+        }
+    }
+}
