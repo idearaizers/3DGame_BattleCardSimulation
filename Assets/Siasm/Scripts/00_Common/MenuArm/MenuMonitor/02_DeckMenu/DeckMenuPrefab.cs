@@ -271,7 +271,6 @@ namespace Siasm
             // セーブメニューを開く
             ShowSaveDeckCardOfAideArm();
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // セーブはここではしないので保持している値に変更を行う
@@ -312,7 +311,6 @@ namespace Siasm
             currentOwnCardModel.OwnNumber--;
             menuOwnCardScrollController.Setup(currentOwnCardModels.ToArray());
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // デッキ側のカードを増やす

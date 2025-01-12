@@ -62,7 +62,6 @@ namespace Siasm
 
         private async UniTask DeckChangeAsync(int deckIndex)
         {
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // 表示を切り替える

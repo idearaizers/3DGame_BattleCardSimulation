@@ -100,7 +100,6 @@ namespace Siasm
 
         private void OnButtonAction()
         {
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             isCursorAnimation = true;
@@ -114,7 +113,6 @@ namespace Siasm
                 return;
             }
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.OnMouseCursor);
 
             buttonImage.color = onCursorColor;

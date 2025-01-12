@@ -70,7 +70,6 @@ namespace Siasm
                 return;
             }
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // 開いていた場合はなにもしない

@@ -43,7 +43,6 @@ namespace Siasm
         {
             OnChangedSettingAction?.Invoke();
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // サウンドのボリュームを変更した値に適用する

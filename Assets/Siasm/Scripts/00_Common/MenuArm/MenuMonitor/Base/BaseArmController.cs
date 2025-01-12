@@ -72,7 +72,6 @@ namespace Siasm
                 return;
             }
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // 表示を切り替える

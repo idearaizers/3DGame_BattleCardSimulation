@@ -37,10 +37,6 @@ namespace Siasm
 
         private void OnChangedDropdown()
         {
-            // 仮SE
-            // AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
-
-            // 実行
             OnChangedSettingAction?.Invoke();
         }
 

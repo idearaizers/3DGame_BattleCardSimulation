@@ -109,7 +109,6 @@ namespace Siasm
                 CreatureLevel = creatureFieldCharacterModel.CharacterLevel
             };
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
             MainUIManager.MenuArmController.PlayShowDialogMenuAnimation(DialogMenuType.CreatureBox, dialogParameterOfHome);
             MainStateMachineController.ChangeMainState(MainStateMachineController.MainState.InteractAction);

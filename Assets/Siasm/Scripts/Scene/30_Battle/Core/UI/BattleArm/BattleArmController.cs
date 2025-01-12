@@ -65,7 +65,6 @@ namespace Siasm
         /// <returns></returns>
         public async UniTask PlayHoldUpAnimationAsync()
         {
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // 処理を実行
@@ -112,9 +111,6 @@ namespace Siasm
 
             // 仮
             await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
-
-            // // 仮SE
-            // AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // 現状ではパネルの非表示で使用
 
@@ -180,7 +176,6 @@ namespace Siasm
             // 仮
             // await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // 
@@ -243,7 +238,6 @@ namespace Siasm
                 return;
             }
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // 表示を切り替える

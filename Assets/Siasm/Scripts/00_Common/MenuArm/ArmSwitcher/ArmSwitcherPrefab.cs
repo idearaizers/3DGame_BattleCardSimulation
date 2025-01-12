@@ -34,7 +34,7 @@ namespace Siasm
         [SerializeField]
         private ArmSwitcherCollider armSwitcherCollider;
 
-        [Header("ボタンの色関連")]
+        [Header("ButtonColor関連")]
         [SerializeField]
         private Image buttonImage;
 
@@ -108,7 +108,6 @@ namespace Siasm
 
         private void OnButtonAction()
         {
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             OnClickAction?.Invoke(this);
@@ -116,7 +115,6 @@ namespace Siasm
 
         private void OnCursor()
         {
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.OnMouseCursor);
 
             currentOffCursorColor = buttonImage.color;

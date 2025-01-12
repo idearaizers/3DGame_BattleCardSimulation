@@ -48,7 +48,6 @@ namespace Siasm
 
         public void PickUpItem(FieldItemPickUpOfFieldInteract fieldItemPickUpOfFieldInteract, int itemId, int itemNumber, PlayerFieldCharacter playerFieldCharacter, bool isHide = false)
         {
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.InteractAction);

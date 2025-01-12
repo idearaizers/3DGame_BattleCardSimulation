@@ -154,7 +154,6 @@ namespace Siasm
                     // デッキに指定のカードがなかったので生成して手札に追加する
                     // TODO: 生成するものがもしもあれば追加実装する
 
-                    // 仮SE
                     AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
                     // 手札に生成して加える
@@ -167,7 +166,6 @@ namespace Siasm
                     continue;
                 }
 
-                // 仮SE
                 AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
                 // デッキから手札に移動した状態に変更する
@@ -346,7 +344,6 @@ namespace Siasm
         {
             // 手札をすべてデッキの場所に移動させる
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // 

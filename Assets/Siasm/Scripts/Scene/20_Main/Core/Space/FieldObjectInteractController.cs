@@ -70,7 +70,6 @@ namespace Siasm
                         // IsOnCloseAction = false
                     };
 
-                    // 仮SE
                     AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
                     mainUIManager.MenuArmController.PlayShowDialogMenuAnimation(DialogMenuType.YesNo, dialogParameterOfHome);
                     mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.InteractAction);
@@ -118,7 +117,6 @@ namespace Siasm
                         },
                     };
 
-                    // 仮SE
                     AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
                     mainUIManager.MenuArmController.PlayShowDialogMenuAnimation(DialogMenuType.EgidoDelivery, dialogParameter);
@@ -162,7 +160,6 @@ namespace Siasm
                         },
                     };
 
-                    // 仮SE
                     AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
                     mainUIManager.MenuArmController.PlayShowDialogMenuAnimation(DialogMenuType.CreatureAdmission, aaa);

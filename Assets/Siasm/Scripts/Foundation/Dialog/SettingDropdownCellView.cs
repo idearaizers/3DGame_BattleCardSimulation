@@ -43,7 +43,6 @@ namespace Siasm
 
         public void ApplyViewParameter()
         {
-            // ドロップダウンの値を反映する
             ViewParameter.SelectedIndex = dropdown.value;
         }
 
@@ -58,10 +57,6 @@ namespace Siasm
 
         private void OnChangedDropdown(int selectedIndex)
         {
-            // 仮SE
-            // AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
-
-            // ここでは値を変更したかどうかだけ通知
             OnChangedDropdownAction?.Invoke();
         }
     }

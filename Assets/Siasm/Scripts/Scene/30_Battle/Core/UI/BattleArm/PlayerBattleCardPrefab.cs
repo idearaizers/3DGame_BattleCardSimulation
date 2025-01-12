@@ -132,7 +132,6 @@ namespace Siasm
 
             isSelected = true;
 
-            // 仮SE
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             var tmpPosition = transform.localPosition;
