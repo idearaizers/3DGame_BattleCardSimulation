@@ -10,8 +10,6 @@ namespace Siasm
     /// </summary>
     public sealed class BattleAnalyzeMenuPrefab : BaseMenuPrefab
     {
-        private BattleSpaceManager battleSpaceManager;
-
         [Header("上段項目")]
         [SerializeField]
         private TextMeshProUGUI fighterNameText;
@@ -42,17 +40,15 @@ namespace Siasm
         [SerializeField]
         private MenuAnalyzePassiveAbilityController menuAnalyzePassiveAbilityController;
 
-
         public sealed class BattleAnalyzeMenuPrefabParameter : BaseMenuPrefabParameter
         {
             public bool isPlayerTarget { get; set; }
         }
 
-        public override void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController, BattleSpaceManager battleSpaceManager)
+        public override void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController,
+            PlayerBattleFighterSpawnController playerBattleFighterSpawnController, EnemyBattleFighterSpawnController enemyBattleFighterSpawnController)
         {
-            this.battleSpaceManager = battleSpaceManager;
-
-            base.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController, battleSpaceManager);
+            base.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController, playerBattleFighterSpawnController, enemyBattleFighterSpawnController);
 
             playerFighterShowButton.onClick.AddListener(OnPlayerFighterShowButton);
             enemyFighterShowButton.onClick.AddListener(OnEnemyFighterShowButton);
@@ -117,8 +113,8 @@ namespace Siasm
 
         private void ShowPlayer()
         {
-            var playerBattleFighterPrefab = battleSpaceManager.PlayerBattleFighterPrefab;
-            var FighterName = playerBattleFighterPrefab.CurrentBaseBattleFighterModel.FighterName;
+            var playerBattleFighterPrefab = PlayerBattleFighterSpawnController.InstanceBaseBattleFighterPrefab as PlayerBattleFighterPrefab;
+            var FighterName = PlayerBattleFighterSpawnController.InstanceBaseBattleFighterPrefab.CurrentBaseBattleFighterModel.FighterName;
             fighterNameText.text = FighterName;
 
             // 
@@ -136,13 +132,13 @@ namespace Siasm
             // プレイヤー用
             var activeSelfaaa = menuAnalyzeAbnormalConditionController.gameObject.activeSelf;
             this.menuAnalyzeAbnormalConditionController.ChangeActive(true); 
-            menuAnalyzeAbnormalConditionController.Setup(battleSpaceManager.PlayerBattleFighterPrefab.CurrentBaseBattleFighterModel);
+            menuAnalyzeAbnormalConditionController.Setup(playerBattleFighterPrefab.CurrentBaseBattleFighterModel);
             this.menuAnalyzeAbnormalConditionController.ChangeActive(activeSelfaaa); 
 
             // プレイヤー用
             var activeSelfbbb = menuAnalyzePassiveAbilityController.gameObject.activeSelf;
             this.menuAnalyzePassiveAbilityController.gameObject.SetActive(true); 
-            menuAnalyzePassiveAbilityController.Setup(battleSpaceManager.PlayerBattleFighterPrefab.CurrentBaseBattleFighterModel);
+            menuAnalyzePassiveAbilityController.Setup(playerBattleFighterPrefab.CurrentBaseBattleFighterModel);
             this.menuAnalyzePassiveAbilityController.gameObject.SetActive(activeSelfbbb); 
             this.gameObject.SetActive(activeSelf);
 
@@ -155,7 +151,8 @@ namespace Siasm
 
         private void ShowEnemy()
         {
-            var enemyBattleFighterPrefab = battleSpaceManager.EnemyBattleFighterPrefab;
+            var enemyBattleFighterPrefab = EnemyBattleFighterSpawnController.InstanceBaseBattleFighterPrefab as EnemyBattleFighterPrefab;
+
             var enemyBattleFighterModel = enemyBattleFighterPrefab.CurrentBaseBattleFighterModel as EnemyBattleFighterModel;
             fighterNameText.text = $"{enemyBattleFighterModel.FighterName} Lv.{enemyBattleFighterModel.FighterLevel}";
 
@@ -175,13 +172,13 @@ namespace Siasm
             // エネミー用
             var activeSelfaaa = menuAnalyzeAbnormalConditionController.gameObject.activeSelf;
             this.menuAnalyzeAbnormalConditionController.ChangeActive(true); 
-            menuAnalyzeAbnormalConditionController.Setup(battleSpaceManager.EnemyBattleFighterPrefab.CurrentBaseBattleFighterModel);
+            menuAnalyzeAbnormalConditionController.Setup(enemyBattleFighterPrefab.CurrentBaseBattleFighterModel);
             this.menuAnalyzeAbnormalConditionController.ChangeActive(activeSelfaaa); 
 
             // エネミー用
             var activeSelfbbb = menuAnalyzePassiveAbilityController.gameObject.activeSelf;
             this.menuAnalyzePassiveAbilityController.gameObject.SetActive(true); 
-            menuAnalyzePassiveAbilityController.Setup(battleSpaceManager.EnemyBattleFighterPrefab.CurrentBaseBattleFighterModel);
+            menuAnalyzePassiveAbilityController.Setup(enemyBattleFighterPrefab.CurrentBaseBattleFighterModel);
             this.menuAnalyzePassiveAbilityController.gameObject.SetActive(activeSelfbbb); 
             this.gameObject.SetActive(activeSelf);
 

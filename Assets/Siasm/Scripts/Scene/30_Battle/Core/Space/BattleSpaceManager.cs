@@ -40,6 +40,9 @@ namespace Siasm
         public BattleCameraController BattleCameraController => battleCameraController;
         public TargetArrowController TargetArrowController => targetArrowController;
 
+        public PlayerBattleFighterSpawnController PlayerBattleFighterSpawnController => playerBattleFighterSpawnController;
+        public EnemyBattleFighterSpawnController EnemyBattleFighterSpawnController => enemyBattleFighterSpawnController;
+
         public PlayerBattleFighterPrefab PlayerBattleFighterPrefab => playerBattleFighterSpawnController.InstanceBaseBattleFighterPrefab as PlayerBattleFighterPrefab;
         public EnemyBattleFighterPrefab EnemyBattleFighterPrefab => enemyBattleFighterSpawnController.InstanceBaseBattleFighterPrefab as EnemyBattleFighterPrefab;
 

@@ -22,7 +22,6 @@ namespace Siasm
 
 
         private GameObject currentSelectedGameObject;
-        private BattleSpaceManager battleSpaceManager;
 
         // 
         private List<MenuDeckCardModel> currentDeckCardModels;
@@ -34,11 +33,10 @@ namespace Siasm
 
         public Action<int> OnDeckChangeAction { get; set; }
 
-        public override void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController, BattleSpaceManager battleSpaceManager)
+        public override void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController,
+            PlayerBattleFighterSpawnController playerBattleFighterSpawnController, EnemyBattleFighterSpawnController enemyBattleFighterSpawnController)
         {
-            this. battleSpaceManager = battleSpaceManager;
-
-            base.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController, battleSpaceManager);
+            base.Initialize(sideArmSwitcherPrefab, baseUseCase, baseCameraController, playerBattleFighterSpawnController, enemyBattleFighterSpawnController);
 
             var activeTabIndex = 0;
             tabGroup.SetActiveTab(activeTabIndex);
@@ -100,7 +98,7 @@ namespace Siasm
         private void OnChangeActiveTab(int selectedIndex)
         {
             // バトルボックスにカードが設定されているのか確認して文言を出し分けする
-            var playerBattleFighterPrefab = battleSpaceManager.PlayerBattleFighterPrefab;
+            var playerBattleFighterPrefab = PlayerBattleFighterSpawnController.InstanceBaseBattleFighterPrefab as PlayerBattleFighterPrefab;
             var isPut = playerBattleFighterPrefab.BattleFighterBoxView.IsPutBattleCardModel();
 
             // 現在選択しているデッキの場合はデッキ変更できないので閉じる

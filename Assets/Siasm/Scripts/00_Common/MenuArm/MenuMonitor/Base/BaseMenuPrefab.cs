@@ -7,17 +7,19 @@ namespace Siasm
         protected SideArmSwitcherPrefab SideArmSwitcherPrefab;
         protected BaseUseCase BaseUseCase;
         protected BaseCameraController BaseCameraController;
+        protected PlayerBattleFighterSpawnController PlayerBattleFighterSpawnController;
+        protected EnemyBattleFighterSpawnController EnemyBattleFighterSpawnController;
+
         protected bool IsActive;
 
         public virtual void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController,
-            BattleSpaceManager battleSpaceManager)
+            PlayerBattleFighterSpawnController playerBattleFighterSpawnController, EnemyBattleFighterSpawnController enemyBattleFighterSpawnController)
         {
             SideArmSwitcherPrefab = sideArmSwitcherPrefab;
             BaseUseCase = baseUseCase;
             BaseCameraController = baseCameraController;
-
-            // マネージャーだと無限参照ループになる可能性があるからその下のものがよさそうやね
-            // battleSpaceManager あとで整理した方がよさそう
+            PlayerBattleFighterSpawnController = playerBattleFighterSpawnController;
+            EnemyBattleFighterSpawnController = enemyBattleFighterSpawnController;
         }
 
         public virtual void Setup(bool isActive)
