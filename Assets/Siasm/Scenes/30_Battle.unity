@@ -3994,10 +3994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7429731150bfad64685df423a48ca917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBattleFighterId: 9001
+  enemyBattleFighterId: 2001
   enemyBattleFighterLevel: 1
   maxHealthPoint: 30
-  maxThinkingPoint: 10
+  maxThinkingPoint: 30
   beginBattleBoxNumber: 1
   maxBattleBoxNumber: 5
 --- !u!1 &805706378
