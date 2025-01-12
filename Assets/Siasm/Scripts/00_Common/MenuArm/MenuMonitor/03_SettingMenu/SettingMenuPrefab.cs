@@ -106,7 +106,7 @@ namespace Siasm
             {
                 new SettingDropdownCellView.Parameter
                 {
-                    LabelText = "言語  ゲーム再起動時に適用されます",                    
+                    LabelText = "言語  ゲーム再起動時に適用されます",
                     DropdownTexts = new string[]
                     {
                         "日本語",
