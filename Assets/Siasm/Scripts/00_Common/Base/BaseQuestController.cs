@@ -1,13 +1,6 @@
-using System;
 using UnityEngine;
-
 
 namespace Siasm
 {
-    public class BaseQuestController : MonoBehaviour
-    {
-
-
-
-    }
+    public class BaseQuestController : MonoBehaviour { }
 }

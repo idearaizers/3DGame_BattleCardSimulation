@@ -7,23 +7,23 @@ namespace Siasm
 {
     public abstract class BaseUseCase
     {
-        // TODO: リボジトリクラス
-        // BaseRepository
-
-        private readonly MemoryDatabase memoryDatabase; // BattleRepository から参照に変えるかな
+        /// <summary>
+        /// NOTE: マスターデータはUseCaseよりもリポジトリクラスからの取得がいいかも
+        /// </summary>
+        private readonly MemoryDatabase memoryDatabase;
 
         public BaseUseCase(MemoryDatabase memoryDatabase)
         {
             this.memoryDatabase = memoryDatabase;
         }
 
+        /// <summary>
+        /// 収容文言を取得
+        /// </summary>
+        /// <param name="creatureId"></param>
+        /// <returns></returns>
         public string GetAdmissionText(int creatureId)
         {
-            // // 反映
-            // var creatureAdmissionMasterData = new EnemyAdmissionMasterData();
-            // var admissionText = creatureAdmissionMasterData.EnemyDictionary[parameter.CreatureId];
-
-            // 収容文言を取得
             var battleFighterMasterData = memoryDatabase.BattleFighterMasterDataTable.FindById(creatureId);
             return battleFighterMasterData.AdmissionName;
         }
@@ -80,7 +80,6 @@ namespace Siasm
             // デッキ別で情報が必要なので一旦、仮で0番目だけ表示に使用
             var saveDataDeckOfBattleCard = SaveManager.Instance.LoadedSaveDataCache.SaveDataBattleDeck.SaveDataDeckOfBattleCards[deckIndex];
 
-            // 
             var menuDeckCardModels = new List<MenuDeckCardModel>();
             foreach (var saveDataBattleCard in saveDataDeckOfBattleCard.SaveDataBattleCards)
             {
@@ -89,7 +88,7 @@ namespace Siasm
                     CardId = saveDataBattleCard.CardId
                 };
 
-                // 数分だけ追加する
+                // カードの枚数分を追加する
                 menuDeckCardModels.AddRange(Enumerable.Repeat(menuDeckCardModel, saveDataBattleCard.CardNumber));
             }
 
@@ -103,27 +102,21 @@ namespace Siasm
         }
 
         /// <summary>
-        /// リポジトリクラスで処理かな
+        /// NOTE: リポジトリクラスで処理させた方がいいかも
         /// </summary>
         /// <param name="deckIndex"></param>
         /// <param name="menuDeckCardModels"></param>
         public void SaveDeckCard(int deckIndex, List<MenuDeckCardModel> menuDeckCardModels)
         {
-            // CardIdsからSaveDataBattleCardに変換して保存する
             var cardIds = menuDeckCardModels.Select(menuDeckCardModel => menuDeckCardModel.CardId);
 
-            // 
-            // var saveDataDeckOfBattleCard = new SaveDataDeckOfBattleCard
-            // {
-            //     CardIds = cardIds.ToArray()
-            // };
-
-            // 辞書にする
+            // 管理しやすいようにDictionary化する
             var countDictionary = cardIds
-                .GroupBy(n => n)                 // 同じ値ごとにグループ化
-                .ToDictionary(g => g.Key, g => g.Count()); // 値とそのカウントを辞書に変換
-            
+                .GroupBy(n => n)                            // 同じ値ごとにグループ化
+                .ToDictionary(g => g.Key, g => g.Count());  // 値とそのカウントを辞書に変換
+
             var saveDataBattleCards = new List<SaveDataBattleCard>();
+
             foreach (var (key, value) in countDictionary)
             {
                 var saveDataBattleCard = new SaveDataBattleCard
@@ -134,7 +127,6 @@ namespace Siasm
                 saveDataBattleCards.Add(saveDataBattleCard);
             }
 
-            // 
             var saveDataDeckOfBattleCard = new SaveDataDeckOfBattleCard
             {
                 SaveDataBattleCards = saveDataBattleCards.ToArray()
@@ -144,7 +136,7 @@ namespace Siasm
         }
 
         /// <summary>
-        /// リポジトリクラスで処理かな
+        /// NOTE: リポジトリクラスで処理させた方がいいかも
         /// </summary>
         /// <param name="menuOwnCardModels"></param>
         public void SaveOwnCard(List<MenuOwnCardModel> menuOwnCardModels)
@@ -159,8 +151,7 @@ namespace Siasm
         }
 
         /// <summary>
-        /// 所持カードのモデルクラスの作成
-        /// メニュー専用
+        /// 所持カードのモデルクラスの作成でメニューで使用
         /// </summary>
         /// <returns></returns>
         public MenuOwnCardModel[] CreateOwnCardModels()
@@ -176,8 +167,7 @@ namespace Siasm
         }
 
         /// <summary>
-        /// 収容記録のモデルクラスの作成
-        /// メニュー専用
+        /// 収容記録のモデルクラスの作成でメニューで使用
         /// </summary>
         /// <returns></returns>
         public CreatureRecordModel[] CreatureRecordModels(int CurrentIndex)
@@ -197,7 +187,6 @@ namespace Siasm
             // 指定のものだけtrueにする
             var creatureRecordModelArray = creatureRecordModels.ToArray();
 
-            // 仮
             if (creatureRecordModelArray.Length > 0)
             {
                 creatureRecordModelArray[CurrentIndex].IsSelected = true;
@@ -207,24 +196,25 @@ namespace Siasm
         }
 
         /// <summary>
-        /// クリシェミナキャラのステータスのモデルクラスの作成
-        /// メニュー専用
+        /// エネミー用のBattleFighterStatusModelを作成で主にメニューで使用
+        /// ・hp：初期値はマスターで設定
+        /// ・tp：初期値はマスターで設定
+        /// ・初期バトルボックス数：初期値はマスターで設定
+        /// ・耐性：カスタマイズで設定
+        /// ・弱点：カスタマイズで設定
+        /// ・総コスト：指定のアイテムで増加
         /// </summary>
+        /// <param name="creatureId"></param>
+        /// <param name="creatureLevel"></param>
         /// <returns></returns>
-        public BattleFighterStatusModel CreateBattleFighterStatusModelOfCreature(int creatureId, int creatureLevel)
+        public BattleFighterStatusModel CreateBattleFighterStatusModelOfEnemy(int creatureId, int creatureLevel)
         {
-            // ・hp：初期値はマスターで設定
-            // ・tp：初期値はマスターで設定
-            // ・初期バトルボックス数：初期値はマスターで設定
-            // ・耐性：カスタマイズで設定
-            // ・弱点：カスタマイズで設定
-            // ・総コスト：指定のアイテムで増加
-
             // レベルによるパラメータを設定
             var enemyBattleFighterOfLevelParameterMasterData = new EnemyBattleFighterOfLevelParameterMasterData();
             var parameterDictionary = enemyBattleFighterOfLevelParameterMasterData.ParameterDictionary[creatureLevel];
 
             // 初期のバトルボックス数を設定
+            // NOTE: Dictionary化して定数での管理に変えてもいいかも
             var currentBattleBoxNumber = 0;
             if (creatureLevel >= 40)
                 currentBattleBoxNumber = 5;
@@ -243,35 +233,28 @@ namespace Siasm
                 MaxHealthPoint = parameterDictionary.Item1,
                 MaxThinkingPoint = parameterDictionary.Item2,
                 BeginBattleBoxNumber = currentBattleBoxNumber,
-                MaxBattleBoxNumber = currentBattleBoxNumber + 4,
-                // MaxAbilityCostNumber = capacityUpperNumber   // NOTE: これはエネミーはいらないので処理を分けた方がいいかも
+                MaxBattleBoxNumber = currentBattleBoxNumber + 4,    // TODO: マジックナンバーになっているので切り分けした方がよさそう
+                MaxAbilityCostNumber = 0    // NOTE: エネミーは不要なので0を指定
             };
 
             return battleFighterStatusModel;
         }
 
         /// <summary>
-        /// プレイヤーキャラのステータスのモデルクラスの作成
-        /// メニュー専用
+        /// プレイヤー用のBattleFighterStatusModelを作成で主にメニューで使用
+        /// ・hp：初期値はマスターで設定
+        /// ・tp：初期値はマスターで設定
+        /// ・初期バトルボックス数：初期値はマスターで設定
+        /// ・耐性：カスタマイズで設定
+        /// ・弱点：カスタマイズで設定
+        /// ・総コスト：指定のアイテムで増加
         /// </summary>
         /// <returns></returns>
-        public BattleFighterStatusModel CreateBattleFighterStatusModel()
+        public BattleFighterStatusModel CreateBattleFighterStatusModelOfPlayer()
         {
-            // ・hp：初期値はマスターで設定
-            // ・tp：初期値はマスターで設定
-            // ・初期バトルボックス数：初期値はマスターで設定
-            // ・耐性：カスタマイズで設定
-            // ・弱点：カスタマイズで設定
-            // ・総コスト：指定のアイテムで増加
-
-            // パッシブスキルで統一かな
-            // コスト
-            // パッシブキャパシティ
-
-            // ファクトリークラスに分離した方がよさそう
             var saveDataBattleFighterCustomPassive = SaveManager.Instance.LoadedSaveDataCache.SaveDataBattleFighter.SaveDataBattleFighterCustomPassive;
 
-            // キャパシティアッパーを所持していれば出し分けを行う
+            // アビリティコストをアップするアイテム（キャパシティアッパー）を所持していればその数分だけ値を増やす
             var capacityUpperNumber = 0;
             var capacityUpperItem = SaveManager.Instance.LoadedSaveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.CapacityUpperId);
             if (capacityUpperItem != null)
@@ -279,6 +262,7 @@ namespace Siasm
                 capacityUpperNumber = capacityUpperItem.ItemNumber;
             }
 
+            // TODO: HPやTPなどの値についてはマスターで設定した値を参照する形に変更予定
             var battleFighterStatusModel = new BattleFighterStatusModel
             {
                 FighterId = 1001,
@@ -293,8 +277,7 @@ namespace Siasm
         }
 
         /// <summary>
-        /// パッシブのモデルクラスの作成
-        /// メニュー専用
+        /// パッシブのモデルクラスの作成で主にメニューで使用
         /// </summary>
         /// <returns></returns>
         public BattleFighterPassiveModel CreateBattleFighterPassiveModel()
@@ -311,7 +294,7 @@ namespace Siasm
 
             var battleFighterPassiveModel = new BattleFighterPassiveModel
             {
-                CurrentCostNumber = 0,  // NOTE: saveDataBattleFighterCustomPassive から情報を取得する
+                CurrentCostNumber = 0,
                 MaxCostNumber = capacityUpperNumber
             };
 
@@ -319,18 +302,15 @@ namespace Siasm
         }
 
         /// <summary>
-        /// 収容を行う
-        /// リポジトリクラス経由がいいかも
+        /// 選択したエネミーを収容する
+        /// NOTE: リポジトリクラスで処理させた方がいいかも
         /// </summary>
         public void CreatureAdmission(CreatureAdmissionMenuDialogPrefab.Parameter parameter)
         {
             var saveDataCreatureBoxs = SaveManager.Instance.LoadedSaveDataCache.SaveDataCreatureBoxs;
             var boxIndexs = saveDataCreatureBoxs.Select(x => x.BoxIndex);
-
-            // 仮
             var creatureIds = saveDataCreatureBoxs.Select(x => x.CreatureId);
 
-            // 仮
             var saveDataCreatureBox = new SaveDataCreatureBox
             {
                 StageIndex = 1,
@@ -343,24 +323,24 @@ namespace Siasm
             SaveManager.Instance.LoadedSaveDataCache.SaveDataCreatureBoxs.Add(saveDataCreatureBox);
         }
 
+        /// <summary>
+        /// 収容可能なエネミーを取得する
+        /// 既に収容済みのものは除外される
+        /// </summary>
+        /// <returns></returns>
         public CreatureAdmissionMenuDialogPrefab.Parameter[] GetAdmissionParameters()
         {
             var saveDataCreatureBoxs = SaveManager.Instance.LoadedSaveDataCache.SaveDataCreatureBoxs;
             var creatureIds = saveDataCreatureBoxs.Select(x => x.CreatureId);
 
-            // 初回のステージでは2002～2010の中からランダムで抽選が可能
+            // TODO: マスターデータから参照予定
             var admissionIndexs = new List<int>()
             {
                 2001,
                 2002,
                 2003,
                 2004,
-                2005,
-                2006,
-                2007,
-                2008,
-                2009,
-                2010
+                2005
             };
 
             // 重複しているものを取り除く
@@ -372,7 +352,6 @@ namespace Siasm
             // ランダムに並び替える
             admissionIndexs = admissionIndexs.OrderBy(a => Guid.NewGuid()).ToList();
 
-            // 設定する
             var parameters = new CreatureAdmissionMenuDialogPrefab.Parameter[]
             {
                 new CreatureAdmissionMenuDialogPrefab.Parameter

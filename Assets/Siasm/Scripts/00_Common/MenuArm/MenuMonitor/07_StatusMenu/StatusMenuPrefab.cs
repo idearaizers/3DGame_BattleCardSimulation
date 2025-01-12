@@ -72,7 +72,7 @@ namespace Siasm
             }
             else
             {
-                var battleFighterStatusModel = BaseUseCase.CreateBattleFighterStatusModel();
+                var battleFighterStatusModel = BaseUseCase.CreateBattleFighterStatusModelOfPlayer();
                 statusParameterView.Setup(battleFighterStatusModel);
 
                 // 仮
