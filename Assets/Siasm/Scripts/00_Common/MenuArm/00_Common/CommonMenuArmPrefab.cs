@@ -7,9 +7,6 @@ namespace Siasm
     {
         private const string closeButtonName = "閉じる";
 
-        /// <summary>
-        /// バトルは専用のもの表示にするかな
-        /// </summary>
         private readonly string[] menuNames = new string[]
         {
             "アイテム",     // 初期から解放
@@ -17,11 +14,11 @@ namespace Siasm
             "設定",         // 初期から解放
             "セーブ",       // 初期から解放
             "ロード",       // 初期から解放
-            "収容記録",     // クリシェミナアーカイブ（エンサイクロペディア）：アイテムで解放、アーカイブで統一するかな
-            "ステータス",   // アイテムで解放、基本機能のためログインボーナスで2日に会社から解放させるかな
-            "外見",         // アイテムで解放、基本機能のためログインボーナスで2日に会社から解放させるかな
-            "リワード",     // アイテムで解放、基本機能のためログインボーナスで2日に会社から解放させるかな
-            "名刺"          // アイテムで解放、基本機能のためログインボーナスで2日に会社から解放させるかな
+            "収容記録",     // 特定のアイテムで解放
+            "ステータス",   // 特定のアイテムで解放
+            "外見",         // 特定のアイテムで解放
+            "リワード",     // 特定のアイテムで解放
+            "名刺"          // 特定のアイテムで解放
         };
 
         [Header("RightSide関連")]
@@ -113,10 +110,6 @@ namespace Siasm
             }
         }
 
-        /// <summary>
-        /// カーソルをボタンに被せた際に反応させたいか変更
-        /// </summary>
-        /// <param name="isActive"></param>
         public void ChangeActiveCanvas(bool isActive)
         {
             menuMonitorPrefab.ChangeActiveCanvas(isActive);
