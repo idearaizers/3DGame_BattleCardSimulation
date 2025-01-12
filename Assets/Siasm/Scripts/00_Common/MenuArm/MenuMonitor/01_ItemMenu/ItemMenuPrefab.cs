@@ -56,7 +56,6 @@ namespace Siasm
                 return;
             }
 
-            // 中身が変わっていることがあるので最新に更新する
             SetItemModel();
         }
 
@@ -70,37 +69,39 @@ namespace Siasm
             }
             else
             {
-                // TODO: 内容に合わせてカテゴリ表示分けをしたい
                 var itemModels = BaseUseCase.CreateItemModelsOfAllOwn();
 
-                // 取得順にするため並び順を逆にする
+                // TODO: 現在選択しているタブに合わせて入手した時間順、またはアイテムid順に並び替える機能を実装
+                // NOTE: 一旦、取得で表示
+                // NOTE: 取得順に表示する際は最新のものを1番目に表示したいので並び順を逆にする
                 Array.Reverse(itemModels);
 
-                // 反映する
                 menuItemScrollController.Setup(itemModels);
                 menuItemDetailView.Setup();
             }
         }
 
+        /// <summary>
+        /// 選択したアイテムの詳細を表示する
+        /// </summary>
+        /// <param name="selectedMenuItemCellView"></param>
         private void OnClick(MenuItemCellView selectedMenuItemCellView)
         {
-            // 選択状態で且つ選択したものが直前のものと違う時だけ選択状態を非表示にする
+            // 選択状態で且つ選択したものが直前のものと違う時は、選択状態を非表示にする
             if (currentSelectedMenuItemCellView != null &&
                 currentSelectedMenuItemCellView != selectedMenuItemCellView)
             {
                 currentSelectedMenuItemCellView.ChangeActiveOfSelectedImage(false);
             }
 
-            // 選択中の情報を更新
-            currentSelectedMenuItemCellView = selectedMenuItemCellView;
-
-            // menuItemDetailViewに表示
             menuItemDetailView.ShowDetailViewAsync(selectedMenuItemCellView.ItemModel).Forget();
+
+            currentSelectedMenuItemCellView = selectedMenuItemCellView;
         }
 
         private void OnChangeActiveTab(int selectedIndex)
         {
-            // TODO: 入手した時間順、またはアイテムid順に並び替える機能を実装
+            // TODO: 現在選択しているタブに合わせて入手した時間順、またはアイテムid順に並び替える機能を実装
 
             Debug.Log("TODO: 並び順の切り替え実行");
         }

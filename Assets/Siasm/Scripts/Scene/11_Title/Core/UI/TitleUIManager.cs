@@ -9,7 +9,7 @@ namespace Siasm
         /// <summary>
         /// 設定とセーブだけ使用可能
         /// </summary>
-        private readonly bool[] activeMenus = new bool[]
+        private readonly bool[] enableMenus = new bool[]
         {
             false,  // アイテム
             false,  // デッキ
@@ -50,7 +50,7 @@ namespace Siasm
 
         public void Setup()
         {
-            menuArmController.Setup(activeMenus, selectedIndex: -1);
+            menuArmController.Setup(enableMenus, selectedIndex: -1);
             titleUIContent.Setup();
             titleDirectionContent.Setup();
         }

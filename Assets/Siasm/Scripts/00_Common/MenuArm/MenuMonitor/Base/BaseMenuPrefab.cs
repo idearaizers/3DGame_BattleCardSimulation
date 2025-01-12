@@ -10,6 +10,9 @@ namespace Siasm
         protected PlayerBattleFighterSpawnController PlayerBattleFighterSpawnController;
         protected EnemyBattleFighterSpawnController EnemyBattleFighterSpawnController;
 
+        /// <summary>
+        /// シーンによって表示物を変えたい場合や機能として解放されるまで使用できないようにしたい際に使用
+        /// </summary>
         protected bool IsEnable;
 
         public virtual void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController,

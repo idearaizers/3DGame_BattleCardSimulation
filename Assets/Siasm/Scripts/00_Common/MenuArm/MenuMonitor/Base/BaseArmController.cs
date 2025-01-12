@@ -54,9 +54,9 @@ namespace Siasm
             commonMenuArmPrefab.OnCloseMenuAction = () => PlaySwitchMenuAnimation(-1);
         }
 
-        public void Setup(bool[] activeMenus, int selectedIndex)
+        public void Setup(bool[] enableMenus, int selectedIndex)
         {
-            commonMenuArmPrefab.Setup(activeMenus, selectedIndex);
+            commonMenuArmPrefab.Setup(enableMenus, selectedIndex);
         }
 
         /// <summary>

@@ -91,14 +91,14 @@ namespace Siasm
             ChangeActiveCanvas(false);
         }
 
-        public void Setup(bool[] activeMenus, int selectedIndex)
+        public void Setup(bool[] enableMenus, int selectedIndex)
         {
             // RightSide関連
             sideArmSwitcherPrefab.Setup();
             armSwitcherPrefabOfCloseButton.Setup(closeButtonName, isActive: true);
 
             // MenuMonitor関連
-            menuMonitorPrefab.Setup(activeMenus, selectedIndex);
+            menuMonitorPrefab.Setup(enableMenus, selectedIndex);
 
             // LeftSide関連
             var currentMenuNames = isBattle
@@ -107,7 +107,7 @@ namespace Siasm
 
             for (int i = 0; i < leftArmSwitcherPrefabs.Length; i++)
             {
-                leftArmSwitcherPrefabs[i].Setup(currentMenuNames[i], activeMenus[i]);
+                leftArmSwitcherPrefabs[i].Setup(currentMenuNames[i], enableMenus[i]);
             }
         }
 

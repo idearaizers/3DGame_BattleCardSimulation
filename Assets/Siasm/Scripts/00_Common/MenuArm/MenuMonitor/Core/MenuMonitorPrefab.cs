@@ -139,11 +139,11 @@ namespace Siasm
             }
         }
 
-        public void Setup(bool[] activeMenus, int selectedIndex)
+        public void Setup(bool[] enableMenus, int selectedIndex)
         {
             for (int i = 0; i < currentBaseMenuPrefabs.Count; i++)
             {
-                currentBaseMenuPrefabs[i].Setup(activeMenus[i]);
+                currentBaseMenuPrefabs[i].Setup(enableMenus[i]);
 
                 if (i == selectedIndex)
                 {

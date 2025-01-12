@@ -14,7 +14,7 @@ namespace Siasm
         /// バトル用の項目にすべて変更がよさそうかも
         /// バトル用の項目を表示
         /// </summary>
-        private readonly bool[] activeMenus = new bool[]
+        private readonly bool[] enableMenus = new bool[]
         {
             true,   // アイテム
             true,   // 設定
@@ -125,7 +125,7 @@ namespace Siasm
         {
             // アーム関連
             battleArmController.Setup();
-            battleMenuArmController.Setup(activeMenus, selectedIndex: 0);
+            battleMenuArmController.Setup(enableMenus, selectedIndex: 0);
 
             // HUD関連
             battleHUDController.Setup(
