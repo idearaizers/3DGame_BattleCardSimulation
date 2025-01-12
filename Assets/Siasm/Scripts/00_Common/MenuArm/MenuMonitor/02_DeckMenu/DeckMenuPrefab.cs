@@ -19,8 +19,8 @@ namespace Siasm
         [SerializeField]
         private Button ownCardMenuButton;
 
-        [SerializeField]
-        private MenuCardDetialView menuCardDetialView;
+        // [SerializeField]
+        // private MenuCardDetialView menuCardDetialView;
 
         [Space]
         [SerializeField]
@@ -69,14 +69,13 @@ namespace Siasm
             menuCardDragController.OnDragDeckCard = OnDragDeckCard;
             menuCardDragController.OnDragOwnCard = OnDragOwnCard;
 
-            menuCardDetialView.Initialize();
+            // menuCardDetialView.Initialize();
         }
 
         public override void Setup(bool isEnable)
         {
             base.Setup(isEnable);
 
-            // 使用しない場合は実行しない
             if (!isEnable)
             {
                 return;
@@ -94,7 +93,7 @@ namespace Siasm
 
             menuCardDragController.Setup();
 
-            menuCardDetialView.Setup();
+            // menuCardDetialView.Setup();
         }
 
         private void SetDeckCardModelAndOwnCardModel()
@@ -174,15 +173,6 @@ namespace Siasm
         public override void UpdateContent(BaseMenuPrefabParameter baseMenuPrefabParameter)
         {
             base.UpdateContent(baseMenuPrefabParameter);
-
-            // // 使用しない場合は実行しない
-            // if (!IsActive)
-            // {
-            //     return;
-            // }
-
-            // // 中身が変わっていることがあるので最新に更新する
-            // SetItemModel();
         }
 
         /// <summary>
@@ -229,7 +219,7 @@ namespace Siasm
             // TODO: カードidで紐づけをしているのでこれは作りを直した方がよさそう
             // TODO: デッキ用のカードモデルを作ってそのまま中身を表示できるようにした方がいいね
             var battleCardModel = BaseUseCase.CreateBattleCardModel(selectedBattleCardModel.CardId);
-            menuCardDetialView.ShowCardDetial(battleCardModel);
+            // menuCardDetialView.ShowCardDetial(battleCardModel);
         }
 
         private void OnDragging(MenuCardScrollRect.ScrollType scrollType)

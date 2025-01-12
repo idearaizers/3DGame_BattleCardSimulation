@@ -63,7 +63,6 @@ namespace Siasm
         {
             base.Setup(isEnable);
 
-            // 使用しない場合は実行しない
             if (!isEnable)
             {
                 return;
@@ -78,7 +77,6 @@ namespace Siasm
         {
             base.UpdateContent(baseMenuPrefabParameter);
 
-            // 使用しない場合は実行しない
             if (!IsEnable)
             {
                 return;

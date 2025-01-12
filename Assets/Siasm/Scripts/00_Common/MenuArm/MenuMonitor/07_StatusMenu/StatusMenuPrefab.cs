@@ -29,7 +29,6 @@ namespace Siasm
         {
             base.Setup(isEnable);
 
-            // 使用しない場合は実行しない
             if (!isEnable)
             {
                 return;
@@ -52,15 +51,6 @@ namespace Siasm
         public override void UpdateContent(BaseMenuPrefabParameter baseMenuPrefabParameter)
         {
             base.UpdateContent(baseMenuPrefabParameter);
-
-            // // 使用しない場合は実行しない
-            // if (!IsActive)
-            // {
-            //     return;
-            // }
-
-            // // 中身が変わっていることがあるので最新に更新する
-            // SetItemModel();
         }
 
         private void SetItemModel()
