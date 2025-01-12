@@ -3,11 +3,14 @@ using UnityEngine;
 
 namespace Siasm
 {
+    /// <summary>
+    /// NOTE: バトルでは表示項目を変えたいのでリファクタ予定
+    /// </summary>
     public class CommonMenuArmPrefab : MonoBehaviour
     {
         private const string closeButtonName = "閉じる";
 
-        private readonly string[] menuNames = new string[]
+        private readonly string[] commonMenuNames = new string[]
         {
             "アイテム",     // 初期から解放
             "デッキ",       // 初期から解放
@@ -19,6 +22,20 @@ namespace Siasm
             "外見",         // 特定のアイテムで解放
             "リワード",     // 特定のアイテムで解放
             "名刺"          // 特定のアイテムで解放
+        };
+
+        private readonly string[] battleMenuNames = new string[]
+        {
+            "アイテム", 
+            "デッキ",
+            "分析",
+            "設定",
+            "ヘルプ",
+            "中段",
+            "07",       // 空きで未使用
+            "08",       // 空きで未使用
+            "09",       // 空きで未使用
+            "10"        // 空きで未使用
         };
 
         [Header("RightSide関連")]
@@ -43,6 +60,9 @@ namespace Siasm
         public Action<int> OnDeckChangeAction { get; set; }
         public Action OnEscapeAction { get; set; }
 
+        /// <summary>
+        /// NOTE: リファクタが完了したら削除予定
+        /// </summary>
         private bool isBattle;
 
         public void Initialize(BaseUseCase baseUseCase, BaseCameraController baseCameraController, bool isBattle = false, BattleSpaceManager battleSpaceManager = null)
@@ -73,29 +93,6 @@ namespace Siasm
 
         public void Setup(bool[] activeMenus, int selectedIndex)
         {
-            // 仮
-            var currentMenuNames = new string[] { };
-            if (isBattle)
-            {
-                currentMenuNames = new string[]
-                {
-                    "アイテム",
-                    "デッキ",
-                    "分析",
-                    "設定",
-                    "ヘルプ",
-                    "中断",
-                    "07",
-                    "08",
-                    "09",
-                    "10"
-                };
-            }
-            else
-            {
-                currentMenuNames = menuNames;
-            }
-
             // RightSide関連
             sideArmSwitcherPrefab.Setup();
             armSwitcherPrefabOfCloseButton.Setup(closeButtonName, isActive: true);
@@ -104,6 +101,10 @@ namespace Siasm
             menuMonitorPrefab.Setup(activeMenus, selectedIndex);
 
             // LeftSide関連
+            var currentMenuNames = isBattle
+                ? battleMenuNames
+                : commonMenuNames;
+
             for (int i = 0; i < leftArmSwitcherPrefabs.Length; i++)
             {
                 leftArmSwitcherPrefabs[i].Setup(currentMenuNames[i], activeMenus[i]);
