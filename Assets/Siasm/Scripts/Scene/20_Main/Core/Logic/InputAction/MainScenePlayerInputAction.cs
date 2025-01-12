@@ -89,15 +89,6 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Zoom"",
-                    ""type"": ""Button"",
-                    ""id"": ""4bdef31b-56c8-42af-8770-5787bbbf6099"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -309,39 +300,6 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""94f71dd2-9a36-4a02-bf63-491cecec1d5b"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Zoom"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""5f7cbdbf-48e0-4dbb-b74b-267e28742c80"",
-                    ""path"": ""<Mouse>/scroll/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Zoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""0e158faa-bf59-41e7-a407-5e90776fa98b"",
-                    ""path"": ""<Mouse>/scroll/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Zoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -1000,7 +958,6 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
         m_Player_Cancel = m_Player.FindAction("Cancel", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
-        m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1087,7 +1044,6 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
     private readonly InputAction m_Player_Cancel;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Menu;
-    private readonly InputAction m_Player_Zoom;
     public struct PlayerActions
     {
         private @MainScenePlayerInputAction m_Wrapper;
@@ -1099,7 +1055,6 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
         public InputAction @Cancel => m_Wrapper.m_Player_Cancel;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
-        public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1130,9 +1085,6 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
             @Menu.started += instance.OnMenu;
             @Menu.performed += instance.OnMenu;
             @Menu.canceled += instance.OnMenu;
-            @Zoom.started += instance.OnZoom;
-            @Zoom.performed += instance.OnZoom;
-            @Zoom.canceled += instance.OnZoom;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1158,9 +1110,6 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
             @Menu.started -= instance.OnMenu;
             @Menu.performed -= instance.OnMenu;
             @Menu.canceled -= instance.OnMenu;
-            @Zoom.started -= instance.OnZoom;
-            @Zoom.performed -= instance.OnZoom;
-            @Zoom.canceled -= instance.OnZoom;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1350,7 +1299,6 @@ public partial class @MainScenePlayerInputAction: IInputActionCollection2, IDisp
         void OnCancel(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
-        void OnZoom(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
