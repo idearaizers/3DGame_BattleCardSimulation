@@ -14,7 +14,6 @@ namespace Siasm
         public CardReelType CardReelType { get; set; }
         public int MinReelNumber { get; set; }
         public int MaxReelNumber { get; set; }
-        // public string FlavorText { get; set; }
         public EmotionAttributeType EmotionAttributeType { get; set; }
         public BattleCardAbilityModel[] BattleCardAbilityModels { get; set; }
 
