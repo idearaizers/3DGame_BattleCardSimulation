@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,15 +25,10 @@ namespace Siasm
         private MenuCardDragController menuCardDragController;
 
         private GameObject currentSelectedGameObject;
-
-
-        // 
         private List<MenuDeckCardModel> currentDeckCardModels;
         private List<MenuOwnCardModel> currentOwnCardModels;
 
         private int currentDeckIndex = -1;
-
-
 
         public override void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController,
             PlayerBattleFighterSpawnController playerBattleFighterSpawnController, EnemyBattleFighterSpawnController enemyBattleFighterSpawnController)
@@ -74,15 +68,10 @@ namespace Siasm
             // 非アクティブの時にセットアップを行うと参照エラーが出るのでアクティブに切り替えて実行
             var activeSelf = gameObject.activeSelf;
             gameObject.SetActive(true);
-
-            // 更新する
             SetDeckCardModelAndOwnCardModel();
-
-            // 設定が完了したら変更前の状態に戻す
             gameObject.SetActive(activeSelf);
 
             menuCardDragController.Setup();
-
             menuCardDetialView.Setup();
         }
 
@@ -99,7 +88,6 @@ namespace Siasm
             }
             else
             {
-                // 仮
                 SetCardModelAsync(deckIndex: 0).Forget();
             }
         }
@@ -112,8 +100,6 @@ namespace Siasm
         {
             currentDeckIndex = deckIndex;
 
-            // セーブメニューを開く
-            // カード詳細用のサイドアームを閉じる
             if (SideArmSwitcherPrefab.IsOpen)
             {
                 SideArmSwitcherPrefab.PlayCloseAnimation();
@@ -125,25 +111,20 @@ namespace Siasm
             currentDeckCardModels = deckCardModels.ToList();
             currentOwnCardModels = ownCardModels.ToList();
 
-            // 
             List<int> cardIds = new List<int>();
 
-            // 
             foreach (var deckCardModel in deckCardModels)
             {
                 cardIds.Add(deckCardModel.CardId);
             }
 
-            // 
             foreach (var ownCardModel in ownCardModels)
             {
                 cardIds.Add(ownCardModel.CardId);
             }
 
-            // 
             cardIds = cardIds.Distinct().ToList();
 
-            // 
             foreach (var cardId in cardIds)
             {
                 // 画像を取得して反映する
@@ -172,16 +153,6 @@ namespace Siasm
         private void OnChangeActiveTab(int selectedIndex)
         {
             SetCardModelAsync(selectedIndex).Forget();
-        }
-
-        private void OnDeckCardMenu()
-        {
-            // Debug.Log("TODO: OnDeckCardMenu");
-        }
-
-        private void OnOwnCardMenu()
-        {
-            // Debug.Log("TODO: OnOwnCardMenu");
         }
 
         /// <summary>
