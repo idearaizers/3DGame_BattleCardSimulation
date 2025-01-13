@@ -1,7 +1,7 @@
 namespace Siasm
 {
     /// <summary>
-    /// NOTE: 要件決めてから作成予定
+    /// TODO: 要件決めてから作成予定
     /// </summary>
     // [System.Serializable]
     // public class TalkSelectionjsonModel
@@ -31,10 +31,6 @@ namespace Siasm
         public string JsonTextFile;
     }
 
-    /// <summary>
-    /// JsonMasterDataで保存
-    /// JsonModelを格納している
-    /// </summary>
     public class TalkJsonMasterData
     {
         public TalkJsonModel[] TalkJsonModels;

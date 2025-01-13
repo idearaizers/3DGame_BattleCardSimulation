@@ -19,6 +19,9 @@ namespace Siasm
         public CreatureAdmissionOfDropItemModel[] CreatureAdmissionOfDestroyedLevelModels { get; set; }
     };
 
+    /// <summary>
+    /// TODO: マスターメモリーでの管理に以降予定
+    /// </summary>
     public class EnemyBattleFighterOfDropItemMasterData
     {
         /// <summary>

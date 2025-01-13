@@ -6,6 +6,4 @@ namespace Siasm
         Talk,
         Interact
     }
-
-    // public static class FieldInteractConstant { }
 }

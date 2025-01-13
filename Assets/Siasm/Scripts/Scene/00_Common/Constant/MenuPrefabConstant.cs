@@ -18,6 +18,4 @@ namespace Siasm
         BattleHelp,
         BattleEscape
     }
-
-    // public static class DialogConstant { }
 }

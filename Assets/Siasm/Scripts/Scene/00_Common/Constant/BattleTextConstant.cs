@@ -2,9 +2,6 @@ using System.Collections.Generic;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 文言関係についてはここで管理
-    /// </summary>
     public static class BattleTextConstant
     {
         public static readonly Dictionary<EmotionAttributeType, string> EmotionAttributeTypeStringDictionary = new Dictionary<EmotionAttributeType, string>()

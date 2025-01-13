@@ -20,6 +20,4 @@ namespace Siasm
         SecurityDoorOfLevel4 = 3005,    // セキュリティドア_レベル4
         SecurityDoorOfLevel5 = 3006     // セキュリティドア_レベル5
     }
-
-    // public static class FieldObjectConstant { }
 }

@@ -19,7 +19,7 @@ namespace Siasm
     }
 
     /// <summary>
-    /// NOTE: 要件決めてから作成予定
+    /// TODO: 要件決めてから作成予定
     /// </summary>
     // public class TalkSelectionMasterDataModel : BaseTalkModel
     // {

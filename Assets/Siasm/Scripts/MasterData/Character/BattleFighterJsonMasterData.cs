@@ -81,10 +81,6 @@ namespace Siasm
         public TechnologyDeveloperJsonModel TechnologyDeveloperJsonModel = new TechnologyDeveloperJsonModel();
     }
 
-    /// <summary>
-    /// JsonMasterDataで保存
-    /// JsonModelを格納している
-    /// </summary>
     public class BattleFighterJsonMasterData
     {
         public BattleFighterJsonModel BattleFighterJsonModel;

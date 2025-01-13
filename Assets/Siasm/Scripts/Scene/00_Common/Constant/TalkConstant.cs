@@ -7,6 +7,4 @@ namespace Siasm
         Selection,  // Yes/No選択の表示 選択肢の複数表示でもいいかも
         Gift        // アイテムの入手
     }
-
-    // public static class TalkConstant { }
 }

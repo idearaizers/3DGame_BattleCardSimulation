@@ -45,7 +45,7 @@ namespace Siasm
     }
 
     /// <summary>
-    /// BaseMainQuestMasterDataModelを管理
+    /// TODO: マスターメモリーでの管理に以降予定
     /// </summary>
     public class MainQuestMasterData
     {

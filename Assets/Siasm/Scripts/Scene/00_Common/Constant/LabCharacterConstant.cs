@@ -1,7 +1,7 @@
 namespace Siasm
 {
     /// <summary>
-    /// 将来的には見た目の適用で使用するかも
+    /// 将来的には見た目の適用で使用予定
     /// </summary>
     public enum LabCharacterType
     {
@@ -25,6 +25,4 @@ namespace Siasm
         // 上級職員関連
         HighOfficer
     }
-
-    // public static class LabCharacterConstant { }
 }

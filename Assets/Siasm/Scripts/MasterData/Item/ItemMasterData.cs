@@ -5,14 +5,8 @@ namespace Siasm
         public int ItemId { get; set; }
         public string ItemName { get; set; }
         public string DescriptionText { get; set; }
-
-        // NOTE: アイテムイメージはアセットの取得で遅延が発生するため表示の際に取得する
-        // NOTE: 所持数はセーブデータを確認する必要があるのでItemModelの方で設定する
     }
 
-    /// <summary>
-    /// ItemMasterDataModelを管理
-    /// </summary>
     public class ItemMasterData
     {
         public ItemMasterDataModel GetItemMasterDataModel(int itemId)

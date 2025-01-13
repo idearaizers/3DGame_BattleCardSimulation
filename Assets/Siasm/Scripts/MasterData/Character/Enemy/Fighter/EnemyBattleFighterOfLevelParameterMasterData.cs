@@ -7,7 +7,7 @@ namespace Siasm
         /// <summary>
         /// Dictionaryの上から順番にレベル1～100までが設定されている
         /// 左がMaxHPで右がMaxTP
-        /// 一旦、エネミー共通の値で設定
+        /// TODO: もう少し単純な形に変更したいので見直し予定。単に計算式で良さそうかも
         /// </summary>
         public Dictionary<int, (int, int)> ParameterDictionary = new Dictionary<int, (int, int)>()
         {

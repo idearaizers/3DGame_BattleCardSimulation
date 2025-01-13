@@ -3,8 +3,7 @@ using System.Collections.Generic;
 namespace Siasm
 {
     /// <summary>
-    /// NOTE: 見直し予定でキャラのサイズだけ分かればよさそう
-    /// NOTE: 廃止して計算で出すかも
+    /// TODO: キャラのサイズは自由に変更できるようにしたいので見直し予定
     /// </summary>
     public enum FighterSizeType
     {
@@ -17,19 +16,19 @@ namespace Siasm
     public static class BattleFighterConstant
     {
         public const int LimitDamageNumber = 999;
-        public const int LimitBattleBoxNumber = 10; // NOTE: スキル等で上限を増やした際の最大値
-        public const int MaxBattleBoxNumber = 5;    // NOTE: スキル等で上限を増やすことは可能
+        public const int LimitBattleBoxNumber = 10;
+        public const int MaxBattleBoxNumber = 5;
         public const int LimitLevel = 100;
 
         public static Dictionary<AttributeResistType, string> AttributeResistTypeStringtext = new Dictionary<AttributeResistType, string>()
         {
-            { AttributeResistType.Immune,     "免疫" }, // 0.1125倍
-            { AttributeResistType.Resist,     "抵抗" }, // 抵抗 0.25倍
-            { AttributeResistType.Endure,     "耐性" }, // 耐性 0.5倍
-            { AttributeResistType.Normal,     "-" },    // 1倍
-            { AttributeResistType.Weak,       "弱点" }, // 1.5倍
-            { AttributeResistType.Vulnerable, "脆弱" }, // 2倍
-            { AttributeResistType.Feeble,     "弱々" }  // 4倍
+            { AttributeResistType.Immune,     "免疫" },
+            { AttributeResistType.Resist,     "抵抗" },
+            { AttributeResistType.Endure,     "耐性" },
+            { AttributeResistType.Normal,     "-" },
+            { AttributeResistType.Weak,       "弱点" },
+            { AttributeResistType.Vulnerable, "脆弱" },
+            { AttributeResistType.Feeble,     "弱々" }
         };
     }
 }

@@ -11,7 +11,7 @@ namespace Siasm
     }
 
     /// <summary>
-    /// BattleStageModelを管理
+    /// TODO: マスターメモリーでの管理に以降予定
     /// </summary>
     public class BattleStageMasterData
     {

@@ -3,13 +3,6 @@ using UnityEngine;
 
 namespace Siasm
 {
-    /// <summary>
-    /// テキストのイメージ
-    /// ■1～5で攻撃
-    /// ■攻撃成功時 自身にガードアップを1付与
-    /// ■攻撃成功時 自身にデッキシャッフルを1付与
-    /// NOTE: 付与するのと即時効果のものがあるので再度整理予定
-    /// </summary>
     public static class BattleCardDescriptionConstant
     {
         private const string reelNumberStringFormat = "■{0}～{1}で{2}";
@@ -75,14 +68,6 @@ namespace Siasm
                 }
                 else
                 {
-                    // Immediate系は基本的に自分にだけ効果があるようにした方がいいかも
-                    // エラーチェックで自身以外の時に警告がでるようにすればいいかも
-
-                    // 例）
-                    // ■成功時 自身に1枚カードを引く
-                    // ■成功時 自身に1回墓地のカードをデッキに戻してシャッフル
-                    // ■成功時 自身のHPを1回復
-                    // ■成功時 自身に1HPを回復
                     effectTypetext = string.Format(
                         effectImmediateStringFormat,
                         effectActivateTypeStringDictionary[battleCardEffectModels[i].CardAbilityActivateType],
@@ -107,13 +92,9 @@ namespace Siasm
             { CardReelType.Guard,  "防御" }
         };
 
-        /// <summary>
-        /// TODO: 攻撃HIT後に適用がいいかも
-        /// TODO: 表示と合わせて調整が良さそう
-        /// </summary>
         private static readonly Dictionary<CardAbilityActivateType, string> effectActivateTypeStringDictionary = new Dictionary<CardAbilityActivateType, string>()
         {
-            { CardAbilityActivateType.None,      "" },  // 管理的に特殊があった方がいいかも
+            { CardAbilityActivateType.None,      "" },      // 管理的に特殊があった方がいいかも
             { CardAbilityActivateType.Succeeded, "成功時" },
             { CardAbilityActivateType.Failed,    "失敗時" },
             { CardAbilityActivateType.Drawn,     "引き分け" }
@@ -128,7 +109,7 @@ namespace Siasm
         };
 
         /// <summary>
-        /// NOTE: Immediate系は文言のフォーマットの取得がいいかも
+        /// TODO: 表示したい文言の形がType毎に違うのでStringFormatの取得に変えた方が良さそうで見直し予定
         /// </summary>
         private static readonly Dictionary<CardAbilityType, string> cardAbilityTypeStringDictionary = new Dictionary<CardAbilityType, string>()
         {
@@ -138,12 +119,12 @@ namespace Siasm
             { CardAbilityType.AddGuardReelDown,               "防御リールダウン" },
             { CardAbilityType.ImmediateDeckReload,            "回墓地のカードをデッキに戻してシャッフル" },
             { CardAbilityType.ImmediateHandDraw,              "枚カードを引く" },
-            { CardAbilityType.ImmediateRecoveryHealthPoint,   "HPを回復" },    // フォーマット文言の指定が良さそうやね
-            { CardAbilityType.ImmediateRecoveryThinkingPoint, "TPを回復" },    // フォーマット文言の指定が良さそうやね
+            { CardAbilityType.ImmediateRecoveryHealthPoint,   "HPを回復" },
+            { CardAbilityType.ImmediateRecoveryThinkingPoint, "TPを回復" },
             { CardAbilityType.ReelMaxNumberUp,                "リール値が最大であれば+1" },
             { CardAbilityType.ReelMixNumberUp,                "リール値が最低であれば+1" },
-            { CardAbilityType.ReelMaxDamageUp,                "リール値が最大であればこのマッチ中のダメージアップ" },     // 上と同じやね。整理した方がよさそう
-            { CardAbilityType.ReelMaxDamageDwon,              "リール値が最低であればこのマッチ中でのダメージダウン" },   // 上と同じやね。整理した方がよさそう
+            { CardAbilityType.ReelMaxDamageUp,                "リール値が最大であればこのマッチ中のダメージアップ" },
+            { CardAbilityType.ReelMaxDamageDwon,              "リール値が最低であればこのマッチ中でのダメージダウン" },
         };
     }
 }

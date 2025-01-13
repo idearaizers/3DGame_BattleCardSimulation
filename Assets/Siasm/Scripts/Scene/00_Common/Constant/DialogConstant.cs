@@ -8,6 +8,4 @@ namespace Siasm
         CreatureBox,
         CreatureAdmission
     }
-
-    // public static class DialogConstant { }
 }
