@@ -6,11 +6,12 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine.AddressableAssets;
 
-// ブラーシェーダー
-// https://assetstore.unity.com/packages/vfx/shaders/ui-blur-173331?locale=ja-JP
-
 namespace Siasm
 {
+    /// <summary>
+    /// メニューアームのダイアログ表示とは別物のため注意
+    /// こちらではオーバーレイで画面上に出す際に使用することを想定したクラス
+    /// </summary>
     public class DialogManager : SingletonMonoBehaviour<DialogManager>
     {
         [SerializeField]
@@ -28,7 +29,6 @@ namespace Siasm
         [SerializeField]
         private Transform subContainerTransform;
 
-        // 頻繁に使用するものだけ参照している
         [Space]
         [SerializeField]
         private MessageDialog messageDialogPrefab;
@@ -127,6 +127,7 @@ namespace Siasm
             }
             else
             {
+                // NOTE: 暫定でコメントアウト
                 // キャッシュしていない場合でキャッシュする場合
                 // var dialogPrefab = await AssetCacheManager.Instance.LoadAssetAsync<GameObject>(prefabAddress);
                 // dialog = Instantiate(dialogPrefab, containerTransform, false).GetComponent<T>();
@@ -172,7 +173,6 @@ namespace Siasm
 
             var dialog = dialogStack.Pop();
             Destroy(dialog.gameObject);
-            dialog = null;
 
             MoveDialogToMainContainer();
         }
@@ -201,31 +201,6 @@ namespace Siasm
             }
         }
 
-
-
-
-
-
-
-        // private async UniTask<GameObject> InstantiatePageAsync(object key)
-        // {
-        //     if (AssetCacheManager.Instance.Exist(key))
-        //     {
-        //         var cachedPrefab = AssetCacheManager.Instance.GetAsset<GameObject>(key);
-        //         var instance = Instantiate(cachedPrefab);
-        //         // AssetCacheManager.Instance.cachePageNames.Add(instance.name);
-        //         return instance;
-        //     }
-        //     // NOTE: ここでは生成したGameObjectをキャッシュはしていないみたい
-        //     // NOTE: ロードとインスタンス化の両方を行っている
-        //     return await Addressables.InstantiateAsync(key, transform);
-        // }
-
-
-
-
-
-
         /// <summary>
         /// 現在のダイアログを閉じて新しいMessageDialogを開く
         /// </summary>
@@ -234,7 +209,6 @@ namespace Siasm
         public MessageDialog ReplaceMessageDialog(MessageDialog.Parameter parameters)
         {
             var dialog = Replace(messageDialogPrefab);
-            // dialog.ApplyParams(dialogParams);
             return dialog;
         }
 
@@ -246,7 +220,6 @@ namespace Siasm
         public ConfirmDialog ReplaceConfirmationDialog(ConfirmDialog.Parameter parameters)
         {
             var dialog = Replace(ConfirmDialog);
-            // dialog.ApplyParams(dialogParams);
             return dialog;
         }
 
@@ -260,8 +233,6 @@ namespace Siasm
             StopCoroutine(fadingBackclothCoroutine);
             fadingBackclothCoroutine = null;
         }
-
-
 
         /// <summary>
         /// 現在のダイアログを閉じて新しいダイアログを開く
@@ -280,13 +251,10 @@ namespace Siasm
             {
                 await UniTask.CompletedTask;
 
-                // await prevDialog.PlayCloseAsync();
                 Destroy(prevDialog.gameObject);
                 dialog.gameObject.SetActive(true);
-                // dialog.PlayOpenAsync().Forget();
             });
 
-            // dialog.SetCloseAction(Close, CloseImmediately);
             dialogStack.Push(dialog);
 
             return dialog;
@@ -296,7 +264,6 @@ namespace Siasm
         {
             var dialog = dialogStack.Pop();
 
-            // dialog.CloseImmediately();
             Destroy(dialog.gameObject);
 
             if (dialogStack.Count == 0)
