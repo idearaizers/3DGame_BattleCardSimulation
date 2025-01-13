@@ -84,6 +84,7 @@ namespace Siasm
                 () =>
                 {
                     // 現在の値で保持する
+                    // NOTE: サウンドはスライダーバーを変更した時に変えているのでここでは処理していない
                     var gameSetting = settingGameView.GetGameSetting();
                     PlayerPrefsStorage.Set(gameSetting);
 
@@ -93,7 +94,7 @@ namespace Siasm
                     var soundSetting = settingSoundView.GetSoundSetting();
                     PlayerPrefsStorage.Set(soundSetting);
 
-                    // TODO: サウンドはスライダーバーを変更した時に変えているが、それ以外はこのタイミングで適用する必要がある
+                    // TODO: 指定した内容で解像度や画面サイズなどの変更を行う
                 },
                 () =>
                 {
@@ -107,7 +108,6 @@ namespace Siasm
 
         private SettingDropdownCellView.Parameter[] GetSettingGameViewParameters()
         {
-            // SoundSetting に保存している値を反映する
             var gameSetting = PlayerPrefsStorage.Get<GameSetting>();
             var parameters = new SettingDropdownCellView.Parameter[]
             {
@@ -128,16 +128,6 @@ namespace Siasm
 
         private SettingDropdownCellView.Parameter[] GetSettingGraphicViewParameters()
         {
-            // NOTE; 解像度の候補案
-            // "1176×664",
-            // "1280×720",
-            // "1360×768",
-            // "1366×768",
-            // "1600×900",
-            // "1920×1080",
-            // "2560×1440"
-
-            // GraphicSetting に保存している値を反映する
             var graphicSetting = PlayerPrefsStorage.Get<GraphicSetting>();
             var parameters = new SettingDropdownCellView.Parameter[]
             {
@@ -178,7 +168,6 @@ namespace Siasm
 
         private SettingSliderCellView.Parameter[] GetsettingSoundViewParameters()
         {
-            // SoundSetting に保存している値を反映する
             var soundSetting = PlayerPrefsStorage.Get<SoundSetting>();
             var parameters = new SettingSliderCellView.Parameter[]
             {
