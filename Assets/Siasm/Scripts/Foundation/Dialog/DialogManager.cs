@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 namespace Siasm
 {
     /// <summary>
-    /// メニューアームのダイアログ表示とは別物でこちらは旧処理が多いため注意
+    /// TODO: ダイアログ表示はメニューアーム内に移動したためこの処理は全体的に削除していいかも
     /// TODO: 不要な処理をリファクタ予定
     /// </summary>
     public class DialogManager : SingletonMonoBehaviour<DialogManager>
