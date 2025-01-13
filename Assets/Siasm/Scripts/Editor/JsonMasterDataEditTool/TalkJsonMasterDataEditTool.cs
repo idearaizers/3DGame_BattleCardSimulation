@@ -235,54 +235,6 @@ namespace Siasm
                 }
             }
         }
-
-        /// <summary>
-        /// currentTalkEditModel.BaseTalkEditModels にモデルデータを追加する
-        /// </summary>
-        private void AddEditClassModel()
-        {
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                if (GUILayout.Button("TalkMessageEditModelを追加"))
-                {
-                    if (SelectedPathIndex == 0)
-                    {
-                        Debug.LogWarning("適用するPath先が0番になっているため終了しました");
-                        return;
-                    }
-
-                    var talkMessageEditModel = new TalkMessageEditModel
-                    {
-                        TalkName = "TestName",
-                        TalkMessage = "TestMessage"
-                    };
-
-                    currentTalkEditModel.BaseTalkEditModels.Add(talkMessageEditModel);
-
-                    Repaint();
-                    return;
-                }
-
-                if (GUILayout.Button("TalkGiftEditModelを追加"))
-                {
-                    if (SelectedPathIndex == 0)
-                    {
-                        Debug.LogWarning("適用するPath先が0番になっているため終了しました");
-                        return;
-                    }
-
-                    var talkGiftEditModel = new TalkGiftEditModel
-                    {
-                        ItemId = 101
-                    };
-
-                    currentTalkEditModel.BaseTalkEditModels.Add(talkGiftEditModel);
-
-                    Repaint();
-                    return;
-                }
-            }
-        }
     }
 }
 

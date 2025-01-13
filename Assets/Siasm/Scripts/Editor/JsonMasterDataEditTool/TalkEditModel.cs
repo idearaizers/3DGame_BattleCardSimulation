@@ -4,16 +4,6 @@ using System.Collections.Generic;
 
 namespace Siasm
 {
-    /// <summary>
-    /// NOTE: 要件決めてから作成予定
-    /// </summary>
-    // public sealed class TalkSelectionModel : BaseTalkModel
-    // {
-    //     public string QuestionTitle { get; set; }
-    //     public int YesSelection { get; set; }
-    //     public int NoSelection { get; set; }
-    // }
-
     public abstract class BaseTalkEditModel { }
 
     public sealed class TalkMessageEditModel : BaseTalkEditModel
