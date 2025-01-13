@@ -59,7 +59,7 @@ namespace Siasm
             battleFighterFallingShadow.Setup();
             battleFighterAnimation.Setup();
 
-            // TODO: この値はファイター情報を見て設定する
+            // TODO: 値はファイター情報から参照する形に変更予定
             var beginBoxNumber = 1;
             battleFighterBoxView.Setup(beginBoxNumber);
 

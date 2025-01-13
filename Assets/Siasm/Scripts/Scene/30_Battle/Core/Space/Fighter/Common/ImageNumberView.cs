@@ -6,9 +6,6 @@ namespace Siasm
 {
     public class ImageNumberView : BaseView
     {
-        // [SerializeField]
-        // private NumberSprites numberSprites;
-
         [Header("桁数の低い値から設定する")]
         [SerializeField]
         private Image[] numberSpriteRenderers;

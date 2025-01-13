@@ -3,8 +3,7 @@ using UnityEngine;
 namespace Siasm
 {
     /// <summary>
-    /// NOTE: 現状ではバトルフィールド上に出すテキストに対して管理するクラス
-    /// NOTE: ナビや画面下部でプレイヤーキャラ用にセリフを出す場合は別の管理にした方が良さそう
+    /// バトルステージ内に出すテキストを管理するクラス
     /// </summary>
     public class BattleFighterMessageController : MonoBehaviour
     {
@@ -16,7 +15,7 @@ namespace Siasm
         private BattlePassiveAbilityLogic battlePassiveEffectController;
 
         /// <summary>
-        /// NOTE: 現状では1つだけしか使用していないが将来的に複数使用したいかも
+        /// NOTE: 現状では1つだけしか使用していないが将来的に複数使用できる形に見直した方がいいかも
         /// </summary>
         private BattleFighterMessagePrefab instanceBattleFighterMessagePrefab;
 

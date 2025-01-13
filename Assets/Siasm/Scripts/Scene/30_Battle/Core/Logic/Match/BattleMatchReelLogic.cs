@@ -52,8 +52,6 @@ namespace Siasm
                 reelParameter.BaseBattleFighterPrefab.CurrentBaseBattleFighterModel.BaseAbnormalConditionModels
             );
 
-            // TODO: 必要ならパッシブのものも追加する
-
             return Mathf.Clamp(
                 randomReelNumber + addNumberofAbnormalCondition,
                 BattleConstant.LimitMinReelNumber,

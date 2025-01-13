@@ -13,7 +13,6 @@ namespace Siasm
         {
             public IMouseClickAction CurrentIMouseClickAction { get; set; }
             public Transform TargetTransform { get; set; }
-            public Vector3 OffsetPosition { get; set; }
             public float ZPosition { get; set; }
         }
 
@@ -50,7 +49,7 @@ namespace Siasm
         }
 
         /// <summary>
-        /// カメラが複数あると
+        /// カメラが複数ある場合、
         /// ・OnMouseOver
         /// ・OnMouseExit
         /// などはUIカメラに紐付いていて意図通りの挙動にならなかったため、
@@ -101,8 +100,7 @@ namespace Siasm
                         {
                             CurrentIMouseClickAction = currentIMouseClickAction,
                             TargetTransform = dragGameObject.transform,
-                            ZPosition = uiCamera.WorldToScreenPoint(dragGameObject.transform.position).z,
-                            OffsetPosition = dragGameObject.transform.position - GetMouseWorldPositionOfUICamera(uiCamera.WorldToScreenPoint(dragGameObject.transform.position).z)
+                            ZPosition = uiCamera.WorldToScreenPoint(dragGameObject.transform.position).z
                         };
                     }
 
@@ -208,13 +206,9 @@ namespace Siasm
             cameraDraggingParameter.CurrentMousePosition = Input.mousePosition;
         }
 
-
         private void DraggingHandCard()
         {
             var handCardDraggingParameter = baseDraggingParameter as HandCardDraggingParameter;
-
-            // NOTE: 必要ならOffSetを入れる
-            // var mousePosition = GetMouseWorldPositionOfUICamera(handCardDraggingParameter.ZPosition) + handCardDraggingParameter.OffsetPosition;
             var mousePosition = GetMouseWorldPositionOfUICamera(handCardDraggingParameter.ZPosition);
 
             handCardDraggingParameter.TargetTransform.position = mousePosition;

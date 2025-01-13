@@ -12,7 +12,6 @@ namespace Siasm
     /// デッキ切れの際はシャッフルカードを使用することで山札をリセットできる
     /// デッキから引くカードがないとシャッフルカードを引く。シャッフルカードは威力が低いので注意
     /// 思考停止の際はルーレットの目が必ず最低になる
-    /// 思考停止すると耐久力が下がるので与えるダメージがアップする？
     /// 数字の引き分けが10回続くとそのバトルは引き分けになる：バースト。バースト用のスキルもある
     /// バトルマッチにてバトルボックスに設定したカードは必ず消費される
     /// </summary>
@@ -63,7 +62,7 @@ namespace Siasm
 
         /// <summary>
         /// バトルを行う
-        /// リールの値は演出の直前で決定させているのでモデルクラスを基に演出を再生させていないので注意
+        /// リールの値は演出の直前で決定させていてモデルクラスを基に演出を再生させていないので注意
         /// </summary>
         /// <returns></returns>
         public async UniTask StartCombatAsync()
@@ -114,7 +113,6 @@ namespace Siasm
                 await StartMatchReelAync(token, startMatchReelParameter);
 
                 // 一度、マッチリールを非表示にする
-                // battleUIManager.BattleHUDController.MatchReelPrefab.Hide();
                 playerBattleFighterPrefab.BattleMatchReelView.Hide();
                 enemyBattleFighterPrefab.BattleMatchReelView.Hide();
 
@@ -139,9 +137,6 @@ namespace Siasm
         public async UniTask StartMatchReelAync(CancellationToken token, StartMatchReelParameter startMatchReelParameter)
         {
             // 指定回数マッチが続いたらバースト（強制終了）にする
-            // NOTE: バースト時の仕様を決めた方がよさそう
-            // NOTE: お互いにダメージかまたは次のダメージ威力が+10する特殊な状態異常を追加するかな
-            // NOTE: 引き分けの際の演出は短いものが出るようにした方がテンポがいいかも
             var drawCount = 0;
 
             // 結果が決まるまで繰り返し実行する
@@ -161,11 +156,9 @@ namespace Siasm
                 // 攻撃位置にファーターを移動する
                 await battleSpaceManager.MoveFighterAnimationAsync(token, startMatchReelParameter);
 
-                // NOTE: もっとテンポアップした方がきもちがいいかも
                 if (drawCount >= 3)
                 {
-                    // 見栄えのために少し待機
-                    // await UniTask.Delay(TimeSpan.FromSeconds(0.05f), cancellationToken: token);
+                    // 見栄えのために待機なし
                 }
                 else if (drawCount >= 2)
                 {
@@ -193,19 +186,6 @@ namespace Siasm
                     await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: token);
                 }
 
-                // // 演出用に少しズームインする
-                // battleSpaceManager.BattleCameraController.MoveCurrentPositionAsync(zoomInPosition, zoomInSpeed).Forget();
-
-                // // ファイターを少しだけ前進させる（全てのキャラの移動が完了するまで待機）
-                // await UniTask.WhenAll
-                // (
-                //     MovingForwardOfPlayer(startMatchReelParameter),
-                //     MovingForwardOfEnemy(startMatchReelParameter)
-                // );
-
-                // 見栄えのために少し待機
-                // await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: token);
-
                 // <===== リール結果を表示関連 =====>
                 // リール結果を取得して表示する
                 var playerReelNumber = battleMatchReelLogic.GetReelNumber(startMatchReelParameter.PlayerReelParameter);
@@ -221,7 +201,6 @@ namespace Siasm
 
                 // リール値を表示する
                 await battleUIManager.StopReelDirectionAsync(token, playerReelNumber, enemyReelNumber);
-
 
                 // <===== リール結果を基に演出を再生関連 =====>
                 // リールタイプを取得
@@ -365,39 +344,27 @@ namespace Siasm
             var battleCommonSETypeAudioClips = battleCommonSETypeAudioClipsScriptableObject as BattleCommonSETypeAudioClips;
             AudioManager.Instance.PlaySEOfAudioClip(BaseAudioPlayer.PlayType.Single, battleCommonSETypeAudioClips.GetAudioClip(AudioSEType.Strike1));
 
-            // 
             var battleCardModel = sourceBattleFighterPrefab is PlayerBattleFighterPrefab
                 ? startMatchReelParameter.PlayerReelParameter.BattleCardModel
                 : startMatchReelParameter.EnemyReelParameter.BattleCardModel;
 
-            // TODO: 属性相性などの表示を追加したい
+            // TODO: 属性相性などの表示を画面上に追加する
+
             var (resultDamageNumber, attributeResistType) = battleAbilityLogicController.GetAddDamageNumberOfEmotionAttributeType(damageNumber, startMatchReelParameter, sourceBattleFighterPrefab, targetBattleFighterPrefab);
-            if (attributeResistType != AttributeResistType.Normal)
-            {
-                // Debug.Log("TODO: ノーマル以外はダメージ値と表示を変更したい");
-                // Debug.Log(damageNumber);
-                // Debug.Log(resultDamageNumber);
-                // Debug.Log(attributeResistType);
-                // 値を代入
-                // damageNumber = resultDamageNumber;
-            }
 
             // ダメージ値を反映
-            // targetBattleFighterPrefab.ApplyDamage(damageNumber);
             targetBattleFighterPrefab.ApplyDamage(resultDamageNumber);
 
-            // TODO: カメラシェイクがほしいね
+            // TODO: ダメージを受けたキャラを上下にシェイクさせる
 
             // 少しズームアウトする
             if (targetBattleFighterPrefab.IsPlayer)
             {
-                // var targetPosition = MainCamera.transform.localPosition + addPosition
                 var targetPosition = battleSpaceManager.BattleCameraController.MainCamera.transform.localPosition + zoomOutPositionOfPlayer;
                 battleSpaceManager.BattleCameraController.PlayMoveAnimationAsync(Vector3.zero, targetPosition, zoomOutSpeedOfDamage, Ease.OutQuad).Forget();
             }
             else
             {
-                // var targetPosition = MainCamera.transform.localPosition + addPosition
                 var targetPosition = battleSpaceManager.BattleCameraController.MainCamera.transform.localPosition + zoomOutPositionOfEnemy;
                 battleSpaceManager.BattleCameraController.PlayMoveAnimationAsync(Vector3.zero, targetPosition, zoomOutSpeedOfDamage, Ease.OutQuad).Forget();
             }
@@ -411,7 +378,6 @@ namespace Siasm
             targetBattleFighterPrefab.BattleFighterAnimation.SetImage(BattleFighterAnimationType.TakeDamage);
 
             // ダメージを表示
-            // battleMatchEffect.ShowDamageEffec(damageNumber, targetBattleFighterPrefab);
             battleMatchEffect.ShowDamageEffec(damageNumber, resultDamageNumber, targetBattleFighterPrefab, attributeResistType, battleCardModel);
 
             // フリーズ状態を確認して必要なら表示
@@ -448,11 +414,6 @@ namespace Siasm
             var targetPosition = battleSpaceManager.BattleCameraController.MainCamera.transform.localPosition + zoomOutPositionOfDraw;
             battleSpaceManager.BattleCameraController.PlayMoveAnimationAsync(Vector3.zero, targetPosition, zoomOutSpeedOfDamage, Ease.OutQuad).Forget();
 
-            // if (targetBattleFighter.IsPlayer)
-            //     battleSpaceManager.BattleCameraController.MoveCurrentPositionAsync(zoomOutPositionOfPlayer, zoomOutSpeed).Forget();
-            // else
-            //     battleSpaceManager.BattleCameraController.MoveCurrentPositionAsync(zoomOutPositionOfEnemy, zoomOutSpeed).Forget();
-
             battleMatchEffect.ShowDrawEffect(playerBattleFighterPrefab, enemyBattleFighterPrefab, drawCount);
 
             // ファイターを移動させる
@@ -466,8 +427,7 @@ namespace Siasm
             // 2回目以降はスピードを上げる
             if (drawCount >= 2)
             {
-                // 見栄え的にほんの少し待機した方がいいかも
-                // await UniTask.Delay(TimeSpan.FromSeconds(0.01f), cancellationToken: token);
+                // 見栄え用に待機なし
             }
             else
             {
@@ -491,22 +451,17 @@ namespace Siasm
             var battleCommonSETypeAudioClips = battleCommonSETypeAudioClipsScriptableObject as BattleCommonSETypeAudioClips;
             AudioManager.Instance.PlaySEOfAudioClip(BaseAudioPlayer.PlayType.Single, battleCommonSETypeAudioClips.GetAudioClip(AudioSEType.Strike1));
 
+            // TODO: 属性相性などの表示を画面上に追加する
 
-            // TODO: 属性相性などの表示を追加したい
             battleAbilityLogicController.AttackAndGuard(startMatchReelParameter, attackedBattleFighter, guardedBattleFighter);
-
 
             // ダメージ値を反映
             // 0でも表示する
             var damageNumber = Mathf.Clamp(attackedNumber - guardNumber, 0, 999);
             guardedBattleFighter.ApplyDamage(damageNumber);
 
-            // 少しズームアウトする
-            // battleSpaceManager.BattleCameraController.MoveCurrentPositionAsync(zoomOutPosition, zoomOutSpeed).Forget();
-
             if (guardedBattleFighter.IsPlayer)
             {
-                // var targetPosition = MainCamera.transform.localPosition + addPosition
                 var targetPosition = battleSpaceManager.BattleCameraController.MainCamera.transform.localPosition + zoomOutPositionOfPlayer;
                 battleSpaceManager.BattleCameraController.PlayMoveAnimationAsync(Vector3.zero, targetPosition, zoomOutSpeedOfDamage, Ease.OutQuad).Forget();
             }
@@ -551,7 +506,6 @@ namespace Siasm
                 // プレイヤーとエネミーの間の地点を取得する
                 targetPositionX = (playerBattleFighterPrefab.transform.localPosition.x + enemyBattleFighterPrefab.transform.localPosition.x) / 2;
             }
-
 
             // 移動位置
             return new Vector3(targetPositionX, -0.7f, 8.0f);

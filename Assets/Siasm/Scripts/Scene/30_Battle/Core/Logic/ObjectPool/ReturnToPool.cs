@@ -11,7 +11,7 @@ namespace Siasm
         public ObjectPool<GameObject> Pool { get; set; }
 
         /// <summary>
-        /// これだけで非表示も行う
+        /// これだけで非表示も行っている
         /// </summary>
         public void Release()
         {

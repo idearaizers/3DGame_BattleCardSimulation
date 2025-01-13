@@ -117,7 +117,6 @@ namespace Siasm
             {
                 var instanceBattleBoxPrefab = instanceBattleBoxPrefabs[i];
                 Destroy(instanceBattleBoxPrefab);
-                instanceBattleBoxPrefab = null;
             }
 
             instanceBattleBoxPrefabs.Clear();

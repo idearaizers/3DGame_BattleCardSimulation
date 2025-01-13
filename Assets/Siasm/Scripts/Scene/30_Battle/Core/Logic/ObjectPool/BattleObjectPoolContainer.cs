@@ -66,13 +66,9 @@ namespace Siasm
 
         private void OnDestroy()
         {
-            // OnDestroy時に実行なのでClearだけでも十分かもだが見直した方がいいかも
-            foreach (var pool in poolDictionary)
+            foreach (var (poolkey, poolValue) in poolDictionary)
             {
-                // Unity停止時にエラーが出たので一旦コメントアウト
-                // Destroy(pool.Key.gameObject);
-
-                pool.Value.Clear();
+                poolValue.Clear();
             }
 
             poolDictionary.Clear();

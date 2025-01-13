@@ -16,10 +16,9 @@ namespace Siasm
             {
                 this.transform.localScale = Vector3.one;
             }
-            // NOTE: エネミーの場合はスケールを使用して向きを変えている
             else
             {
-                // this.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+                // TODO: エネミーのアセットの向きが定まっていないため暫定対応
                 this.transform.localScale = Vector3.one;
             }
 
@@ -35,7 +34,8 @@ namespace Siasm
         {
             if (battleFighterAnimationType == BattleFighterAnimationType.Dead)
             {
-                Debug.Log("TODO: 暫定で死亡時にキャラの向きを変更。正しいアセットが用意できた際に削除予定");
+                Debug.Log("TODO: 暫定で死亡時にキャラの向きを変更。正しいアセットが用意できた際にこの処理は削除予定");
+
                 this.gameObject.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             }
 

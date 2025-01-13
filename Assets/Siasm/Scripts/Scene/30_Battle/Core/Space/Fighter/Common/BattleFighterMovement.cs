@@ -6,19 +6,13 @@ namespace Siasm
 {
     public class BattleFighterMovement : MonoBehaviour
     {
-        // private const float movingSpeed = 75.0f;
         private const float movingSpeed = 60.0f;
         private const float moveDuration = 0.3f;
         private const float targetDistance = 3.0f;  // 5.0f
         private const float targetDistanceRange = 0.1f;
         private const float moveForwardPositionX = 1.0f;
-        // private const float knockBackPositionX = -8.0f;
         private const float knockBackPositionX = -12.0f;
-
-        // private const float backwardPositionX = -2.0f;
-        // private const float backwardPositionX = -5.0f;
         private const float backwardPositionX = -3.0f;
-
 
         /// <summary>
         /// 前進する時の向き
@@ -86,15 +80,6 @@ namespace Siasm
                 targetPosition,
                 Time.deltaTime * movingSpeed
             );
-        }
-
-        /// <summary>
-        /// マッチ時に使用
-        /// 少しだけ前進する
-        /// </summary>
-        public async UniTask MoveForwardAsync()
-        {
-            await MoveAsync(moveForwardPositionX, moveDuration);
         }
 
         /// <summary>

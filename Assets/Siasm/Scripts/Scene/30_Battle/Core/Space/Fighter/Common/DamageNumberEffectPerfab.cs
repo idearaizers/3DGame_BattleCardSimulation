@@ -5,9 +5,6 @@ using TMPro;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 弱点に応じてエフェクトを多少変更した方がいいかも
-    /// </summary>
     public class DamageNumberEffectPerfab : MonoBehaviour
     {
         private const float showDuration = 0.5f;
@@ -30,12 +27,13 @@ namespace Siasm
         {
             canvas.worldCamera = mainCamera;
 
-            // 使用するまで非表示にする
             attributeText.gameObject.SetActive(false);
         }
 
         public void PlayEffect(int damageNumber, int resultDamageNumber, AttributeResistType attributeResistType, BattleCardModel battleCardModel)
         {
+            // TODO: 弱点などでどれくらい増えたのかがわからないのでdamageNumberを使用予定
+
             currentCoroutine = PlayEffectCoroutine(resultDamageNumber, attributeResistType, battleCardModel);
             StartCoroutine(currentCoroutine);
         }
@@ -44,11 +42,9 @@ namespace Siasm
         {
             numberText.text = resultDamageNumber.ToString();
 
-            // 表示過多になるので必要なら削除してもいいかも
             if (battleCardModel.EmotionAttributeType == EmotionAttributeType.None ||
                 battleCardModel.EmotionAttributeType == EmotionAttributeType.Normal)
             {
-                // 表示しない
                 attributeText.gameObject.SetActive(false);
             }
             else
@@ -57,6 +53,7 @@ namespace Siasm
                 attributeText.text = BattleTextConstant.EmotionAttributeTypeStringDictionary[battleCardModel.EmotionAttributeType];
             }
 
+            // TODO: Dictionaryでの管理に変更予定
             switch (attributeResistType)
             {
                 case AttributeResistType.Immune:
