@@ -1,7 +1,4 @@
 namespace Siasm
 {
-    public class EnemyBattleFighterPartyModel : BaseBattleFighterPartyModel
-    {
-        // 
-    }
+    public class EnemyBattleFighterPartyModel : BaseBattleFighterPartyModel { }
 }

@@ -17,7 +17,8 @@ namespace Siasm
         public EmotionAttributeType EmotionAttributeType { get; set; }
         public BattleCardAbilityModel[] BattleCardAbilityModels { get; set; }
 
-        // 頻繁に変更するのでコンストラクタを見直した方がいいかも
+        // TODO: 頻繁に変更するのでこのクラスのコンストラクタを見直し予定
+        // TODO: Setterメソッドでしか変更できないように変更予定
         public CardPlaceType CardPlaceType { get; set; }
 
         // 整理してよさそうなもの

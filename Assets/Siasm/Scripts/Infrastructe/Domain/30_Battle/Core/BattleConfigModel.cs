@@ -1,7 +1,4 @@
 namespace Siasm
 {
-    public class BattleConfigModel
-    {
-        // 
-    }
+    public class BattleConfigModel { }
 }

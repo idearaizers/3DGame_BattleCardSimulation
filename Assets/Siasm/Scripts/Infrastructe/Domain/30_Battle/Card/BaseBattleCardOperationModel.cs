@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows.WebCam;
 
 namespace Siasm
 {
@@ -13,7 +12,6 @@ namespace Siasm
     [Serializable]
     public abstract class BaseBattleCardOperationModel
     {
-        // private MemoryDatabase memoryDatabase;  // リボジトリクラス経由に変える
         private BattleUseCase battleUseCase;
 
         /// <summary>
@@ -45,10 +43,9 @@ namespace Siasm
         public BaseBattleCardOperationModel(BattleCardModel[] originalDeckBattleCardModels, BattleUseCase battleUseCase, BattleConfigDebug battleConfigDebug)
         {
             this.battleConfigDebug = battleConfigDebug;
+            this.battleUseCase = battleUseCase;
 
             OriginalDeckBattleCardModels = originalDeckBattleCardModels;
-            // this.memoryDatabase = memoryDatabase;
-            this.battleUseCase = battleUseCase;
 
             // 山札を用意する
             deckBattleCardModels = OriginalDeckBattleCardModels.Select(battleCardModelOfOriginalDeckCard => battleCardModelOfOriginalDeckCard.Clone()).ToList();
@@ -61,7 +58,6 @@ namespace Siasm
             cemeteryBattleCardModels = new List<BattleCardModel>();
         }
 
-        
         /// <summary>
         /// 主にデバッグで使用
         /// エネミーの手札を指定したカードに変える
@@ -70,7 +66,6 @@ namespace Siasm
         {
             handBattleCardModels[index] = battleCardModel;
         }
-
 
         /// <summary>
         /// 指定した枚数のカードを山札から手札に加える
@@ -83,13 +78,10 @@ namespace Siasm
                 // デッキにカードがあるか確認
                 if (deckBattleCardModels.Count > 0)
                 {
-
                     // デバッグが有効であれば取得したカードを手札にそのまま加える
                     var debugBattleCardModel = battleConfigDebug.GetBattleCardModelofPlayer();
                     if (debugBattleCardModel != null)
                     {
-                        // var deckBattleCardModel = deckBattleCardModels[0];
-                        // deckBattleCardModels.RemoveAt(0);
                         handBattleCardModels.Add(debugBattleCardModel);
                     }
                     // デバッグが有効でなければ山札から手札に加える
@@ -115,15 +107,10 @@ namespace Siasm
             }
         }
 
-
-
-
-
-
         /// <summary>
         /// デッキリロード関連のカードを引く
         /// 2種類のうちランダムでどちらかを引く
-        /// パッシブスキルで強化が可能
+        /// 将来的にパッシブスキルで強化できるようにしたい
         /// </summary>
         /// <returns></returns>
         public BattleCardModel GetDeckReloadBattleCardModel()
@@ -134,7 +121,7 @@ namespace Siasm
                 30012001
             };
 
-            // UseCase経由にしてファクトリークラスで取得がいいかも
+            // NOTE: UseCase経由にしてファクトリークラスで取得がいいかも
             // マスターデータから指定したカードデータを取得
             var deckReroadCardId = UnityEngine.Random.Range(0, deckReroadCardIds.Length);
             var battleCardMasterData = battleUseCase.MemoryDatabase.BattleCardMasterDataTable.FindById(deckReroadCardId);
@@ -166,8 +153,7 @@ namespace Siasm
 
         /// <summary>
         /// 墓地にあるカードをデッキに戻してシャッフルする
-        /// NOTE: 加えられたカードの処理は別で考える必要がある
-        /// NOTE: 一旦、手札のカードはそのまま
+        /// TODO: 加えられたカードの処理は別で考える必要がある
         /// </summary>
         public void DeckReload()
         {
@@ -193,8 +179,6 @@ namespace Siasm
                 handBattleCardModels.Remove(battleCardModel);
 
                 // 墓地に追加する
-                // NOTE: 使用したカードはすべて格納でいいかも
-                // NOTE: デッキリロード時に生成したものは削除でもいいかも
                 cemeteryBattleCardModels.Add(battleCardModel);
             }
         }
