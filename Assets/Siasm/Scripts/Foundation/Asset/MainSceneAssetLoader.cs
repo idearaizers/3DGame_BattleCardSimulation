@@ -1,13 +1,9 @@
-using System.Linq;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
-using VContainer;
 
 namespace Siasm
 {
     /// <summary>
-    /// メインシーンでのみ使用するアセットを管理
-    /// 破棄用の処理も管理させたい
+    /// TODO: まだ組み込みできていないので別で実装予定
     /// </summary>
     public class MainSceneAssetLoader
     {

@@ -5,10 +5,6 @@ using UnityEngine;
 
 namespace Siasm
 {
-    /// <summary>
-    /// バトルシーンでのみ使用するアセットを管理
-    /// 破棄用の処理も管理させたい
-    /// </summary>
     public class BattleSceneAssetLoader
     {
         private readonly List<string> cachedKeys = new List<string>()
@@ -42,15 +38,7 @@ namespace Siasm
 
             var enemyCardIds = battleUseCase.BattleModel.EnemyBattleFighterModel.BattleDeckModel.BattleCardModels.Select(x => x.CardId);
             cardIds.AddRange(enemyCardIds);
-
-            // 重複を削除
             cardIds = cardIds.Distinct().ToList();
-
-            // TODO：仮でデバッグ用のカードアセットをここで設定
-            cardIds.Add(91011001);
-            cardIds.Add(91011002);
-            cardIds.Add(92011001);
-            cardIds.Add(92011002);
 
             foreach (var cardId in cardIds)
             {

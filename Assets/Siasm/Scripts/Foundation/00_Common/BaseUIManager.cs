@@ -3,10 +3,6 @@ using VContainer.Unity;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 主にアウトゲーム部分用
-    /// インゲームは複雑なので基本使用しない想定（だが整理中のため使用するかも）
-    /// </summary>
     public abstract class BaseUIManager : MonoBehaviour
     {
         [SerializeField]
@@ -18,8 +14,7 @@ namespace Siasm
         public PageNavigator PageNavigator => pageNavigator;
 
         /// <summary>
-        /// 初期ページ（起動時に表示した状態にするページ）をビルドする
-        /// NOTE: 非表示にしているのでタイミングを見て使用元で表示させる
+        /// 初期化で起動時に表示した状態にするページをビルドする際に使用
         /// </summary>
         /// <param name="sceneLifetimeScope"></param>
         /// <param name="assetCacheManager"></param>

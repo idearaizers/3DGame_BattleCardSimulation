@@ -37,8 +37,8 @@ namespace Siasm
 
         protected override void Configure(IContainerBuilder builder)
         {
-            // NOTE: 全てシングルトンのためLifetimeScope経由で参照しなくてもいいかも
-            // NOTE: 現状ではマスターデータのみで使用している
+            // NOTE: マネージャークラスは全てシングルトンのためLifetimeScope経由で参照しなくてもいいかも
+            // NOTE: 現状ではマスターデータの参照で主に使用している
             builder.RegisterComponent(sceneLoadManager);
             builder.RegisterComponent(dialogManager);
             builder.RegisterComponent(overlayManager);

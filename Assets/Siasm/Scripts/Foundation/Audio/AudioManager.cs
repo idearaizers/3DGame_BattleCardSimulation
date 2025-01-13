@@ -40,8 +40,8 @@ namespace Siasm
         }
 
         /// <summary>
-        /// NOTE: Initialize のタイミングで使用すると反映されないため注意
-        /// NOTE: StartAsync のタイミングで適用させている
+        /// NOTE: Initializeのタイミングで使用すると反映されないため注意
+        /// NOTE: StartAsyncのタイミングで適用させている
         /// </summary>
         public void SetCurrentSoundSetting()
         {
@@ -94,12 +94,6 @@ namespace Siasm
             bgmAudioPlayer.StopAll();
         }
 
-        // public void PlayBGMOfLocal(BaseAudioPlayer.PlayType playType, string clipName)
-        // {
-        //     var audioClip = bgmAudioPlayer.GetAudioClipOfLocal(clipName);
-        //     bgmAudioPlayer.PlayClip(playType, audioClip);
-        // }
-
         public void PlaySEOfLocal(BaseAudioPlayer.PlayType playType, AudioSEType audioSEType)
         {
             var audioClip = seAudioPlayer.AudioSETypeAudioClips.GetAudioClip(audioSEType);
@@ -116,12 +110,6 @@ namespace Siasm
             var audioClip = bgmAudioPlayer.GetAudioClipOfLocal(clipName);
             voiceAudioPlayer.PlayClip(playType, audioClip);
         }
-
-        // public void PlayVoiceOfLocal(BaseAudioPlayer.PlayType playType, string clipName)
-        // {
-        //     var audioClip = bgmAudioPlayer.GetAudioClipOfLocal(clipName);
-        //     voiceAudioPlayer.PlayClip(playType, audioClip);
-        // }
 
         public void FadeOutBGM()
         {

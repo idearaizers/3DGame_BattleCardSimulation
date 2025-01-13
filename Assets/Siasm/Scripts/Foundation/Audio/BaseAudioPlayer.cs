@@ -7,23 +7,17 @@ namespace Siasm
 {
     public abstract class BaseAudioPlayer : MonoBehaviour
     {
-        /// <summary>
-        /// NOTE: あまり活用出来ていないので変えてもいいかも
-        /// </summary>
         public enum PlayType
         {
             None = 0,
-            Single,     // 一つしか鳴らさない＆最初から再生
-            Multiple,   // 重複。空いているオーディオリスナーを使用して再生する
-            Restart     // 最初から再生し直す。あまり使用していない
+            Single,     // 同じ音は一つしか鳴らさない＆最初から再生
+            Multiple,   // 重複して鳴らす 空いているオーディオリスナーを使用して再生する
+            Restart     // 最初から再生し直す
         }
 
         [SerializeField]
         private AudioMixerGroup audioMixerGroup;
 
-        /// <summary>
-        /// SerializableDictionary関連の処理から取得したクリップデータを使用する形に変えたい
-        /// </summary>
         [SerializeField]
         private AudioClip[] localAudioClips;
 
@@ -47,13 +41,10 @@ namespace Siasm
             }
         }
 
-        /// <summary>
-        /// NOTE: エディター用の破棄処理
-        /// </summary>
         private void OnDestroy()
         {
-            unUsedAudioSourcePool = null;
-            usingAudioSourceListDictionary = null;
+            unUsedAudioSourcePool.Clear();
+            usingAudioSourceListDictionary.Clear();
         }
 
         public AudioClip GetAudioClipOfLocal(string clipName)
@@ -205,8 +196,6 @@ namespace Siasm
         /// リスト内の全てのオーディオを停止して辞書から削除する
         /// </summary>
         /// <param name="clipName"></param>
-        /// <param name="isFadeOut"></param>
-        /// <returns></returns>
         public void StopClip(string clipName)
         {
             foreach (var (usingAudioSourceString, usingAudioSourceList) in usingAudioSourceListDictionary)

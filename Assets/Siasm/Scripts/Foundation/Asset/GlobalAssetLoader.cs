@@ -5,7 +5,7 @@ namespace Siasm
 {
     /// <summary>
     /// 起動から終了まで常にメモリ上に置くアセット
-    /// シーン共通で使用するものを管理
+    /// シーン共通で使用するものを管理しているが現状では特に管理するアセットがないので見直ししてもいいかも
     /// </summary>
     public class GlobalAssetLoader
     {

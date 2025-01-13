@@ -9,7 +9,7 @@ namespace Siasm
         public Action OnResume { get; set; }
 
         /// <summary>
-        /// NOTE: 必要なら Initialize に変える
+        /// NOTE: Initializeの方が分かりやすいかも
         /// </summary>
         /// <param name="pageNavigator"></param>
         public void SetPageNavigator(PageNavigator pageNavigator)
