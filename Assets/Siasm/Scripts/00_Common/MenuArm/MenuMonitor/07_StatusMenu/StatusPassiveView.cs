@@ -79,7 +79,7 @@ namespace Siasm
             if (currentSelectedGameObject != null &&
                 currentSelectedGameObject != selectedGameObject)
             {
-                currentSelectedGameObject.GetComponent<MenuCustomPassiveSkilllView>()?.ChangeActiveOfSelectedImage(false);
+                currentSelectedGameObject.GetComponent<MenuCustomPassiveSkillView>()?.ChangeActiveOfSelectedImage(false);
                 currentSelectedGameObject.GetComponent<MenuOwnPassiveSkillCellView>()?.ChangeActiveOfSelectedImage(false);
             }
 

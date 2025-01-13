@@ -40,7 +40,7 @@ namespace Siasm
 
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
-            var cellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuCustomPassiveSkilllView;
+            var cellView = scroller.GetCellView(EnhancedScrollerCellViewPrefab) as RowMenuCustomPassiveSkillView;
             cellView.name = GetCellNameText(dataIndex);
             cellView.SetData(ref customPassiveSkillModels, dataIndex * NumberOfCellsPerRow);
             cellView.OnClickAction = OnClick;

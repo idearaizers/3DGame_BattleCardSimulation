@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Siasm
 {
-    public sealed class RowMenuCustomPassiveSkilllView : EnhancedScrollerCellView
+    public sealed class RowMenuCustomPassiveSkillView : EnhancedScrollerCellView
     {
         [SerializeField]
-        private MenuCustomPassiveSkilllView[] menuCustomPassiveSkilllViews;
+        private MenuCustomPassiveSkillView[] menuCustomPassiveSkilllViews;
 
         public Action<GameObject, MenuCustomPassiveSkillModel> OnClickAction { get; set; }
 

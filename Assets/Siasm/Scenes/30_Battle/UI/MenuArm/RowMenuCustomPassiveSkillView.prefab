@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7992348255429792695}
   - component: {fileID: 8517893933965911864}
   m_Layer: 5
-  m_Name: RowMenuCustomPassiveSkilllView
+  m_Name: RowMenuCustomPassiveSkillView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

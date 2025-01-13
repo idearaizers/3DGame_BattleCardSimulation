@@ -8,10 +8,7 @@ namespace Siasm
 {
     public class MenuCustomPassiveSkillModel : BattleCardModel { }
 
-    /// <summary>
-    /// つづりミスかも
-    /// </summary>
-    public sealed class MenuCustomPassiveSkilllView : EnhancedScrollerCellView
+    public sealed class MenuCustomPassiveSkillView : EnhancedScrollerCellView
     {
         [Space]
         [SerializeField]

@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 5623740962951682160}
   - component: {fileID: 4424491820845473005}
   m_Layer: 5
-  m_Name: MenuCustomPassiveSkilllView
+  m_Name: MenuCustomPassiveSkillView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
