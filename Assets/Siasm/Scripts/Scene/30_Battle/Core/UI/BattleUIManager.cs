@@ -40,9 +40,6 @@ namespace Siasm
         private BattleHUDController battleHUDController;
 
         [Header("UI演出関連")]
-        // [SerializeField]
-        // private BattleDirectionContent battleDirectionContent;
-
         [SerializeField]
         private BattleUIDirectonController battleUIDirectonController;
 
@@ -72,18 +69,14 @@ namespace Siasm
             battleMenuArmController.Initialize(token, baseUseCase, battleCameraController, battleArmController, this, battleSpaceManager);
             battleMenuArmController.OnDeckChangeAction = (deckIndex) => battleArmController.PlayDeckChange(deckIndex);
             battleMenuArmController.OnEscapeAction = () => OnEscapeAction?.Invoke();
-
             battleMenuArmController.OnShowAction = () =>
             {
-                // battleHUDController.ChangeInteractableClickButton(false);
                 battleHUDController.HideAllHUD();
                 battleHUDController.BattleCardDetailHUDPrefab.PlayHideAnimation();
             };
-
             battleMenuArmController.OnHidAction = () =>
             {
                 battleHUDController.ShowAllHUD(null, null);
-                // battleHUDController.ChangeInteractableClickButton(true);
             };
 
             // HUD関連
@@ -117,7 +110,6 @@ namespace Siasm
             };
 
             // UI関連
-            // battleDirectionContent.Initialize();
             battleUIDirectonController.Initialize(token, battleCameraController);
         }
 
@@ -134,7 +126,6 @@ namespace Siasm
             );
 
             // UI関連
-            // battleDirectionContent.Setup();
             battleUIDirectonController.Setup();
         }
 
@@ -177,15 +168,11 @@ namespace Siasm
             // メニューアームを非表示にして、バトルアームを表示する
             if (battleMenuArmController.CurrentPlayableParameter.IsOpening)
             {
-                // BattleHUDController
-
                 battleMenuArmController.PlaySwitchMenuAnimation(showMenuContent);
             }
             // バトルアームを非表示にして、メニューアームを表示する
             else
             {
-                // BattleHUDController
-
                 battleMenuArmController.PlaySwitchMenuAnimation(showMenuContent, baseMenuPrefabParameter);
             }
         }

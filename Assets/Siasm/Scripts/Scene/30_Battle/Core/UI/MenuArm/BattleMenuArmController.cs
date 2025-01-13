@@ -38,7 +38,7 @@ namespace Siasm
             {
                 var trackAsset = playableBinding.sourceObject as TrackAsset;
 
-                // bu
+                // NOTE: トラックのバインド適用処理のサンプル
                 // switch (trackAsset)
                 // {
                 //     // case ***Track:

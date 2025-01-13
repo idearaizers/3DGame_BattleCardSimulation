@@ -39,7 +39,7 @@ namespace Siasm
         /// <summary>
         /// 保存している値との差分でダメージか回復かを出し分け
         /// NOTE: 変更前のモデルクラスと比較ができなかったので現在設定しているViewの値と比較して表示
-        /// NOTE: ここでは適用だけでダメージと回復の分岐は処理先で行う方がいいかも
+        /// NOTE: ここでは適用だけでダメージと回復の分岐は処理先で行う方がいいかもで見直し予定
         /// </summary>
         /// <param name="baseBattleFighterModel"></param>
         public void Apply(BaseBattleFighterModel baseBattleFighterModel)

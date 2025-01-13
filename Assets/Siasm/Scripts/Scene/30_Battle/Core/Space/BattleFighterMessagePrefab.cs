@@ -4,9 +4,6 @@ using TMPro;
 
 namespace Siasm
 {
-    /// <summary>
-    /// NOTE: 将来的には文字の揺れやサイズ変更なども行いたい
-    /// </summary>
     public class BattleFighterMessagePrefab : MonoBehaviour
     {
         private const float delayDuration = 0.15f;

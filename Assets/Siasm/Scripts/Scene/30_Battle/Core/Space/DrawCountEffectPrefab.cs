@@ -20,7 +20,7 @@ namespace Siasm
         {
             canvas.worldCamera = mainCamera;
 
-            // NOTE: エネミーの後ろに表示されるようで仮で設定
+            // NOTE: エネミーの後ろに表示されるようで暫定対応
             canvas.sortingOrder = 1;
         }
 

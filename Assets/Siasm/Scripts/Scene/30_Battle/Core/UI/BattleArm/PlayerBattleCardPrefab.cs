@@ -52,10 +52,8 @@ namespace Siasm
             }
         }
 
-        // bool isHand
         public void SetIsHand(CardPlaceType CardPositionType)
         {
-            // IsHand = isHand;
             CurrentBattleCardModel.SetCardPlaceType(CardPositionType);
         }
 
@@ -96,12 +94,6 @@ namespace Siasm
                         battleBoxPrefab.OnMouseDragEnd(this);
                         OnMouseDragEndOfChangeCardAction?.Invoke(this, battleBoxPrefab.CurrentBattleCardModel);
                     }
-
-                    // 下記は不要なのでコメントアウト
-                    // あとで整理したい
-                    // 手札からなくなったので変更する
-                    // IsHand = false;
-                    // CurrentBattleCardModel.SetCardPlaceType(CardPlaceType.None);
                 }
                 // バトルボックスにドラッグしていなければ移動前の場所に戻す
                 else

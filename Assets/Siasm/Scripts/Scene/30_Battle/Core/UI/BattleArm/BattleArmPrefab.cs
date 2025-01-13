@@ -22,13 +22,8 @@ namespace Siasm
             battleArmDeckPrefab.Setup();
         }
 
-        /// <summary>
-        /// NOTE: 正しく取れていないみたい？？
-        /// </summary>
-        /// <returns></returns>
         public bool IsLeftArmHideAnimation()
         {
-            // 現在のAnimatorState情報を取得（レイヤー0）
             AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
             // 指定したアニメーション名が再生中で、かつnormalizedTimeが1以上なら終了している
@@ -43,16 +38,6 @@ namespace Siasm
         public void PlayDeckChange()
         {
             battleArmDeckPrefab.PlayDeckChange();
-        }
-
-        public void PlayHide()
-        {
-            animator.Play("LeftArm_Hide");
-        }
-
-        public void PlayShow()
-        {
-            animator.Play("LeftArm_Show");
         }
     }
 }

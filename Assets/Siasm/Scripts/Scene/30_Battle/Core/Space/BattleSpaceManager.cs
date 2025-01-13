@@ -120,9 +120,6 @@ namespace Siasm
             var targetPosition = GetFighterStatusViewPosition(PlayerBattleFighterPrefab);
             battleCameraController.PlayMoveAnimationAsync(Vector3.zero, targetPosition, 0.1f, Ease.Linear).Forget();
 
-            // TODO: 表示に必要な情報を渡したい
-            // どこかに値を保存するかな、UseCaseに一旦、保存するかな
-
             var baseMenuPrefabParameter = new BattleAnalyzeMenuPrefab.BattleAnalyzeMenuPrefabParameter
             {
                 isPlayerTarget = true
@@ -141,9 +138,6 @@ namespace Siasm
             // カメラを移動
             var targetPosition = GetFighterStatusViewPosition(EnemyBattleFighterPrefab);
             battleCameraController.PlayMoveAnimationAsync(Vector3.zero, targetPosition, 0.1f, Ease.Linear).Forget();
-
-            // TODO: 表示に必要な情報を渡したい
-            // どこかに値を保存するかな、UseCaseに一旦、保存するかな
 
             var baseMenuPrefabParameter = new BattleAnalyzeMenuPrefab.BattleAnalyzeMenuPrefabParameter
             {

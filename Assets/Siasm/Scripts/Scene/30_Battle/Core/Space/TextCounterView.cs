@@ -20,12 +20,6 @@ namespace Siasm
             counterText.text = number.ToString();
         }
 
-        /// <summary>
-        /// 現状ではダメージで使用
-        /// 回復の場合は処理の見直しが必要そう
-        /// ダメージを赤色にしているので色の変化などで対応ができそう
-        /// </summary>
-        /// <param name="number"></param>
         public void PlayDamage(int number)
         {
             // 値が変化なければ実行しない
@@ -34,12 +28,8 @@ namespace Siasm
                 return;
             }
 
-            // 変更させたい値を格納
             int nowNumber = currentNumber;
             int updateNumber = number;
-
-            // NOTE: 数値を大きくしてもいいかも
-            // NOTE: 必要ならSEがほしいかも
 
             // 指定したupdateNumberまでカウントアップ・カウントダウンする
             DOTween
@@ -63,7 +53,6 @@ namespace Siasm
                 .SetEase(Ease.OutQuad)
                 .SetDelay(1.0f);
 
-            // 最新の値に更新
             currentNumber = number;
         }
 
@@ -75,12 +64,8 @@ namespace Siasm
                 return;
             }
 
-            // 変更させたい値を格納
             int nowNumber = currentNumber;
             int updateNumber = number;
-
-            // NOTE: 数値を大きくしてもいいかも
-            // NOTE: 必要ならSEがほしいかも
 
             // 指定したupdateNumberまでカウントアップ・カウントダウンする
             DOTween
@@ -104,7 +89,6 @@ namespace Siasm
                 .SetEase(Ease.OutQuad)
                 .SetDelay(1.0f);
 
-            // 最新の値に更新
             currentNumber = number;
         }
     }

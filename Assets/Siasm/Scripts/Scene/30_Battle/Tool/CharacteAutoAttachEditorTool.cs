@@ -4,7 +4,7 @@ using UnityEditor;
 namespace Siasm
 {
     /// <summary>
-    /// Auto Apply Tool がいいかな
+    /// TODO: AutoApplyTool関連に名称を変更予定
     /// </summary>
     [CustomEditor(typeof(CharacteAutoAttachEditorTool))]
     public class CharacteAutoAttachEditorToolEditor : Editor
@@ -13,7 +13,6 @@ namespace Siasm
 
         public override void OnInspectorGUI()
         {
-            // もともとあるインペクたーの情報を表示する
             DrawDefaultInspector();
 
             if (GUILayout.Button("ボタンの名前", GUILayout.Height(buttonHeight)))
@@ -26,11 +25,12 @@ namespace Siasm
 
     public class CharacteAutoAttachEditorTool : MonoBehaviour
     {
-        // ボタンが押されたら実行する処理
+        /// <summary>
+        /// ボタンが押されたら実行する処理
+        /// </summary>
         public void Execute()
         {
-            // ここに処理の内容を書く
-            Debug.Log("ボタンが押されたよ！");
+            // TODO: 
         }
     }
 }

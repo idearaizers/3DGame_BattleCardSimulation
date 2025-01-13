@@ -19,10 +19,12 @@ namespace Siasm
                     attackThumbnail.gameObject.SetActive(true);
                     guardThumbnail.gameObject.SetActive(false);
                     break;
+
                 case CardReelType.Guard:
                     attackThumbnail.gameObject.SetActive(false);
                     guardThumbnail.gameObject.SetActive(true);
                     break;
+
                 case CardReelType.None:
                 default:
                     throw new ArgumentOutOfRangeException(nameof(cardReelType));

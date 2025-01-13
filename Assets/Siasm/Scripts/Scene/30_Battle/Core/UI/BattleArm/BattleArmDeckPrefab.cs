@@ -147,6 +147,7 @@ namespace Siasm
                 if (deckBattleCardModelIndex == -1)
                 {
                     // デッキに指定のカードがなかったので生成して手札に追加する
+
                     // TODO: 生成するものがもしもあれば追加実装する
 
                     AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
@@ -157,7 +158,6 @@ namespace Siasm
                     // 演出用に少し待機
                     await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
 
-                    // Debug.LogWarning($"デッキに指定のカードモデルが存在しなかったためドロー処理をスキップしました => handCardModelIndex: {i}");
                     continue;
                 }
 
@@ -220,16 +220,13 @@ namespace Siasm
 
         private void InitializeCard(PlayerBattleCardPrefab playerBattleCardPrefab)
         {
-            // 初期化
             playerBattleCardPrefab.Initialize(mainCamera);
 
-            // 
             playerBattleCardPrefab.OnMousePointerEntoryAction = (battleCardModel) =>
             {
                 battleUIManager.BattleHUDController.BattleCardDetailHUDPrefab.PlayShowAnimation(battleCardModel);
             };
 
-            // 
             playerBattleCardPrefab.OnReturnPositionAction = (playerBattleCardPrefab) =>
             {
                 // 何番目の手札にあるのか取得
@@ -240,7 +237,6 @@ namespace Siasm
                 instanceHandCardPrefabs[handIndex].transform.DOLocalMove(new Vector3(0.0f, handPositionY, 0.0f), handMoveSpeed);
             };
 
-            // 
             playerBattleCardPrefab.OnMouseDragEndAction = (playerBattleCardPrefab) =>
             {
                 // 非表示にする
@@ -261,7 +257,6 @@ namespace Siasm
                 }
             };
 
-            // 
             playerBattleCardPrefab.OnMouseDragEndOfChangeCardAction = (playerBattleCardPrefab, battleCardModel) =>
             {
                 // 非表示にする
@@ -334,20 +329,13 @@ namespace Siasm
             return handPositionY;
         }
 
-        // async UniTask
         public void PlayDeckChange()
         {
-            // 手札をすべてデッキの場所に移動させる
-
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
-            // 
             foreach (var instanceHandCardPrefab in instanceHandCardPrefabs)
             {
-                // TODO: 必要なら高さ位置を考慮する
                 instanceHandCardPrefab.transform.DOLocalMove(new Vector3(0.0f, 0.05f, -0.0075f), handMoveSpeed);
-                
-                // 
                 instanceHandCardPrefab.SetIsHand(CardPlaceType.None);
                 instanceDeckCardPrefabs.Add(instanceHandCardPrefab);
             }
@@ -357,13 +345,6 @@ namespace Siasm
 
             // デッキ枚数の表示を更新
             deckText.text = string.Format(deckStringFormat, instanceDeckCardPrefabs.Count);
-
-            // 一度、全てのカードを破棄した方がいいかも
-        }
-
-        public void ChangeDeck(int deckIndex)
-        {
-            // playerBattleCardOperationController.ChangeDeck(deckIndex);
         }
 
         private void OnDestroy()
