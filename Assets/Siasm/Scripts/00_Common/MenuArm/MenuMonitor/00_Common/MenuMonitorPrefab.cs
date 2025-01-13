@@ -82,6 +82,9 @@ namespace Siasm
                     MenuPrefabType.BattleEscape
                 };
 
+                // 中身を入れ替える
+                currentBaseMenuPrefabs.Clear();
+
                 foreach (var menuPrefabType in menuPrefabTypes)
                 {
                     var menuPrefabGameObject = menuPrefabTypePrefabDictionary[menuPrefabType];
