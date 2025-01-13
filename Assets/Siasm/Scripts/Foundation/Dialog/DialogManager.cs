@@ -1,16 +1,13 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using UnityEngine.AddressableAssets;
 
 namespace Siasm
 {
     /// <summary>
-    /// メニューアームのダイアログ表示とは別物のため注意
-    /// こちらではオーバーレイで画面上に出す際に使用することを想定したクラス
+    /// メニューアームのダイアログ表示とは別物でこちらは旧処理が多いため注意
+    /// TODO: 不要な処理をリファクタ予定
     /// </summary>
     public class DialogManager : SingletonMonoBehaviour<DialogManager>
     {
@@ -29,16 +26,7 @@ namespace Siasm
         [SerializeField]
         private Transform subContainerTransform;
 
-        [Space]
-        [SerializeField]
-        private MessageDialog messageDialogPrefab;
-
-        [SerializeField]
-        private ConfirmDialog ConfirmDialog;
-
-        private float backgroundFadeDuration = 0.1f;
         private Stack<BaseDialog> dialogStack = new Stack<BaseDialog>();
-        private Coroutine fadingBackclothCoroutine;
 
         public void Initialize()
         {
@@ -50,39 +38,6 @@ namespace Siasm
         {
             mainDialogCanvas.worldCamera = mainCamera;
             subDialogCanvas.worldCamera = mainCamera;
-        }
-
-        /// <summary>
-        /// メッセージ用のダイアログを表示する
-        /// </summary>
-        /// <param name="parameter"></param>
-        public void OpenMessageDialog(BaseDialog.Parameter parameter)
-        {
-            var dialog = OpenDialog(messageDialogPrefab);
-            dialog.ApplyParameter(parameter);
-            dialog.OnCloseAction = CloseDialog;
-        }
-
-        /// <summary>
-        /// 確認用のダイアログを表示する
-        /// </summary>
-        /// <param name="parameter"></param>
-        /// <param name="decideAction"></param>
-        /// <param name="cancelAction"></param>
-        public void OpenConfirmDialog(BaseDialog.Parameter parameter, Action decideAction, Action cancelAction = null)
-        {
-            var dialog = OpenDialog(ConfirmDialog);
-            dialog.ApplyParameter(parameter);
-            dialog.OnCancelAction = () =>
-            {
-                cancelAction?.Invoke();
-                CloseDialog();
-            };
-            dialog.OnDecideAction = () =>
-            {
-                decideAction?.Invoke();
-                CloseDialog();
-            };
         }
 
         /// <summary>
@@ -202,39 +157,6 @@ namespace Siasm
         }
 
         /// <summary>
-        /// 現在のダイアログを閉じて新しいMessageDialogを開く
-        /// </summary>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        public MessageDialog ReplaceMessageDialog(MessageDialog.Parameter parameters)
-        {
-            var dialog = Replace(messageDialogPrefab);
-            return dialog;
-        }
-
-        /// <summary>
-        /// 現在のダイアログを閉じて新しいYesNoDialogを開く
-        /// </summary>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        public ConfirmDialog ReplaceConfirmationDialog(ConfirmDialog.Parameter parameters)
-        {
-            var dialog = Replace(ConfirmDialog);
-            return dialog;
-        }
-
-        private void StopFadingBackclothCorutione()
-        {
-            if (fadingBackclothCoroutine == null)
-            {
-                return;
-            }
-
-            StopCoroutine(fadingBackclothCoroutine);
-            fadingBackclothCoroutine = null;
-        }
-
-        /// <summary>
         /// 現在のダイアログを閉じて新しいダイアログを開く
         /// </summary>
         /// <param name="dialogPrefab"></param>
@@ -270,22 +192,6 @@ namespace Siasm
             {
                 HideBackclothImmediately(backClothImageOfCanvasGroup);
             }
-        }
-
-        private IEnumerator ShowBackclothAsync(CanvasGroup backcloth)
-        {
-            backcloth.gameObject.SetActive(true);
-            yield return backcloth.DOFade(1, backgroundFadeDuration)
-                .WaitForCompletion();
-            fadingBackclothCoroutine = null;
-        }
-
-        private IEnumerator HideBackclothAsync(CanvasGroup backcloth)
-        {
-            yield return backcloth.DOFade(0, backgroundFadeDuration)
-                .WaitForCompletion();
-            backcloth.gameObject.SetActive(false);
-            fadingBackclothCoroutine = null;
         }
 
         private void HideBackclothImmediately(CanvasGroup backcloth)
