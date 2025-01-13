@@ -1,7 +1,4 @@
 namespace Siasm
 {
-    public class MainDeckModel
-    {
-        // 
-    }
+    public class MainDeckModel { }
 }
