@@ -45,49 +45,15 @@ namespace Siasm
             switch (showTargetType)
             {
                 case ShowTargetType.PlayerDeck:
-                    // labelText.text = "プレイヤーのデッキに残っているカード一覧";
-                    // var battleCardModelOfDeckCards = playerBattleCardController.PlayerDeckBattleCardModel.BattleCardModelOfDeckCards;
-                    // if (battleCardModelOfDeckCards != null && battleCardModelOfDeckCards.Count > 0)
-                    // {
-                    //     battleCardScrollController.Setup(battleCardModelOfDeckCards.ToArray());
-                    // }
-                    // else
-                    // {
-                    //     var battleCardModels = new BattleCardModel[]{};
-                    //     battleCardScrollController.Setup(battleCardModels);
-                    // }
+                    // TODO: 
                     break;
 
                 case ShowTargetType.PlayerCemetery:
-                    {
-                        // labelText.text = "プレイヤーの墓地にあるカード一覧";
-                        // var battleCardModelOfCemeteryCards = playerBattleCardController.PlayerDeckBattleCardModel.BattleCardModelOfCemeteryCards;
-                        // if (battleCardModelOfCemeteryCards != null && battleCardModelOfCemeteryCards.Count > 0)
-                        // {
-                        //     battleCardScrollController.Setup(battleCardModelOfCemeteryCards.ToArray());
-                        // }
-                        // else
-                        // {
-                        //     var battleCardModels = new BattleCardModel[]{};
-                        //     battleCardScrollController.Setup(battleCardModels);
-                        // }
-                    }
+                    // TODO: 
                     break;
 
                 case ShowTargetType.EnemyCemetery:
-                    {
-                        // labelText.text = "エネミーの墓地にあるカード一覧";
-                        // var battleCardModelOfCemeteryCards = enemyBattleCardController.BaseFighterBattleCardModel.BattleCardModelOfCemeteryCards;
-                        // if (battleCardModelOfCemeteryCards != null && battleCardModelOfCemeteryCards.Count > 0)
-                        // {
-                        //     battleCardScrollController.Setup(battleCardModelOfCemeteryCards.ToArray());
-                        // }
-                        // else
-                        // {
-                        //     var battleCardModels = new BattleCardModel[]{};
-                        //     battleCardScrollController.Setup(battleCardModels);
-                        // }
-                    }
+                    // TODO: 
                     break;
 
                 case ShowTargetType.None:

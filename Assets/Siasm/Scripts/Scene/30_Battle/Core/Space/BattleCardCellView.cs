@@ -12,31 +12,17 @@ namespace Siasm
         [SerializeField]
         private BattleCard battleCard;
 
-        // [SerializeField]
-        // private ScrollCardView scrollCardView;
-
-        private BattleCardModel battleCardModel;
-
         public Action<BattleCardModel> OnClickAction { get; set; }
 
         public void SetData(BattleCardModel battleCardModel)
         {
-            this.battleCardModel = battleCardModel;
-
             containerGameObject.SetActive(battleCardModel != null);
 
             if (battleCardModel != null)
             {
+                battleCard.Initialize();
                 battleCard.Apply(battleCardModel);
-
-                // scrollCardView.Initialize(battleCardModel);
-                // scrollCardView.OnClickAction = OnClick;
             }
-        }
-
-        private void OnClick()
-        {
-            OnClickAction?.Invoke(battleCardModel);
         }
     }
 }

@@ -89,7 +89,7 @@ namespace Siasm
             while (true)
             {
                 battleCardReelView.Apply(currentNumber);
-                yield return new WaitForSeconds(0.04f);     // 0.05f
+                yield return new WaitForSeconds(0.04f);
 
                 currentNumber++;
                 if (currentNumber > maxNumber)

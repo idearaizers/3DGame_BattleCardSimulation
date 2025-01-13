@@ -33,24 +33,15 @@ namespace Siasm
 
         public CanvasGroup CanvasGroup => canvasGroup;
 
-        public void Initialize()
-        {
-            // NOTE: 特になし
-        }
+        public void Initialize() { }
 
         public void Apply(BattleCardModel battleCardModel)
         {
             cardFrameView.Apply(battleCardModel.CardSpecType);
             cardNameText.text = battleCardModel.CardName;
-            // cardImage = battleCardModel.CardImage;
             cardCostText.text = battleCardModel.CostNumber.ToString();
             cardTypeView.Apply(battleCardModel.CardReelType);
             descriptionText.text = battleCardModel.DescriptionText;
-        }
-
-        public void SetCanvasGroupAlpha(float number)
-        {
-            canvasGroup.alpha = number;
         }
     }
 }
