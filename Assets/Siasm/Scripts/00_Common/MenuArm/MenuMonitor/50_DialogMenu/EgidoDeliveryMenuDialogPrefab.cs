@@ -51,22 +51,17 @@ namespace Siasm
         {
             currentDialogParameter = dialogParameter as DialogParameter;;
 
-            // 
             var saveDataOwnItem = SaveManager.Instance.LoadedSaveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.EgidoId);
             ditiaText.text = $"所持エギド数 {saveDataOwnItem.ItemNumber}";
 
-            // 
             var mainQuestMasterData = new MainQuestMasterData();
             var baseMainQuestMasterDataModel = mainQuestMasterData.GetBaseMainQuestMasterDataModel(SaveManager.Instance.LoadedSaveDataCache.SaveDataMainQuest.SaveDataMainQuestOfProgress);
             var deliveryEgidoMainQuestMasterDataModel = baseMainQuestMasterDataModel as DeliveryEgidoMainQuestMasterDataModel;
 
-            // 
             var totalEgidoNumberDelivered = SaveManager.Instance.LoadedSaveDataCache.SaveDataMainScene.TotalEgidoNumberDelivered;
 
-            // 
             deliveryText.text = $"納品しているエギド数 {totalEgidoNumberDelivered} ({deliveryEgidoMainQuestMasterDataModel.EgidoNumber})";
 
-            // 
             Enable();
         }
 
@@ -77,8 +72,7 @@ namespace Siasm
                 "ダミーテキスト",
                 () =>
                 {
-                    // 値を取得する
-                    var numberText = "";
+                    var numberText = string.Empty;
                     foreach (var numberSlotView in numberSlotViews)
                     {
                         numberText += numberSlotView.CurrentNumber.ToString();
@@ -96,11 +90,7 @@ namespace Siasm
                 },
                 () =>
                 {
-                    // NOTE: 処理なしでいいかも
-                    // currentDialogParameter?.OnNoAction?.Invoke();
-                    // currentDialogParameter = null;
-                    // // クローズし終わった後の処理にしないといけないな
-                    // OnCloseAction?.Invoke();
+                    // NOTE: 処理なし
                 }
             );
         }

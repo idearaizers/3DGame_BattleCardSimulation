@@ -14,23 +14,15 @@ namespace Siasm
             EnhancedScroller.Delegate = this;
         }
 
-        /// <summary>
-        /// BaseBattleFighterModelから必要な値を生成して使用する
-        /// 思考停止も状態異常として扱う
-        /// </summary>
-        /// <param name="baseBattleFighterModel"></param>
         public void Setup(BaseBattleFighterModel baseBattleFighterModel)
         {
             this.abnormalConditionCellViewPrameters = new SmallList<AbnormalConditionCellView.BaseViewPrameter>();
 
-            // 思考停止用のパラメータクラスで格納
-            // BaseAbnormalConditionModel での管理がいいかも
             if (baseBattleFighterModel.ThinkingModel.IsThinkingFreeze)
             {
                 this.abnormalConditionCellViewPrameters.Add(new AbnormalConditionCellView.ThinkingFreezeViewPrameter());
             }
 
-            // 状態異常用のパラメータクラスで格納
             for (int i = 0; i < baseBattleFighterModel.BaseAbnormalConditionModels.Count; i++)
             {
                 this.abnormalConditionCellViewPrameters.Add(new AbnormalConditionCellView.AbnormalConditionViewPrameter

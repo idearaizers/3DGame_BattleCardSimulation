@@ -126,28 +126,28 @@ namespace Siasm
         /// <returns></returns>
         private async UniTask PreLoadAssetAsync(MenuDeckCardModel[] deckCardModels, MenuOwnCardModel[] ownCardModels)
         {
-                var cardIds = new List<int>();
+            var cardIds = new List<int>();
 
-                foreach (var deckCardModel in deckCardModels)
+            foreach (var deckCardModel in deckCardModels)
+            {
+                cardIds.Add(deckCardModel.CardId);
+            }
+
+            foreach (var ownCardModel in ownCardModels)
+            {
+                cardIds.Add(ownCardModel.CardId);
+            }
+
+            cardIds = cardIds.Distinct().ToList();
+
+            foreach (var cardId in cardIds)
+            {
+                var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, cardId);
+                if (!AssetCacheManager.Instance.Exist(itemSpriteAddress))
                 {
-                    cardIds.Add(deckCardModel.CardId);
+                    await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
                 }
-
-                foreach (var ownCardModel in ownCardModels)
-                {
-                    cardIds.Add(ownCardModel.CardId);
-                }
-
-                cardIds = cardIds.Distinct().ToList();
-
-                foreach (var cardId in cardIds)
-                {
-                    var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, cardId);
-                    if (!AssetCacheManager.Instance.Exist(itemSpriteAddress))
-                    {
-                        await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
-                    }
-                }
+            }
         }
 
         public override void UpdateContent(BaseMenuPrefabParameter baseMenuPrefabParameter)

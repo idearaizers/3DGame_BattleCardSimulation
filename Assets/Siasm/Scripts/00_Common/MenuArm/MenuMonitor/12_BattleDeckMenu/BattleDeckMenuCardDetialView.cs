@@ -7,24 +7,15 @@ namespace Siasm
 {
     public class BattleDeckMenuCardDetialView : MonoBehaviour
     {
-        // [SerializeField]
-        // private MenuDeckCardCellView menuDeckCardCellView;
-
         [SerializeField]
         private Image cardImage;
 
         [SerializeField]
         private TextMeshProUGUI detialText;
 
-        public void Initialize()
-        {
-            // 
-        }
+        public void Initialize() { }
 
-        public void Setup()
-        {
-            // 
-        }
+        public void Setup() { }
 
         public void ShowCardDetial(BattleCardModel battleCardModel)
         {

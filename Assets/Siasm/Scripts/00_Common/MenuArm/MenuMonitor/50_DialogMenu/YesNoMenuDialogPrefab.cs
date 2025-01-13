@@ -63,10 +63,8 @@ namespace Siasm
         private void OnNoButton()
         {
             currentDialogParameter?.OnNoAction?.Invoke();
-
             currentDialogParameter = null;
 
-            // クローズし終わった後の処理にしないといけないな
             OnCloseAction?.Invoke();
         }
     }

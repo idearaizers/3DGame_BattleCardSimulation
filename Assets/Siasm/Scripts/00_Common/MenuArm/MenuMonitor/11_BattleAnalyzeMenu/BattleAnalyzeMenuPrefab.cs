@@ -5,9 +5,6 @@ using TMPro;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 必要なら研究レポートの項目も追加する
-    /// </summary>
     public sealed class BattleAnalyzeMenuPrefab : BaseMenuPrefab
     {
         [Header("上段項目")]
@@ -68,8 +65,6 @@ namespace Siasm
                 return;
             }
 
-            // 中身を初期化
-            // デフォルトはプレイヤーの表示を優先で表示にする
             ShowPlayer();
         }
 
@@ -97,8 +92,7 @@ namespace Siasm
             }
             else
             {
-                var aaa = tabContentSwitcher.ActiveIndex;
-                if (aaa == 0)
+                if (tabContentSwitcher.ActiveIndex == 0)
                 {
                     ShowPlayer();
                 }
@@ -109,17 +103,17 @@ namespace Siasm
             }
         }
 
+        /// <summary>
+        /// TODO: エネミーと共通部分の処理を見直し予定
+        /// </summary>
         private void ShowPlayer()
         {
             var playerBattleFighterPrefab = PlayerBattleFighterSpawnController.InstanceBaseBattleFighterPrefab as PlayerBattleFighterPrefab;
             var FighterName = PlayerBattleFighterSpawnController.InstanceBaseBattleFighterPrefab.CurrentBaseBattleFighterModel.FighterName;
             fighterNameText.text = FighterName;
 
-            // 
-            // CreatureImage256_1001
             SetImage(playerBattleFighterPrefab.CurrentBaseBattleFighterModel.FighterId).Forget();
 
-            // 
             menuAnalyzeAttributeResistView.Setup(playerBattleFighterPrefab.CurrentBaseBattleFighterModel.AttributeResistModel);
             menuAnalyzeGaugeView.Setup(playerBattleFighterPrefab.CurrentBaseBattleFighterModel);
 
@@ -143,25 +137,22 @@ namespace Siasm
             playerFighterShowButton.gameObject.SetActive(false);
             enemyFighterShowButton.gameObject.SetActive(true);
 
-            // 最後に実行
             tabContentSwitcher.Setup();
         }
 
+        /// <summary>
+        /// TODO: プレイヤーと共通部分の処理を見直し予定
+        /// </summary>
         private void ShowEnemy()
         {
             var enemyBattleFighterPrefab = EnemyBattleFighterSpawnController.InstanceBaseBattleFighterPrefab as EnemyBattleFighterPrefab;
-
             var enemyBattleFighterModel = enemyBattleFighterPrefab.CurrentBaseBattleFighterModel as EnemyBattleFighterModel;
             fighterNameText.text = $"{enemyBattleFighterModel.FighterName} Lv.{enemyBattleFighterModel.FighterLevel}";
 
-            // 
-            // CreatureImage256_2001
             SetImage(enemyBattleFighterModel.FighterId).Forget();
 
-            // 
             menuAnalyzeAttributeResistView.Setup(enemyBattleFighterModel.AttributeResistModel);
             menuAnalyzeGaugeView.Setup(enemyBattleFighterModel);
-
 
             // 非アクティブの時にセットアップを行うと参照エラーが出るのでアクティブに切り替えて実行
             var activeSelf = gameObject.activeSelf;
@@ -183,7 +174,6 @@ namespace Siasm
             playerFighterShowButton.gameObject.SetActive(true);
             enemyFighterShowButton.gameObject.SetActive(false);
 
-            // 最後に実行
             tabContentSwitcher.Setup();
         }
 

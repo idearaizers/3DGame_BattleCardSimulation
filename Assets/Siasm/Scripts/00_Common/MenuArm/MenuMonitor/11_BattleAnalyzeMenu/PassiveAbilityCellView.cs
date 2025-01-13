@@ -5,10 +5,6 @@ using TMPro;
 
 namespace Siasm
 {
-    /// <summary>
-    /// もしモデルが空の場合はContainerとなっているGameObjectを非アクティブにする必要がある
-    /// また必要になったらContainerGameObjectの参照を追加する
-    /// </summary>
     public sealed class PassiveAbilityCellView : EnhancedScrollerCellView
     {
         private const string unOpenedStringFormat = "Lv.{0}で解放";
@@ -24,11 +20,6 @@ namespace Siasm
         {
             public int FighterLevel { get; set; }
 
-            /// <summary>
-            /// パッシブアビリティが開放されているかどうか
-            /// NOTE: PassiveAbilityModelから取得の方がいいかも
-            /// </summary>
-            /// <returns></returns>
             public bool GetIsReleaseOfPassiveAbility()
             {
                 if (FighterLevel >= PassiveAbilityModel.ReleaseLevel)
@@ -44,7 +35,6 @@ namespace Siasm
         [SerializeField]
         private PassiveAbilityTypeSprites passiveAbilityTypeSprites;
 
-        // 解放
         [Space]
         [SerializeField]
         private GameObject openPanelGameObject;
@@ -58,7 +48,6 @@ namespace Siasm
         [SerializeField]
         private TextMeshProUGUI descriptionText;
 
-        // 未解放
         [Space]
         [SerializeField]
         private GameObject unOpenedPanelGameObject;
@@ -88,6 +77,7 @@ namespace Siasm
                         descriptionText.text = parameter.Description;
                     }
                     break;
+
                 case EnemyViewPrameter:
                     {
                         // 必要なレベルに到達しているかどうかで表示を出し分ける
@@ -112,6 +102,7 @@ namespace Siasm
                         }
                     }
                     break;
+
                 default:
                     break;
             }

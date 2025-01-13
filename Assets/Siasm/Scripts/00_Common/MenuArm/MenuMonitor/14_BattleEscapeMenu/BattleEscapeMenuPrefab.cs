@@ -23,7 +23,7 @@ namespace Siasm
 
             retryButton.onClick.AddListener(() =>
             {
-                Debug.Log("TODO: リトライ実行");
+                Debug.Log("TODO: リトライ処理を実行");
             });
 
             withdrawalButton.onClick.AddListener(OnWithdrawalButton);

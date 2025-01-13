@@ -6,9 +6,6 @@ using Cysharp.Threading.Tasks;
 
 namespace Siasm
 {
-    /// <summary>
-    /// これは収容しているクリシェミナに対して行う操作
-    /// </summary>
     public sealed class CreatureBoxMenuDialogPrefab : BaseMenuDialogPrefab
     {
         public class DialogParameter : BaseParameter
@@ -17,8 +14,6 @@ namespace Siasm
             public Action OnYesAction { get; set; }
             public Action OnNoAction { get; set; }
             public bool IsOnCloseAction { get; set; } = true;
-
-            // 
             public int CreatureId { get; set; }
             public int CreatureLevel { get; set; }
         }
@@ -57,14 +52,11 @@ namespace Siasm
         {
             currentDialogParameter = dialogParameter as DialogParameter;
 
-            // 
             titleText.text = currentDialogParameter.TitleText;
 
-            // 
             var battleFighterStatusModel = BaseUseCase.CreateBattleFighterStatusModelOfEnemy(currentDialogParameter.CreatureId, currentDialogParameter.CreatureLevel);
             ditialText.text = $"MAX HP:{battleFighterStatusModel.MaxHealthPoint}\nMAX TP:{battleFighterStatusModel.MaxThinkingPoint}\n開始バトルボックス数:{battleFighterStatusModel.BeginBattleBoxNumber}\n最大バトルボックス数:{battleFighterStatusModel.MaxBattleBoxNumber}\n耐性:---\n弱点:---";
 
-            // 
             SetImage(currentDialogParameter.CreatureId).Forget();
 
             Enable();
@@ -100,10 +92,8 @@ namespace Siasm
         private void OnNoButton()
         {
             currentDialogParameter?.OnNoAction?.Invoke();
-
             currentDialogParameter = null;
 
-            // クローズし終わった後の処理にしないといけないな
             OnCloseAction?.Invoke();
         }
     }

@@ -16,9 +16,7 @@ namespace Siasm
             base.Initialize();
 
             MenuCardScrollRect = ScrollRect as MenuCardScrollRect;
-            // MenuCardScrollRect.Initialize(MenuCardScrollRect.ScrollType.DeckCard);
             MenuCardScrollRect.Initialize(MenuCardScrollRect.ScrollType.None);
-
             EnhancedScroller.Delegate = this;
         }
 

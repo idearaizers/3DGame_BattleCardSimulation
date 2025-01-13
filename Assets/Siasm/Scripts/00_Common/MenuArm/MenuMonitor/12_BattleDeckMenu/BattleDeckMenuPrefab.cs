@@ -20,16 +20,11 @@ namespace Siasm
         [SerializeField]
         private BattleDeckMenuCardScrollController battleDeckMenuCardScrollController;
 
-
         private GameObject currentSelectedGameObject;
-
-        // 
         private List<MenuDeckCardModel> currentDeckCardModels;
         private List<MenuOwnCardModel> currentOwnCardModels;
-
         private int currentBeforeDeckIndex = -1;
         private int currentDeckIndex = -1;
-
 
         public Action<int> OnDeckChangeAction { get; set; }
 
@@ -79,13 +74,11 @@ namespace Siasm
                 return;
             }
 
-            // TODO: 現在選択中のデッキの中身を表示する
-            // TODO: 現在使用しているデッキindexを取得する
+            // TODO: 使用するデッキindexをセーブデータから取得予定
+
             currentBeforeDeckIndex = 0;
             tabGroup.SetActiveTab(currentBeforeDeckIndex);
 
-            // 更新
-            // OnChangeActiveTab(currentDeckIndex);
             SetCardModelAsync(currentBeforeDeckIndex).Forget();
         }
 
@@ -109,13 +102,9 @@ namespace Siasm
                     SideArmSwitcherPrefab.PlayCloseAnimation();
                 }
             }
-            // デッキを変えれるときの表示
-            // このターンにあと何回かえれるのか表示したい
-            // NOTE: ゲームデザインとして何回でもできるでもいいかも。単純に手間になるのと、あとは簡単なデメリットだけあればいいかな
-            // NOTE: 回数よりもTPが減るとかでもいいかも
+            // 選択中のデッキ以外の時
             else
             {
-                // NOTE: 一旦仮で文言と処理を出し分け
                 if (isPut)
                 {
                     SideArmSwitcherPrefab.PlayOpenDisplayAnimation(
@@ -123,7 +112,6 @@ namespace Siasm
                         () =>
                         {
                             // NOTE: バトルボックスにカードが設定されている場合は何もしない
-                            // NOTE: 表示内容を出し分けした方がいいかも。UIの構成を整理すれば出し分けできそう
                         },
                         () =>
                         {
@@ -150,7 +138,6 @@ namespace Siasm
             SetCardModelAsync(selectedIndex).Forget();
         }
 
-
         /// <summary>
         /// 指定したデッキのカードモデルを基に表示を切り替える
         /// </summary>
@@ -159,61 +146,46 @@ namespace Siasm
         {
             currentDeckIndex = deckIndex;
 
-            // // セーブメニューを開く
-            // // カード詳細用のサイドアームを閉じる
-            // if (SideArmSwitcherPrefab.IsOpen)
-            // {
-            //     SideArmSwitcherPrefab.PlayCloseAnimation();
-            // }
-
             var deckCardModels = BaseUseCase.CreateDeckCardModels(deckIndex);
-
             currentDeckCardModels = deckCardModels.ToList();
 
-            // 
-            List<int> cardIds = new List<int>();
-
-            // 
-            foreach (var deckCardModel in deckCardModels)
-            {
-                cardIds.Add(deckCardModel.CardId);
-            }
-
-            // 
-            cardIds = cardIds.Distinct().ToList();
-
-            // 
-            foreach (var cardId in cardIds)
-            {
-                // 画像を取得して反映する
-                var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, cardId);
-
-                // アセットがない場合
-                if (!AssetCacheManager.Instance.Exist(itemSpriteAddress))
-                {
-                    var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
-                }
-            }
+            await PreLoadAssetAsync(deckCardModels);
 
             battleDeckMenuCardScrollController.Setup(deckCardModels);
 
-            // カード選択表示を非アクティブに変えるかな
-            // 表示している詳細表示はそのままで
             if (currentSelectedGameObject != null)
             {
                 currentSelectedGameObject.GetComponent<MenuDeckCardCellView>()?.ChangeActiveOfSelectedImage(false);
             }
         }
 
-        /// TODO: 引数のBattleCardModelにはカードidしか格納されていないので整理した方がよさそう
+        /// <summary>
+        /// カードアセットをまとめて事前ロード
         /// </summary>
-        /// <param name="selectedGameObject"></param>
-        /// <param name="selectedBattleCardModel"></param>
+        /// <returns></returns>
+        private async UniTask PreLoadAssetAsync(MenuDeckCardModel[] deckCardModels)
+        {
+            var cardIds = new List<int>();
+
+            foreach (var deckCardModel in deckCardModels)
+            {
+                cardIds.Add(deckCardModel.CardId);
+            }
+
+            cardIds = cardIds.Distinct().ToList();
+
+            foreach (var cardId in cardIds)
+            {
+                var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, cardId);
+                if (!AssetCacheManager.Instance.Exist(itemSpriteAddress))
+                {
+                    await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
+                }
+            }
+        }
+
         private void OnSelectedBattleCard(GameObject selectedGameObject, BattleCardModel selectedBattleCardModel)
         {
-            // TODO: 下に出ているがこれだとわからないね
-            // NOTE: 画面デザインを調整した方がよさそう
-
             // 選択済みのものがまたは同じものでなければ非選択状態にする
             if (currentSelectedGameObject != null &&
                 currentSelectedGameObject != selectedGameObject)
@@ -224,12 +196,6 @@ namespace Siasm
 
             currentSelectedGameObject = selectedGameObject;
 
-            // TODO: 今はカード詳細で使用している
-            // TODO: カードidで紐づけをしているのでこれは作りを直した方がよさそう
-            // TODO: デッキ用のカードモデルを作ってそのまま中身を表示できるようにした方がいいね
-            // menuCardDetialView.ShowCardDetial(battleCardModel);
-
-            // 
             var battleCardModel = BaseUseCase.CreateBattleCardModel(selectedBattleCardModel.CardId);
             battleDeckMenuCardDetialView.ShowCardDetial(battleCardModel);
         }

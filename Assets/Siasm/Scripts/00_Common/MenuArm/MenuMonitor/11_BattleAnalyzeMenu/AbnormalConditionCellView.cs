@@ -5,10 +5,6 @@ using TMPro;
 
 namespace Siasm
 {
-    /// <summary>
-    /// もしモデルが空の場合はContainerとなっているGameObjectを非アクティブにする必要がある
-    /// また必要になったらContainerGameObjectの参照を追加する
-    /// </summary>
     public sealed class AbnormalConditionCellView : EnhancedScrollerCellView
     {
         public abstract class BaseViewPrameter { }
@@ -40,7 +36,7 @@ namespace Siasm
         private void Start() { }
 
         /// <summary>
-        /// Cell数が1つだけのため表示の出し分けはせずに表示
+        /// Cell数が1つだけのため表示の出し分けはせずにそのまま表示
         /// </summary>
         /// <param name="baseViewPrameter"></param>
         public void SetData(BaseViewPrameter baseViewPrameter)

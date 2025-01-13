@@ -29,10 +29,7 @@ namespace Siasm
             countDownButton.onClick.AddListener(OnCountDownButton);
         }
 
-        public void Setup()
-        {
-            // 
-        }
+        public void Setup() { }
 
         private void OnCountUpButton()
         {

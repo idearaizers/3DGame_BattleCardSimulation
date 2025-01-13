@@ -37,45 +37,26 @@ namespace Siasm
                 admissionView.Initialize(baseUseCase);
                 admissionView.OnClickAction = OnAdmissionButton;
             }
-
-            // 案
-            // コストを使用してルーレットを回して、その中から一体だけ選択できるようにするかな
-            // 今日のリストアップという形でもいいかも
-            // んで、レベルなどに応じて費用を払って収容する形がいいかも
-            // たまにへんなものが混ざっているものがあってもいいかも。レベル+5とかでもいいかも
         }
 
         public override void Setup()
         {
             base.Setup();
-
         }
 
-        /// <summary>
-        /// 表示
-        /// </summary>
-        /// <param name="dialogParameter"></param>
         public override void Show(BaseParameter dialogParameter)
         {
             currentDialogParameter = dialogParameter as DialogParameter;
-
             titleText.text = currentDialogParameter.TitleText;
 
-            // TODO: 開くたびに抽選になるので未抽選の時だけやった方がよさそう
-            // TODO: 最大収容している時はレベルアップのものが表示でもよさそう
-            // TODO: 機能拡張でできるようにするかな
-            // TODO: 最初は NOTE DATA 表示でもいいかも
-
-            // 中身の抽選を行う
+            // TODO: 抽選会数は1日1回にしたい
             currentParameters = BaseUseCase.GetAdmissionParameters();
 
-            // admissionButtons に中身を反映する
             for (int i = 0; i < admissionViews.Length; i++)
             {
                 admissionViews[i].Setup(currentParameters[i]);
             }
 
-            // 表示する
             Enable();
         }
 
@@ -88,13 +69,10 @@ namespace Siasm
                 $"{currentParameters[selectedIndex].CreatureId}を収容しますか？",
                 () =>
                 {
-                    // NOTE: エギドを消費して収容するかな
-
-                    // 収容する
                     var currentParameter = currentParameters[selectedIndex];
                     BaseUseCase.CreatureAdmission(currentParameter);
 
-                    // NOTE: 収容時の演出の再生を行う
+                    // TODO: 収容時の演出の再生を行う
                 },
                 () =>
                 {
