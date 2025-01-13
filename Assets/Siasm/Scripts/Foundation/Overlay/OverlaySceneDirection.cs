@@ -27,12 +27,12 @@ namespace Siasm
 
         public void ShowSceneLoadDirection()
         {
-            // シーン遷移用のロードを表示
+            // TODO: シーン遷移用のロードを表示
         }
 
         public void HideSceneLoadDirection()
         {
-            // シーン遷移用のロードを非表示
+            // TODO: シーン遷移用のロードを非表示
         }
 
         /// <summary>

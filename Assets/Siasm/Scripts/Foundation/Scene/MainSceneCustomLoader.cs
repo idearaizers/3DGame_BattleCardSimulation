@@ -4,9 +4,12 @@ using UnityEngine.SceneManagement;
 
 namespace Siasm
 {
+    /// <summary>
+    /// TODO: MainSceneAssetLoaderと役割が若干被っているので見直し予定
+    /// TODO: こちらは指定のシーンに遷移する際に使用を想定したクラスです
+    /// </summary>
     public class MainSceneCustomLoader : ISceneCustomLoader
     {
-        // private readonly GlobalAssetLoader globalAssetLoader;
         private readonly AssetCacheManager assetCacheManager;
 
         private Scene targetScene;
@@ -21,7 +24,6 @@ namespace Siasm
             await
             (
                 InternalLoadSceneAsync(assetReference)
-                // globalAssetLoader.InitializeLaodAsync()
             );
             
             await LoadSceneAssets();
@@ -35,7 +37,6 @@ namespace Siasm
 
         private async UniTask LoadSceneAssets()
         {
-            // TODO: 必要ならキーを基にロードする
             await UniTask.CompletedTask;
             SceneManager.sceneUnloaded += OnUnloadScene;
         }
@@ -46,8 +47,6 @@ namespace Siasm
             {
                 return;
             }
-
-            // TODO: 必要ならキーを基にアンロードする
 
             SceneManager.sceneUnloaded -= OnUnloadScene;
         }

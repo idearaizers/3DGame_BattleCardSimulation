@@ -1,25 +1,18 @@
 using Cysharp.Threading.Tasks;
-// using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 namespace Siasm
 {
     /// <summary>
-    /// バトル用のアセットローダー
+    /// TODO: BattleSceneAssetLoaderと役割が若干被っているので見直し予定
+    /// TODO: こちらは指定のシーンに遷移する際に使用を想定したクラスです
     /// </summary>
     public class BattleSceneCustomLoader : ISceneCustomLoader
     {
         private readonly AssetCacheManager assetCacheManager;
 
         private Scene targetScene;
-
-        // private readonly string[] cachedKeys = new string[]
-        // {
-        //     BattleCommonSETypeAudioClips.AssetName,
-        //     "101_BattleFighterAnimationTypeSprites",
-        //     "201_BattleFighterAnimationTypeSprites"
-        // };
 
         public BattleSceneCustomLoader(AssetCacheManager assetCacheManager)
         {
@@ -65,11 +58,6 @@ namespace Siasm
             {
                 return;
             }
-
-            // foreach (var cachedKey in cachedKeys)
-            // {
-            //     assetCacheManager.Release(cachedKey);
-            // }
 
             SceneManager.sceneUnloaded -= OnUnloadScene;
         }

@@ -8,9 +8,6 @@ using UniRx;
 
 namespace Siasm
 {
-    /// <summary>
-    /// シーントランジションもここで管理にしたいかな
-    /// </summary>
     public class SceneLoadManager : SingletonMonoBehaviour<SceneLoadManager>
     {
         [SerializeField]
@@ -31,7 +28,6 @@ namespace Siasm
 
         public async UniTask LoadSceneAsync(AssetReference assetReference, ISceneCustomLoader sceneCustomLoader = null)
         {
-            // NOTE: UniRxでの破棄処理
             using (InvokeLoadEvents())
             {
                 if (sceneCustomLoader == null)
@@ -43,34 +39,6 @@ namespace Siasm
                     await sceneCustomLoader.LoadSceneAsync(assetReference);
                 }
             }
-
-            // NOTE: ディレイをコントロールしたい場合は下記の処理に変えるかな
-            // await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
-            // OnStartLoad?.Invoke();
-            // OnCompleteLoad?.Invoke();
-            // await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
-
-            SetupSceneLigetimeScope();
-        }
-
-        /// <summary>
-        /// NOTE: sceneCustomLoader の処理も整理する
-        /// </summary>
-        /// <param name="sceneCustomLoader"></param>
-        public async UniTask LoadTopScene(ISceneCustomLoader sceneCustomLoader = null)
-        {
-            // NOTE: UniRxでの破棄処理
-            using (InvokeLoadEvents())
-            {
-                // NOTE: SceneManager.LoadSceneだと完了まで待機していないみたい
-                await SceneManager.LoadSceneAsync(0);
-            }
-
-            // NOTE: ディレイをコントロールしたい場合は下記の処理に変えるかな
-            // await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
-            // OnStartLoad?.Invoke();
-            // OnCompleteLoad?.Invoke();
-            // await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
 
             SetupSceneLigetimeScope();
         }

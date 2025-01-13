@@ -5,9 +5,6 @@ using DG.Tweening;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 主にロードやシーン転換で使用
-    /// </summary>
     public class OverlayManager : SingletonMonoBehaviour<OverlayManager>
     {
         [SerializeField]
@@ -24,7 +21,6 @@ namespace Siasm
 
         public OverlaySceneDirection SceneDirection => overlaySceneDirection;
 
-        // NOTE: 初期化時に渡される形がいいかも
         private CancellationToken token;
 
         public void Initialize()
@@ -35,7 +31,6 @@ namespace Siasm
             loadingView.Initialize();
             overlaySceneDirection.Initialize(token);
 
-            // 初期化時点では非表示にしておく
             transitionController.Disable();
             loadingView.Disable();
             overlaySceneDirection.Enable();

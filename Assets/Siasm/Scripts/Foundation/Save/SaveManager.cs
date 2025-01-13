@@ -24,7 +24,9 @@ namespace Siasm
 
         public SaveDataCache LoadedSaveDataCache { get; private set; }
 
-        // NOTE: セーブデータを更新する際に必要な変数でパラメータクラスにまとめてもいいかも
+        /// <summary>
+        /// NOTE: セーブデータを更新する際に必要な変数で使用しているが、拡張性を考慮してパラメータクラスに切り分けした方がいいかも
+        /// </summary>
         private PlayerFieldCharacterController playerFieldCharacterController;
 
         public void Initialize() { }
