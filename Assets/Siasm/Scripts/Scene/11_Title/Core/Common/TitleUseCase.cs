@@ -6,9 +6,6 @@ namespace Siasm
     {
         [Inject]
         public TitleUseCase(MemoryDatabase memoryDatabase)
-            : base(memoryDatabase)
-        {
-            // 
-        }
+            : base(memoryDatabase) { }
     }
 }

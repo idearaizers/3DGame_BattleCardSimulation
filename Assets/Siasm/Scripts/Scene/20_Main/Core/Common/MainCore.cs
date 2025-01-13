@@ -168,17 +168,10 @@ namespace Siasm
         }
 
         /// <summary>
-        /// NOTE: 現状は初日のバトルが実行されるようにしているので注意
+        /// 初日のバトルを実行する
         /// </summary>
         private void OnStartBattleOfFirstDate()
         {
-            // 撃破したら下記に書き換える必要がある
-            // これはバトルでやるかな
-            // "StageIndex": 1,
-            // "BoxIndex": 1,
-            // "CreatureId": 2001,
-            // "CreatureLevel": 2
-
             StartBattleAsync(2001, 1).Forget();
         }
 

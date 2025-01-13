@@ -24,7 +24,6 @@ namespace Siasm
 
         /// <summary>
         /// 開始用の日付演出を再生
-        /// NOTE: 必要なら演出時にフェードを入れるかな
         /// </summary>
         public async UniTask PlayDateDirectionAsync(int dateNumber)
         {
@@ -36,7 +35,6 @@ namespace Siasm
             await UniTask.Delay(TimeSpan.FromSeconds(2.0f), cancellationToken: token);
 
             Destroy(dateDirection.gameObject);
-            dateDirection = null;
         }
     }
 }

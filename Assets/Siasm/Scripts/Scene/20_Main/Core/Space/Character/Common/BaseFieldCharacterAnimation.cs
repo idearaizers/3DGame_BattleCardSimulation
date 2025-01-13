@@ -12,11 +12,7 @@ namespace Siasm
 
         public virtual void Initialize() { }
 
-        public void Setup()
-        {
-            
-        }
-
+        public virtual void Setup() { }
 
         public void Play(string stateName)
         {

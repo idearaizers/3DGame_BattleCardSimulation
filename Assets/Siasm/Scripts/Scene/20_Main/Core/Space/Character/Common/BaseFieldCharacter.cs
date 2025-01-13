@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Siasm
 {
     /// <summary>
-    /// PlayerFieldCharacter 以外が継承している
+    /// PlayerFieldCharacter以外が継承している
     /// </summary>
     public abstract class BaseFieldCharacter : MonoBehaviour
     {
@@ -29,7 +29,6 @@ namespace Siasm
             this.mainTalkController = mainTalkController;
             this.mainQuestController = mainQuestController;
 
-            // 初期化
             fieldCharacterMovement.Initialize();
             commonFieldCharacterContent.Initialize(mainCamera);
             commonFieldCharacterContent.OnInteractAction = OnInteract;
@@ -40,7 +39,6 @@ namespace Siasm
             this.BaseFieldCharacterModel = baseFieldCharacterModel;
 
             fieldCharacterMovement.Setup();
-            // commonFieldCharacterContent.Setup(baseFieldCharacterModel.CharacterId);
             commonFieldCharacterContent.Setup();
 
             // 座標を変更
@@ -67,7 +65,6 @@ namespace Siasm
         {
             var faceDirection = GetFaceDirection(targetPlayerTransform);
 
-            // NOTE: 見直し予定
             fieldCharacterMovement.SetFaceDirection(faceDirection);
             commonFieldCharacterContent.FieldCharacterAnimation.ChangeFaceDirection(faceDirection);
         }

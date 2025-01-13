@@ -26,15 +26,12 @@ namespace Siasm
 
         public async UniTask PlayTalkAsync(int characterId, Action onTalkFinish = null)
         {
-            int detialIndex = 0;
-
             this.onTalkFinish = onTalkFinish;
 
             mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.InteractAction);
 
-            // 管理用のマスターデータとリポジトリクラスでの処理に変更かな
-            // 会話チェックするかな
-            // 別の設定場所が必要そうやね
+            // TODO: マジックマンバーになっているので見直し予定
+            var detialIndex = 0;
             if (characterId == 201 ||
                 characterId == 301)
             {
@@ -70,16 +67,11 @@ namespace Siasm
                 }
             }
 
-            // 
             var baseTalkModels = await mainUseCase.CreateBaseTalkModels(characterId, detialIndex);
 
             // 会話モデルを基に会話を行う
             currentBaseTalkModels = baseTalkModels;
             currentTalkIndex = 0;
-
-            // TODO: 会話したことを保持する
-            // TODO: characterId を保持した方がいいかも
-            // mainUseCase.SetTalk(characterId);
 
             // 再生を実行
             PlayExecute();

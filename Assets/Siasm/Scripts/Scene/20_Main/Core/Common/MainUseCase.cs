@@ -6,14 +6,6 @@ using VContainer;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 基本的には
-    /// ・モデルクラスの作成
-    /// ・ファクトリークラスの管理
-    /// ・MainRepositoryを使用して変更やセーブの中継
-    /// を行う
-    /// 取得についてはSaveManager経由でも問題なし
-    /// </summary>
     public class MainUseCase : BaseUseCase
     {
         private readonly MainRepository mainRepository;

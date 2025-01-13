@@ -5,7 +5,7 @@ namespace Siasm
 {
     /// <summary>
     /// プレイヤー以外のラボ職員や通行人、クリシェミナなどNPC用に使用
-    /// NOTE:　このクラスの役割としてはSpawnで生成までを管理にした方がいいかも
+    /// NOTE: このクラスの役割としてはSpawnで生成までを管理にした方がいいかも
     /// </summary>
     public abstract class BaseFieldCharacterController : MonoBehaviour
     {

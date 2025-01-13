@@ -29,7 +29,6 @@ namespace Siasm
             titleMenuView.Initialize();
             titleMenuView.OnTitleMenuButtonAction = OnTitleMenuButton;
 
-            // 表示状態を設定
             versionText.gameObject.SetActive(true);
             titleMenuView.Disable();
             titleMenuView.Disable();

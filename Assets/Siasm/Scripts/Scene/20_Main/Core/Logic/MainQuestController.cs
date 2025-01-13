@@ -1,14 +1,12 @@
 using System;
-using UnityEngine;
 
 namespace Siasm
 {
     /// <summary>
-    /// スペースではなくロジックの場所に置いた方がいいかも
+    /// NOTE: スペースではなく管理をロジックの場所に置いた方がいいかも
     /// </summary>
     public class MainQuestController : BaseQuestController
     {
-
         private MainUIManager mainUIManager;
         private MainUseCase mainUseCase;
 
@@ -152,7 +150,6 @@ namespace Siasm
                     break;
 
                 default:
-                    // throw new ArgumentException(nameof(currentBaseMainQuestModel));
                     break;
             }
         }
@@ -186,13 +183,6 @@ namespace Siasm
 
                         // 次のクエストを開始する
                         StartNextQuest();
-
-                        // // 指定のアイテムであればエギド機能を解放したので表示を行う
-                        // // リポジトリクラスでフラグは変更している
-                        // if (itemId == 1004)
-                        // {
-                        //     mainUIManager.UpdateViewOfEgido();
-                        // }
                     }
                     break;
 
@@ -200,9 +190,6 @@ namespace Siasm
                     throw new ArgumentException(nameof(currentBaseMainQuestModel));
             }
         }
-
-
-
 
         /// <summary>
         /// 納品
@@ -240,9 +227,6 @@ namespace Siasm
             }
         }
 
-
-
-
         /// <summary>
         /// 次のクエストを開始する
         /// </summary>
@@ -266,6 +250,5 @@ namespace Siasm
             // 次のクエストの実行を行う
             StartMainQuestOfProgress();
         }
-
     }
 }
