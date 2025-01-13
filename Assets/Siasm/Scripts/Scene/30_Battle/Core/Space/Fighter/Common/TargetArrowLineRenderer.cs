@@ -6,7 +6,6 @@ namespace Siasm
     {
         private const int pointCount = 20;
         private const float centerPositionOffsetY = 2.0f;
-        private const float targetArrowOffsetY = 3.0f;
 
         [SerializeField]
         private LineRenderer lineRenderer;
@@ -26,7 +25,7 @@ namespace Siasm
         /// <param name="endPosition"></param>
         public void ShowTargetArrow(Vector3 startPosition, Vector3 endPosition)
         {
-            // NOTE: ワールド座標で中間地点を算出する
+            // ワールド座標で中間地点を算出する
             var centerPosition = (startPosition + endPosition) / 2;
             centerPosition.y += centerPositionOffsetY;
 

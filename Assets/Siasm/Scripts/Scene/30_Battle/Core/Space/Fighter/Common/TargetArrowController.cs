@@ -28,7 +28,6 @@ namespace Siasm
 
         public void ShowTargetArrow(int boxIndex)
         {
-            // 更新
             CurrentBoxIndex = boxIndex;
 
             // 選択時のSE
