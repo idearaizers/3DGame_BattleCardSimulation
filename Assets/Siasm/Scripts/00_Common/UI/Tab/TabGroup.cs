@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Siasm
 {
     /// <summary>
-    /// 表示項目を切り替える際はTabContentSwitcherで管理している
+    /// 表示項目を切り替える際はTabContentSwitcherで管理することを想定したクラス
     /// </summary>
     public class TabGroup : MonoBehaviour
     {
@@ -52,7 +52,6 @@ namespace Siasm
 
         private void OnClickTab(BaseTab selectedTab)
         {
-            // 既に選択しているものかどうかを確認して同じなら実行しない
             var selectedTabIndex = Array.IndexOf(baseTabs, selectedTab);
             if (activeTabIndex == selectedTabIndex)
             {
@@ -65,10 +64,8 @@ namespace Siasm
             // 変更したいものを選択に変更
             baseTabs[selectedTabIndex].SetSelected();
 
-            // 登録処理を実行
             OnChangeActiveTab?.Invoke(selectedTabIndex);
 
-            // 更新
             activeTabIndex = selectedTabIndex;
         }
     }

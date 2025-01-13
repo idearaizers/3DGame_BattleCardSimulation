@@ -4,16 +4,12 @@ using System.Collections.Generic;
 
 namespace Siasm
 {
-    /// <summary>
-    /// NOTE: 処理が複雑になるのでクラスモデルを変えてもいいかも
-    /// </summary>
     public class BattleCardAbilityEditModel
     {
-        // NOTE: リール判定時に発動かどうかを指定
-        public CardAbilityActivateType CardAbilityActivateType { get; set; }    // NOTE: これはリール決定後に使用かな
-        public CardAbilityTargetType CardAbilityTargetType { get; set; }        // NOTE: これはリール決定後に使用かな
-        public CardAbilityType CardAbilityType { get; set; }    // NOTE: これはリール決定後に使用かな
-        public int DetailNumber { get; set; }   // NOTE: これはリール決定後に使用かな
+        public CardAbilityActivateType CardAbilityActivateType { get; set; }
+        public CardAbilityTargetType CardAbilityTargetType { get; set; }
+        public CardAbilityType CardAbilityType { get; set; }
+        public int DetailNumber { get; set; }
     }
 
     /// <summary>

@@ -4,8 +4,7 @@ using UnityEngine;
 namespace Siasm
 {
     /// <summary>
-    /// 管理はTabContentSwitcherで行う
-    /// 継承せずに適用させたいGameObjectにアタッチして使用することを想定したものになります
+    /// 管理はTabContentSwitcherで行うことを想定したクラス
     /// </summary>
     public class SwitchContent : MonoBehaviour
     {

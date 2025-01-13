@@ -26,7 +26,6 @@ namespace Siasm
 
         public void Initialize()
         {
-            // 最初はoffの状態にする
             isActive = false;
             SetActive(isActive);
         }

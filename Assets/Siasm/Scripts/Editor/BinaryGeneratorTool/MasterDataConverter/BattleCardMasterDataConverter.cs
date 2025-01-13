@@ -22,8 +22,6 @@ namespace Siasm
             var battleCardMasterDataList = new List<BattleCardMasterData>();
             foreach (var jsonAssetPath in jsonAssetPaths)
             {
-                // Debug.Log($"コンバートを実行 => {jsonAssetPath}");
-
                 // jsonデータの読み込み
                 var streamReader = new StreamReader(jsonAssetPath);
                 var dataString = streamReader.ReadToEnd();

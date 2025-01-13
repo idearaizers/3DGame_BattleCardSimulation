@@ -35,11 +35,12 @@ namespace Siasm
             var battleCardMasterDataArray = BattleCardMasterDataConverter.GetBattleCardMasterDataArray();
             databaseBuilder.Append(battleCardMasterDataArray);
 
+            // TODO: 下記の項目を追加予定
             // BattleStage
             // InventoryItem
             // InventoryPassiveAbility
             // MainQuest
-            
+
             // BattleFighter
             var battleFighterMasterDatas = BattleFighterMasterDataConverter.GetBattleFighterMasterDataArray();
             databaseBuilder.Append(battleFighterMasterDatas);

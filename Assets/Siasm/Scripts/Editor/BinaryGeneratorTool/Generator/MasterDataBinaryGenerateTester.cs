@@ -29,28 +29,19 @@ namespace Siasm
             // MemoryDatabaseをバイナリから作成
             var memoryDatabase = new MemoryDatabase(asset.bytes);
 
-            // // テーブルからデータを検索してテスト用のログを表示
-            // var stage = memoryDatabase.StageMasterDataTable.FindById("stage-01-002");
-            // Debug.Log(stage.Name); // 迷いの湿地帯
+            // 変換が問題ないか確認のためテストで適当な項目をログ表示
+            var index2001 = memoryDatabase.BattleFighterMasterDataTable.FindById(2001);
+            Debug.Log(index2001.ProductName);
+            Debug.Log(index2001.DeckMasterDataArray);
+            Debug.Log(index2001.DeckMasterDataArray[0].AchievementLevel);
+            Debug.Log(index2001.DeckMasterDataArray[1].AchievementLevel);
 
-            // // テスト
-            // var characterMasterDataTable = memoryDatabase.CharacterMasterDataTable.FindById(2);
-            // Debug.Log(characterMasterDataTable.Name); // フシギダネ2
-
-            // テスト
-            var aaa = memoryDatabase.BattleFighterMasterDataTable.FindById(2001);
-            Debug.Log(aaa.ProductName);
-            Debug.Log(aaa.DeckMasterDataArray);
-            Debug.Log(aaa.DeckMasterDataArray[0].AchievementLevel);
-            Debug.Log(aaa.DeckMasterDataArray[1].AchievementLevel);
-
-            // 
-            var bbb = memoryDatabase.BattleFighterMasterDataTable.FindById(2002);
-            Debug.Log(bbb.ProductName);
-            Debug.Log(bbb.DeckMasterDataArray);
-            Debug.Log(bbb.DeckMasterDataArray[0].AchievementLevel);
-            Debug.Log(bbb.DeckMasterDataArray[1].AchievementLevel);
-
+            // 変換が問題ないか確認のためテストで適当な項目をログ表示
+            var index2002 = memoryDatabase.BattleFighterMasterDataTable.FindById(2002);
+            Debug.Log(index2002.ProductName);
+            Debug.Log(index2002.DeckMasterDataArray);
+            Debug.Log(index2002.DeckMasterDataArray[0].AchievementLevel);
+            Debug.Log(index2002.DeckMasterDataArray[1].AchievementLevel);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Siasm
 {
     /// <summary>
-    /// TabGroup と SwitchContent を紐付けて出し分けを行うためのクラス
+    /// TabGroupとSwitchContentを紐付けて表示の出し分けを管理するクラス
     /// </summary>
     public class TabContentSwitcher : MonoBehaviour
     {
