@@ -1,5 +1,4 @@
 using UnityEngine;
-using Cysharp.Threading.Tasks;
 
 namespace Siasm
 {
@@ -19,10 +18,7 @@ namespace Siasm
             this.fieldItemPickUpController = fieldItemPickUpController;
         }
 
-        public void Setup()
-        {
-            // 
-        }
+        public void Setup() { }
 
         public void DropItem(int creatureId, int creatureLevel)
         {
@@ -52,7 +48,6 @@ namespace Siasm
 
             fieldItemPickUpOfFieldInteractGameObject.transform.position = position;
 
-            // 初期化
             fieldItemPickUpOfFieldInteractGameObject.Initialize();
             fieldItemPickUpOfFieldInteractGameObject.OnPickUpAction = OnPickUp;
         }

@@ -53,6 +53,7 @@ namespace Siasm
             // ベンダーマシーンの設定
             for (int i = 0; i < vendingMachineModels.Length; i++)
             {
+                // TODO: 見直し中のため暫定でコメントアウト
                 // vendingMachines[i].Setup(vendingMachineModels[i]);
                 // vendingMachines[i].Setup();
                 // vendingMachines[i].OnContanctAction = OnContanctVendingMachine;

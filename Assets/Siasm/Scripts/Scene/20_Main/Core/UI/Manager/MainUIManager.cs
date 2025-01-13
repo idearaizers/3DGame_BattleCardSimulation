@@ -50,7 +50,6 @@ namespace Siasm
 
         public void Setup(SaveDataCache saveDataCache)
         {
-            // 
             var enableMenus = new bool[]
             {
                 true,
@@ -65,7 +64,6 @@ namespace Siasm
                 true
             };
 
-            // 
             menuArmController.Setup(enableMenus, selectedIndex: 0);
 
             var saveDataOwnItem = saveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.EgidoId);

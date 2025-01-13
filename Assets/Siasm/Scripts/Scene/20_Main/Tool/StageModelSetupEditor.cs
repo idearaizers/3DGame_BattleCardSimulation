@@ -5,14 +5,10 @@ using UnityEditor;
 using UnityEngine.SceneManagement;
 using UnityEditor.SceneManagement;
 
-// NOTE: Editorフォルダ内に分けてもいいかも
-// NOTE: 右クリックなどのメニューに移動した方がいいかも
-
 namespace Siasm
 {
     /// <summary>
-    /// Auto Apply Tool がいいかな
-    /// ステージモデルのセットアップに必要なものをまとめたクラス
+    /// TODO: AutoApplyTool関連に名称を変更予定
     /// </summary>
     [CustomEditor(typeof(StageModelSetupEditor))]
     public class StageModelSetupEditorInspector : Editor
@@ -38,7 +34,7 @@ namespace Siasm
 
             if (GUILayout.Button("プレイヤーキャラの位置に応じて手前のオブジェクトを非表示にする"))
             {
-                // 
+                // TODO: 
             }
         }
     }

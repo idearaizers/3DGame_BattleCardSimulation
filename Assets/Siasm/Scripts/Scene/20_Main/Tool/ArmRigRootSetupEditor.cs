@@ -1,25 +1,13 @@
 #if UNITY_EDITOR
 
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
-
-// using UnityEngine.InputSystem.XR;
-// using UnityEngine.Animations.Rigging;
-
-using Unity.Burst;
-using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
-
-
 
 namespace Siasm
 {
     /// <summary>
-    /// Auto Apply Tool がいいかな
-    /// ステージモデルのセットアップに必要なものをまとめたクラス
+    /// TODO: AutoApplyTool関連に名称を変更予定
     /// </summary>
     [CustomEditor(typeof(ArmRigRootSetupEditor))]
     public class ArmRigRootSetupEditorInspector : Editor

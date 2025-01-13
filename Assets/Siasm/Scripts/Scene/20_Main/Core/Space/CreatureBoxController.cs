@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using Cysharp.Threading.Tasks;
 using System.Linq;
 
 namespace Siasm
@@ -49,7 +48,6 @@ namespace Siasm
                     Debug.Log("TODO: 撃破状態であれば見た目を変える");
                 }
 
-                // 初期化
                 var creatureFieldCharacter = baseFieldCharacter as CreatureFieldCharacter;
                 creatureFieldCharacter.Initialize(MainTalkController, MainQuestController, MainCamera);
                 creatureFieldCharacter.Setup(creatureFieldCharacterModel);
@@ -77,16 +75,7 @@ namespace Siasm
 
         private void OnSurvey(CreatureFieldCharacterModel creatureFieldCharacterModel)
         {
-            // 一旦、仮で確認画面を出してから挑戦させるかな
-            // MainUIContent YesNoSelectView
-
-            // 取得した情報を基に再度必要な情報を代入する
-            // 名前を設定
-            // マスターデータから取得に変更
-            // var enemyBattleFighterOfNameMasterData = new EnemyBattleFighterOfNameMasterData();
-            // var fighterName = enemyBattleFighterOfNameMasterData.NameDictionary[creatureFieldCharacterModel.CharacterId];
             var fighterName = "???";
-
             var selectTitleText = $"{fighterName}(Lv.{creatureFieldCharacterModel.CharacterLevel})がこちらをニラんでいるようだ\n戦ってエギドを奪いますか？";
 
             var dialogParameterOfHome = new CreatureBoxMenuDialogPrefab.DialogParameter
@@ -99,7 +88,7 @@ namespace Siasm
                 },
                 OnNoAction = () =>
                 {
-                    // 
+                    // NOTE: 処理なし
                 },
                 CreatureId = creatureFieldCharacterModel.CharacterId,
                 CreatureLevel = creatureFieldCharacterModel.CharacterLevel

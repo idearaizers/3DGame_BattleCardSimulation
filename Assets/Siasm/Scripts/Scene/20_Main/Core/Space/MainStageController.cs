@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Siasm
@@ -10,7 +8,7 @@ namespace Siasm
 
         public void Setup(MainStageModel mainStageModel)
         {
-            // NOTE: 進行度に合わせてエリア解放などを主にセットアップ予定
+            // TODO: 進行度に合わせてエリア解放などを主にセットアップ処理を追加
         }
     }
 }

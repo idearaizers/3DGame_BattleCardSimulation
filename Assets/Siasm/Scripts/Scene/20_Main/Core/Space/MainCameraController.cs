@@ -39,6 +39,7 @@ namespace Siasm
 
         /// <summary>
         /// 120の値が入るため割っています
+        /// TODO: Unity6にアップデートしたら値が1になったようで見直し予定
         /// </summary>
         /// <param name="zoomValue"></param>
         public void OnZoomAndOut(float zoomValue)

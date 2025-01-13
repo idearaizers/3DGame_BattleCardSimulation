@@ -1,11 +1,7 @@
-using System;
 using UnityEngine;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 調べる用のやつ
-    /// </summary>
     public sealed class MainQuestOfFieldInteract : FieldInteract
     {
         [SerializeField]
@@ -26,13 +22,5 @@ namespace Siasm
                 this.gameObject.SetActive(true);
             }
         }
-
-        // /// <summary>
-        // /// 指定のエリアに侵入した際の処理
-        // /// </summary>
-        // public override void Entry(int number)
-        // {
-        //     OnEntryAction?.Invoke(tutorialId);
-        // }
     }
 }

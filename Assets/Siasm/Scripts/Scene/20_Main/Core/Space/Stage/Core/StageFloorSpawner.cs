@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Siasm
@@ -9,9 +7,6 @@ namespace Siasm
         [SerializeField]
         private GameObject firstFloorRoot;
 
-        public void Initialize()
-        {
-            // 
-        }
+        public void Initialize() { }
     }
 }

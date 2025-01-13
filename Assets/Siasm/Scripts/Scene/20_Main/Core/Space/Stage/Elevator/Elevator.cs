@@ -5,13 +5,6 @@ namespace Siasm
 {
     public class Elevator : MonoBehaviour
     {
-        // [SerializeField]
-        // private ElevatorAscentSwitchFieldContact elevatorAscentSwitchFieldContact;
-
-        // [SerializeField]
-        // private ElevatorDownSwitchFieldContact elevatorDownSwitchFieldContact;
-
-        [Space]
         [SerializeField]
         private ElevatorMovement elevatorMovement;
 
@@ -26,12 +19,6 @@ namespace Siasm
         {
             this.elevatorPositionType = elevatorPositionType;
 
-            // elevatorAscentSwitchFieldContact.Initialize();
-            // elevatorAscentSwitchFieldContact.OnContanctAction = OnAscentSwitch;
-
-            // elevatorDownSwitchFieldContact.Initialize();
-            // elevatorDownSwitchFieldContact.OnContanctAction = OnDownSwitch;
-
             elevatorMovement.Initialize();
         }
 
@@ -39,8 +26,6 @@ namespace Siasm
         {
             this.ElevatorModel = elevatorModel;
 
-            // elevatorAscentSwitchFieldContact.Setup();
-            // elevatorDownSwitchFieldContact.Setup();
             elevatorMovement.Setup();
         }
 

@@ -20,11 +20,6 @@ namespace Siasm
 
         public override async UniTask StartAsync(CancellationToken token)
         {
-            // TODO: 完了までロード画面の表示かな
-            // // アセットの読み込みが多少あるので先に黒パネルとBGM再生を実行
-            // overlayManager.ShowBlackPanel();
-            // AudioManager.Instance.PlayBGMOfLocal(BaseAudioPlayer.PlayType.Single, AudioBGMType.BattleScene);
-
             await base.StartAsync(token);
 
             // TODO: アセットの事前ロード

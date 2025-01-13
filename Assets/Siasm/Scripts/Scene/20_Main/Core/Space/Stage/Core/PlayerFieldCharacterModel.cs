@@ -1,7 +1,4 @@
 namespace Siasm
 {
-    public class PlayerFieldCharacterModel
-    {
-        // 
-    }
+    public class PlayerFieldCharacterModel { }
 }

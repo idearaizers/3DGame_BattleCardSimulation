@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using UnityEngine;
-using Cysharp.Threading.Tasks;
 
 namespace Siasm
 {
@@ -28,10 +27,6 @@ namespace Siasm
             this.mainQuestController = mainQuestController;
         }
 
-        /// <summary>
-        /// モデルクラスは使用せずにセットアップを行っているが、
-        /// 大量にある場合はモデルクラスから作成する形に変える
-        /// </summary>
         public void Setup()
         {
             foreach (var fieldObjectOfFieldInteract in fieldObjectOfFieldInteracts)
@@ -41,6 +36,11 @@ namespace Siasm
             }
         }
 
+        /// <summary>
+        /// TODO: インターフェースまたはType毎のクラス処理を作成して拡張しやすい作りに見直し予定
+        /// </summary>
+        /// <param name="fieldObjectType"></param>
+        /// <param name="targetObjectId"></param>
         private void OnInteract(FieldObjectType fieldObjectType, int targetObjectId)
         {
             switch (fieldObjectType)
@@ -58,15 +58,11 @@ namespace Siasm
 
                             // 次の日にいく
                             OnNextDateAction?.Invoke();
-
-                            // TODO: 次の日に進むと同じステートに変更しようとするみたいで処理を見直した方がいいかも
                         },
                         OnNoAction = () =>
                         {
-                            // クローズし終わった後の処理にしないといけないな
-                            // mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.FreeExploration);
-                        },
-                        // IsOnCloseAction = false
+                            // NOTE: 処理なし
+                        }
                     };
 
                     AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
@@ -79,21 +75,17 @@ namespace Siasm
                     var saveDataOwnItem = mainUseCase.LoadedSaveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.EgidoId);
                     var totalEgidoNumberDelivered = mainUseCase.LoadedSaveDataCache.SaveDataMainScene.TotalEgidoNumberDelivered;
 
-                    // TODO: EgidoDeliveryDialogPrefab に処理を移動した方がよさそう
+                    // TODO: EgidoDeliveryDialogPrefabに処理を移動した方がよさそう
                     var dialogParameter = new EgidoDeliveryMenuDialogPrefab.DialogParameter
                     {
                         TitleText = $"エギドを納品しますか？\n所持エギド{saveDataOwnItem.ItemNumber} 納品エギド{totalEgidoNumberDelivered}",
                         OnYesAction = (number) =>
                         {
-                            // NOTE: 数が足らない時の処理を追加
+                            // TODO: 数が足らない時の処理を追加
 
                             // エギドを減らす
-                            // mainUseCase.LoadedSaveDataCache.SaveDataProgress.HoldEgidoNumber -= 500;
                             var saveDataOwnItem = mainUseCase.LoadedSaveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.EgidoId);
                             saveDataOwnItem.ItemNumber -= number;
-
-                            // 表示を更新
-                            // mainUIManager.UpdateViewOfEgido();
 
                             // トータル納品エギドに加算する
                             mainUseCase.LoadedSaveDataCache.SaveDataMainScene.TotalEgidoNumberDelivered += number;
@@ -103,16 +95,11 @@ namespace Siasm
 
                             // 表示を更新
                             mainQuestController.UpdateMainQuestView();
-
-                            // フリーに変更
-                            // mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.FreeExploration);
-
                         },
                         OnNoAction = () =>
                         {
-                            // クローズし終わった後の処理にしないといけないな
-                            // mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.FreeExploration);
-                        },
+                            // NOTE: 処理なし
+                        }
                     };
 
                     AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
@@ -121,45 +108,25 @@ namespace Siasm
                     mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.InteractAction);
 
                     break;
-                
+
                 case FieldObjectType.OfficeTerminalOfCreatureBox:
 
-                    // TODO: エギド納品用のものでの表示がいいかも
-                    var aaa = new CreatureAdmissionMenuDialogPrefab.DialogParameter
+                    var admissionDialogParameter = new CreatureAdmissionMenuDialogPrefab.DialogParameter
                     {
                         TitleText = "収容ボックスの選択表示",
                         OnYesAction = () =>
                         {
-                            // NOTE: 数が足らない時の処理を追加
-
-                            // エギドを減らす
-                            // mainUseCase.LoadedSaveDataCache.SaveDataProgress.HoldEgidoNumber -= 500;
-                            // var saveDataOwnItem = mainUseCase.LoadedSaveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.EgidoId);
-                            // saveDataOwnItem.ItemNumber -= 500;
-
-                            // // 表示を更新
-                            // mainUIManager.UpdateViewOfEgido();
-
-                            // // トータル納品エギドに加算する
-                            // mainUseCase.LoadedSaveDataCache.SaveDataMainScene.TotalEgidoNumberDelivered += 500;
-
-                            // // クエストを更新
-                            // mainQuestController.IsProgressOfDelivery(mainUseCase.LoadedSaveDataCache.SaveDataMainScene.TotalEgidoNumberDelivered);
-
-                            // フリーに変更
-                            // mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.FreeExploration);
-
+                            // TODO: 
                         },
                         OnNoAction = () =>
                         {
-                            // クローズし終わった後の処理にしないといけないな
-                            // mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.FreeExploration);
-                        },
+                            // NOTE: 処理なし
+                        }
                     };
 
                     AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
-                    mainUIManager.MenuArmController.PlayShowDialogMenuAnimation(DialogMenuType.CreatureAdmission, aaa);
+                    mainUIManager.MenuArmController.PlayShowDialogMenuAnimation(DialogMenuType.CreatureAdmission, admissionDialogParameter);
                     mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.InteractAction);
 
                     break;
@@ -171,10 +138,7 @@ namespace Siasm
                 case FieldObjectType.SecurityDoorOfLevel1:
                     if (mainUseCase.HasItemOfOwn(ItemConstant.SecurityKeyId))
                     {
-                        // 
                         mainQuestController.IsProgressOfInteract(targetObjectId);
-
-                        // 
                         Debug.Log("TODO: キーがあるのでドアを開く");
                     }
                     else

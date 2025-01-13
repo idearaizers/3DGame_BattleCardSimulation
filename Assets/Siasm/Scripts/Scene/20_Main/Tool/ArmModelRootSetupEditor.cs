@@ -6,8 +6,7 @@ using UnityEditor;
 namespace Siasm
 {
     /// <summary>
-    /// Auto Apply Tool がいいかな
-    /// ステージモデルのセットアップに必要なものをまとめたクラス
+    /// TODO: AutoApplyTool関連に名称を変更予定
     /// </summary>
     [CustomEditor(typeof(ArmModelRootSetupEditor))]
     public class ArmModelRootSetupEditorInspector : Editor
@@ -31,7 +30,7 @@ namespace Siasm
             var transforms = transform.GetComponentsInChildren<Transform>();
             foreach (var transform in transforms)
             {
-                // Armature のGameObject名の場所を起点に実行する
+                // ArmatureのGameObject名の場所を起点に実行する
                 if (transform.gameObject.name == "Armature")
                 {
                     // Rigメニューを実行する

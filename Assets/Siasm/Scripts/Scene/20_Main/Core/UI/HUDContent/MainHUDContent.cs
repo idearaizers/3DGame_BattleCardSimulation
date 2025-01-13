@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 namespace Siasm
@@ -11,33 +10,18 @@ namespace Siasm
         [SerializeField]
         private OperationTutorialView operationTutorialView;
 
-        // [SerializeField]
-        // private HoldEgidoView holdEgidoView;
-
         public void Initialize(MainUseCase mainUseCase)
         {
             mainQuestView.Initialize();
             operationTutorialView.Initialize();
-            // holdEgidoView.Initialize();
 
             mainQuestView.Disable();
-            operationTutorialView.Enable(); // 有効にしたままにする
-
-            // // 解放されていれば表示を行う
-            // var saveDataOwnItem = mainUseCase.LoadedSaveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.EgidoId);
-            // if (saveDataOwnItem != null)
-            // {
-            //     holdEgidoView.Enable();
-            // }
-            // else
-            // {
-            //     holdEgidoView.Disable();
-            // }
+            operationTutorialView.Enable();
         }
 
         public void Setup(int holdEgidoNumber)
         {
-            // holdEgidoView.Apply(holdEgidoNumber);
+            // TODO: 
         }
 
         /// <summary>
@@ -64,9 +48,7 @@ namespace Siasm
         /// <param name="number"></param>
         public void ShowHoldEgidoView(int number)
         {
-            // holdEgidoView.Enable();
-            // holdEgidoView.Apply(number);
-            // mainQuestView.Apply(parameter);
+            // TODO: 
         }
 
         /// <summary>

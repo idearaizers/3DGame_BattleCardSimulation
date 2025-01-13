@@ -4,8 +4,6 @@ using UnityEngine;
 namespace Siasm
 {
     /// <summary>
-    /// NOTE: 必要なら継承して使用
-    /// NOTE: 色々継承しているみたいで整理した方がよさそう
     /// NOTE: インターフェースにした方がいいかも
     /// </summary>
     public class FieldInteract : MonoBehaviour

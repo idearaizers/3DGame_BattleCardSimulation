@@ -3,9 +3,6 @@ using UnityEngine;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 必要なら継承して使用
-    /// </summary>
     public class FieldEntry : MonoBehaviour
     {
         public Action OnEntryAction { get; set; }

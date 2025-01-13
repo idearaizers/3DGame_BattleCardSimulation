@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Siasm
 {
     /// <summary>
-    /// プレイヤーは操作周りの処理があり共通化できないので BaseFieldCharacterController は継承しないで管理
+    /// プレイヤーは操作周りの処理があり共通化できないのでBaseFieldCharacterControllerは継承しないで管理
     /// </summary>
     public class PlayerFieldCharacterController : MonoBehaviour
     {

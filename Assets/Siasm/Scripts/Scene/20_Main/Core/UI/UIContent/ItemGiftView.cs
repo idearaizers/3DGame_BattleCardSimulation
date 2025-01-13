@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
 using Cysharp.Threading.Tasks;
 using TMPro;
 
@@ -55,10 +54,8 @@ namespace Siasm
             var itemName = itemOfNameMasterData.NameDictionary[itemId];
             if (itemName == string.Empty)
             {
+                // エラーの際は中身はそのままで表示だけ行う
                 Debug.LogWarning($"モデルクラスが取得できなかったため表示だけ実行 => itemId: {itemId}");
-
-                // 中身はそのままで表示だけ行う
-                // NOTE: 必要なら中身をダミー用に変える
                 this.Enable();
                 return;
             }
@@ -81,7 +78,6 @@ namespace Siasm
             // アイテムの付与処理
             mainUseCase.AddItem(itemId, itemNumber);
 
-            // 表示
             this.Enable();
         }
 

@@ -30,22 +30,7 @@ namespace Siasm
             waterfallMeshRenderer.material.SetFloat(scrollSpeedShader, 0.1f);
         }
 
-        public void Setup(MainStageModel mainStageModel)
-        {
-            // var clicheSectionModels = mainStageModel.ClicheSectionModels;
-            // if (ClicheSections.Length != clicheSectionModels.Length)
-            // {
-            //     // NOTE: 一応、数があっているのか確認
-            //     Debug.LogWarning($"clicheSectionModel数とモデル数があっていないです => ClicheSections.Length: {ClicheSections.Length}, clicheSectionModels.Length: {clicheSectionModels.Length}");
-            // }
-
-            // for (int i = 0; i < ClicheSections.Length; i++)
-            // {
-            //     ClicheSections[i].Setup(clicheSectionModels[i]);
-            //     ClicheSections[i].OnContanctClicheBoxAction = OnContanctClicheBox;
-            //     ClicheSections[i].OnContanctVendingMachineAction = OnContanctVendingMachine;
-            // }
-        }
+        public void Setup(MainStageModel mainStageModel) { }
 
         private void OnContanctClicheBox()
         {

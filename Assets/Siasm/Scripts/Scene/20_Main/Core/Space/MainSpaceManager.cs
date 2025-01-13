@@ -31,9 +31,6 @@ namespace Siasm
         [SerializeField]
         private CreatureDropItemController creatureDropItemController;
 
-        /// <summary>
-        /// NOTE: 必要ならロジックでの管理にする
-        /// </summary>
         [Header("クエスト・イベント関連")]
         [SerializeField]
         private MainQuestController mainQuestController;
@@ -157,9 +154,6 @@ namespace Siasm
             labFieldCharacterController.Setup(labFieldCharacterModels);
 
             // クリシェミナのセットアップ
-            // NOTE: 後で処理を整理
-            // 初日の時だけ実行
-            // モデルクラスがnullでも動く形がいいかも
             if (mainUseCase.LoadedSaveDataCache.SaveDataMainScene.CurrentDate == 1)
             {
                 var creatureFieldCharacterModels = mainUseCase.CreateCreatureFieldCharacterModels();
