@@ -5,8 +5,6 @@ namespace Siasm
 {
     /// <summary>
     /// カードやパッシブのアビリティ効果を管理するクラス
-    /// 参照だけは下位の階層のものを参照できるが、
-    /// コントローラーがある場合は、基本的にコントローラーで下位の階層を管理した方がいいかも
     /// </summary>
     public class BattleAbilityLogicController : MonoBehaviour
     {
@@ -38,9 +36,6 @@ namespace Siasm
         /// <param name="reelNumber"></param>
         public int GetAddReelNumber(BattleCardModel battleCardModel, int reelNumber)
         {
-            // CardAbilityActivateType.ReelResult の値は不要かも
-            // 特殊があるといいかも
-
             // バトルカードを設定していない場合は0を返す
             if (battleCardModel == null)
             {
@@ -82,19 +77,20 @@ namespace Siasm
         /// <summary>
         /// 成功側と失敗側のバトルカードを取得してダメージの増加を計算する
         /// </summary>
+        /// <param name="damageNumber"></param>
         /// <param name="startMatchReelParameter"></param>
         /// <param name="sourceBattleFighterPrefab"></param>
         /// <param name="targetBattleFighterPrefab"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public (int, AttributeResistType) GetAddDamageNumberOfEmotionAttributeType(int damageNumber, StartMatchReelParameter startMatchReelParameter, BaseBattleFighterPrefab sourceBattleFighterPrefab, BaseBattleFighterPrefab targetBattleFighterPrefab)
         {
             var battleCardModel = sourceBattleFighterPrefab is PlayerBattleFighterPrefab
                 ? startMatchReelParameter.PlayerReelParameter.BattleCardModel
                 : startMatchReelParameter.EnemyReelParameter.BattleCardModel;
 
-            // TODo: Dictionaryでの設定にいろいろと変えた方が良さそうかも
-
+            // TODO: Dictionaryでの管理に変更予定
             AttributeResistType attributeResistType;
-
             switch (battleCardModel.EmotionAttributeType)
             {
                 case EmotionAttributeType.Normal:
@@ -129,22 +125,8 @@ namespace Siasm
                     throw new ArgumentOutOfRangeException(nameof(battleCardModel.EmotionAttributeType));
             }
 
-
-            // 弱点の時は数値に増減がいいかも
-            // 小数点だと計算がしにくいのと値が大きいとインフレが出が過ぎるので
-            // 基本的にギミックや戦略を見つけないとダメージは与えられない
-
-            // Immune = 1007,		// 免疫 0.1125倍           // -8
-            // Resist = 1008,		// 抵抗 0.25倍             // -4
-            // Endure = 1009,		// 耐性 0.5倍              // -2
-            // Normal = 1010,      // 普通 1倍                 //  0
-            // Weak = 1011,        // 弱点 1.5倍               // +2
-            // Vulnerable = 1012,  // 脆弱（ぜいじゃく） 2倍    // +4
-            // Feeble = 1013       // 弱々しい 4倍             // +8
-
-            int resultNumber = 0; 
-
-            // 小数点切り捨て
+            // TODO: Dictionaryでの管理に変更予定
+            var resultNumber = 0; 
             switch (attributeResistType)
             {
                 case AttributeResistType.Immune:
@@ -190,7 +172,7 @@ namespace Siasm
         /// <param name="targetBattleFighterPrefab"></param>
         public void AttackAndGuard(StartMatchReelParameter startMatchReelParameter, BaseBattleFighterPrefab sourceBattleFighterPrefab, BaseBattleFighterPrefab targetBattleFighterPrefab)
         {
-            Debug.Log("AttackAndGuard");
+            // TODO: 
         }
 
         /// <summary>

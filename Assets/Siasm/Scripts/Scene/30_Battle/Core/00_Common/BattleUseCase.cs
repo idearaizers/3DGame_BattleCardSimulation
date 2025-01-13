@@ -51,13 +51,7 @@ namespace Siasm
             IsWin = isWin;
             if (isWin)
             {
-                // エギドを追加
-                // NOTE: 初日だけはフィールドで拾う
-                // NOTE: 初日以外も基本拾わせるかな
-                // saveManager.LoadedSaveDataCache.SaveDataProgress.HoldEgidoNumber += 1000;
-
                 // エネミークリア情報に反映する
-                // NOTE: 上書きがいいかも
                 var saveDataAnalyzeCreature = saveManager.LoadedSaveDataCache.SaveDataCreatureBoxs.FirstOrDefault(x => x.CreatureId == BattleModel.EnemyBattleFighterModel.FighterId);
                 if (saveDataAnalyzeCreature != null)
                 {
@@ -83,16 +77,10 @@ namespace Siasm
 
                     saveManager.LoadedSaveDataCache.SaveDataCreatureBoxs.Add(newSaveDataAnalyzeCreature);
                 }
-
-                // クエストを更新する
-                // battleQuestController
-                // NOTE: メインシーンでは会話したら次のクエストに進行させているので現状では不要だが後で整理した方がよさそう
             }
             else
             {
                 Debug.Log("TODO: 敗北時の情報を反映");
-
-                // TODO: 初日で負けた時のことを考える必要がある
             }
         }
     }

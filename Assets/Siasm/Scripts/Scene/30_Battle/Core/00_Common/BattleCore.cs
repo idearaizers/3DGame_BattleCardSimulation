@@ -60,14 +60,8 @@ namespace Siasm
             battleUIManager.Initialize(token, battleStateMachineController, battleSpaceManager.BattleCameraController, battleUseCase, battleLogicManager.PlayerBattleCardOperationController, battleSpaceManager, battleLogicManager.BattleObjectPoolContainer);
             battleUIManager.OnEscapeAction = () =>
             {
-                // 単に非表示にするだけだと警告がでているようで見た目の仕様に合わせて作り直すかな
                 battleUIManager.BattleMenuArmController.CommonMenuArmPrefab.gameObject.SetActive(false);
-
-                // ポストエフェクトを無効にする
                 battleSpaceManager.BattleCameraController.ChangeActiveOfDepthOfField(false);
-
-                // 一旦、敗北で表示
-                // 敗北というより失敗が正しいかも
                 battleUseCase.FinishBattle(false);
                 battleStateMachineController.ChangeMainState(BattleStateMachineController.BattleState.ResultScreen);
             };
@@ -172,9 +166,6 @@ namespace Siasm
             OverlayManager.Instance.HideBlackPanel();
             OverlayManager.Instance.HideLoadingView();
 
-            // // BGMを再生
-            // AudioManager.Instance.PlayBGMOfLocal(BaseAudioPlayer.PlayType.Single, AudioBGMType.BattleScene);
-
             // <===== 演出関連 =====>
             // エネミーネームを表示する
             var enemyBattleFighterModel = battleUseCase.BattleModel.EnemyBattleFighterModel;
@@ -238,18 +229,13 @@ namespace Siasm
             // 最初のターンだけバトルアームを構える演出の再生を行うのとデッキを設定する
             if (battleUseCase.BattleModel.BattleLogicModel.ElapsedTurn == 1)
             {
-                // 山札のセットアップ
                 // 山札からカードを引く
-                // アニメーションの再生を実行
-                // TODO: カードを引くのは処理を分離した方がいいかも
                 battleUIManager.BattleArmController.BattleArmPrefab.BattleArmDeckPrefab.SetupDeck();
                 battleUIManager.HoldUpAndDrawCardOfBattleArm().Forget();
             }
             else
             {
                 // 山札からカードを引く
-                // アニメーションの再生を実行
-                // TODO: カードを引くのは処理を分離した方がいいかも
                 battleUIManager.ShowAndDrawCardOfBattleArm();
             }
         }
@@ -291,17 +277,6 @@ namespace Siasm
             // 状態異常を更新する
             battleLogicManager.BattleFigtherAbnormalConditionController.ExecuteCombatEnd();
 
-            // ターン終了時の処理を実行
-            // ダメージを受ける状態異常がある可能性があるのでターン終了前に状態異常を更新する
-            // NOTE: 見直しした方がよさそう
-            // battleSpaceManager.PlayerBattleFighter.DoStatusCondition();
-            // battleSpaceManager.EnemyBattleFighter.DoStatusCondition();
-            // Debug.Log("TODO: やられている側の死亡演出を再生");
-            // await battleUIManager.BattleUIDirectorController.ExecuteDead(battleSpaceManager);
-            // battleSpaceManager.PlayerBattleFighterPrefab
-            // battleSpaceManager.EnemyBattleFighterPrefab
-            // TODO: 生存を確認して死亡演出を再生する
-
             // 死亡用の見た目に変更
             if (battleSpaceManager.PlayerBattleFighterPrefab.IsDead)
             {
@@ -313,7 +288,7 @@ namespace Siasm
                 battleSpaceManager.EnemyBattleFighterPrefab.BattleFighterAnimation.SetImage(BattleFighterAnimationType.Dead);
             }
 
-            // 
+            // 死亡チェック
             if (battleSpaceManager.PlayerBattleFighterPrefab.IsDead ||
                 battleSpaceManager.EnemyBattleFighterPrefab.IsDead)
             {
@@ -321,10 +296,9 @@ namespace Siasm
                 await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: token);
             }
 
-            // 両方ともやられている可能性がある
-            // バトル後の状態を確認して必要なら結果画面を表示する
-            // NOTE: 相手が死んでいてもプレイヤーが生きていなければ勝利ではないです
-            // NOTE: 必要なら引き分けの際は勝利するパッシブスキルがあってもいいかも
+            // TODO: 両方ともやられている可能性があるのでその際は敗北用の処理を実装する
+            // NOTE: 引き分けでも勝利扱いになるパッシブがあってもいいかも
+
             if (battleSpaceManager.PlayerBattleFighterPrefab.IsDead)
             {
                 // 勝利した結果を保持してリザルトに変更する
@@ -346,9 +320,6 @@ namespace Siasm
 
         public async UniTask EnterTurnEndAsync()
         {
-            var playerBattleFighterPrefab = battleSpaceManager.PlayerBattleFighterPrefab;
-            var enemyBattleFighterPrefab = battleSpaceManager.EnemyBattleFighterPrefab;
-
             // <===== フェードイン関連 =====>
             // フェードイン
             await OverlayManager.Instance.FadeInAsync(0.2f, Ease.OutSine);
@@ -372,22 +343,12 @@ namespace Siasm
             battleLogicManager.BattleFigtherAbnormalConditionController.ElapsedAbnormalConditionOfAllFighter();
 
             // <===== 表示関連 =====>
-            // ステータスバーを更新する
-            // NOTE: 見直し予定
-            // playerBattleFighter.BattleFighterStatusBarUpdateView();
-            // enemyBattleFighter.BattleFighterStatusBarUpdateView();
-
-            // 終了時用のSprite更新を行う
-            // NOTE: 見直し予定
-            battleSpaceManager.DoTurnEndSprite(playerBattleFighterPrefab);
-            battleSpaceManager.DoTurnEndSprite(enemyBattleFighterPrefab);
+            // 待機に変更
+            battleSpaceManager.PlayerBattleFighterPrefab.BattleFighterAnimation.SetImage(BattleFighterAnimationType.Idle);
+            battleSpaceManager.EnemyBattleFighterPrefab.BattleFighterAnimation.SetImage(BattleFighterAnimationType.Idle);
 
             // カメラを初期位置に戻す
             battleSpaceManager.ResetMainCameraPosition();
-
-            // <===== フェードアウト関連 =====>
-            // // フェードアウト
-            // await OverlayManager.Instance.FadeOutAsync(0.1f);
 
             // 緩急用に待機
             await UniTask.Delay(TimeSpan.FromSeconds(0.05f), cancellationToken: token);
@@ -399,10 +360,6 @@ namespace Siasm
         public async UniTask EnterResultScreenAsync()
         {
             // <===== 表示関連 =====>
-            // UIを全て消す
-            // battleSpaceManager.HideAllUI();
-            // battleUIManager.HideAllUI();
-
             // BGMを停止
             AudioManager.Instance.StopAllBGM();
 
@@ -429,10 +386,8 @@ namespace Siasm
             // アセットを破棄する
             OnUnLoadChachedAssetAction?.Invoke();
 
-            // 取得
             var battleSceneMessage = SceneLoadManager.Instance.SceneStackMessage.CurrentBaseSceneMessage as BattleSceneMessage;
-
-            var mainSceneMessage = new MainSceneMessage();
+            MainSceneMessage mainSceneMessage = null;
             if (battleSceneMessage == null)
             {
                 // メインシーンに遷移する際の情報を設定

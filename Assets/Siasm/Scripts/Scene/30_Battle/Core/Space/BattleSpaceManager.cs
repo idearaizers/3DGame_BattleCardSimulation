@@ -244,19 +244,5 @@ namespace Siasm
         {
             BattleCameraController.PlayMoveAnimationAsync(Vector3.zero, targetPosition, moveDuration, ease).Forget();
         }
-
-        /// <summary>
-        /// 終了時用のSprite更新を行う
-        /// 通常待機に戻す
-        /// フリーズ状態の場合は被弾モーションにする
-        /// </summary>
-        public void DoTurnEndSprite(BaseBattleFighterPrefab baseBattleFighter)
-        {
-            var battleFighterAnimationType = baseBattleFighter.CurrentBaseBattleFighterModel.ThinkingModel.IsThinkingFreeze
-                ? BattleFighterAnimationType.TakeDamage
-                :  BattleFighterAnimationType.Idle;
-
-            baseBattleFighter.BattleFighterAnimation.SetImage(battleFighterAnimationType);
-        }
     }
 }

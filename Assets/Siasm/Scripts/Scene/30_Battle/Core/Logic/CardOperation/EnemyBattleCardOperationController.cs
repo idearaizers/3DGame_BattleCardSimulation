@@ -1,5 +1,4 @@
 using System.Linq;
-using UnityEngine;
 
 namespace Siasm
 {
@@ -10,13 +9,14 @@ namespace Siasm
     /// デッキ切れの際はシャッフルカードを使用することで山札をリセットできる
     /// デッキから引くカードがないとシャッフルカードを引く。シャッフルカードは威力が低いので攻撃のチャンスになる
     /// 思考停止の際はルーレットの目が必ず最低になる
-    /// 思考停止すると耐久力が下がるので与えるダメージがアップする？
     /// 数字の引き分けが10回続くとそのバトルは引き分けになる：バースト。バースト用のスキルもある
     /// バトルマッチにてバトルボックスに設定したカードは必ず消費される
     /// </summary>
     public sealed class EnemyBattleCardOperationController : BaseBattleCardOperationController
     {
-        // これはファイター情報から取得かな
+        /// <summary>
+        /// TODO: ファイター情報から取得に変更
+        /// </summary>
         private const int MixHandNumber = 5;
 
         private EnemyBattleFighterPrefab enemyBattleFighter;
