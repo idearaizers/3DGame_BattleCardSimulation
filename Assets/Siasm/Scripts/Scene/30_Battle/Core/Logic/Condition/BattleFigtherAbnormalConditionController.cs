@@ -26,7 +26,7 @@ namespace Siasm
         /// </summary>
         public void ExecuteCombatEnd()
         {
-            // TODO: 死んでいた場合はスキップさせた方がいいかも
+            // TODO: 死んでいた場合は不要なので処理をスキップさせた方がいいかも
 
             foreach (var baseStatusConditionModel in playerBattleFighterPrefab.CurrentBaseBattleFighterModel.BaseAbnormalConditionModels)
             {
@@ -83,9 +83,6 @@ namespace Siasm
             // モデルクラスを更新
             ElapsedAbnormalCondition(playerBattleFighterPrefab);
             ElapsedAbnormalCondition(enemyBattleFighterPrefab);
-
-            // 見た目を更新
-            // NOTE: 別の場所で実行しているみたい
         }
 
         /// <summary>
@@ -138,7 +135,6 @@ namespace Siasm
         {
             BaseAbnormalConditionModel baseAbnormalConditionModel = null;
 
-            // 生成したクラス側に即時か付与かの値を設定した方がよさそうやね
             switch (battleCardAbilityModel.CardAbilityType)
             {
                 // リール（1001）関連
