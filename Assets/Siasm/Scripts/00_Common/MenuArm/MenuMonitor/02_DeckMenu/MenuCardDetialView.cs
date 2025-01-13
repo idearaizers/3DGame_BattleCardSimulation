@@ -16,15 +16,9 @@ namespace Siasm
         [SerializeField]
         private TextMeshProUGUI detialText;
 
-        public void Initialize()
-        {
-            // 
-        }
+        public void Initialize() { }
 
-        public void Setup()
-        {
-            // 
-        }
+        public void Setup() { }
 
         public void ShowCardDetial(BattleCardModel battleCardModel)
         {

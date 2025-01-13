@@ -114,8 +114,18 @@ namespace Siasm
             currentDeckCardModels = deckCardModels.ToList();
             currentOwnCardModels = ownCardModels.ToList();
 
-            // TODO: ロードだけして適用は別で行っているようで見直し予定
-            {
+            await PreLoadAssetAsync(deckCardModels, ownCardModels);
+
+            menuDeckCardScrollController.Setup(deckCardModels);
+            menuOwnCardScrollController.Setup(ownCardModels);
+        }
+
+        /// <summary>
+        /// カードアセットをまとめて事前ロード
+        /// </summary>
+        /// <returns></returns>
+        private async UniTask PreLoadAssetAsync(MenuDeckCardModel[] deckCardModels, MenuOwnCardModel[] ownCardModels)
+        {
                 var cardIds = new List<int>();
 
                 foreach (var deckCardModel in deckCardModels)
@@ -135,13 +145,9 @@ namespace Siasm
                     var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, cardId);
                     if (!AssetCacheManager.Instance.Exist(itemSpriteAddress))
                     {
-                        var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
+                        await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
                     }
                 }
-            }
-
-            menuDeckCardScrollController.Setup(deckCardModels);
-            menuOwnCardScrollController.Setup(ownCardModels);
         }
 
         public override void UpdateContent(BaseMenuPrefabParameter baseMenuPrefabParameter)
@@ -158,11 +164,6 @@ namespace Siasm
             SetCardModelAsync(selectedIndex).Forget();
         }
 
-        /// <summary>
-        /// TODO: 引数のBattleCardModelにはカードidしか格納されていないので整理した方がよさそう
-        /// </summary>
-        /// <param name="selectedGameObject"></param>
-        /// <param name="selectedBattleCardModel"></param>
         private void OnSelectedBattleCard(GameObject selectedGameObject, BattleCardModel selectedBattleCardModel)
         {
             // 選択済みのものがまたは同じものでなければ非選択状態にする
@@ -175,9 +176,6 @@ namespace Siasm
 
             currentSelectedGameObject = selectedGameObject;
 
-            // TODO: 今はカード詳細で使用している
-            // TODO: カードidで紐づけをしているのでこれは作りを直した方がよさそう
-            // TODO: デッキ用のカードモデルを作ってそのまま中身を表示できるようにした方がいいね
             var battleCardModel = BaseUseCase.CreateBattleCardModel(selectedBattleCardModel.CardId);
             menuCardDetialView.ShowCardDetial(battleCardModel);
         }
@@ -224,8 +222,6 @@ namespace Siasm
 
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
-            // セーブはここではしないので保持している値に変更を行う
-
             currentDeckCardModels.Remove(menuDeckCardModel);
             menuDeckCardScrollController.Setup(currentDeckCardModels.ToArray());
 
@@ -237,8 +233,7 @@ namespace Siasm
 
         /// <summary>
         /// 所持側のカードをデッキカードエリアにドラッグ移動した時の処理
-        /// NOTE: 所持枚数はデッキに設定していない個数にするかな
-        /// NOTE: 複数のデッキでカードを設定していた場合はその分だけ減る、使用数は共通にするかな
+        /// 所持カードですが、複数のデッキで使用していた場合はその使用している数の分だけ所持カード一覧からは減る
         /// </summary>
         private void OnDragOwnCard(MenuOwnCardModel menuOwnCardModel)
         {
@@ -265,7 +260,6 @@ namespace Siasm
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // デッキ側のカードを増やす
-            // インスタンスしないといけないのでBattleCardModelは格納する形がいいかも
             var menuDeckCardModel = new MenuDeckCardModel
             {
                 CardId = menuOwnCardModel.CardId

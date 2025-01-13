@@ -6,7 +6,8 @@ using UnityEngine.UI;
 namespace Siasm
 {
     /// <summary>
-    /// NOTE: パッシブなどでも使用しているようで共通で使用できる形に変えた方がいいかも
+    /// NOTE: パッシブなど他の場所でも使用しているようで共通で使用できる処理に変えた方がいいかも
+    /// NOTE: 住み分けも見直しした方がいいかも
     /// </summary>
     public sealed class MenuCardScrollRect : ScrollRect
     {
