@@ -90,7 +90,7 @@ namespace Siasm
                 "ダミーメッセージ",
                 () =>
                 {
-                    // OnYesButton(selectedIndex).Forget();
+                    // TODO: 決定時の処理
                 },
                 () =>
                 {
@@ -120,54 +120,11 @@ namespace Siasm
         private void OnDragDeckCard()
         {
             Debug.Log("TODO: OnDragDeckCard");
-
-            // var selectedIndex = holdBattleCardModelList.IndexOf(selectedHoldBattleCardModel);
-
-            // // 所持側のカードを整理
-            // var targetHoldBattleCardModel = holdBattleCardModelList.FirstOrDefault(holdBattleCardModel => holdBattleCardModel.BattleCardModel.CardId == selectedHoldBattleCardModel.BattleCardModel.CardId);
-            // if (targetHoldBattleCardModel != null)
-            // {
-            //     // TODO: カウントがゼロになった時の処理を決めておく
-            //     targetHoldBattleCardModel.HoldNumber--;
-            // }
-
-            // holdCardScrollController.Setup(holdBattleCardModelList.ToArray());
-
-            // // デッキ側のカード整理
-            // deckBattleCardModelList.Add(selectedHoldBattleCardModel.BattleCardModel);
-
-            // // カードの並び順を整える
-            // deckBattleCardModelList.Sort((a, b) => a.CardId - b.CardId);
-
-            // deckCardScrollController.Setup(deckBattleCardModelList.ToArray());
         }
 
         private void OnDragOwnCard()
         {
             Debug.Log("TODO: OnDragOwnCard");
-
-            // var selectedIndex = deckBattleCardModelList.IndexOf(selectedBattleCardModel);
-
-            // // デッキ側のカード整理
-            // deckBattleCardModelList.RemoveAt(selectedIndex);
-            // deckCardScrollController.Setup(deckBattleCardModelList.ToArray());
-
-            // // 所持側のカードを整理
-            // var holdBattleCardModel = holdBattleCardModelList.FirstOrDefault(holdBattleCardModel => holdBattleCardModel.BattleCardModel.CardId == selectedBattleCardModel.CardId);
-            // if (holdBattleCardModel != null)
-            // {
-            //     holdBattleCardModel.HoldNumber++;
-            // }
-            // else
-            // {
-            //     holdBattleCardModelList.Add(new HoldBattleCardModel
-            //     {
-            //         BattleCardModel = selectedBattleCardModel,
-            //         HoldNumber = 1
-            //     });
-            // }
-
-            // holdCardScrollController.Setup(holdBattleCardModelList.ToArray());
         }
     }
 }

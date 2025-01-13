@@ -118,8 +118,6 @@ namespace Siasm
             deckCardDragAreaOfRectTransform.gameObject.SetActive(false);
             ownCardDragAreaOfRectTransform.gameObject.SetActive(false);
 
-            // TODO: 指定のエリア内にあるのかを確認して追加や削除処理を実行する
-
             // 指定のエリア内にあるのか確認
             var draggingCardOfRectTransform = menuDragCardPrefab.GetComponent<RectTransform>();
 
@@ -171,14 +169,14 @@ namespace Siasm
                     return true;
                 }
 
-                //rect2の角がrect1の内部にあるか
+                // rect2の角がrect1の内部にあるか
                 if (IsPointInsideRect(rect2Corners[i], rect1Corners))
                 {
                     return true;
                 }
             }
 
-            //重なっていない
+            // 重なっていない
             return false;
         }
 

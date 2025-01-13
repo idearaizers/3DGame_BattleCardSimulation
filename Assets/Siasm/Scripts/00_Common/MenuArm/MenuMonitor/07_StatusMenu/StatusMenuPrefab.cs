@@ -37,14 +37,9 @@ namespace Siasm
             // 非アクティブの時にセットアップを行うと参照エラーが出るのでアクティブに切り替えて実行
             var activeSelf = gameObject.activeSelf;
             gameObject.SetActive(true);
-
-            // 更新する
             SetItemModel();
-
-            // 設定が完了したら変更前の状態に戻す
             gameObject.SetActive(activeSelf);
 
-            // 
             tabContentSwitcher.Setup();
         }
 
@@ -57,7 +52,6 @@ namespace Siasm
         {
             if (SaveManager.Instance.LoadedSaveDataCache == null)
             {
-                // 非表示になるので単に処理させないだけでもいいかも
                 statusParameterView.Setup(null);
                 statusPassiveView.Setup(null);
             }

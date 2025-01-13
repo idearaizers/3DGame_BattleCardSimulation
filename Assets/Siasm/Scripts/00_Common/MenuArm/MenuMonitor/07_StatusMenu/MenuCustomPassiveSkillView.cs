@@ -31,7 +31,6 @@ namespace Siasm
         {
             button.onClick.AddListener(OnClick);
 
-            // 初期は表示をoffにする
             selectedImage.gameObject.SetActive(false);
         }
 

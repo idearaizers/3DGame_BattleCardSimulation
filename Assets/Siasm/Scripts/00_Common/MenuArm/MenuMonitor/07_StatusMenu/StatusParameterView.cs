@@ -11,9 +11,6 @@ namespace Siasm
         public int BeginBattleBoxNumber { get; set; }
         public int MaxBattleBoxNumber { get; set; }
         public int MaxAbilityCostNumber { get; set; }
-
-        // ・耐性：カスタマイズで設定
-        // ・弱点：カスタマイズで設定
     }
 
     public class StatusParameterView : MonoBehaviour
@@ -21,22 +18,10 @@ namespace Siasm
         [SerializeField]
         private TextMeshProUGUI ditialText;
 
-        public void Initialize()
-        {
-            // 
-        }
+        public void Initialize() { }
 
         public void Setup(BattleFighterStatusModel battleFighterStatusModel)
         {
-            // ditialText.text = battleFighterStatusModel.FighterId.ToString();
-            // HP:999
-            // TP:999
-            // 初期バトルボックス数:1
-            // 最大バトルボックス数:5
-            // 耐性:---
-            // 弱点:---
-            // 総コスト:99、パッシブコスト
-
             if (battleFighterStatusModel == null)
             {
                 return;
