@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Siasm
 {
     /// <summary>
-    /// BaseFieldCharacter は継承せずに使用
+    /// BaseFieldCharacterは継承せずに使用
     /// </summary>
     public class PlayerFieldCharacter : MonoBehaviour
     {
@@ -30,7 +30,6 @@ namespace Siasm
         {
             canvas.worldCamera = mainCamera;
 
-            // 初期化
             playerFieldCharacterMovement.Initialize();
             playerFieldCharacterMovement.OnChangeFaceDirectionAction = OnChangeFaceDirection;
             playerFieldCharacterMovement.OnPlayAnimationAction = OnPlayAnimation;
@@ -41,7 +40,7 @@ namespace Siasm
         }
 
         /// <summary>
-        /// 設定
+        /// セットアップ
         /// </summary>
         /// <param name="faceDirection">顔の向きで、1が右で-1が左。0はそのままだが基本0以外を指定する</param>
         /// <param name="spawnWorldPosition"></param>
@@ -139,7 +138,7 @@ namespace Siasm
         /// </summary>
         public void ReleaseParent()
         {
-            // NOTE: 必要な際に修正する
+            // NOTE: 暫定でコメントアウト
             // this.transform.SetParent(playerFieldCharacterControllerTransform);
         }
     }
