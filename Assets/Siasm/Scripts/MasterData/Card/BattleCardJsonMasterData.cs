@@ -24,10 +24,6 @@ namespace Siasm
         public string DevelopmentMemo;  // 開発用のメモ
     }
 
-    /// <summary>
-    /// JsonMasterDataで保存
-    /// JsonModelを格納している
-    /// </summary>
     public class BattleCardJsonMasterData
     {
         public BattleCardJsonModel BattleCardJsonModel;
