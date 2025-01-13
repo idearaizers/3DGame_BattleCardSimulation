@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -14,7 +12,6 @@ namespace Siasm
         private TextMeshProUGUI recordDitialText;
 
         private BaseUseCase BaseUseCase;
-
         private CreatureRecordModel currentCreatureRecordModel;
 
         public void Initialize(BaseUseCase BaseUseCase)
@@ -28,10 +25,7 @@ namespace Siasm
             recordDitialText.text = "NOT DATA";
         }
 
-        public void Setup()
-        {
-            // 
-        }
+        public void Setup() { }
 
         public void UpdateView(CreatureRecordModel currentCreatureRecordModel, int selectedIndex)
         {
@@ -42,11 +36,9 @@ namespace Siasm
 
         private void OnChangeActiveTab(int selectedIndex)
         {
-            // BaseUseCase 経由で取得かな
+            // TODO: BaseUseCase経由でマスターデータから取得に変更予定
             var creatureAdmissionOfRecordMasterData = new EnemyAdmissionOfRecordMasterData();
             var creatureAdmissionOfRecordModel = creatureAdmissionOfRecordMasterData.GetEnemyAdmissionOfRecordModel(currentCreatureRecordModel.CreatureId);
-
-            // 反映
             recordDitialText.text = creatureAdmissionOfRecordModel.DescriptionTexts[selectedIndex].ToString();
         }
     }

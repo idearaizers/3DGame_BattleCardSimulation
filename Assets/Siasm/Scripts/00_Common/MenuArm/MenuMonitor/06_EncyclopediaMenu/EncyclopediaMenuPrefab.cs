@@ -3,8 +3,7 @@ using UnityEngine;
 namespace Siasm
 {
     /// <summary>
-    /// 最初から使用できなくてもいいかも
-    /// 撃破した後の2日から使用できるようにしてもいいかも
+    /// TODO: アイテムで解放に変更予定
     /// </summary>
     public sealed class EncyclopediaMenuPrefab : BaseMenuPrefab
     {
@@ -13,8 +12,6 @@ namespace Siasm
 
         [SerializeField]
         private AdmissionRecordView admissionRecordView;
-
-        // private int currentIndex;
 
         public override void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController,
             PlayerBattleFighterSpawnController playerBattleFighterSpawnController, EnemyBattleFighterSpawnController enemyBattleFighterSpawnController)
@@ -27,7 +24,6 @@ namespace Siasm
             admissionRecordView.Initialize();
             admissionRecordView.OnClickAction = OnClick;
 
-            // Prefab上は編集上の都合で非表示にしているのでアクティブにする
             admissionRecordView.Enable();
         }
 

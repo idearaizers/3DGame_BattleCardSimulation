@@ -35,9 +35,6 @@ namespace Siasm
         private void Start()
         {
             button.onClick.AddListener(OnClick);
-
-            // 初期は表示をoffにする
-            // selectedImage.gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -53,7 +50,6 @@ namespace Siasm
             {
                 UpdateViewAsync().Forget();
 
-                // 
                 if (creatureRecordModel.IsSelected)
                 {
                     ChangeActiveOfSelectedImage(true);
@@ -67,7 +63,7 @@ namespace Siasm
 
         private async UniTask UpdateViewAsync()
         {
-            // TODO: この処理はいらないかも
+            // TODO: この処理はいらないかもで見直し予定
             await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
 
             var itemSpriteAddress = string.Format(AddressConstant.CreatureSpriteAddressStringFormat, CreatureRecordModel.CreatureId);

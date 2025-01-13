@@ -7,10 +7,9 @@ namespace Siasm
     public sealed class CreatureRecordScrollController : BaseScrollController, IEnhancedScrollerDelegate
     {
         private SmallList<CreatureRecordModel> creatureRecordModels;
+        private int currentIndex;
 
         public Action<GameObject, CreatureRecordModel> OnClickAction { get; set; }
-
-        private int currentIndex;
 
         public override void Initialize()
         {

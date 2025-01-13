@@ -6,10 +6,7 @@ using UnityEngine.UI;
 
 namespace Siasm
 {
-    public class MenuCustomPassiveSkillModel : BattleCardModel
-    {
-        // public int CardId { get; set; }
-    }
+    public class MenuCustomPassiveSkillModel : BattleCardModel { }
 
     /// <summary>
     /// つづりミスかも

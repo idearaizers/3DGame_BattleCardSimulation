@@ -47,15 +47,11 @@ namespace Siasm
         public void Setup(CreatureRecordModel[] creatureRecordModels, int currentIndex)
         {
             CurrentIndex = currentIndex;
-
             currentCreatureRecordModels = creatureRecordModels;
-
-            // createrNameText
-
             tabContentSwitcher.Setup();
             creatreStatusView.Setup();
 
-            // エラー回避のため有効にしてから実行する
+            // TODO: エラー回避のため有効にしてから実行しているが処理を見直したい
             creatreRecordView.gameObject.SetActive(true);
             creatreRecordView.Setup();
             creatreRecordView.gameObject.SetActive(false);
@@ -105,71 +101,17 @@ namespace Siasm
 
         private void UpdateView()
         {
-            // エラー回避用
             if (currentCreatureRecordModels.Length == 0)
             {
                 return;
             }
 
-            // 
             var currentCreatureRecordModel = currentCreatureRecordModels[CurrentIndex];
-
-            // マスターデータからの取得に変更
-            // var enemyBattleFighterOfNameMasterData = new EnemyBattleFighterOfNameMasterData();
-            // var creatureName = enemyBattleFighterOfNameMasterData.NameDictionary[currentCreatureRecordModel.CreatureId];
             var creatureName = "???";
-
-            // 
             createrNameText.text = $"{creatureName}(Lv.{currentCreatureRecordModel.CreatureLevel})";
 
-            // 
             creatreStatusView.UpdateView(currentCreatureRecordModel);
             creatreRecordView.UpdateView(currentCreatureRecordModel, 0);
-
-
-            // 
-            // // 取得した情報を基に再度必要な情報を代入する
-            // // 名前を設定
-            // var enemyBattleFighterOfNameMasterData = new EnemyBattleFighterOfNameMasterData();
-            // enemyBattleFighterModel.FighterName = enemyBattleFighterOfNameMasterData.NameDictionary[prepareEnemyBattleFighterModel.FighterId];
-
-            // // レベルを設定
-            // enemyBattleFighterModel.FighterLevel = prepareEnemyBattleFighterModel.FighterLevel;
-
-            // // レベルによるパラメータを設定
-            // var enemyBattleFighterOfLevelParameterMasterData = new EnemyBattleFighterOfLevelParameterMasterData();
-            // var parameterDictionary = enemyBattleFighterOfLevelParameterMasterData.ParameterDictionary[prepareEnemyBattleFighterModel.FighterLevel];
-
-            // // HPを設定
-            // enemyBattleFighterModel.HealthModel = new HealthModel
-            // {
-            //     MaxPoint = parameterDictionary.Item1,
-            //     CurrentPoint = parameterDictionary.Item1
-            // };
-
-            // // 思考力を設定
-            // enemyBattleFighterModel.ThinkingModel = new ThinkingModel
-            // {
-            //     MaxPoint = parameterDictionary.Item2,
-            //     CurrentPoint = parameterDictionary.Item2,
-            //     ElapsedTurn = 0
-            // };
-
-            // // 初期のバトルボックス数を設定
-            // if (prepareEnemyBattleFighterModel.FighterLevel >= 40)
-            //     enemyBattleFighterModel.CurrentBattleBoxNumber = 5;
-            // else if (prepareEnemyBattleFighterModel.FighterLevel >= 30)
-            //     enemyBattleFighterModel.CurrentBattleBoxNumber = 4;
-            // else if (prepareEnemyBattleFighterModel.FighterLevel >= 20)
-            //     enemyBattleFighterModel.CurrentBattleBoxNumber = 3;
-            // else if (prepareEnemyBattleFighterModel.FighterLevel >= 10)
-            //     enemyBattleFighterModel.CurrentBattleBoxNumber = 2;
-            // else
-            //     enemyBattleFighterModel.CurrentBattleBoxNumber = 1;
-
-            // // 最大バトルボックス数を設定
-            // enemyBattleFighterModel.MaxBattleBoxNumber = enemyBattleFighterModel.CurrentBattleBoxNumber + 4;
-
         }
     }
 }
