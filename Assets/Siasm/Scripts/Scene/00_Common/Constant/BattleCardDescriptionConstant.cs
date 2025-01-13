@@ -58,7 +58,6 @@ namespace Siasm
                     return "ダミー文言";
                 }
 
-                // 仮
                 // 末尾の文言を自動で出し分けるようにした方がいいかも
                 var effectTypetext = "";
 

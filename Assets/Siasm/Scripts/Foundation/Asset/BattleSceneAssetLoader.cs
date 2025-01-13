@@ -73,7 +73,6 @@ namespace Siasm
         /// <returns></returns>
         public async UniTask LoadAndChachOfPreloadAsset()
         {
-            // 仮で既にキャッシュ済みであればキャッシュしない
             var assets = new List<string>();
 
             foreach (var cachedKey in cachedKeys)
@@ -86,7 +85,6 @@ namespace Siasm
 
             foreach (var asset in assets)
             {
-                // 仮
                 if (asset.Contains(AddressConstant.BattleCardSpriteAddressName) ||
                     asset.Contains(AddressConstant.CreatureSpriteAddressName))
                 {

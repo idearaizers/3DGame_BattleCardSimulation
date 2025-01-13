@@ -66,7 +66,6 @@ namespace Siasm
                 var battleFighterStatusModel = BaseUseCase.CreateBattleFighterStatusModelOfPlayer();
                 statusParameterView.Setup(battleFighterStatusModel);
 
-                // 仮
                 var activeSelf = statusPassiveView.gameObject.activeSelf;
                 statusPassiveView.gameObject.SetActive(true);
 

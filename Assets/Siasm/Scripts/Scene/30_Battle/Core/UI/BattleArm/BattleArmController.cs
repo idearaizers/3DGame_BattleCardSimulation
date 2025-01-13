@@ -109,7 +109,6 @@ namespace Siasm
             // 手札をデッキに戻す演出の再生
             battleArmPrefab.PlayDeckChange();
 
-            // 仮
             await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
 
             // 現状ではパネルの非表示で使用
@@ -166,15 +165,12 @@ namespace Siasm
             // playerBattleCardOperationController
             playerBattleCardOperationController.ChangeDeckModel(deckIndex);
 
-            // 仮でリセットする
             battleArmPrefab.BattleArmDeckPrefab.ResetDeck();
 
             // 
             battleArmPrefab.BattleArmDeckPrefab.SetupDeck();
 
 
-            // 仮
-            // await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
 
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 

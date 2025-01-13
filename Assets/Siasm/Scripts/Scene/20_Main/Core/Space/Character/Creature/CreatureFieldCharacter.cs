@@ -12,7 +12,6 @@ namespace Siasm
         {
             base.Setup(baseFieldCharacterModel);
 
-            // 仮
             CommonFieldCharacterContent.FieldCharacterAnimation.Setup(baseFieldCharacterModel.CharacterId);
         }
 

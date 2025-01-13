@@ -201,7 +201,6 @@ namespace Siasm
             // 表示している詳細表示はそのままで
             if (currentSelectedGameObject != null)
             {
-                // 仮
                 currentSelectedGameObject.GetComponent<MenuDeckCardCellView>()?.ChangeActiveOfSelectedImage(false);
             }
         }
@@ -219,7 +218,6 @@ namespace Siasm
             if (currentSelectedGameObject != null &&
                 currentSelectedGameObject != selectedGameObject)
             {
-                // 仮
                 currentSelectedGameObject.GetComponent<MenuDeckCardCellView>()?.ChangeActiveOfSelectedImage(false);
                 currentSelectedGameObject.GetComponent<MenuOwnCardCellView>()?.ChangeActiveOfSelectedImage(false);
             }
@@ -235,33 +233,5 @@ namespace Siasm
             var battleCardModel = BaseUseCase.CreateBattleCardModel(selectedBattleCardModel.CardId);
             battleDeckMenuCardDetialView.ShowCardDetial(battleCardModel);
         }
-
-
-
-
-
-        // private void SetItemModel()
-        // {
-        //     if (SaveManager.Instance.LoadedSaveDataCache == null)
-        //     {
-        //         // 非表示になるので単に処理させないだけでもいいかも
-        //         statusParameterView.Setup(null);
-        //         statusPassiveView.Setup(null);
-        //     }
-        //     else
-        //     {
-        //         var battleFighterStatusModel = BaseUseCase.CreateBattleFighterStatusModel();
-        //         statusParameterView.Setup(battleFighterStatusModel);
-
-        //         // 仮
-        //         var activeSelf = statusPassiveView.gameObject.activeSelf;
-        //         statusPassiveView.gameObject.SetActive(true);
-
-        //         var battleFighterPassiveModel = BaseUseCase.CreateBattleFighterPassiveModel();
-        //         statusPassiveView.Setup(battleFighterPassiveModel);
-
-        //         statusPassiveView.gameObject.SetActive(activeSelf);
-        //     }
-        // }
     }
 }

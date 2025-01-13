@@ -53,7 +53,6 @@ namespace Siasm
                         TitleText = "今日の仕事を終えて自宅に帰りますか？",
                         OnYesAction = () =>
                         {
-                            // 仮でインタラクトidを設定する
                             // クエストを更新
                             mainQuestController.IsProgressOfInteract(102);
 
@@ -77,7 +76,6 @@ namespace Siasm
 
                 case FieldObjectType.OfficeTerminalOfDelivery:
 
-                    // 仮
                     var saveDataOwnItem = mainUseCase.LoadedSaveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.EgidoId);
                     var totalEgidoNumberDelivered = mainUseCase.LoadedSaveDataCache.SaveDataMainScene.TotalEgidoNumberDelivered;
 
@@ -126,7 +124,6 @@ namespace Siasm
                 
                 case FieldObjectType.OfficeTerminalOfCreatureBox:
 
-                    // 仮
                     // TODO: エギド納品用のものでの表示がいいかも
                     var aaa = new CreatureAdmissionMenuDialogPrefab.DialogParameter
                     {

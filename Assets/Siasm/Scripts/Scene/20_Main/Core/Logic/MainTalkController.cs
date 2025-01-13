@@ -32,7 +32,6 @@ namespace Siasm
 
             mainStateMachineController.ChangeMainState(MainStateMachineController.MainState.InteractAction);
 
-            // 仮
             // 管理用のマスターデータとリポジトリクラスでの処理に変更かな
             // 会話チェックするかな
             // 別の設定場所が必要そうやね

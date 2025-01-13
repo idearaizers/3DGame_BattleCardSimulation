@@ -34,10 +34,6 @@ namespace Siasm
             creatureRecordScrollController.Setup(creatureRecordModels, currentIndex);
         }
 
-        /// <summary>
-        /// 仮処理
-        /// </summary>
-        /// <param name="isActive"></param>
         private void OnEncyclopediaTabButton(bool isActive)
         {
             var targetPosition = (isActive == true)

@@ -6,10 +6,6 @@ using UnityEngine.UI;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 仮
-    /// TODO: PassiveSkillModel に後で継承先を変える
-    /// </summary>
     public class MenuCustomPassiveSkillModel : BattleCardModel
     {
         // public int CardId { get; set; }

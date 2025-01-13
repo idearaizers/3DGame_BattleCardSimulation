@@ -3,9 +3,6 @@ using TMPro;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 仮
-    /// </summary>
     public class BattleFighterStatusModel
     {
         public int FighterId { get; set; }
@@ -45,7 +42,6 @@ namespace Siasm
                 return;
             }
 
-            // 仮
             ditialText.text = $"MAX HP:{battleFighterStatusModel.MaxHealthPoint}\nMAX TP:{battleFighterStatusModel.MaxThinkingPoint}\n開始バトルボックス数:{battleFighterStatusModel.BeginBattleBoxNumber}\n最大バトルボックス数:{battleFighterStatusModel.MaxBattleBoxNumber}\n耐性:---\n弱点:---\n最大パッシブコスト:{battleFighterStatusModel.MaxAbilityCostNumber}";
         }
     }

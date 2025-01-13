@@ -54,7 +54,6 @@ namespace Siasm
                 // エギドを追加
                 // NOTE: 初日だけはフィールドで拾う
                 // NOTE: 初日以外も基本拾わせるかな
-                // 仮で1000追加
                 // saveManager.LoadedSaveDataCache.SaveDataProgress.HoldEgidoNumber += 1000;
 
                 // エネミークリア情報に反映する

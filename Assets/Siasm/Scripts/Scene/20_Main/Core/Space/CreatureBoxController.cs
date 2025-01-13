@@ -34,7 +34,6 @@ namespace Siasm
                 var baseFieldCharacter = Instantiate(BaseFieldCharacterPrefab, transform);
                 BaseFieldCharacters.Add(baseFieldCharacter);
 
-                // 仮でここでモデルクラスを生成
                 var creatureFieldCharacterModel = new CreatureFieldCharacterModel
                 {
                     CharacterId = creatureBoxModel.CreatureId,
@@ -65,7 +64,6 @@ namespace Siasm
 
         public Vector3 GetSpawnPosition(int creatureId)
         {
-            // 仮処理
             if (creatureBoxModels == null)
             {
                 Debug.Log("TODO: 仮でVector3.zeroを返す");
@@ -73,8 +71,6 @@ namespace Siasm
             }
 
             var creatureBoxModel = creatureBoxModels.FirstOrDefault(x => x.CreatureId == creatureId);
-
-            // 仮
             var position = SpawnPositions[creatureBoxModel.BoxIndex];
             return position;
         }

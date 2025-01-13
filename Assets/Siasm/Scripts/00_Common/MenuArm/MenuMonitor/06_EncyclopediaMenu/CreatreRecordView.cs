@@ -25,7 +25,6 @@ namespace Siasm
             tabGroup.SetActiveTab(activeTabIndex);
             tabGroup.OnChangeActiveTab = OnChangeActiveTab;
 
-            // 仮
             recordDitialText.text = "NOT DATA";
         }
 
@@ -38,13 +37,11 @@ namespace Siasm
         {
             this.currentCreatureRecordModel = currentCreatureRecordModel;
 
-            // 仮
             OnChangeActiveTab(selectedIndex);
         }
 
         private void OnChangeActiveTab(int selectedIndex)
         {
-            // 仮
             // BaseUseCase 経由で取得かな
             var creatureAdmissionOfRecordMasterData = new EnemyAdmissionOfRecordMasterData();
             var creatureAdmissionOfRecordModel = creatureAdmissionOfRecordMasterData.GetEnemyAdmissionOfRecordModel(currentCreatureRecordModel.CreatureId);

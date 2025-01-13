@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
 using Cysharp.Threading.Tasks;
 using TMPro;
 

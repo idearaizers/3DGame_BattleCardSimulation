@@ -211,7 +211,6 @@ namespace Siasm
                 var playerReelNumber = battleMatchReelLogic.GetReelNumber(startMatchReelParameter.PlayerReelParameter);
                 var enemyReelNumber = battleMatchReelLogic.GetReelNumber(startMatchReelParameter.EnemyReelParameter);
 
-                // 仮
                 // リール値を変更
                 // 一旦、そのまま値をプラスさせる
                 // 将来的には見た目に分かるように反映したい
@@ -454,7 +453,6 @@ namespace Siasm
             // else
             //     battleSpaceManager.BattleCameraController.MoveCurrentPositionAsync(zoomOutPositionOfEnemy, zoomOutSpeed).Forget();
 
-            // 仮
             battleMatchEffect.ShowDrawEffect(playerBattleFighterPrefab, enemyBattleFighterPrefab, drawCount);
 
             // ファイターを移動させる

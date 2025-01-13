@@ -106,7 +106,6 @@ namespace Siasm
                     var deckReloadBattleCardModel = GetDeckReloadBattleCardModel();
                     if (deckReloadBattleCardModel == null)
                     {
-                        // 仮
                         Debug.LogWarning("手札に加えるカードが取得できなかったため処理を終了しました");
                         return;
                     }

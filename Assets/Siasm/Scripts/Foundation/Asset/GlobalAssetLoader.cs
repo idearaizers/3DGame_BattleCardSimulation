@@ -42,13 +42,6 @@ namespace Siasm
             {
                 return;
             }
-
-            // 仮
-            // var cardTasks = uniquCard.Select(x => x.assetCacheManager.LoadAssetAsync<Sprite>("adress"));
-            // await UniTask.WhenAll();
-
-            // 仮
-            // await assetCacheManager.LoadAssetAsync<Sprite>("aaa");
         }
     }
 }

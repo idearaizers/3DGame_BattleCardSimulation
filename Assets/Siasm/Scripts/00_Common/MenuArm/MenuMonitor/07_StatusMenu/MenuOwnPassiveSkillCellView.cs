@@ -6,12 +6,8 @@ using UnityEngine.UI;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 仮
-    /// </summary>
     public class MenuOwnPassiveModel : BattleCardModel
     {
-        // public int CardId { get; set; }
         public int OwnNumber { get; set; }
     }
 

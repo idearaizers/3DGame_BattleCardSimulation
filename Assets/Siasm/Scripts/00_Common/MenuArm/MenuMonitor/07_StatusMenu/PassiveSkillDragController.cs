@@ -68,7 +68,6 @@ namespace Siasm
             EventSystem.current.RaycastAll(pointerEventData, raycastResults);
             foreach (var raycastResult in raycastResults)
             {
-                // 仮
                 if (raycastResult.gameObject.name == "CellViewButton")
                 {
                     var targetTransform = raycastResult.gameObject.transform.parent.parent;

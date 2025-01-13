@@ -54,7 +54,6 @@ namespace Siasm
             base.Setup(uiCamera);
             mainCore.Setup(mainUseCase.LoadedSaveDataCache);
 
-            // 仮
             SaveManager.Instance.Setup(mainCore.SpaceManager.PlayerFieldCharacterController);
         }
 

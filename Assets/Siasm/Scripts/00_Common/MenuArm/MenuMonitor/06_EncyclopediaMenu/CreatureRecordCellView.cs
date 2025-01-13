@@ -6,15 +6,10 @@ using UnityEngine.UI;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 仮
-    /// </summary>
     public class CreatureRecordModel
     {
         public int CreatureId { get; set; }
         public int CreatureLevel { get; set; }   // 挑戦できる最新のレベルで撃破した際に増加する
-
-        // 仮
         public bool IsSelected { get; set; }
     }
 

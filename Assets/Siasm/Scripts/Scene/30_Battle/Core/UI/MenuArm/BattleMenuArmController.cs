@@ -23,7 +23,6 @@ namespace Siasm
         {
             base.Initialize(token, baseUseCase, baseCameraController, true, battleSpaceManager);
 
-            // 仮
             CommonMenuArmPrefab.OnDeckChangeAction = (deckIndex) =>
             {
                 DeckChangeAsync(deckIndex).Forget();
@@ -34,7 +33,6 @@ namespace Siasm
                 OnEscapeAction?.Invoke();
             };
 
-            // 仮実装
             // バトル用の出し分け処理
             foreach (var playableBinding in Director.playableAsset.outputs)
             {

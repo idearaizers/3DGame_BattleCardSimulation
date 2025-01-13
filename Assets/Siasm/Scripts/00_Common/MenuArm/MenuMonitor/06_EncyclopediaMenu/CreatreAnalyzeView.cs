@@ -46,7 +46,6 @@ namespace Siasm
 
         public void Setup(CreatureRecordModel[] creatureRecordModels, int currentIndex)
         {
-            // 仮
             CurrentIndex = currentIndex;
 
             currentCreatureRecordModels = creatureRecordModels;
@@ -125,7 +124,7 @@ namespace Siasm
 
             // 
             creatreStatusView.UpdateView(currentCreatureRecordModel);
-            creatreRecordView.UpdateView(currentCreatureRecordModel, 0);    // 仮で0で更新
+            creatreRecordView.UpdateView(currentCreatureRecordModel, 0);
 
 
             // 

@@ -85,9 +85,9 @@ namespace Siasm
                 currentSelectedMenuItemCellView.ChangeActiveOfSelectedImage(false);
             }
 
-            menuItemDetailView.ShowDetailViewAsync(selectedMenuItemCellView.ItemModel).Forget();
-
             currentSelectedMenuItemCellView = selectedMenuItemCellView;
+
+            menuItemDetailView.ShowDetailViewAsync(selectedMenuItemCellView.ItemModel).Forget();
         }
     }
 }

@@ -58,9 +58,6 @@ namespace Siasm
             instanceHandCardPrefabs = new List<PlayerBattleCardPrefab>();
         }
 
-        /// <summary>
-        /// 仮
-        /// </summary>
         public void ResetDeck()
         {
             for (int i = 0; i < instanceDeckCardPrefabs.Count; i++)
@@ -146,11 +143,9 @@ namespace Siasm
                 var battleCardModels = instanceDeckCardPrefabs.Select(playerBattleCardPrefab => playerBattleCardPrefab.CurrentBattleCardModel).ToArray();
                 var deckBattleCardModelIndex = Array.IndexOf(battleCardModels, handBattleCardModels[i]);
 
-                // 仮
                 // 取得先がなければ既に手札にあるものとして次の処理を行う
                 if (deckBattleCardModelIndex == -1)
                 {
-                    // 仮処理
                     // デッキに指定のカードがなかったので生成して手札に追加する
                     // TODO: 生成するものがもしもあれば追加実装する
 

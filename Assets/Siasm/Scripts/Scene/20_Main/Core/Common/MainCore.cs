@@ -179,7 +179,6 @@ namespace Siasm
             // "CreatureId": 2001,
             // "CreatureLevel": 2
 
-            // 仮で直接指定
             StartBattleAsync(2001, 1).Forget();
         }
 

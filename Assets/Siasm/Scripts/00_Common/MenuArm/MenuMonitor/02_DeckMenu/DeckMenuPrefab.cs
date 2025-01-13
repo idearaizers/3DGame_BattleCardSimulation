@@ -28,6 +28,9 @@ namespace Siasm
         private List<MenuDeckCardModel> currentDeckCardModels;
         private List<MenuOwnCardModel> currentOwnCardModels;
 
+        /// <summary>
+        /// TODO: セーブデータから取得予定
+        /// </summary>
         private int currentDeckIndex = -1;
 
         public override void Initialize(SideArmSwitcherPrefab sideArmSwitcherPrefab, BaseUseCase baseUseCase, BaseCameraController baseCameraController,
@@ -111,29 +114,29 @@ namespace Siasm
             currentDeckCardModels = deckCardModels.ToList();
             currentOwnCardModels = ownCardModels.ToList();
 
-            List<int> cardIds = new List<int>();
-
-            foreach (var deckCardModel in deckCardModels)
+            // TODO: ロードだけして適用は別で行っているようで見直し予定
             {
-                cardIds.Add(deckCardModel.CardId);
-            }
+                var cardIds = new List<int>();
 
-            foreach (var ownCardModel in ownCardModels)
-            {
-                cardIds.Add(ownCardModel.CardId);
-            }
-
-            cardIds = cardIds.Distinct().ToList();
-
-            foreach (var cardId in cardIds)
-            {
-                // 画像を取得して反映する
-                var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, cardId);
-
-                // アセットがない場合
-                if (!AssetCacheManager.Instance.Exist(itemSpriteAddress))
+                foreach (var deckCardModel in deckCardModels)
                 {
-                    var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
+                    cardIds.Add(deckCardModel.CardId);
+                }
+
+                foreach (var ownCardModel in ownCardModels)
+                {
+                    cardIds.Add(ownCardModel.CardId);
+                }
+
+                cardIds = cardIds.Distinct().ToList();
+
+                foreach (var cardId in cardIds)
+                {
+                    var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, cardId);
+                    if (!AssetCacheManager.Instance.Exist(itemSpriteAddress))
+                    {
+                        var cachedSprite = await AssetCacheManager.Instance.LoadAssetAsync<Sprite>(itemSpriteAddress);
+                    }
                 }
             }
 
@@ -162,14 +165,10 @@ namespace Siasm
         /// <param name="selectedBattleCardModel"></param>
         private void OnSelectedBattleCard(GameObject selectedGameObject, BattleCardModel selectedBattleCardModel)
         {
-            // TODO: 下に出ているがこれだとわからないね
-            // NOTE: 画面デザインを調整した方がよさそう
-
             // 選択済みのものがまたは同じものでなければ非選択状態にする
             if (currentSelectedGameObject != null &&
                 currentSelectedGameObject != selectedGameObject)
             {
-                // 仮
                 currentSelectedGameObject.GetComponent<MenuDeckCardCellView>()?.ChangeActiveOfSelectedImage(false);
                 currentSelectedGameObject.GetComponent<MenuOwnCardCellView>()?.ChangeActiveOfSelectedImage(false);
             }
@@ -266,7 +265,6 @@ namespace Siasm
             AudioManager.Instance.PlaySEOfLocal(BaseAudioPlayer.PlayType.Single, AudioSEType.Decide);
 
             // デッキ側のカードを増やす
-            // 仮
             // インスタンスしないといけないのでBattleCardModelは格納する形がいいかも
             var menuDeckCardModel = new MenuDeckCardModel
             {

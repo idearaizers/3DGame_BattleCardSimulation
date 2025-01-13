@@ -62,7 +62,6 @@ namespace Siasm
             var memoryDatabase = new MemoryDatabase(masterDataTextAsset.bytes);
             builder.RegisterInstance(memoryDatabase);
 
-            // 仮
             builder.Register<GlobalAssetLoader>(Lifetime.Singleton);
 
             builder.RegisterEntryPoint<AppPresenter>();

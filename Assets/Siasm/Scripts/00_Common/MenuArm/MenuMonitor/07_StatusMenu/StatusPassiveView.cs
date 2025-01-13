@@ -3,9 +3,6 @@ using TMPro;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 仮
-    /// </summary>
     public class BattleFighterPassiveModel
     {
         public int CurrentCostNumber { get; set; }
@@ -57,7 +54,6 @@ namespace Siasm
 
             totalPassiveCostText.text = $"コスト: {battleFighterPassiveModel.CurrentCostNumber} / {battleFighterPassiveModel.MaxCostNumber}";
 
-            // 仮
             var customPassiveSkillModels = new MenuCustomPassiveSkillModel[]
             {
                 new MenuCustomPassiveSkillModel(),
@@ -66,7 +62,6 @@ namespace Siasm
             };
             customPassiveSkillScrollController.Setup(customPassiveSkillModels);
 
-            // 仮
             var ownPassiveModels = new MenuOwnPassiveModel[]
             {
                 new MenuOwnPassiveModel(),
@@ -84,7 +79,6 @@ namespace Siasm
             if (currentSelectedGameObject != null &&
                 currentSelectedGameObject != selectedGameObject)
             {
-                // 仮
                 currentSelectedGameObject.GetComponent<MenuCustomPassiveSkilllView>()?.ChangeActiveOfSelectedImage(false);
                 currentSelectedGameObject.GetComponent<MenuOwnPassiveSkillCellView>()?.ChangeActiveOfSelectedImage(false);
             }

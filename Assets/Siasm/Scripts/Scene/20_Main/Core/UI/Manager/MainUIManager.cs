@@ -68,7 +68,6 @@ namespace Siasm
             // 
             menuArmController.Setup(enableMenus, selectedIndex: 0);
 
-            // 仮
             var saveDataOwnItem = saveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.EgidoId);
             if (saveDataOwnItem == null)
             {
@@ -83,7 +82,6 @@ namespace Siasm
             mainDirectionContent.Setup();
         }
 
-        // 仮
         public void UpdateViewOfEgido()
         {
             var saveDataOwnItem = SaveManager.Instance.LoadedSaveDataCache.SaveDataOwnItems.FirstOrDefault(x => x.ItemId == ItemConstant.EgidoId);

@@ -41,15 +41,12 @@ namespace Siasm
             // アイテムモデルに変換して落とすかな
             // TODO: アイテムをドロップさせる
 
-            // 仮
             var fieldItemPickUpOfFieldInteractGameObject = Instantiate(fieldItemPickUpOfFieldInteract, this.transform);
 
             // 座標を取得する
-            // 仮で0番目のものを取得
             var position = creatureBoxController.GetSpawnPosition(creatureId);
 
             // ワールドで配置
-            // 仮でoffset
             position.y += 0.5f;
             position.z -= 3.0f;
 

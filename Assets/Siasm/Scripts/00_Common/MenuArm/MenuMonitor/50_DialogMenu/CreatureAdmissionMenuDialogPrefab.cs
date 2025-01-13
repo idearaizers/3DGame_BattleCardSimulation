@@ -11,7 +11,7 @@ namespace Siasm
             public string TitleText { get; set; }
             public Action OnYesAction { get; set; }
             public Action OnNoAction { get; set; }
-            public bool IsOnCloseAction { get; set; } = true;   // 仮でメニューを閉じない
+            public bool IsOnCloseAction { get; set; } = true;
         }
 
         public class Parameter

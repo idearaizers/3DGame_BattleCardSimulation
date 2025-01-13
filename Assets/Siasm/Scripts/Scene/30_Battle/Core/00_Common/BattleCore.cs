@@ -60,7 +60,6 @@ namespace Siasm
             battleUIManager.Initialize(token, battleStateMachineController, battleSpaceManager.BattleCameraController, battleUseCase, battleLogicManager.PlayerBattleCardOperationController, battleSpaceManager, battleLogicManager.BattleObjectPoolContainer);
             battleUIManager.OnEscapeAction = () =>
             {
-                // 仮
                 // 単に非表示にするだけだと警告がでているようで見た目の仕様に合わせて作り直すかな
                 battleUIManager.BattleMenuArmController.CommonMenuArmPrefab.gameObject.SetActive(false);
 
@@ -212,7 +211,6 @@ namespace Siasm
             // マウス操作をアクティブにする
             isUpdate = true;
 
-            // 仮でマウス操作をリセットする
             // カメラドラッグ操作に影響してしまったので一旦リセットさせています
             battleLogicManager.BattleMouseController.ResetDragParameter();
 
@@ -434,7 +432,6 @@ namespace Siasm
             // 取得
             var battleSceneMessage = SceneLoadManager.Instance.SceneStackMessage.CurrentBaseSceneMessage as BattleSceneMessage;
 
-            // 仮でデバッグの時とそうでない時で処理を出し分けした方がよさそう
             var mainSceneMessage = new MainSceneMessage();
             if (battleSceneMessage == null)
             {

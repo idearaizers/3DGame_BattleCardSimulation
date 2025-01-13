@@ -15,7 +15,6 @@ namespace Siasm
         {
             for (int i = 0; i < attributeTexts.Length; i++)
             {
-                // 仮
                 // 0番目以外で実行のため
                 var index = i + 1;
                 attributeTexts[i].text = BattleTextConstant.EmotionAttributeTypeStringDictionary[(EmotionAttributeType)index];
@@ -29,7 +28,6 @@ namespace Siasm
 
         public void Setup(AttributeResistModel attributeResistModel)
         {
-            // 仮
             resistTexts[0].text = BattleFighterConstant.AttributeResistTypeStringtext[attributeResistModel.NormalResist];
             resistTexts[1].text = BattleFighterConstant.AttributeResistTypeStringtext[attributeResistModel.JoyResist];
             resistTexts[2].text = BattleFighterConstant.AttributeResistTypeStringtext[attributeResistModel.TrustResist];

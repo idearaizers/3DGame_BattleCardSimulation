@@ -53,7 +53,6 @@ namespace Siasm
         {
             SaveManager.Instance.SaveJsonData(selectedIndex);
 
-            // 仮
             // セーブ後に表示を最新に更新する
             Setup(true);
         }

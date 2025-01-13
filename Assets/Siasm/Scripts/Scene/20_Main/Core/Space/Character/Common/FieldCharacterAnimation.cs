@@ -35,7 +35,6 @@ namespace Siasm
 
         public void Setup(int creatureId = -1)
         {
-            // 仮
             if (creatureId != -1)
             {
                 SetImage(creatureId).Forget();

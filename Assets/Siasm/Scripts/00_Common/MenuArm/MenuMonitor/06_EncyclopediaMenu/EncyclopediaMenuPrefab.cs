@@ -42,7 +42,6 @@ namespace Siasm
 
             var currentIndex = 0;
 
-            // 仮
             if (BaseUseCase == null)
             {
                 return;
@@ -50,7 +49,6 @@ namespace Siasm
 
             var creatureRecordModels = BaseUseCase.CreatureRecordModels(currentIndex);
 
-            // 仮
             if (creatureRecordModels == null)
             {
                 return;

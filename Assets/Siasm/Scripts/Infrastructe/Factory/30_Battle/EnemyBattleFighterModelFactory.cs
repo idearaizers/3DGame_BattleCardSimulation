@@ -72,7 +72,6 @@ namespace Siasm
                 },
                 BattleFighterMessageModels = new BattleFighterMessageModel[]
                 {
-                    // 仮
                     // TODO: レベルやステータスの状態で表示物を変えたい
                     // Assertion failed on expression
                     // "・・・オレ、ただのペンギンだよ"
