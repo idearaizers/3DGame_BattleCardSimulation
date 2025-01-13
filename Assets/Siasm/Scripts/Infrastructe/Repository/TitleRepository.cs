@@ -1,7 +1,4 @@
 namespace Siasm
 {
-    public sealed class TitleRepository : BaseRepository
-    {
-        // 
-    }
+    public sealed class TitleRepository : BaseRepository { }
 }

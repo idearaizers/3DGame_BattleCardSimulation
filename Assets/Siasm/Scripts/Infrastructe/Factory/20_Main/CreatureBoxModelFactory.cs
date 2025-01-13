@@ -4,7 +4,7 @@ namespace Siasm
 {
     /// <summary>
     /// NOTE: 見直し予定
-    /// NOTE: CreatureFieldCharacterModel があると管理がしやすいかも
+    /// NOTE: CreatureFieldCharacterModelがあると管理がしやすいかも
     /// </summary>
     public class CreatureBoxModel
     {

@@ -19,8 +19,6 @@ namespace Siasm
             foreach (var prepareBattleDeckCardModel in prepareBattleDeckCardModels)
             {
                 var battleCardModel = CreateBattleCardModel(memoryDatabase, prepareBattleDeckCardModel.CardId);
-
-                // 指定した数を格納する
                 battleCardModels.AddRange(Enumerable.Repeat(battleCardModel, prepareBattleDeckCardModel.CardNumber));
             }
 
@@ -40,8 +38,6 @@ namespace Siasm
             foreach (var deckCardMasterData in deckCardMasterDataArray)
             {
                 var battleCardModel = CreateBattleCardModel(memoryDatabase, deckCardMasterData.CardId);
-
-                // 指定した数を格納する
                 battleCardModels.AddRange(Enumerable.Repeat(battleCardModel, deckCardMasterData.CardNumber));
             }
 

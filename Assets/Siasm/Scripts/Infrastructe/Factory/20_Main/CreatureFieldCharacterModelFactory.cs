@@ -5,8 +5,7 @@ namespace Siasm
     public class CreatureFieldCharacterModel : BaseFieldCharacterModel
     {
         public int CharacterLevel { get; set; }
-        public bool IsCreatureBox { get; set; }     // Boxにいる場合はtrueにする
-
+        public bool IsCreatureBox { get; set; }
     }
 
     public class CreatureFieldCharacterModelFactory

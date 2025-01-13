@@ -7,7 +7,7 @@ namespace Siasm
     [System.Serializable]
     public class SaveDataBattleFighterCustomPassive
     {
-        // 
+        // TODO: 
     }
 
     /// <summary>
@@ -16,7 +16,7 @@ namespace Siasm
     [System.Serializable]
     public class SaveDataBattleFighterOwnPassive
     {
-        // 
+        // TODO: 
     }
 
     /// <summary>

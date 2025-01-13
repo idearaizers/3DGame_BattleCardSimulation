@@ -1,7 +1,5 @@
 using System.Linq;
-using System.Collections.Generic;
 using VContainer;
-using System.Diagnostics;
 
 namespace Siasm
 {
@@ -23,7 +21,6 @@ namespace Siasm
         /// <param name="questId"></param>
         public void SetIsClearOfMainQuest(BaseMainQuestModel baseMainQuestModel)
         {
-            // クリア済みに変える
             var saveDataMainQuestOfClear = new SaveDataMainQuestOfClear
             {
                 QuestId = baseMainQuestModel.QuestId
@@ -100,39 +97,5 @@ namespace Siasm
                 ownItem.ItemNumber += number;
             }
         }
-
-        public void UpdateDeckCard(BattleCardModel[] battleCardModels)
-        {
-            // var cardIds = battleCardModels.Select(battleCardModel => battleCardModel.CardId).ToArray();
-            // saveManager.LoadedSaveDataCache.SaveDataBattleDeck.SetCardIds = cardIds;
-        }
-
-        public void AddHoldCard(int[] holdCardIds)
-        {
-            // var saveDataHoldCards = saveManager.LoadedSaveDataCache.SaveDataOwnBattleCard.SaveDataHoldCards.ToList();
-            // for (int i = 0; i < holdCardIds.Length; i++)
-            // {
-            //     var saveDataHoldCard = saveDataHoldCards.FirstOrDefault(saveDataHoldCard => saveDataHoldCard.CardId == holdCardIds[i]);
-            //     if (saveDataHoldCard != null)
-            //     {
-            //         saveDataHoldCard.HoldNumber++;
-            //     }
-            //     else
-            //     {
-            //         saveDataHoldCards.Add(new SaveDataHoldCard
-            //         {
-            //             CardId = holdCardIds[i],
-            //             HoldNumber = 1
-            //         });
-            //     }
-            // }
-
-            // saveManager.LoadedSaveDataCache.SaveDataOwnBattleCard.SaveDataHoldCards = saveDataHoldCards.ToArray();
-        }
-
-        // public void UpdatEgidoHoldingNumber(int egidoHoldingNumber)
-        // {
-        //     saveManager.LoadedSaveDataCache.SaveDataProgress.HoldEgidoNumber = egidoHoldingNumber;
-        // }
     }
 }

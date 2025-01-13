@@ -28,20 +28,8 @@ namespace Siasm
     //     public int NoSelection { get; set; }
     // }
 
-    /// <summary>
-    /// NOTE: ゲッターにしてもいいかも
-    /// NOTE: ファクトリーにする場合はマスターデータからモデルデータに変換して返した方がいいかも
-    /// </summary>
     public class TalkJsonModelFactory
     {
-        /// <summary>
-        /// 読み込んだマスターデータのJsonのアセットデータからモデルデータを作成して返す
-        /// マスターデータはないのでモデルクラスをそのまま渡す
-        /// 
-        /// エディター用のモデルクラスから使用するクラスに変換するかな
-        /// </summary>
-        /// <param name="characterIndex"></param>
-        /// <returns></returns>
         public async UniTask<BaseTalkModel[]> CreateBaseTalkModels(int characterIndex, int detialIndex = 0)
         {
             var address = $"TalkJsonMasterData_{characterIndex}_{detialIndex.ToString("00")}";
@@ -53,8 +41,7 @@ namespace Siasm
             for (int i = 0; i < talkMasterDataJsonTexts.Length; i++)
             {
                 var talkMasterDataJsonText = talkMasterDataJsonTexts[i];
-                
-                // マスターデータのモデルクラスからアクション用のモデルを生成して実行する
+
                 switch (talkMasterDataJsonText.TalklType)
                 {
                     case TalklType.Message:

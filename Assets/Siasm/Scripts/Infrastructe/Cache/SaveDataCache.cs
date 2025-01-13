@@ -10,7 +10,7 @@ namespace Siasm
         // 進行関係
         public SaveDataMainScene SaveDataMainScene;             // メインシーン関連
         public SaveDataMainQuest SaveDataMainQuest;             // メインクエスト関係
-        public List<SaveDataCreatureBox> SaveDataCreatureBoxs;  // エネミーボックス（調査箱）関係
+        public List<SaveDataCreatureBox> SaveDataCreatureBoxs;  // クリシェミナボックス（調査箱）関係
 
         // 所持アイテム関係
         public List<SaveDataOwnItem> SaveDataOwnItems;              // 所持アイテム関係

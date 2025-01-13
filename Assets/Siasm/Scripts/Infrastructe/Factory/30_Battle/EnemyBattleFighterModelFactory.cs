@@ -27,7 +27,7 @@ namespace Siasm
                 beginBattleBoxNumber = 2;
             else
                 beginBattleBoxNumber = 1;
-            
+
             // 指定のレベルに到達しているデッキを取得
             // 条件にあるものを全て取得した後、並び替えて最初のものを獲得する
             var deckMasterDataArray = battleFighterMasterData.DeckMasterDataArray.Where(deckMasterData => deckMasterData.AchievementLevel <= prepareEnemyBattleFighterModel.FighterLevel);
@@ -72,17 +72,10 @@ namespace Siasm
                 },
                 BattleFighterMessageModels = new BattleFighterMessageModel[]
                 {
-                    // TODO: レベルやステータスの状態で表示物を変えたい
-                    // Assertion failed on expression
-                    // "・・・オレ、ただのペンギンだよ"
-                    // Requested value is invalid
-                    // ねじれたヤン
-                    // みかか方式
-                    // https://tools.m-bsys.com/original_tools/mikaka.php
                     new BattleFighterMessageModel
                     {
                         ActivationType = 0,
-                        MessageText = "...qq@k^[yg@yq@9"
+                        MessageText = "...qq@k^[yg@yq@9"    // TODO: マスターデータから設定したものを使用する形に変更予定
                     }
                 },
                 AttributeResistModel = new AttributeResistModel

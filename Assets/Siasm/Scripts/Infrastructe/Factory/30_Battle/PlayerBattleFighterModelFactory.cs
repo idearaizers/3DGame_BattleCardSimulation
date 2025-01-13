@@ -29,7 +29,7 @@ namespace Siasm
                     CurrentPoint = preparePlayerBattleFighterModel.MaxThinkingPoint,
                     ElapsedTurn = 0
                 },
-                BasePassiveAbilityModels = new List<BasePassiveAbilityModel>(),      // TODO: preparePlayerBattleFighterModelから将来的に取得かな。自由にカスタマイズもできるようにしたいかも
+                BasePassiveAbilityModels = new List<BasePassiveAbilityModel>(),      // TODO: preparePlayerBattleFighterModelから将来的に取得予定
                 BaseAbnormalConditionModels = new List<BaseAbnormalConditionModel>(),
                 AttributeResistModel = new AttributeResistModel
                 {

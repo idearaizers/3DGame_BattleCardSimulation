@@ -10,11 +10,6 @@ namespace Siasm
         public int MaxThinkingPoint { get; set; }
         public int BeginBattleBoxNumber { get; set; }
         public int MaxBattleBoxNumber { get; set; }
-
-        // 他候補
-        // ・耐性：カスタマイズで設定
-        // ・弱点：カスタマイズで設定
-        // ・総コスト：指定のアイテムで増加
     }
 
     public class PrepareEnemyBattleFighterModel
@@ -68,11 +63,7 @@ namespace Siasm
 
         private PreparePlayerBattleFighterModel GetPreparePlayerBattleFighterModel(SaveDataCache saveDataCache, BattleSceneDebug battleSceneDebug)
         {
-            // NOTE: 下記の情報から取得予定
-            // NOTE: デバッグが有効であればその値を使用する形がいいかも
-            // NOTE: デバッグの場合は下記のようにダミーデータをここで指定する形がよさそうかも
-            // NOTE: BattleSceneDebug ではなくプレイヤー用のデバッグパラメターに分離した方がいいかも
-            // var saveDataBattleFighterCustomPassive = saveDataCache.SaveDataBattleFighter.SaveDataBattleFighterCustomPassive;
+            // TODO: デバッグ時とそうでない時で出し分けする処理を追加予定
 
             UnityEngine.Debug.Log($"<color=yellow>デバッグ用にプレイヤーのステータスを変更しました</color>");
 

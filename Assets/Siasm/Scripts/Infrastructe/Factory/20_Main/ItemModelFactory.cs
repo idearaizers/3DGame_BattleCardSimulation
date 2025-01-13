@@ -7,14 +7,7 @@ namespace Siasm
         public int ItemId { get; set; }
         public string ItemName { get; set; }
         public string DescriptionText { get; set; }
-        public int Number { get; set; }             // 付与数ではなく所持数がいいかも
-
-        // NOTE: アイテムイメージはアセットの取得で遅延が発生するため表示の際に取得する
-
-        // bu
-        // public bool IsDisableEffect { get; set; }   // trueであれば機能を無効にする
-        // NOTE: itemIconImage
-        // NOTE: カテゴリ表示用の項目かな
+        public int Number { get; set; }     // 付与数ではなく所持数がいいかも
     }
 
     public class ItemModelFactory

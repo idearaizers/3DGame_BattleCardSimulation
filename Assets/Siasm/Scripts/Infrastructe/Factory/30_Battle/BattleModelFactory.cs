@@ -13,9 +13,6 @@ namespace Siasm
         public BattleLogicModel BattleLogicModel { get; set; }
     }
 
-    /// <summary>
-    /// NOTE: 必要ならマスターデータをInjectで参照して生成する形に変えてもいいかも
-    /// </summary>
     public class BattleModelFactory
     {
         /// <summary>

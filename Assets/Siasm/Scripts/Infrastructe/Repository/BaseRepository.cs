@@ -1,7 +1,4 @@
 namespace Siasm
 {
-    public abstract class BaseRepository
-    {
-        // 
-    }
+    public abstract class BaseRepository { }
 }

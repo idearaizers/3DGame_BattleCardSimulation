@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 
 namespace Siasm
 {
@@ -10,25 +9,6 @@ namespace Siasm
         public string DetialText { get; set; }
         public int[] OperationTutorialIndexes { get; set; }
         public int NextId { get; set; }
-
-
-
-        // 
-        // public MainQuestType MainQuestType { get; set; }
-        /// <summary>
-        /// QuestType.Talk：会話対象のキャラidを指定
-        /// </summary>
-        // public int DetialNumber { get; set; } = -1; // -1の場合は指定なし
-        // public int NextQuestId { get; set; } = -1;   // -1の場合は次に続くクエストはない
-        // public int QuestId { get; set; }
-        // public string QuestTitle { get; set; }
-        // public string QuestDetial { get; set; }
-        // public MainQuestType MainQuestType { get; set; }
-        // /// <summary>
-        // /// QuestType.Talk：会話対象のキャラidを指定
-        // /// </summary>
-        // public int DetialNumber { get; set; } = -1; // -1の場合は指定なし
-        // public int NextQuestId { get; set; } = -1;   // -1の場合は次に続くクエストはない
     }
 
     public class InteractMainQuestModel : BaseMainQuestModel
@@ -46,10 +26,7 @@ namespace Siasm
         public int EgidoNumber { get; set; }
     }
 
-    public class EntryMainQuestMasterModel : BaseMainQuestModel
-    {
-        // 
-    }
+    public class EntryMainQuestMasterModel : BaseMainQuestModel { }
 
     public class TalkMainQuestModel : BaseMainQuestModel
     {
