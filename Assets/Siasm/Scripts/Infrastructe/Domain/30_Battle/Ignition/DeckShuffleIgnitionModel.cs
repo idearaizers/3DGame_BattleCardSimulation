@@ -8,7 +8,7 @@ namespace Siasm
         /// <param name="targetBaseBattleFighter"></param>
         public override void ExecuteEffect(BaseBattleCardOperationController baseBattleCardController)
         {
-            // baseBattleCardController.BaseFighterBattleCardModel.ShuffleDeck();
+            // TODO: 
         }
     }
 }

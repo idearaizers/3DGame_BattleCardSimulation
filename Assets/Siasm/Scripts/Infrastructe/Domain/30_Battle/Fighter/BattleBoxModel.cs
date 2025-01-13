@@ -2,15 +2,21 @@ using UnityEngine;
 
 namespace Siasm
 {
-    /// <summary>
-    /// 値は外部から変更できないようにした方がいいかも
-    /// 名称も調整した方がいいかも
-    /// BattleBoxModelCountModelとか
-    /// </summary>
     public class BattleBoxModel
     {
+        /// <summary>
+        /// TODO: 外部からは参照しかできないように変更予定
+        /// </summary>
         public int BiginNumber { get; set; }
+
+        /// <summary>
+        /// TODO: 外部からは参照しかできないように変更予定
+        /// </summary>
         public int MaxNumber { get; set; }
+
+        /// <summary>
+        /// TODO: 外部からは参照しかできないように変更予定
+        /// </summary>
         public int CurrentNumber { get; set; }
 
         public void AddCurrentNumber()
