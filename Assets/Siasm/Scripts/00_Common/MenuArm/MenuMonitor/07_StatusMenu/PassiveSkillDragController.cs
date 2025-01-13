@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 namespace Siasm
 {
+    /// <summary>
+    /// TODO: メニューでも似たような処理があるのでリファクタ予定
+    /// </summary>
     public class PassiveSkillDragController : MonoBehaviour
     {
         [SerializeField]
