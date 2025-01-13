@@ -47,7 +47,7 @@ namespace Siasm
         {
             clickButton.onClick.AddListener(OnClickCellView);
 
-            // 初期はNoneDataを表示する
+            // NotDataを状態を表示
             noneDataPanel.SetActive(true);
             existDataPanel.SetActive(false);
         }
