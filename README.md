@@ -16,6 +16,12 @@ https://github.com/user-attachments/assets/337cd908-760e-464f-bafd-b6ffa3d82710
 
 
 
+
+
+https://github.com/user-attachments/assets/86c5c7f1-3769-4e8a-8774-bef857bba2d0
+
+
+
 # Unityからのプレイ方法
 ・Unityのverは6000.0.33f1  
 ・Assets/Siasm/Scenes/10_Top.unityから起動可能  
