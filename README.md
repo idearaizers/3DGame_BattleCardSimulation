@@ -8,7 +8,15 @@
 ・  
 ・  
 
-# プレイ方法
+
+
+
+https://github.com/user-attachments/assets/337cd908-760e-464f-bafd-b6ffa3d82710
+
+
+
+
+# Unityからのプレイ方法
 ・Unityのverは6000.0.33f1  
 ・Assets/Siasm/Scenes/10_Top.unityから起動可能  
 ・「Load Game」から一番上のセーブデータを選択することでプレイが可能となります  
