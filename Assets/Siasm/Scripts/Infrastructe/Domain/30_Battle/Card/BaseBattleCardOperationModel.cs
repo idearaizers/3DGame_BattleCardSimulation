@@ -115,15 +115,9 @@ namespace Siasm
         /// <returns></returns>
         public BattleCardModel GetDeckReloadBattleCardModel()
         {
-            // NOTE: 一旦、一種類だけ設定
-            var deckReroadCardIds = new int[]
-            {
-                30011001
-            };
-
             // NOTE: UseCase経由にしてファクトリークラスで取得がいいかも
-            // マスターデータから指定したカードデータを取得
-            var deckReroadCardId = UnityEngine.Random.Range(0, deckReroadCardIds.Length);
+            // NOTE: 一旦、一種類だけ設定
+            var deckReroadCardId = 30011001;
             var battleCardMasterData = battleUseCase.MemoryDatabase.BattleCardMasterDataTable.FindById(deckReroadCardId);
 
             // 生成して指定の数分だけ格納する
