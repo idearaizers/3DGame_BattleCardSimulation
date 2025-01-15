@@ -9,8 +9,8 @@
 ・  
 
 # 起動方法
-・Unityのver：6000.0.33f1  
-・Assets/Siasm/Scenes/10_Top.unityから起動  
+・Unityのverは6000.0.33f1  
+・Assets/Siasm/Scenes/10_Top.unityから起動可能  
 
 # 拠点説明
 ・  
