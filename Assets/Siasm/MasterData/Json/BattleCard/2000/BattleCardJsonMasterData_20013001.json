@@ -3,10 +3,10 @@
         "CardName": "月光鳥",
         "CardReelType": 1,
         "MinReelNumber": 1,
-        "MaxReelNumber": 4,
+        "MaxReelNumber": 10,
         "FlavorText": "",
         "EmotionAttributeType": 1,
         "BattleCardAbilityJsonModels": [],
-        "DevelopmentMemo": "攻撃でパッシブアビリティ用、強力な能力アップを行い成長する"
+        "DevelopmentMemo": ""
     }
 }

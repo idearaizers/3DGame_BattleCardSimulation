@@ -34,27 +34,15 @@
                 "DeckCardJsonModels": [
                     {
                         "CardId": 20011001,
-                        "CardNumber": 5
+                        "CardNumber": 10
                     },
                     {
                         "CardId": 20011002,
-                        "CardNumber": 5
+                        "CardNumber": 10
                     },
                     {
                         "CardId": 20011003,
-                        "CardNumber": 5
-                    },
-                    {
-                        "CardId": 20012001,
-                        "CardNumber": 5
-                    },
-                    {
-                        "CardId": 20012002,
-                        "CardNumber": 5
-                    },
-                    {
-                        "CardId": 20012003,
-                        "CardNumber": 5
+                        "CardNumber": 10
                     }
                 ]
             }
