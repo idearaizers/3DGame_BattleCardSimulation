@@ -2,7 +2,7 @@
     "BattleCardJsonModel": {
         "CardName": "月光鳥",
         "CardReelType": 1,
-        "MinReelNumber": 1,
+        "MinReelNumber": 5,
         "MaxReelNumber": 10,
         "FlavorText": "",
         "EmotionAttributeType": 1,
