@@ -58,10 +58,10 @@ namespace Siasm
                 true,
                 true,
                 true,
-                false,  // NOTE: 開発途中のため
-                false,  // NOTE: 開発途中のため
-                false,  // NOTE: 開発途中のため
-                false   // NOTE: 開発途中のため
+                false,  // NOTE: 開発途中のため使用できるようになるまでflase
+                false,  // NOTE: 開発途中のため使用できるようになるまでflase
+                false,  // NOTE: 開発途中のため使用できるようになるまでflase
+                false   // NOTE: 開発途中のため使用できるようになるまでflase
             };
 
             menuArmController.Setup(enableMenus, selectedIndex: 0);
