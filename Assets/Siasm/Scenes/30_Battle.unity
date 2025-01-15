@@ -3997,7 +3997,7 @@ MonoBehaviour:
   enemyBattleFighterId: 2001
   enemyBattleFighterLevel: 1
   maxHealthPoint: 30
-  maxThinkingPoint: 30
+  maxThinkingPoint: 10
   beginBattleBoxNumber: 1
   maxBattleBoxNumber: 5
 --- !u!1 &805706378
