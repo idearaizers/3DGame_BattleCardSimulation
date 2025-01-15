@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: c42602901b1b88841bdd96e455f4de81
   m_SerializeEntries:
+  - m_GUID: 00a3013f562be9149b08dbfaa78169f9
+    m_Address: CardImage196x256_10011003
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 00d5af836ffd5534db334038a26bfde3
     m_Address: CardImage196x256_20013002
     m_ReadOnly: 0
@@ -92,11 +97,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20636a0e59cdc624082669eff34227aa
     m_Address: CardImage196x256_30011002
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2187de15970b2544cb38e313e450cf31
-    m_Address: CardImage196x256_10011003
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -190,11 +190,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 56e35f49d81c0d14292ec159b300a463
-    m_Address: CardImage196x256_10011004
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6123de7c80d79e2418055d7aaae0b45d
     m_Address: BattleFighterAnimationTypeSprites_2007
     m_ReadOnly: 0
@@ -265,11 +260,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 98d9c933736e8684db80c613853af448
-    m_Address: CardImage196x256_10011002
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99534c4a11e3b324a984b62702cec841
     m_Address: CardImage196x256_20012004
     m_ReadOnly: 0
@@ -277,11 +267,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99d9b9debaa003f4fb28c89e44176d9d
     m_Address: BattleFighterAnimationTypeSprites_2006
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9a115eaa1df580444a4013b0c509c2b3
-    m_Address: CardImage196x256_10012004
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -310,11 +295,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bc1d94c2382adfe41ba60db17681587a
-    m_Address: CardImage196x256_10012005
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd1cc113ef7190a419ecbc029072fde5
     m_Address: 30_Battle
     m_ReadOnly: 0
@@ -337,11 +317,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c977b1fbd1c85f240aa64820ea537d60
     m_Address: CreatureImage256_2006
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cad5f493ceb3e5d498329b512c559236
-    m_Address: CardImage196x256_10011005
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -372,6 +347,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea1262619ad472b48bc4e702d5e93d96
     m_Address: CreatureImage256_2002
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef75b5dfa6adba74cb5506a459b1cc1a
+    m_Address: CardImage196x256_10011002
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
