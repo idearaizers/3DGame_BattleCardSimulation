@@ -217,6 +217,22 @@
         {
             "CardId": 10011002,
             "OwnNumber": 10
+        },
+        {
+            "CardId": 10011003,
+            "OwnNumber": 10
+        },
+        {
+            "CardId": 10012001,
+            "OwnNumber": 10
+        },
+        {
+            "CardId": 10012002,
+            "OwnNumber": 10
+        },
+        {
+            "CardId": 10012003,
+            "OwnNumber": 10
         }
     ],
     "SaveDataBattleFighter": {
