@@ -36,8 +36,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: -4266589129231501001, guid: 9183971385062c741b93c54a06c226db,
-          type: 2}
+        m_Texture: {fileID: -4266589129231501001, guid: 9183971385062c741b93c54a06c226db, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -103,7 +102,7 @@ Material:
     - _FaceColor: {r: 3.776172, g: 3.776172, b: 3.776172, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0.7264151, g: 0.7264151, b: 0.16104485, a: 1}
+    - _OutlineColor: {r: 0.19188325, g: 0.7562946, b: 0.8301887, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
