@@ -30,7 +30,7 @@ namespace Siasm
         /// <param name="parameter"></param>
         public void ShowMainQuestView(MainQuestView.Parameter parameter)
         {
-            // TODO: クエスト周りは現在、作り直し中のため一旦表示クエスト表示をoffへ
+            // TODO: クエスト周りは現在作り直し中のため一旦クエスト表示をoffへ
             mainQuestView.Disable();
 
             // mainQuestView.Enable();
