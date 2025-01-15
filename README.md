@@ -8,9 +8,10 @@
 ・  
 ・  
 
-# 起動方法
+# プレイ方法
 ・Unityのverは6000.0.33f1  
 ・Assets/Siasm/Scenes/10_Top.unityから起動可能  
+・「Load Game」から一番上のセーブデータを選択することでプレイが可能となります  
 
 # 拠点説明
 ・  
