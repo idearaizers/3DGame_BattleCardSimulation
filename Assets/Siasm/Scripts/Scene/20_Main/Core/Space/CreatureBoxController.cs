@@ -42,11 +42,7 @@ namespace Siasm
                     IsCreatureBox = true
                 };
 
-                // 撃破状態であれば見た目を変える
-                if (creatureBoxModel.IsDestroyed)
-                {
-                    Debug.Log("TODO: 撃破状態であれば見た目を変える");
-                }
+                // TODO: 撃破状態であれば見た目を変える
 
                 var creatureFieldCharacter = baseFieldCharacter as CreatureFieldCharacter;
                 creatureFieldCharacter.Initialize(MainTalkController, MainQuestController, MainCamera);
@@ -64,7 +60,6 @@ namespace Siasm
         {
             if (creatureBoxModels == null)
             {
-                Debug.Log("TODO: 仮でVector3.zeroを返す");
                 return Vector3.zero;
             }
 
@@ -83,7 +78,6 @@ namespace Siasm
                 TitleText = selectTitleText,
                 OnYesAction = () =>
                 {
-                    // バトルを開始する
                     OnStartBattleAction?.Invoke(creatureFieldCharacterModel.CharacterId, creatureFieldCharacterModel.CharacterLevel);
                 },
                 OnNoAction = () =>
