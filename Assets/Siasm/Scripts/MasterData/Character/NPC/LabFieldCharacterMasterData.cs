@@ -14,10 +14,18 @@ namespace Siasm
     {
         public LabFieldCharacterMasterDataModel[] GetLabFieldCharacterMasterDataModels()
         {
-            // TODO: 表示したいラボ職員の情報を渡す
-            // TODO: 動的に出し分けたいものはマスターデータで管理に変更予定
+            var labFieldCharacterMasterDataModels = new LabFieldCharacterMasterDataModel[]
+            {
+                new LabFieldCharacterMasterDataModel
+                {
+                    CharacterId = 2001,
+                    LabCharacterType = LabCharacterType.Receptior,
+                    Position = new Vector3(-10.0f, 19.5f, 82.0f),
+                    FaceDirection = 1.0f
+                }
+            };
 
-            return null;
+            return labFieldCharacterMasterDataModels;
         }
     }
 }
