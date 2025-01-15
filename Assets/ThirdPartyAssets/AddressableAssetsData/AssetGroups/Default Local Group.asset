@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08607b41029d8614ca6685de9347adfa
+    m_Address: TalkJsonMasterData_301_00
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 096461dd9349c594b9778b7f43331f2a
     m_Address: CreatureImage256_2005
     m_ReadOnly: 0
@@ -47,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1067f1973ccd54a45aa778a1c6c28edf
     m_Address: CardImage196x256_20013003
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11c39e3f117de0e4380bdf1eee562791
+    m_Address: TalkJsonMasterData_104_00
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -110,8 +120,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36bca4c1b7c4f7249aa58d731563318e
+    m_Address: TalkJsonMasterData_301_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37daf081b7162ca4a99053644b894aa2
+    m_Address: TalkJsonMasterData_103_00
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a85e716272e7af409a7b46984654a41
     m_Address: CreatureImage256_9001
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bd87e829aae9114caafda30dc142adc
+    m_Address: TalkJsonMasterData_501_00
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -170,6 +195,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67107d81ab91fe645b8154c8132eaea0
+    m_Address: TalkJsonMasterData_201_00
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 736671ceab131424e9d9d74023284c38
     m_Address: BattleFighterAnimationTypeSprites_2009
     m_ReadOnly: 0
@@ -185,8 +215,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 784df0daa7d99f84fa593c8da145af44
+    m_Address: TalkJsonMasterData_101_00
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79065a370e3551d4a8952ba5eabc0f7a
     m_Address: BattleFighterAnimationTypeSprites_2003
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79f0dc84e22f6ee4eac6e30c8f5061c7
+    m_Address: TalkJsonMasterData_401_00
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -207,6 +247,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 856ce50c101425245b9763f16e3bf0aa
     m_Address: ItemImage256_3004
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 885843d1a2cff044dbf2f3acaa462e34
+    m_Address: TalkJsonMasterData_201_01
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -305,6 +350,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d735f356ffc5af644a6a7a96f876b5a6
+    m_Address: TalkJsonMasterData_102_00
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dbe5b57b7309e4249a9d93e289970300
     m_Address: ItemImage256_2002
     m_ReadOnly: 0
@@ -347,6 +397,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff095e5554e3b3b41b1a45062c9e227c
     m_Address: CardImage196x256_20013001
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff36af7a05bb6bc4e99facc585a9da87
+    m_Address: TalkJsonMasterData_701_00
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
