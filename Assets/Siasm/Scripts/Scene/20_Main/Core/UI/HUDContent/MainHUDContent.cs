@@ -30,8 +30,11 @@ namespace Siasm
         /// <param name="parameter"></param>
         public void ShowMainQuestView(MainQuestView.Parameter parameter)
         {
-            mainQuestView.Enable();
-            mainQuestView.Apply(parameter);
+            // TODO: クエスト周りは現在、作り直し中のため一旦表示クエスト表示をoffへ
+            mainQuestView.Disable();
+
+            // mainQuestView.Enable();
+            // mainQuestView.Apply(parameter);
         }
 
         /// <summary>
