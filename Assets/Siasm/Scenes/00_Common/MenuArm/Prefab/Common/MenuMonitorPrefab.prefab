@@ -30312,7 +30312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2384222337803342526
 RectTransform:
   m_ObjectHideFlags: 0
@@ -52139,7 +52139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376154089868242091, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_text
-      value: "\u25A0 \u601D\u8003\u505C\u6B62\uFF08Thinking Freeze\uFF09"
+      value: "\u25A0\u51CD\u7D50"
       objectReference: {fileID: 0}
     - target: {fileID: 1376154089868242091, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_fontAsset
