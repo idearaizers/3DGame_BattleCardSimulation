@@ -185,14 +185,7 @@ namespace Siasm
                 CreatureLevel = x.CreatureLevel
             });
 
-            // 指定のものだけtrueにする
             var creatureRecordModelArray = creatureRecordModels.ToArray();
-
-            if (creatureRecordModelArray.Length > 0)
-            {
-                creatureRecordModelArray[CurrentIndex].IsSelected = true;
-            }
-
             return creatureRecordModelArray;
         }
 

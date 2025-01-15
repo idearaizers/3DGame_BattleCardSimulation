@@ -1,14 +1,14 @@
 {
     "SaveDataMainScene": {
-        "LastDateAndTime": "2024/10/20 5:03:25",
-        "StartDateAndTime": "2024/10/20 5:03:18",
-        "TotalPlayTime": "1.01:04:34.2359752",
+        "LastDateAndTime": "2025/01/15 15:58:05",
+        "StartDateAndTime": "2025/01/15 15:57:55",
+        "TotalPlayTime": "1.01:04:45.1074019",
         "CurrentDate": 2,
         "TotalEgidoNumberDelivered": 500,
         "SpawnWorldPosition": {
-            "x": -0.47189605236053469,
-            "y": 30.056005477905275,
-            "z": 107.4542007446289
+            "x": 17.182878494262697,
+            "y": 30.056007385253908,
+            "z": 122.40897369384766
         }
     },
     "SaveDataMainQuest": {

@@ -15,7 +15,7 @@ namespace Siasm
         [SerializeField]
         private CreatureRecordScrollController creatureRecordScrollController;
 
-        private GameObject currentGameObject;
+        private GameObject currentSelectedGameObject;
 
         public Action<CreatureRecordModel> OnClickAction { get; set; }
 
@@ -26,6 +26,8 @@ namespace Siasm
 
             creatureRecordScrollController.Initialize();
             creatureRecordScrollController.OnClickAction = OnClick;
+
+            currentSelectedGameObject = null;
         }
 
         public void Setup(CreatureRecordModel[] creatureRecordModels, int currentIndex)
@@ -50,13 +52,13 @@ namespace Siasm
 
         private void OnClick(GameObject selectedGameObject, CreatureRecordModel creatureRecordModel)
         {
-            if (currentGameObject != null &&
-                currentGameObject != selectedGameObject)
+            if (currentSelectedGameObject != null &&
+                currentSelectedGameObject != selectedGameObject)
             {
-                currentGameObject.GetComponent<CreatureRecordCellView>().ChangeActiveOfSelectedImage(false);
+                currentSelectedGameObject.GetComponent<CreatureRecordCellView>().ChangeActiveOfSelectedImage(false);
             }
 
-            currentGameObject = selectedGameObject;
+            currentSelectedGameObject = selectedGameObject;
 
             OnClickAction?.Invoke(creatureRecordModel);
         }
