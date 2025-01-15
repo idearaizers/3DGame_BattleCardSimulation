@@ -600,6 +600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FieldItemPickUpOfFieldInteract (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -741,6 +745,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FieldObjectOfFieldInteract (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7781054968080903928, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -47.84
@@ -829,6 +837,10 @@ PrefabInstance:
     - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_Name
       value: FieldObjectOfFieldInteract (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7781054968080903928, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1186,6 +1198,10 @@ PrefabInstance:
     - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_Name
       value: FieldObjectOfFieldInteract (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7781054968080903928, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2999,6 +3015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FieldObjectOfFieldInteract (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7781054968080903928, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.27
@@ -3253,6 +3273,10 @@ PrefabInstance:
     - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
       propertyPath: m_Name
       value: FieldItemPickUpOfFieldInteract (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3622,6 +3646,10 @@ PrefabInstance:
     - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_Name
       value: FieldObjectOfFieldInteract (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7781054968080903928, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4746,6 +4774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FieldItemPickUpOfFieldInteract (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5100,6 +5132,10 @@ PrefabInstance:
     - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_Name
       value: FieldObjectOfFieldInteract (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7781054968080903928, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5515,6 +5551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FieldItemPickUpOfFieldInteract (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5662,6 +5702,10 @@ PrefabInstance:
     - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
       propertyPath: m_Name
       value: FieldItemPickUpOfFieldInteract (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6992,6 +7036,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FieldObjectOfFieldInteract
       objectReference: {fileID: 0}
+    - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7781054968080903928, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7496,6 +7544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FieldObjectOfFieldInteract (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7781054968080903928, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48
@@ -7616,6 +7668,10 @@ PrefabInstance:
     - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
       propertyPath: m_Name
       value: FieldItemPickUpOfFieldInteract (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8223,6 +8279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FieldItemPickUpOfFieldInteract (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8619,6 +8679,10 @@ PrefabInstance:
     - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
       propertyPath: m_Name
       value: FieldItemPickUpOfFieldInteract (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9387,6 +9451,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FieldItemPickUpOfFieldInteract
       objectReference: {fileID: 0}
+    - target: {fileID: 5432641202914008356, guid: 6d5a055b0b57bdb48bb0d872c6d28f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9549,6 +9617,10 @@ PrefabInstance:
     - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_Name
       value: FieldObjectOfFieldInteract (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513532888873672386, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7781054968080903928, guid: c8eb4b76bdc68ea4cb4d55b44bbf5d65, type: 3}
       propertyPath: m_LocalPosition.x
