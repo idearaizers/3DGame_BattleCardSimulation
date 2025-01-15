@@ -4,22 +4,9 @@
         "CardReelType": 2,
         "MinReelNumber": 1,
         "MaxReelNumber": 3,
-        "FlavorText": "会社からの支給品",
+        "FlavorText": "",
         "EmotionAttributeType": 1,
-        "BattleCardAbilityJsonModels": [
-            {
-                "CardAbilityActivateType": 1,
-                "CardAbilityTargetType": 1,
-                "CardAbilityType": 1201,
-                "DetailNumber": 3
-            },
-            {
-                "CardAbilityActivateType": 2,
-                "CardAbilityTargetType": 1,
-                "CardAbilityType": 1201,
-                "DetailNumber": 1
-            }
-        ],
-        "DevelopmentMemo": "防御・弱だが成功時にリールアップ+3付き、失敗でもリールアップ+1付き"
+        "BattleCardAbilityJsonModels": [],
+        "DevelopmentMemo": ""
     }
 }

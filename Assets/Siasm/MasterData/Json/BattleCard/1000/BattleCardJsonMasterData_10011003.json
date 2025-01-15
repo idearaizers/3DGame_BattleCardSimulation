@@ -4,9 +4,9 @@
         "CardReelType": 1,
         "MinReelNumber": 1,
         "MaxReelNumber": 5,
-        "FlavorText": "会社からの支給品",
+        "FlavorText": "",
         "EmotionAttributeType": 1,
         "BattleCardAbilityJsonModels": [],
-        "DevelopmentMemo": "攻撃・強で少しギャンブルだがデメリットなし"
+        "DevelopmentMemo": ""
     }
 }

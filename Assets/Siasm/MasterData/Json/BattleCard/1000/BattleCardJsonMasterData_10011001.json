@@ -6,14 +6,7 @@
         "MaxReelNumber": 3,
         "FlavorText": "",
         "EmotionAttributeType": 1,
-        "BattleCardAbilityJsonModels": [
-            {
-                "CardAbilityActivateType": 1,
-                "CardAbilityTargetType": 1,
-                "CardAbilityType": 1102,
-                "DetailNumber": 2
-            }
-        ],
+        "BattleCardAbilityJsonModels": [],
         "DevelopmentMemo": ""
     }
 }
