@@ -18,7 +18,7 @@ namespace Siasm
                 new Parameter
                 {
                     AbnormalConditionType = AbnormalConditionType.ThinkingFreeze,
-                    Name = "フリーズ",  // 思考停止
+                    Name = "凍結",
                     Description = "リール値が最低になる"
                 },
                 new Parameter
