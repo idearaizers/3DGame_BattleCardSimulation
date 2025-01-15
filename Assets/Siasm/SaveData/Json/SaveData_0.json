@@ -47,20 +47,6 @@
             "CreatureId": 2001,
             "CreatureLevel": 1,
             "IsDestroyed": false
-        },
-        {
-            "StageIndex": 1,
-            "BoxIndex": 1,
-            "CreatureId": 2002,
-            "CreatureLevel": 1,
-            "IsDestroyed": false
-        },
-        {
-            "StageIndex": 1,
-            "BoxIndex": 2,
-            "CreatureId": 2004,
-            "CreatureLevel": 1,
-            "IsDestroyed": false
         }
     ],
     "SaveDataOwnItems": [
