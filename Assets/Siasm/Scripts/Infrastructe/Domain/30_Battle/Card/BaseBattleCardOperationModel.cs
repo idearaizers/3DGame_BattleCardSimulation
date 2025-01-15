@@ -109,40 +109,13 @@ namespace Siasm
 
         /// <summary>
         /// デッキリロード関連のカードを引く
-        /// 2種類のうちランダムでどちらかを引く
-        /// 将来的にパッシブスキルで強化できるようにしたい
         /// </summary>
         /// <returns></returns>
         public BattleCardModel GetDeckReloadBattleCardModel()
         {
-            // NOTE: UseCase経由にしてファクトリークラスで取得がいいかも
-            // NOTE: 一旦、一種類だけ設定
+            // NOTE: マスターデータなど別で設定値を設ける形に変更予定
             var deckReroadCardId = 30011001;
-            var battleCardMasterData = battleUseCase.MemoryDatabase.BattleCardMasterDataTable.FindById(deckReroadCardId);
-
-            // 生成して指定の数分だけ格納する
-            var battleCardModel = new BattleCardModel
-            {
-                CardId = deckReroadCardId,
-                CardName = battleCardMasterData.CardName,
-                CardImage = null,
-                CardSpecType = CardSpecType.Temporary,
-                CostNumber = 0,
-                CardReelType = battleCardMasterData.CardReelType,
-                MinReelNumber = battleCardMasterData.MinReelNumber,
-                MaxReelNumber = battleCardMasterData.MaxReelNumber,
-                DescriptionText = BattleCardDescriptionConstant.GetDescriptionText(battleCardMasterData),
-                BattleCardAbilityModels = battleCardMasterData.BattleCardAbilityMasterDataArray.Select(battleCardAbilityJsonModel => 
-                    new BattleCardAbilityModel
-                    {
-                        CardAbilityActivateType = battleCardAbilityJsonModel.CardAbilityActivateType,
-                        CardAbilityTargetType = battleCardAbilityJsonModel.CardAbilityTargetType,
-                        CardAbilityType = battleCardAbilityJsonModel.CardAbilityType,
-                        DetailNumber = battleCardAbilityJsonModel.DetailNumber
-                    }).ToArray()
-            };
-
-            return battleCardModel;
+            return battleUseCase.CreateBattleCardModel(deckReroadCardId);
         }
 
         /// <summary>
