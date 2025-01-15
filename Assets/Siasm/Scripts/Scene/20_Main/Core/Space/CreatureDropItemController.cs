@@ -22,34 +22,35 @@ namespace Siasm
 
         public void DropItem(int creatureId, int creatureLevel)
         {
-            Debug.Log($"TODO: アイテムドロップ処理 {creatureId} {creatureLevel}");
+            // TODO: まだ実装途中のため暫定でコメントアウト
+            // Debug.Log($"TODO: アイテムドロップ処理 {creatureId} {creatureLevel}");
 
-            // 撃破状態に変える
-            mainUseCase.DestroyedEnemyOfItemDrop(creatureId);
+            // // 撃破状態に変える
+            // mainUseCase.DestroyedEnemyOfItemDrop(creatureId);
 
-            // TODO: エフェクトを出して見た目を撃破状態に変える
+            // // TODO: エフェクトを出して見た目を撃破状態に変える
 
-            // 抽選を行ってドロップさせるアイテムを表示する
-            var creatureAdmissionOfDestroyedMasterData = new EnemyBattleFighterOfDropItemMasterData();
-            var creatureAdmissionOfDestroyedModel = creatureAdmissionOfDestroyedMasterData.GetEnemyAdmissionOfDestroyedModel(creatureId, creatureLevel);
-            var dropItemId = creatureAdmissionOfDestroyedModel.CreatureAdmissionOfDestroyedLevelModels[0].DropItemId;
+            // // 抽選を行ってドロップさせるアイテムを表示する
+            // var creatureAdmissionOfDestroyedMasterData = new EnemyBattleFighterOfDropItemMasterData();
+            // var creatureAdmissionOfDestroyedModel = creatureAdmissionOfDestroyedMasterData.GetEnemyAdmissionOfDestroyedModel(creatureId, creatureLevel);
+            // var dropItemId = creatureAdmissionOfDestroyedModel.CreatureAdmissionOfDestroyedLevelModels[0].DropItemId;
 
-            // アイテムモデルに変換して落とすかな
-            // TODO: アイテムをドロップさせる
+            // // アイテムモデルに変換して落とすかな
+            // // TODO: アイテムをドロップさせる
 
-            var fieldItemPickUpOfFieldInteractGameObject = Instantiate(fieldItemPickUpOfFieldInteract, this.transform);
+            // var fieldItemPickUpOfFieldInteractGameObject = Instantiate(fieldItemPickUpOfFieldInteract, this.transform);
 
-            // 座標を取得する
-            var position = creatureBoxController.GetSpawnPosition(creatureId);
+            // // 座標を取得する
+            // var position = creatureBoxController.GetSpawnPosition(creatureId);
 
-            // ワールドで配置
-            position.y += 0.5f;
-            position.z -= 3.0f;
+            // // ワールドで配置
+            // position.y += 0.5f;
+            // position.z -= 3.0f;
 
-            fieldItemPickUpOfFieldInteractGameObject.transform.position = position;
+            // fieldItemPickUpOfFieldInteractGameObject.transform.position = position;
 
-            fieldItemPickUpOfFieldInteractGameObject.Initialize();
-            fieldItemPickUpOfFieldInteractGameObject.OnPickUpAction = OnPickUp;
+            // fieldItemPickUpOfFieldInteractGameObject.Initialize();
+            // fieldItemPickUpOfFieldInteractGameObject.OnPickUpAction = OnPickUp;
         }
 
         /// <summary>
