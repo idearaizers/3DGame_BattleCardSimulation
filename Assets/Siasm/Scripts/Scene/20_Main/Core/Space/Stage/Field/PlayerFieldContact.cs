@@ -14,6 +14,8 @@ namespace Siasm
 
         private List<FieldInteract> fieldInteracts = new List<FieldInteract>();
 
+        private MainScenePlayerInputAction mainScenePlayerInputAction;
+
         /// <summary>
         /// 初期化
         /// </summary>
@@ -26,7 +28,7 @@ namespace Siasm
             playerFieldContactActionView.Initialize();
             playerFieldContactActionView.Disable();
 
-            var mainScenePlayerInputAction = new MainScenePlayerInputAction();
+            mainScenePlayerInputAction = new MainScenePlayerInputAction();
             mainScenePlayerInputAction.Enable();
             inputActionOfFire = mainScenePlayerInputAction.FindAction("Fire");
         }
@@ -118,6 +120,16 @@ namespace Siasm
 
                 playerFieldContactActionView.Disable();
             }
+        }
+
+        private void OnDestroy()
+        {
+            if (mainScenePlayerInputAction == null)
+            {
+                return;
+            }
+
+            mainScenePlayerInputAction.Disable();
         }
     }
 }

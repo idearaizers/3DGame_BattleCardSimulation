@@ -221,5 +221,15 @@ namespace Siasm
                 currentIsDash = false;
             }
         }
+
+        private void OnDestroy()
+        {
+            if (fieldPlayerInputAction == null)
+            {
+                return;
+            }
+
+            fieldPlayerInputAction.Disable();
+        }
     }
 }
