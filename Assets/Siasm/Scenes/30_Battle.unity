@@ -3996,8 +3996,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBattleFighterId: 2001
   enemyBattleFighterLevel: 1
-  maxHealthPoint: 30
-  maxThinkingPoint: 10
+  maxHealthPoint: 99
+  maxThinkingPoint: 99
   beginBattleBoxNumber: 1
   maxBattleBoxNumber: 5
 --- !u!1 &805706378

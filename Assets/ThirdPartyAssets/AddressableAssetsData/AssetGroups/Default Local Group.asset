@@ -95,11 +95,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 20636a0e59cdc624082669eff34227aa
-    m_Address: CardImage196x256_30011002
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 246355fb87de99a4e9c34d680ffd0ace
     m_Address: CreatureImage256_2010
     m_ReadOnly: 0

@@ -115,10 +115,10 @@ namespace Siasm
         /// <returns></returns>
         public BattleCardModel GetDeckReloadBattleCardModel()
         {
+            // NOTE: 一旦、一種類だけ設定
             var deckReroadCardIds = new int[]
             {
-                30011001,
-                30012001
+                30011001
             };
 
             // NOTE: UseCase経由にしてファクトリークラスで取得がいいかも
