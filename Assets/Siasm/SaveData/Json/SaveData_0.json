@@ -71,43 +71,27 @@
                 "SaveDataBattleCards": [
                     {
                         "CardId": 10011001,
-                        "CardNumber": 4
+                        "CardNumber": 5
                     },
                     {
                         "CardId": 10011002,
-                        "CardNumber": 4
+                        "CardNumber": 5
                     },
                     {
                         "CardId": 10011003,
-                        "CardNumber": 3
-                    },
-                    {
-                        "CardId": 10011004,
-                        "CardNumber": 2
-                    },
-                    {
-                        "CardId": 10011005,
-                        "CardNumber": 2
+                        "CardNumber": 5
                     },
                     {
                         "CardId": 10012001,
-                        "CardNumber": 4
+                        "CardNumber": 5
                     },
                     {
                         "CardId": 10012002,
-                        "CardNumber": 4
+                        "CardNumber": 5
                     },
                     {
                         "CardId": 10012003,
-                        "CardNumber": 3
-                    },
-                    {
-                        "CardId": 10012004,
-                        "CardNumber": 2
-                    },
-                    {
-                        "CardId": 10012005,
-                        "CardNumber": 2
+                        "CardNumber": 5
                     }
                 ]
             },
@@ -115,11 +99,27 @@
                 "SaveDataBattleCards": [
                     {
                         "CardId": 10011001,
-                        "CardNumber": 14
+                        "CardNumber": 5
                     },
                     {
                         "CardId": 10011002,
-                        "CardNumber": 14
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10011003,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012001,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012002,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012003,
+                        "CardNumber": 5
                     }
                 ]
             },
@@ -127,11 +127,27 @@
                 "SaveDataBattleCards": [
                     {
                         "CardId": 10011001,
-                        "CardNumber": 13
+                        "CardNumber": 5
                     },
                     {
                         "CardId": 10011002,
-                        "CardNumber": 13
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10011003,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012001,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012002,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012003,
+                        "CardNumber": 5
                     }
                 ]
             },
@@ -139,11 +155,27 @@
                 "SaveDataBattleCards": [
                     {
                         "CardId": 10011001,
-                        "CardNumber": 12
+                        "CardNumber": 5
                     },
                     {
                         "CardId": 10011002,
-                        "CardNumber": 12
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10011003,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012001,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012002,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012003,
+                        "CardNumber": 5
                     }
                 ]
             },
@@ -151,11 +183,27 @@
                 "SaveDataBattleCards": [
                     {
                         "CardId": 10011001,
-                        "CardNumber": 11
+                        "CardNumber": 5
                     },
                     {
                         "CardId": 10011002,
-                        "CardNumber": 11
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10011003,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012001,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012002,
+                        "CardNumber": 5
+                    },
+                    {
+                        "CardId": 10012003,
+                        "CardNumber": 5
                     }
                 ]
             }
