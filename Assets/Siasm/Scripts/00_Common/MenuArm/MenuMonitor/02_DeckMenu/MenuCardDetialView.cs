@@ -27,7 +27,8 @@ namespace Siasm
 
         private async UniTask UpdateViewAsync(BattleCardModel battleCardModel)
         {
-            detialText.text = battleCardModel.CardName;
+            cardNameText.text = battleCardModel.CardName;
+            detialText.text = battleCardModel.DescriptionText;
 
             var itemSpriteAddress = string.Format(AddressConstant.BattleCardSpriteAddressStringFormat, battleCardModel.CardId);
             if (AssetCacheManager.Instance.Exist(itemSpriteAddress))
