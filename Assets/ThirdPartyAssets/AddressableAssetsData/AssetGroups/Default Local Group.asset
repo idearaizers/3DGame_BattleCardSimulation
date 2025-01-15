@@ -70,6 +70,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 133a3f3fca78492449df3294220ad604
+    m_Address: TalkJsonMasterData_2001_00
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 176c2b16c69b9b34d9f96ca9e463747f
     m_Address: CardImage196x256_91011002
     m_ReadOnly: 0
