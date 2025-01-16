@@ -52277,7 +52277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376154089868242091, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_text
-      value: "\u25A0\u51CD\u7D50"
+      value: "\u25A0 \u51CD\u7D50"
       objectReference: {fileID: 0}
     - target: {fileID: 1376154089868242091, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_fontAsset
@@ -52527,7 +52527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376154089868242091, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_text
-      value: "\u72B6\u614B\u7570\u5E38\u306E\u91CD\u306D\u639B\u3051"
+      value: "\u25A0 \u72B6\u614B\u7570\u5E38\u306E\u91CD\u306D\u639B\u3051"
       objectReference: {fileID: 0}
     - target: {fileID: 4627369926207538999, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_Pivot.x
@@ -56725,7 +56725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376154089868242091, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_text
-      value: "\u5C5E\u6027"
+      value: "\u25A0 \u5C5E\u6027"
       objectReference: {fileID: 0}
     - target: {fileID: 4627369926207538999, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_Pivot.x
@@ -57120,7 +57120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376154089868242091, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_text
-      value: "\u5C5E\u6027\u76F8\u6027\u306E\u4E0A\u4E0B\u4E92\u63DB"
+      value: "\u25A0 \u5C5E\u6027\u76F8\u6027\u306E\u4E0A\u4E0B\u4E92\u63DB"
       objectReference: {fileID: 0}
     - target: {fileID: 4627369926207538999, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_Pivot.x
@@ -57184,11 +57184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4627369926207538999, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.39
+      value: 0.3900006
       objectReference: {fileID: 0}
     - target: {fileID: 4627369926207538999, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.32000002
+      value: -0.32000184
       objectReference: {fileID: 0}
     - target: {fileID: 4627369926207538999, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -58580,7 +58580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376154089868242091, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_text
-      value: "\u30D0\u30C8\u30EB\u30DC\u30C3\u30AF\u30B9\u6570"
+      value: "\u25A0 \u30D0\u30C8\u30EB\u30DC\u30C3\u30AF\u30B9\u6570"
       objectReference: {fileID: 0}
     - target: {fileID: 4627369926207538999, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_Pivot.x
@@ -58705,7 +58705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376154089868242091, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_text
-      value: "\u624B\u672D\u679A\u6570"
+      value: "\u25A0 \u624B\u672D\u679A\u6570"
       objectReference: {fileID: 0}
     - target: {fileID: 4627369926207538999, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_Pivot.x
@@ -58947,7 +58947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376154089868242091, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_text
-      value: "\u5C5E\u6027\u76F8\u6027"
+      value: "\u25A0 \u5C5E\u6027\u76F8\u6027"
       objectReference: {fileID: 0}
     - target: {fileID: 4627369926207538999, guid: b417fa21d57cf464e91b5c769dcb7426, type: 3}
       propertyPath: m_Pivot.x
