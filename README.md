@@ -3,7 +3,7 @@
 ・  
 ・  
 
-# 簡単なプレイ動画
+# プレイ動画
 https://github.com/user-attachments/assets/38630054-a184-48e5-80ff-e4acce009178
 
 https://github.com/user-attachments/assets/34ccc473-85f3-4fd1-b4d7-c53752aaae89
