@@ -15,9 +15,7 @@ https://github.com/user-attachments/assets/34ccc473-85f3-4fd1-b4d7-c53752aaae89
 ・補足：「Load Game」から一番上のセーブデータを選択することでプレイが可能（New Gameは制作中） 
 
 # ビルド方法
-・ 
-・
-・
+・File > Build and Run で実行できます　　
 
 # その他
 ## デッキチェンジ  
