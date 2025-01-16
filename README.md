@@ -17,6 +17,10 @@ https://github.com/user-attachments/assets/34ccc473-85f3-4fd1-b4d7-c53752aaae89
 # ビルド方法
 ・File > Build and Run でそのままプレイできます
 
+# バトルの細かなルール
+
+https://github.com/user-attachments/assets/cffeef87-f8cb-4e0b-b939-ebdcccd5fbca
+
 # 使用しているライブラリ
 ・VContainer  
 ・MasterMemory  
